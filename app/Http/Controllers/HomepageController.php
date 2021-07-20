@@ -15,7 +15,7 @@ class HomepageController extends Controller
             'restaurants' => Restaurant::All()
         ];
         
-        return view('homepage', $restaurants);
+        return view('guest.homepage', $restaurants);
     }
     
 }

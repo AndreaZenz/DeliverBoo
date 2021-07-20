@@ -29,6 +29,6 @@ class HomeController extends Controller
             'restaurants' => Restaurant::All()
         ];
         
-        return view('home_login', $restaurants);
+        return view('admin.home_login', $restaurants);
     }
 }

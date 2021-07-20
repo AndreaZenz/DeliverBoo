@@ -18,5 +18,8 @@ Route::get('/', 'HomepageController@index')->name('homepage');
 
 Auth::routes();
 
+Route::resource("/orders", "ordersController");
+
 Route::get('/home', 'HomeController@index')->name('home');
+
 

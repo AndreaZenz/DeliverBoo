@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin\foods;
 
-use App\Restaurant;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RestaurantsController extends Controller
+class DishesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,7 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-
-        $restaurants = [
-            'restaurants' => Restaurant::All()
-        ];
-        
-        return view('admin.home_login', $restaurants);
+        //
     }
 
     /**

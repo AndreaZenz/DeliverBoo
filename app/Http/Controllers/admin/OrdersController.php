@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Order;
 use App\Restaurant;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RestaurantsController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +16,15 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-
         $restaurants = [
             'restaurants' => Restaurant::All()
         ];
-        
-        return view('admin.home_login', $restaurants);
+
+        $orders = [
+            'orders' => Order::All()
+        ];
+
+        return view('admin.orders', $restaurants, $orders);
     }
 
     /**
@@ -39,8 +44,32 @@ class RestaurantsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { {
+            $dish = $request->all();
+            // $data = $request->validated();
+
+            $order = new Order();
+            $order["total"] = $data["total"];
+            $order["client_name"] = $data["client_name"];
+            $order["client_surname"] = $data["client_surname"];
+            $order["client_email"] = $data["client_email"];
+            $order["client_phone"] = $data["client_phone"];
+            $order["client_address"] = $data["client_address"];
+            $order["is_payed"] = 0;
+
+            $order->getRestaurant()->associate($data["restaurant_id"]);
+            $order->save();
+            $order->getDishes()->attach(explode(",", $dish["dishes"]));
+
+            $input = array(
+                'total' => $order["total"],
+                "order_id" => $order["id"],
+                "client_name" => $order["client_name"],
+                "dishes" => $order->getDishes,
+            );
+
+            return view("payment", compact("token", "total"));
+        }
     }
 
     /**
