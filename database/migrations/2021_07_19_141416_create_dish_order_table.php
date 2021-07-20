@@ -17,13 +17,13 @@ class CreateDishOrderTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->unsignedBigInteger('dish_id');
+            $table->unsignedBigInteger('dish_id')->nullable();
             $table->foreign("dish_id")
                 ->references('id')
                 ->on('dishes')
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign("order_id")
                     ->references('id')
                     ->on('orders')

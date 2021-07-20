@@ -25,7 +25,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('total_price', $precision = 8, $scale = 2);
             $table->boolean('is_payed');
 
-            $table->unsignedBigInteger("restaurants_id");
+            $table->unsignedBigInteger("restaurants_id")->nullable();
             $table->foreign("restaurants_id")
                 ->references("id")
                 ->on("restaurants");

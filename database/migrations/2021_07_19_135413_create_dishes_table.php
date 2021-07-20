@@ -23,7 +23,7 @@ class CreateDishesTable extends Migration
             $table->text('ingredient_list');
             $table->string('img_url')->nullable();
             
-            $table->unsignedBigInteger("restaurants_id");
+            $table->unsignedBigInteger("restaurants_id")->nullable();
             $table->foreign("restaurants_id")
                 ->references("id")
                 ->on("restaurants");

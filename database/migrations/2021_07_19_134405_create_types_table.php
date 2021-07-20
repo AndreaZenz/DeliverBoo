@@ -17,7 +17,7 @@ class CreateTypesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('img_url');
+            $table->string('img_url')->nullable();
         });
     }
 

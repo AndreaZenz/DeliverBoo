@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PhpOption\None;
 
 class AddForeignKeyToUsersTable extends Migration
 {
@@ -14,7 +15,8 @@ class AddForeignKeyToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-        $table->unsignedBigInteger("restaurants_id");
+        $table->unsignedBigInteger("restaurants_id")->nullable();
+
     
         $table->foreign("restaurants_id")
             ->references("id")
