@@ -1,0 +1,20 @@
+.btn-menu{
+    outline: none;
+    -webkit-box-shadow: 0 0 0 3px rgb(0 204 188 / 30%);
+    box-shadow: 0 0 0 3px rgb(0 204 188 / 30%);
+    border: 1px solid rgba(0,204,188,.5);
+}
+.btn-default{
+    min-height: 48px;
+    padding: 12px 24px;
+    color: #fff;
+    background: #00ccbc;
+    -webkit-transition-property: background,-webkit-box-shadow;
+    transition-property: background,-webkit-box-shadow;
+    transition-property: background,box-shadow;
+    transition-property: background,box-shadow,-webkit-box-shadow;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}

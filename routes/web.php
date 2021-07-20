@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ Route::get('/', 'HomepageController@index')->name('homepage');
 
 Auth::routes();
 
-Route::resource("/orders", "ordersController");
+Route::resource("/orders", "OrdersController");
 
 Route::get('/home', 'HomeController@index')->name('home');
 

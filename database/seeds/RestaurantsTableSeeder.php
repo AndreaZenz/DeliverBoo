@@ -2,6 +2,7 @@
 
 use App\Restaurant;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RestaurantsTableSeeder extends Seeder
 {
