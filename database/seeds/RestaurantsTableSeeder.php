@@ -1,6 +1,5 @@
 <?php
 
-use App\Restaurant;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -42,11 +41,3 @@ class RestaurantsTableSeeder extends Seeder
 
     }
 }
-        
-        // foreach($restautants as $restautant){
-        //     $new_restaurant_object = new Restaurant();
-        //     $new_restaurant_object->name = $restautant;
-        //     $new_restaurant_object->save();
-        // }
-
-
