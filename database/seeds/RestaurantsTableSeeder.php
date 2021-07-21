@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 
 class RestaurantsTableSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
