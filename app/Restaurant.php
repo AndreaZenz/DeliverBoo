@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
+
     protected $fillable = [
-        'name', 'address',"img_url"
+        'name', 
+        'address',
+        'img_url', 
     ];
 
     public function Type()
@@ -20,7 +23,8 @@ class Restaurant extends Model
         return $this->belongsTo("App\User");
     }
 
-    public function Dish() {
+    public function Dish() 
+    {
         return $this->hasMany("App\Dish");
     }
 
