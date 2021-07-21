@@ -19,6 +19,8 @@ class UserSeeder extends Seeder
             'surname' => Str::random(10),
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
+            'phone' => Str::random(10),
+            'p_iva' => Str::random(11),
         ]);
     }
 }
