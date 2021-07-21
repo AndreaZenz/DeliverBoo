@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged as ' . Auth::user()->name . ' [Restaurateur].') }}
                 </div>
 
                 {{-- pulsante create restaurant --}}
@@ -22,14 +22,14 @@
                     <a href=" {{route('admin.restaurants.create')}} ">Create</a>
                 </div> --}}
 
-                <div class="container">
+                {{-- <div class="container">
                     @foreach ($restaurants as $restaurant)
                     <div class="col-4">
                         <h1>{{$restaurant->name}}</h1>
                         <h2>{{$restaurant->address}}</h2>
                     </div>
                     @endforeach
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
