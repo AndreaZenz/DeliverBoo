@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'HomepageController@index')->name('homepage');
+Route::get('/', 'HomeController@index')->name('homepage');
 
 Auth::routes();
 
-Route::resource("/orders", "ordersController");
+Route::resource("/restaurants", "RestaurantController");
+Route::resource("/orders", "OrderController");
+Route::resource("/types", "TypeController");
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->name("admin.")
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('index');
+        //
+        Route::get('/restaurants', 'RestaurantController@index')->name('restaurants.index');
+        //Route::get('/types', 'TypeController@index')->name('types.index');
+        
+        //Genera tutte le rotte necessarie per la crud dei posts
+        Route::resource("/orders", "OrderController");
+
+        //Route::resource("/statistics", "StatisticController");
+
+        //Route::get("/posts/filter", "PostController@filter")->name("posts.filter");
+        Route::resource("/users", "UserController");
+        
+    });

@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Type;
+use Illuminate\Database\Seeder;
 
-class TypesTableSeeder extends Seeder
+class TypeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

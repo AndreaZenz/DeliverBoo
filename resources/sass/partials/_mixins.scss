@@ -1,0 +1,37 @@
+@mixin list_horizontal {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+}
+
+@mixin list_reset {
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  @include list_horizontal;
+}
+
+@mixin imgfit{
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+    i{
+      max-width: 100%;
+      height: auto;
+  }
+}
+
+@mixin flexcolcenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+//da modificare
+@mixin default_btn {
+  font-weight: lighter;
+  text-decoration: none;
+  transition: color $transition_duration;
+}

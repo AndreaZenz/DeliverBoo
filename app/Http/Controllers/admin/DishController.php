@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin\foods;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DishesController extends Controller
+class DishController extends Controller
 {
     /**
      * Display a listing of the resource.

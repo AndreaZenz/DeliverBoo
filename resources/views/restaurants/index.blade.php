@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row justify-content-center">
+  <div class="col-12">
 
-<div class="container" style= "color: red">
-    <h1>benvenuto su Deliverboo</h1>
-</div>
-
-<div class="container">
+    <div class="container">
     @foreach ($restaurants as $restaurant)
     <div class="col-4">
         <h1>{{$restaurant->name}}</h1>
@@ -15,4 +13,6 @@
     @endforeach
 </div>
 
+  </div>
+</div>
 @endsection

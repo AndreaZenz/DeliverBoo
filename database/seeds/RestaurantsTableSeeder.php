@@ -47,5 +47,3 @@ class RestaurantsTableSeeder extends Seeder
         //     $new_restaurant_object->name = $restautant;
         //     $new_restaurant_object->save();
         // }
-
-
