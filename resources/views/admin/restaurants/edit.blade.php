@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
-    <form action=" {{ route('admin.restaurants.store') }} " method="post">
+    <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+
         @method('PUT')
 
         <label for="name">Restaurant name</label>

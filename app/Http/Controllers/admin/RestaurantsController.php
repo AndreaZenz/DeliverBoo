@@ -96,24 +96,13 @@ class RestaurantsController extends Controller
     {
         
         // prenderà l'elemento specifico di quell'id
-        $exists = (Restaurant::where("id", Auth::User()->restaurants_id)->exists());
+        $restaurant = Restaurant::findOrFail($id);
+
         $formData = $request->all(); 
         // il $request ci permette di accedere ai dati inseriti tramite il form
-        $exists->update($formData); 
+        
+        $restaurant->update($formData); 
         // assegnerà a quello specifico elemento i dati appena ricevuti
-        // if (!$exists) {
-
-        //     $restaurant = new Restaurant();
-        //     $restaurant["name"] = $data["name"];
-        //     $restaurant["address"] = $data["address"];
-        //     $restaurant["p_iva"] = $data["p_iva"];
-        //     $restaurant["image_url"] = $file->getFilename() . '.' . $extension;
-        //     $restaurant->getRestaurateur()->associate(Auth::User()->id);
-        //     $restaurant->save();
-
-        //     $restaurant->getTypes()->sync($data["types"]);
-
-        //     $item = "Hai creato con successo il tuo ristorante.";
 
         return redirect()->route("admin.restaurants.show", $restaurant->id); 
         // (con 'show' indirizziamo l'utente alla visualizzazione dei risultati, ma siamo liberi di mandarlo dove vogliamo)
