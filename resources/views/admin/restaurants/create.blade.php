@@ -13,7 +13,7 @@
         <input type="submit" value="invia">
         <ul>
             @foreach ($types as $type)
-            <li>{{$type->name}}</li>
+                <li>{{$type->name}}</li>
             @endforeach
         </ul>
     </form>
