@@ -22,7 +22,15 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">dashboard deliveroo</a>
+
+            {{-- LOGO DA USARE PER DASHBOARD --}}
+            {{-- <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{ asset('img/loghi/colored-logo-sidenav-overlay.png')}}" alt="">
+            </a> --}}
+
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
+            </a>
             <ul class="navbar-nav px-3 ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('homepage')}}">
@@ -66,6 +74,42 @@
                                     Aggiungi il tuo ristorante
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    Sales
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    Menu
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                    Orders
+                                </a>
+                            </li>
                             {{-- <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="rou\nd" stroke-linejoin="round" class="feather feather-users">
@@ -99,4 +143,13 @@
                         </ul>
 
                     </div>
+
+                </nav>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
+                    @yield('content')
+                </main>
             </div>
+        </div>
+</body>
+</html>

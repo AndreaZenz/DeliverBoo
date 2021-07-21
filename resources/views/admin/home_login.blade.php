@@ -1,7 +1,6 @@
-@extends('layouts.home_login')
+@extends('layouts.dashboard')
 
 @section('content')
-<h1>Homepage login</h1>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
