@@ -38,12 +38,7 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $newRestaurantData = $request->all();
-        $newRestaurant = new Restaurant();
-        $newRestaurant->fill($newRestaurantData);
-        $newRestaurant->save();
-
-        return redirect()->route('admin.restaurants.index', $newRestaurant->id);
+        //
     }
 
     /**

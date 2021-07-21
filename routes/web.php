@@ -32,7 +32,7 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home_login');
         //
-        Route::get('/restaurants', 'RestaurantController@index')->name('restaurants.index');
+
         //Route::get('/types', 'TypeController@index')->name('types.index');
         
         //Genera tutte le rotte necessarie per la crud dei posts
@@ -42,5 +42,7 @@ Route::prefix('admin')
 
         //Route::get("/posts/filter", "PostController@filter")->name("posts.filter");
         Route::resource("/users", "UserController");
+
+        Route::resource("/restaurants", "RestaurantsController");
         
     });

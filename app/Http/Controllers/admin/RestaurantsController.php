@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Restaurant;
+use App\Type;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantsController extends Controller
 {
@@ -18,6 +21,7 @@ class RestaurantsController extends Controller
         $restaurants = [
             'restaurants' => Restaurant::All()
         ];
+
         
         return view('admin.home_login', $restaurants);
     }
@@ -29,7 +33,9 @@ class RestaurantsController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        
+        return view("admin.restaurants.create", compact("types"));
     }
 
     /**
@@ -40,7 +46,12 @@ class RestaurantsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newRestaurantData = $request->all();
+        $newRestaurant = new Restaurant();
+        $newRestaurant->fill($newRestaurantData);
+        $newRestaurant->save();
+
+        return redirect()->route('admin.restaurants.index', $newRestaurant->id);
     }
 
     /**
@@ -51,7 +62,11 @@ class RestaurantsController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+
+        return view('admin.restaurants.show', [
+            "restaurant" => $restaurant
+        ]);
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home_login')
 
 @section('content')
 <h1>Homepage login</h1>
@@ -24,12 +24,12 @@
                 </div> --}}
 
                 <div class="container">
-                    {{-- @foreach ($restaurants as $restaurant)
+                    @foreach ($restaurants as $restaurant)
                     <div class="col-4">
                         <h1>{{$restaurant->name}}</h1>
                         <h2>{{$restaurant->address}}</h2>
                     </div>
-                    @endforeach --}}
+                    @endforeach
                 </div>
             </div>
         </div>
