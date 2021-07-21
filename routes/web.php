@@ -26,11 +26,11 @@ Route::resource("/types", "TypeController");
 
 
 Route::prefix('admin')
-    ->namespace('Admin')
+    ->namespace('admin')
     ->middleware('auth')
     ->name("admin.")
     ->group(function () {
-        Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/', 'HomeController@index')->name('home_login');
         //
         Route::get('/restaurants', 'RestaurantController@index')->name('restaurants.index');
         //Route::get('/types', 'TypeController@index')->name('types.index');

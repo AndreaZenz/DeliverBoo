@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -37,7 +38,12 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newRestaurantData = $request->all();
+        $newRestaurant = new Restaurant();
+        $newRestaurant->fill($newRestaurantData);
+        $newRestaurant->save();
+
+        return redirect()->route('admin.restaurants.index', $newRestaurant->id);
     }
 
     /**
@@ -48,7 +54,11 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+
+        return view('admin.restaurants.show', [
+            "restaurant" => $restaurant
+        ]);
     }
 
     /**
