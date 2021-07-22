@@ -11,6 +11,7 @@ class Restaurant extends Model
         'name', 
         'address',
         'img_url', 
+        'user_id',
     ];
 
     public function Type()
@@ -20,7 +21,7 @@ class Restaurant extends Model
 
     public function User()
     {
-        return $this->belongsTo("App\User");
+        return $this->belongsTo("App\User", "user_id");
     }
 
     public function Dish() 

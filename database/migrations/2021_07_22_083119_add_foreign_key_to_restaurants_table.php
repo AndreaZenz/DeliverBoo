@@ -14,9 +14,9 @@ class AddForeignKeyToRestaurantsTable extends Migration
     public function up()
     {
         Schema::table('restaurants', function (Blueprint $table) {
-            $table->unsignedBigInteger("users_id")->nullable();
+            $table->unsignedBigInteger("user_id")->nullable();
     
-            $table->foreign("users_id")
+            $table->foreign("user_id")
                 ->references("id")
                 ->on("users");
             });
@@ -30,8 +30,8 @@ class AddForeignKeyToRestaurantsTable extends Migration
     public function down()
     {
         Schema::table('restaurants', function (Blueprint $table) {
-            $table->dropForeign("restaurants_users_id_foreign");
-            $table->dropColumn("users_id");
+            $table->dropForeign("restaurants_user_id_foreign");
+            $table->dropColumn("user_id");
         });
     }
 }

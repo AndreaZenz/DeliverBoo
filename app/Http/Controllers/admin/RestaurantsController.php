@@ -51,6 +51,7 @@ class RestaurantsController extends Controller
         $newRestaurantData = $request->all();
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($newRestaurantData);
+        $newRestaurant->User()->associate(Auth::User()->id);
         $newRestaurant->save();
 
         return redirect()->route('admin.restaurants.index', $newRestaurant->id);
