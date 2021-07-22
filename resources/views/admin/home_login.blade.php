@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged as ' . Auth::user()->name . ' [Restaurateur].') }}
                 </div>
 
                 {{-- pulsante create restaurant --}}

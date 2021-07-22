@@ -8,39 +8,59 @@
     @endif
 
     <form method="post" action="{{route('admin.restaurants.update' , ['restaurant' => $restaurant->id])}}" enctype="multipart/form-data">
-        @method('PUT')
         @csrf
+        @method('PUT')
+
+        <div class="form-group">
+            <label for="name">Restaurant name</label>
+            <input value="{{ old('name', $restaurant->name)}}" type="text" name="name" class="form-control 
+            @error('name') is-invalid @enderror"  required>
+            @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
 
-        <label for="name">Restaurant name</label>
-        <textarea class="form-control" type="text" name="name" id="name" value={{ old('name', $restaurant->name) }}>
-        {{$restaurant->name}}
-        </textarea>
+        {{-- <div class="form-group">
+            <label for="name">Restaurant name</label>
+            <input type="text" name="name" class="form-control 
+            @error('name') is-invalid @enderror" value={{ old('name', $restaurant->name) }}>
         @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+</div> --}}
 
-        <label for="address">Address</label>
+
+<div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" name="address" class="form-control 
+            @error('address') is-invalid @enderror" value="{{ old('address', $restaurant->address) }}">
+    @error('address')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+{{-- <label for="address">Address</label>
         <textarea class="form-control" type="text" name="address" id="address" value={{ old('name', $restaurant->address) }}>
-        {{$restaurant->address}}
-        </textarea>
-        @error('address')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+{{$restaurant->address}}
+</textarea>
+@error('address')
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror --}}
 
 
-        <div class="form-group">
-            <label>modifica l'immagine del tuo ristorante</label>
-            <input type="file" name="img_url" accept=".jpg,.png" class="form-control-file">
-        </div>
+<div class="form-group">
+    <label>modifica l'immagine del tuo ristorante</label>
+    <input type="file" name="img_url" accept=".jpg,.png" class="form-control-file">
+</div>
 
-        <input type="submit" value="invia">
+<input type="submit" value="invia">
 
-        <ul>
-            @foreach ($types as $type)
-            <li>{{$type->name}}</li>
-            @endforeach
-        </ul>
-    </form>
+<ul>
+    @foreach ($types as $type)
+    <li>{{$type->name}}</li>
+    @endforeach
+</ul>
+</form>
 </div>
 @endsection
