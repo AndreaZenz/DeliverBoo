@@ -26,12 +26,15 @@
                 @foreach ($restaurants as $restaurant)
                 <div class="col-12">
                     @if($restaurant->img_url)
-                    <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
+                        <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
                     @endif
                     
                     <h1>{{$restaurant->name}}</h1>
                     <h2>{{$restaurant->address}}</h2>
                     <a href=" {{ route('admin.restaurants.edit', $restaurant->id) }} ">Modifica</a>
+
+                    @include('partials.deleteBtn', ["restaurant"=>$restaurant])
+
                 </div>
                 @endforeach
             </div>

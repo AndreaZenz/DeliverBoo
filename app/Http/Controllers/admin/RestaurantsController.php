@@ -60,6 +60,10 @@ class RestaurantsController extends Controller
         $newRestaurantData = $request->all();
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($newRestaurantData);
+        if (array_key_exists('img_url' , $newRestaurantData )) {
+            $image_path = Storage::put('restaurants_cover' , $newRestaurantData['img_url']);
+            $newRestaurantData['img_url'] = $image_path;
+        }
         $newRestaurant->User()->associate(Auth::User()->id);
         $newRestaurant->save();
 
@@ -129,15 +133,14 @@ class RestaurantsController extends Controller
 
         $form_data = $request->all();
 
-        if (array_key_exists('img_url' , $form_data)) {
-            $image_path = Storage::put('restaurants_cover' , $form_data['img_url']);
+        if (array_key_exists('img_url', $form_data)) {
+            $image_path = Storage::put('restaurants_cover', $form_data['img_url']);
             $form_data['img_url'] = $image_path;
         }
 
         $restaurant->update($form_data);
 
         return redirect()->route('admin.restaurants.index');
-
     }
     /**
      * Remove the specified resource from storage.
@@ -145,8 +148,15 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $user_id = Auth::user()->id;
+
+        if ($restaurant && $restaurant->user_id == $user_id) {
+
+            $restaurant->delete();
+            return redirect()->route('admin.restaurants.index');
+        }
+        abort(404, "non è possibile eliminare il ristorante selezionato");
     }
 }
