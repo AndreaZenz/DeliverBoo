@@ -19,13 +19,14 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-
-        $restaurants = [
-            'restaurants' => Restaurant::All()
+        $user_id = Auth::user()->id;
+        $data = [
+            'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
+            'types' => Type::All(),
         ];
 
-        
-        return view('admin.home_login', $restaurants);
+
+        return view('admin.restaurants.index', $data);
     }
 
     /**
@@ -36,7 +37,7 @@ class RestaurantsController extends Controller
     public function create()
     {
         $types = Type::all();
-        
+
         return view("admin.restaurants.create", compact("types"));
     }
 
@@ -65,11 +66,19 @@ class RestaurantsController extends Controller
      */
     public function show($id)
     {
-        $restaurant = Restaurant::find($id);
-
-        return view('admin.restaurants.show', [
-            "restaurant" => $restaurant
-        ]);
+        if (Auth::check()) {
+            $data = Restaurant::find($id);
+            if (Auth::User()->id  == $data->User->id) {
+                $restaurant = Auth::User()->User;
+                return view('admin.restaurants.index', compact('restaurant'));
+            } else {
+                $restaurant = Restaurant::where("id", $id)->with("User")->get();
+                return view("admin.restaurants.show", compact("restaurant"));
+            }
+        } else {
+            $restaurant = Restaurant::where("id", $id)->with("User")->get();
+            return view("admin.restaurants.show", compact("restaurant"));
+        }
     }
 
     /**
@@ -78,12 +87,21 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        $restaurant = Restaurant::find($id);
-        $types = Type::all();
+        $user_id = Auth::user()->id;
+        // $restaurant = Restaurant::find($id);
 
-        return view("admin.restaurants.edit", compact("restaurant", "types"));
+
+        if ($restaurant && $restaurant->user_id == $user_id) {
+            $data = [
+                'restaurant' => $restaurant,
+                'types' => Type::all()
+            ];
+            return view('admin.restaurants.edit', $data);
+        }
+        abort(403, "Il ristorante selezionato non è tuo");
+        // return view("admin.restaurants.edit", compact("restaurant", "types"));
     }
 
     /**
@@ -93,22 +111,45 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
+    public function update(Request $request, Restaurant $restaurant)
     {
-        
-        // prenderà l'elemento specifico di quell'id
-        $restaurant = Restaurant::findOrFail($id);
+        $request->validate([
+            'name' => 'required|max:255',
+            'address' => 'required | max:255',
+            'categories' => 'exists:categories,id',
+            'phone' => 'required|max:255',
+            'cover' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+        ]);
 
-        $formData = $request->all(); 
-        // il $request ci permette di accedere ai dati inseriti tramite il form
+        $form_data = $request->all();
         
-        $restaurant->update($formData); 
-        // assegnerà a quello specifico elemento i dati appena ricevuti
+        if ($form_data['name'] != $restaurant->name) {
+            $slug = Str::slug($form_data['name']);
+            $slug_base = $slug;
 
-        return redirect()->route("admin.restaurants.show", $restaurant->id); 
-        // (con 'show' indirizziamo l'utente alla visualizzazione dei risultati, ma siamo liberi di mandarlo dove vogliamo)
+            $restaurant_if_exist = Restaurant::where('slug' , $slug)->first();
+            $j = 1;
+            while ($restaurant_if_exist) {
+                $slug = $slug_base .'-'.$j;
+                $j++;
+                $restaurant_if_exist = Restaurant::where('slug' , $slug)->first();
+
+            }
+            $form_data['slug'] = $slug;
+        }
+
+        if (array_key_exists('cover' , $form_data)) {
+            $image_path = Storage::put('cover_shop' , $form_data['cover']);
+            $form_data['cover'] = $image_path;
+        }
+
+        $restaurant->update($form_data);
+        if(array_key_exists('categories', $form_data)) {
+            $restaurant->categories()->sync($form_data['categories']);
+        }
+        return redirect()->route('admin.restaurants.index');
+
     }
-
     /**
      * Remove the specified resource from storage.
      *

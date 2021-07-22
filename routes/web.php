@@ -47,4 +47,4 @@ Route::prefix('admin')
 
         Route::resource("/restaurants", "RestaurantsController");
         
-    });
+});
