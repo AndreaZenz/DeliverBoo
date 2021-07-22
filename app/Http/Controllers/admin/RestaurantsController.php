@@ -61,7 +61,7 @@ class RestaurantsController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'address' => 'required | max:255',
-            // 'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
 
         $newRestaurantData = $request->all();
@@ -146,7 +146,13 @@ class RestaurantsController extends Controller
         $form_data = $request->all();
 
         if (array_key_exists('img_url', $form_data)) {
+
+            if ($restaurant->img_url) {
+                Storage::delete($restaurant->img_url);
+            }
+            
             $image_path = Storage::put('restaurants_cover', $form_data['img_url']);
+
             $form_data['img_url'] = $image_path;
         }
 
@@ -163,10 +169,13 @@ class RestaurantsController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $user_id = Auth::user()->id;
+        
+
 
         if ($restaurant && $restaurant->user_id == $user_id) {
 
             $restaurant->delete();
+
             return redirect()->route('admin.restaurants.index');
         }
         abort(404, "non è possibile eliminare il ristorante selezionato");

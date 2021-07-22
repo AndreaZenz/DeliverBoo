@@ -49918,6 +49918,16 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+window.addEventListener("load", function () {
+  var deleteForms = document.querySelectorAll(".delete_form");
+  deleteForms.forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      if (!confirm("Sei sicuro di voler cancellare questo elemento?")) {
+        event.preventDefault();
+      }
+    });
+  });
+});
 
 /***/ }),
 
