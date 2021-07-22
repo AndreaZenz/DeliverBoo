@@ -20,7 +20,9 @@ Route::get('/', 'HomeController@index')->name('homepage');
 Auth::routes();
 
 Route::resource("/restaurants", "RestaurantController");
+
 Route::resource("/orders", "OrderController");
+
 Route::resource("/types", "TypeController");
 
 
@@ -45,4 +47,4 @@ Route::prefix('admin')
 
         Route::resource("/restaurants", "RestaurantsController");
         
-    });
+});
