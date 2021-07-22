@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1>{{$restaurant->name}}</h1>
-    <p>{{$restaurant->}}</p>
+    <p>{{$restaurant->address}}</p>
 </div>
 
 @endsection
