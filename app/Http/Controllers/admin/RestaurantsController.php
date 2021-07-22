@@ -65,16 +65,16 @@ class RestaurantsController extends Controller
         ]);
 
         $newRestaurantData = $request->all();
-        
+
         $newRestaurant = new Restaurant();
 
-        if (array_key_exists('img_url' , $newRestaurantData )) {
-            $image_path = Storage::put('restaurants_cover' , $newRestaurantData['img_url']);
+        if (array_key_exists('img_url', $newRestaurantData)) {
+            $image_path = Storage::put('restaurants_cover', $newRestaurantData['img_url']);
             $newRestaurantData['img_url'] = $image_path;
         }
-        
+
         $newRestaurant->fill($newRestaurantData);
-        
+
         $newRestaurant->user_id = Auth::user()->id;
 
         $newRestaurant->save();
