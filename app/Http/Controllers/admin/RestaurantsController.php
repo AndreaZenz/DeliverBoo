@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Restaurant;
 use App\Type;
+use App\Payment;
+use App\Dish;
 use App\Http\Controllers\Controller;
 use Faker\Guesser\Name;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class RestaurantsController extends Controller
@@ -37,6 +40,11 @@ class RestaurantsController extends Controller
     public function create()
     {
         $types = Type::all();
+
+        if (isset($newRestaurantData["img_url"])) {
+            $storageImage = Storage::put("restaurants_cover", $newRestaurantData["img_url"]);
+            $newRestaurantData["img_url"] = $storageImage;
+        }
 
         return view("admin.restaurants.create", compact("types"));
     }
@@ -116,37 +124,18 @@ class RestaurantsController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'address' => 'required | max:255',
-            'categories' => 'exists:categories,id',
-            'phone' => 'required|max:255',
-            'cover' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
 
         $form_data = $request->all();
-        
-        if ($form_data['name'] != $restaurant->name) {
-            $slug = Str::slug($form_data['name']);
-            $slug_base = $slug;
 
-            $restaurant_if_exist = Restaurant::where('slug' , $slug)->first();
-            $j = 1;
-            while ($restaurant_if_exist) {
-                $slug = $slug_base .'-'.$j;
-                $j++;
-                $restaurant_if_exist = Restaurant::where('slug' , $slug)->first();
-
-            }
-            $form_data['slug'] = $slug;
-        }
-
-        if (array_key_exists('cover' , $form_data)) {
-            $image_path = Storage::put('cover_shop' , $form_data['cover']);
-            $form_data['cover'] = $image_path;
+        if (array_key_exists('img_url' , $form_data)) {
+            $image_path = Storage::put('restaurants_cover' , $form_data['img_url']);
+            $form_data['img_url'] = $image_path;
         }
 
         $restaurant->update($form_data);
-        if(array_key_exists('categories', $form_data)) {
-            $restaurant->categories()->sync($form_data['categories']);
-        }
+
         return redirect()->route('admin.restaurants.index');
 
     }
