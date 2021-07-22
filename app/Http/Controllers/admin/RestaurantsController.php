@@ -57,14 +57,26 @@ class RestaurantsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required|max:255',
+            'address' => 'required | max:255',
+            // 'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+        ]);
+
         $newRestaurantData = $request->all();
+        
         $newRestaurant = new Restaurant();
-        $newRestaurant->fill($newRestaurantData);
+
         if (array_key_exists('img_url' , $newRestaurantData )) {
             $image_path = Storage::put('restaurants_cover' , $newRestaurantData['img_url']);
             $newRestaurantData['img_url'] = $image_path;
         }
-        $newRestaurant->User()->associate(Auth::User()->id);
+        
+        $newRestaurant->fill($newRestaurantData);
+        
+        $newRestaurant->user_id = Auth::user()->id;
+
         $newRestaurant->save();
 
         return redirect()->route('admin.restaurants.index', $newRestaurant->id);
