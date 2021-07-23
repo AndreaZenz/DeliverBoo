@@ -88,21 +88,22 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
-        if (Auth::check()) {
-            $data = Restaurant::find($id);
-            if (Auth::User()->id  == $data->User->id) {
-                $restaurant = Auth::User()->User;
-                return view('admin.restaurants.index', compact('restaurant'));
-            } else {
-                $restaurant = Restaurant::where("id", $id)->with("User")->get();
-                return view("admin.restaurants.show", compact("restaurant"));
-            }
-        } else {
-            $restaurant = Restaurant::where("id", $id)->with("User")->get();
-            return view("admin.restaurants.show", compact("restaurant"));
-        }
+        return view('admin.restaurants.show', ['restaurant' => $restaurant]);
+        // if (Auth::check()) {
+        //     $data = Restaurant::find($id);
+        //     if (Auth::User()->id  == $data->User->id) {
+        //         $restaurant = Auth::User()->User;
+        //         return view('admin.restaurants.index', compact('restaurant'));
+        //     } else {
+        //         $restaurant = Restaurant::where("id", $id)->with("User")->get();
+        //         return view("admin.restaurants.show", compact("restaurant"));
+        //     }
+        // } else {
+        //     $restaurant = Restaurant::where("id", $id)->with("User")->get();
+        //     return view("admin.restaurants.show", compact("restaurant"));
+        // }
     }
 
     /**

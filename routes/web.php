@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index')->name('homepage');
 Auth::routes();
 
 Route::resource("/restaurants", "RestaurantController");
+Route::resource("/dishes", "DishController");
 
 Route::resource("/orders", "OrderController");
 
@@ -33,7 +34,6 @@ Route::prefix('admin')
     ->name("admin.")
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home_login');
-        //
 
         //Route::get('/types', 'TypeController@index')->name('types.index');
         
@@ -46,5 +46,5 @@ Route::prefix('admin')
         Route::resource("/users", "UserController");
 
         Route::resource("/restaurants", "RestaurantsController");
-        
+        Route::resource("/dishes", "DishController");
 });
