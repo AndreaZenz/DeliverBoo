@@ -5,6 +5,16 @@ stratos, sans-serif
 plex-sans, "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑体, "Hiragino Sans GB", 冬青黑体, sans-serif
 */
 
+body {
+  background-color: #FFFFFF;
+  color: #2e3333;
+}
+
+.spacing {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

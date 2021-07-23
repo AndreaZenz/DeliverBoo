@@ -18,9 +18,10 @@
         <restaurant-card
           v-for="restaurant in restaurantsList"
           :key="restaurant.id"
-          :img_url="restaurant.img_url"
+          :img-url="restaurant.img_url"
           :name="restaurant.name"
           :address="restaurant.address"
+          :link="restaurant.link"
         ></restaurant-card>
       </div>
     </div>

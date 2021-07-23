@@ -3,6 +3,7 @@
         <h1>{{ name }}</h1>
         <h2>{{ address }}</h2>
         <img :src="imgUrl" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover" alt="">
+        <a :href="link">Apri...</a>
     </div>
 </template>
 
@@ -12,7 +13,8 @@ export default {
     props: {
         imgUrl: String,
         name: String,
-        address: String
+        address: String,
+        link: String,
     },
     computed: {
         imgSrc() {
