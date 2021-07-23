@@ -1,6 +1,8 @@
+@extends('layouts.dashboard')
+
 @section('content')
 <div class="container">
-    <form action=" {{ route('admin.dish.store') }} " method="post" enctype="multipart/form-data">
+    <form action=" {{ route('admin.dishes.store') }} " method="post" enctype="multipart/form-data">
         @csrf
         <label for="name">Dish name</label>
         <input type="text" name="name" id="name">

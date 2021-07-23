@@ -33,7 +33,7 @@
                     <h2>{{$restaurant->address}}</h2>
                     <a href=" {{ route('admin.restaurants.edit', $restaurant->id) }} ">Modifica</a>
                     <br>
-                    <a class="display-4" href="{{ route("dishes.create") }}">Aggiungi Piatto al Menù del tuo ristorante</a>
+                    <a class="display-4" href="{{ route("dishes.create"), $restaurant->id }}">Aggiungi Piatto al Menù del tuo ristorante</a>
                     <br>
                     @include('partials.deleteBtn', ["restaurant"=>$restaurant])
 

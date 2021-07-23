@@ -2,8 +2,16 @@
 
 namespace App\Http\Controllers\admin\foods;
 
+use App\Restaurant;
+use App\Type;
+use App\Payment;
+use App\Dish;
 use App\Http\Controllers\Controller;
+use Faker\Guesser\Name;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -14,7 +22,13 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $restaurant_id = Auth::user()->id;
+        $data = [
+            'dishes' => Dish::where('restaurant_id', $restaurant_id)->orderBy('name', 'asc')->get()->all(),
+        ];
+
+
+        return view('admin.dishes.index', $data);
     }
 
     /**
@@ -24,7 +38,14 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+
+        if (isset($newDishData["img_url"])) {
+            $storageImage = Storage::put("dish_cover", $newDishData["img_url"]);
+            $newDishData["img_url"] = $storageImage;
+        }
+
+        return view("admin.dishes.create", compact("types"));
     }
 
     /**
