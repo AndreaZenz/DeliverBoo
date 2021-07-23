@@ -1,9 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\admin\foods;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Type;
+use App\Dish;
+use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class DishController extends Controller
 {
@@ -14,7 +20,10 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::all();
+        return view('dishes.index', [
+            "dishes" => $dishes
+        ]);
     }
 
     /**
@@ -24,7 +33,14 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+
+        if (isset($newDishData["img_url"])) {
+            $storageImage = Storage::put("dishes_cover", $newDishData["img_url"]);
+            $newDishData["img_url"] = $storageImage;
+        }
+
+        return view("admin.dishes.create", compact("types"));
     }
 
     /**
@@ -35,7 +51,22 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newDishData = $request->all();
+
+        $newDish = new Dish();
+
+        // if (array_key_exists('img_url', $newDishData)) {
+        //     $image_path = Storage::put('dish_cover', $newDishData['img_url']);
+        //     $newDishData['img_url'] = $image_path;
+        // }
+
+        $newDish->fill($newDishData);
+
+
+        $newDish->save();
+
+        return redirect()->route('admin.dishes.index', $newDish->id);
+    
     }
 
     /**
@@ -46,7 +77,19 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        if (Auth::check()) {
+            $data = Dish::find($id);
+            if (Auth::User()->id  == $data->User->id) {
+                $dish = Auth::User()->User;
+                return view('admin.dishes.index', compact('dish'));
+            } else {
+                $dish = Dish::where("id", $id)->with("User")->get();
+                return view("admin.dishes.show", compact("dish"));
+            }
+        } else {
+            $dish = Dish::where("id", $id)->with("User")->get();
+            return view("admin.dishes.show", compact("dish"));
+        }
     }
 
     /**
@@ -55,9 +98,20 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $dish)
     {
-        //
+        $user_id = Auth::user()->id;
+        // $dish = Restaurant::find($id);
+
+
+        if ($dish && $dish->user_id == $user_id) {
+            $data = [
+                'dish' => $dish,
+                'types' => Type::all()
+            ];
+            return view('admin.dishes.edit', $data);
+        }
+        abort(403, "Il ristorante selezionato non è tuo");
     }
 
     /**
@@ -67,9 +121,32 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required | between:0,99.99',
+            'description' => 'required | longtext',
+            'ingredient_list' => 'required | longtext',
+            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+        ]);
+
+        $form_data = $request->all();
+
+        if (array_key_exists('img_url', $form_data)) {
+
+            if ($dish->img_url) {
+                Storage::delete($dish->img_url);
+            }
+            
+            $image_path = Storage::put('dish_cover', $form_data['img_url']);
+
+            $form_data['img_url'] = $image_path;
+        }
+
+        $dish->update($form_data);
+
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
@@ -78,8 +155,19 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $dish)
     {
-        //
+        $user_id = Auth::user()->id;
+        
+
+
+        if ($dish && $dish->user_id == $user_id) {
+
+            $dish->delete();
+
+            return redirect()->route('admin.dishes.index');
+        }
+        abort(404, "non è possibile eliminare il ristorante selezionato");
+    
     }
 }
