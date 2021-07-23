@@ -26,21 +26,19 @@
                 @foreach ($restaurants as $restaurant)
                 <div class="col-12">
                     @if($restaurant->img_url)
+                    
                     <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
                     @endif
 
                     <h1>{{$restaurant->name}}</h1>
                     <h2>{{$restaurant->address}}</h2>
-<<<<<<< HEAD
-                    <a href=" {{ route('admin.restaurants.edit', $restaurant->id) }} ">Modifica</a>
-                    <a href=" {{ route('admin.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
-=======
->>>>>>> 99445d5d02cd25823d1558c4473e87a2d249f2ce
+                    
 
                     @include('partials.deleteBtn', ["restaurant"=> $restaurant])
                     @include('partials.modifyBtn')
                     @include('partials.showBtn')
 
+                    <a href=" {{ route('admin.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
                 </div>
                 @endforeach
             </div>

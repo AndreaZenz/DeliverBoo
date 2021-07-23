@@ -19,9 +19,12 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
+        
         $dishes = Dish::all();
-        return view('dishes.index', [
+
+        return view('admin.dishes.index', [
+            
             "dishes" => $dishes
         ]);
     }
@@ -55,10 +58,10 @@ class DishController extends Controller
 
         $newDish = new Dish();
 
-        // if (array_key_exists('img_url', $newDishData)) {
-        //     $image_path = Storage::put('dish_cover', $newDishData['img_url']);
-        //     $newDishData['img_url'] = $image_path;
-        // }
+        if (array_key_exists('img_url', $newDishData)) {
+            $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
+            $newDishData['img_url'] = $image_path;
+        }
 
         $newDish->fill($newDishData);
 
@@ -100,18 +103,18 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         // $dish = Restaurant::find($id);
 
 
-        if ($dish && $dish->user_id == $user_id) {
+        // if ($dish && $dish->user_id == $user_id) {
             $data = [
                 'dish' => $dish,
                 'types' => Type::all()
             ];
             return view('admin.dishes.edit', $data);
-        }
-        abort(403, "Il ristorante selezionato non è tuo");
+        // }
+        
     }
 
     /**
@@ -125,9 +128,9 @@ class DishController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'price' => 'required | between:0,99.99',
-            'description' => 'required | longtext',
-            'ingredient_list' => 'required | longtext',
+            'price' => 'required|max:8|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+            'description' => 'required',
+            'ingredient_list' => 'required',
             'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
 
@@ -157,17 +160,14 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         
-
-
-        if ($dish && $dish->user_id == $user_id) {
 
             $dish->delete();
 
             return redirect()->route('admin.dishes.index');
-        }
-        abort(404, "non è possibile eliminare il ristorante selezionato");
+        
+        abort(404, "non è possibile eliminare il piatto selezionato");
     
     }
 }

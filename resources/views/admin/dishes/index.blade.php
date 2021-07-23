@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    {{ __('all your restaurants') }}
+                    {{ __('all your dishes') }}
                 </div>
 
                 {{-- pulsante create restaurant --}}
@@ -23,21 +23,23 @@
             </div> --}}
 
             <div class="container">
-                @foreach ($restaurants as $restaurant)
-                <div class="col-12">
-                    @if($restaurant->img_url)
-                    <img src="{{ asset('storage/' . $dish->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
-                    @endif
+                @foreach ($dishes as $dish)
+                    <div class="col-12">
+                        @if($dish->img_url)
+                        <img src="{{ asset('storage/' . $dish->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
+                        @endif
 
-                    <h1>{{ $dish->name }}</h1>
-                    <h2>{{ $dish->price }}</h2>
-                    <h2>{{ $dish->description }}</h2>
-                    <h2>{{ $dish->ingredient_list }}</h2>
-                    <a href=" {{ route('admin.restaurants.edit', $restaurant->id) }} ">Modifica</a>
-
-                    @include('partials.deleteBtn', ["dish"=>$dish])
-
-                </div>
+                        <h1>{{ $dish->name }}</h1>
+                        <h2>{{ $dish->price }}</h2>
+                        <h2>{{ $dish->description }}</h2>
+                        <h2>{{ $dish->ingredient_list }}</h2>
+                        <a href=" {{ route('admin.dishes.edit', $dish->id) }} ">Modifica</a>
+                        <form action=" {{ route('admin.dishes.destroy', $dish->id) }} " method="post" class="delete_form">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Cancella" class="btn btn-danger spacing">
+                        </form>
+                    </div>
                 @endforeach
             </div>
         </div>
