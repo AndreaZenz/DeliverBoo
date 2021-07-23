@@ -31,10 +31,15 @@
 
                     <h1>{{$restaurant->name}}</h1>
                     <h2>{{$restaurant->address}}</h2>
+<<<<<<< HEAD
                     <a href=" {{ route('admin.restaurants.edit', $restaurant->id) }} ">Modifica</a>
                     <a href=" {{ route('admin.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
+=======
+>>>>>>> 99445d5d02cd25823d1558c4473e87a2d249f2ce
 
-                    @include('partials.deleteBtn', ["restaurant"=>$restaurant])
+                    @include('partials.deleteBtn', ["restaurant"=> $restaurant])
+                    @include('partials.modifyBtn')
+                    @include('partials.showBtn')
 
                 </div>
                 @endforeach

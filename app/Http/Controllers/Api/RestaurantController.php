@@ -40,12 +40,13 @@ class RestaurantController extends Controller
 
         foreach ($restaurants as $restaurant) {
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
-
             $result = strpos(strtolower($restaurant['name']), $name);
-
+            
             if ($result !== false) {
                 $restaurantsResult[] = $restaurant;
             };
+            
+            $restaurant->link = route("admin.restaurants.show",  $restaurant->id);
         }
 
         return response()->json([

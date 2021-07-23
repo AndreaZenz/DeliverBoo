@@ -1996,12 +1996,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantCard",
   props: {
     imgUrl: String,
     name: String,
-    address: String
+    address: String,
+    link: String
   },
   computed: {
     imgSrc: function imgSrc() {
@@ -2022,6 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -37858,7 +37861,9 @@ var render = function() {
         "object-fit": "cover"
       },
       attrs: { src: _vm.imgUrl, alt: "" }
-    })
+    }),
+    _vm._v(" "),
+    _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri...")])
   ])
 }
 var staticRenderFns = []
@@ -37954,7 +37959,8 @@ var render = function() {
             attrs: {
               "img-url": restaurant.img_url,
               name: restaurant.name,
-              address: restaurant.address
+              address: restaurant.address,
+              link: restaurant.link
             }
           })
         }),

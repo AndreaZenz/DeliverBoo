@@ -21,6 +21,7 @@
           :img-url="restaurant.img_url"
           :name="restaurant.name"
           :address="restaurant.address"
+          :link="restaurant.link"
         ></restaurant-card>
       </div>
     </div>
