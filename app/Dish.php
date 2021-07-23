@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
+    protected $fillable = [
+        'name', 
+        'price',
+        'description', 
+        'visible',
+        'ingredient_list',
+        'img_url',
+        'restaurants_id'
+    ];
+
     public function Order()
     {
         return $this->belongsToMany("App\Order");
