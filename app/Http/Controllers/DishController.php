@@ -51,8 +51,8 @@ class DishController extends Controller
     {
         $dish = Dish::find($id);
 
-        return view('admin.restaurants.show', [
-            "restaurant" => $dish
+        return view('admin.dishes.show', [
+            "dish" => $dish
         ]);
     }
 
