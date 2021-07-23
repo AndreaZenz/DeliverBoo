@@ -20,14 +20,28 @@ class DishController extends Controller
      */
     public function index()
     { 
-        
-        $dishes = Dish::all();
+        $user_id = Auth::user()->id;
 
-        return view('admin.dishes.index', [
-            
-            "dishes" => $dishes
-        ]);
+        $dishes = Auth::user()->id;
+        
+
+        $data = [
+            'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
+            'types' => Type::All(),
+            'dishes' => Dish::where('restaurants_id', $dishes)->orderBy('name', 'asc')->get()
+        ];
+
+        return view('admin.dishes.index', $data);
     }
+    /* per registrare un piatto ad un ristorante noi ci riferiamo all'user id: Ora il problema qual'è che quando andiamo a filtrare i piatti tutti i ristoranti utilizzano lo stesso restaurant_id che a sua volta corrisponde all'user_id 
+    e di conseguenza non possiamo specificare il ristorante strettamente al ristorante perché il ristorante non ha un id specifico??
+    Oppure dobbiamo collegarlo con l'id singolo del ristorante, son 2 ore che ci provo con questa query 
+        $dishes = Auth::user()->id;
+    ma non riesco a capire dovrei avere per esempio un
+        $disesh = Dish::restaurant_id
+    solo che ovviamente questa non funziona perché quello che fa Auth lo fa perché è stato scritto nei meandri di laravel?
+    non ne ho idea
+    /*
 
     /**
      * Show the form for creating a new resource.
@@ -54,23 +68,35 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required|max:8|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+            'description' => 'required',
+            'ingredient_list' => 'required',
+            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+        ]);
+
         $newDishData = $request->all();
 
         $newDish = new Dish();
-
+        
         if (array_key_exists('img_url', $newDishData)) {
             $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
             $newDishData['img_url'] = $image_path;
         }
-
+        
         $newDish->fill($newDishData);
 
-
+        $newDish->restaurants_id = Auth::user()->id;
+        
         $newDish->save();
-
+        
         return redirect()->route('admin.dishes.index', $newDish->id);
-    
     }
+
+
+
+    
 
     /**
      * Display the specified resource.
