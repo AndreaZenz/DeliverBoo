@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::resource("/restaurants", "RestaurantController");
 
+Route::resource("/dishes", "DishController");
+
 Route::resource("/orders", "OrderController");
 
 Route::resource("/types", "TypeController");

@@ -36,6 +36,8 @@
             <input type="file" name="img_url" accept=".jpg,.png" class="form-control-file">
         </div>
 
+        <a class="display-4" href="{{ route("dishes.create") }}">Aggiungi Piatto al Menù del tuo ristorante</a>
+        <br>
         <input type="submit" value="invia">
 
         <ul>

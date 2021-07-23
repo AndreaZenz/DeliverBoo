@@ -8,6 +8,8 @@
     @endif
     <h1>{{$restaurant->name}}</h1>
     <p>{{$restaurant->address}}</p>
+
+
 </div>
 
 @endsection
