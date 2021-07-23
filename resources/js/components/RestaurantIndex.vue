@@ -6,7 +6,6 @@
           <text-input label="Nome" v-model="filters.name"></text-input>
           <text-input label="Indirizzo" v-model="filters.address"></text-input>
         </div>
-
       </div>
 
       <button type="submit" class="btn btn-primary">Filtra</button>
@@ -19,7 +18,7 @@
         <restaurant-card
           v-for="restaurant in restaurantsList"
           :key="restaurant.id"
-          :img-url="restaurant.img_url"
+          :img_url="restaurant.img_url"
           :name="restaurant.name"
           :address="restaurant.address"
         ></restaurant-card>
@@ -36,31 +35,31 @@ export default {
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-          name:null,
-          address:null
+        name: null,
+        address: null,
       },
-      activeFilters: null
+      activeFilters: null,
     };
   },
   methods: {
-      filterData() {
-            axios
-                .get("/api/restaurants/filter", {
-                    params: this.filters
-                })
-                .then(resp => {
-                    this.restaurantsList = resp.data.results;
-                    this.activeFilters = resp.data.filters;
-                })
-                .catch(er => {
-                    console.error(er);
-                    alert("Errore in fase di filtraggio dati.");
-                });
-        },
-        onReset() {
-            this.restaurantsList = this.allRestaurantsList;
-            this.activeFilters = null;
-        },
+    filterData() {
+      axios
+        .get("/api/restaurants/filter", {
+          params: this.filters,
+        })
+        .then(resp => {
+          this.restaurantsList = resp.data.results;
+          this.activeFilters = resp.data.filters;
+        })
+        .catch(er => {
+          console.error(er);
+          alert("Errore in fase di filtraggio dati.");
+        });
+    },
+    onReset() {
+      this.restaurantsList = this.allRestaurantsList;
+      this.activeFilters = null;
+    },
   },
   mounted() {
     axios
@@ -75,3 +74,4 @@ export default {
   },
 };
 </script>
+

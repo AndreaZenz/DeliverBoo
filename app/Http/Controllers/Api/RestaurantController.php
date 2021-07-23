@@ -16,7 +16,7 @@ class RestaurantController extends Controller
         foreach ($restaurants as $restaurant) {
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
             
-          }
+        }
 
         return response()->json([
             "success" => true,
@@ -28,13 +28,14 @@ class RestaurantController extends Controller
     {
         $filters = $request->only(["name", "address", "img_url"]);
 
-
-        $restaurants = Restaurant::all();
-
-        foreach ($restaurants as $restaurant) {
+        $restaurants = Restaurant::with(["name", "address"]);
+        
+        foreach ($restaurants as $restaurant => $value) {
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
-        }
 
+            $restaurant = Restaurant::whereIn("name", $value);
+        }
+        
         return response()->json([
             "success" => true,
             "filters" => $filters,
