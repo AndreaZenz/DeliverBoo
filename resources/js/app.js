@@ -20,6 +20,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('RestaurantCard', require('./components/RestaurantCard.vue').default);
+Vue.component('RestaurantIndex', require('./components/RestaurantIndex.vue').default);
+Vue.component('TextInput', require('./components/formInputs/TextInput.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,3 +34,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+window.addEventListener("load", function() {
+    const deleteForms = document.querySelectorAll(".delete_form");
+
+    deleteForms.forEach(form => {
+        form.addEventListener("submit", (event) => {
+
+            if (!confirm("Sei sicuro di voler cancellare questo elemento?")) {
+                event.preventDefault();
+            }
+        })
+    })
+})

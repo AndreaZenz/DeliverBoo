@@ -10951,3 +10951,7 @@ a.text-dark:focus {
   background-color: #00CCBB;
 }
 
+.maxh {
+  max-height: 200px;
+}
+

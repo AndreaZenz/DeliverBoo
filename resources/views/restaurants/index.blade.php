@@ -1,18 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row justify-content-center">
-  <div class="col-12">
 
-    <div class="container">
-    @foreach ($restaurants as $restaurant)
-    <div class="col-4">
-        <h1>{{$restaurant->name}}</h1>
-        <h2>{{$restaurant->address}}</h2>
+<restaurant-index></restaurant-index>
+
+{{-- <div class="row justify-content-center">
+    <div class="col-12">
+
+        <div class="container">
+
+            @foreach ($restaurants as $restaurant)
+
+            <restaurant-card 
+            img-url="{{ $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png'}}"
+            name="{{ $restaurant->name }}" 
+            address="{{ $restaurant->address }}"
+            ></restaurant-card>
+
+            @endforeach
+        </div>
+
     </div>
-    @endforeach
-</div>
-
-  </div>
-</div>
+</div> --}}
 @endsection
