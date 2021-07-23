@@ -2051,6 +2051,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   data: function data() {
@@ -2058,8 +2059,8 @@ __webpack_require__.r(__webpack_exports__);
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: null,
-        address: null
+        name: "",
+        address: ""
       },
       activeFilters: null
     };

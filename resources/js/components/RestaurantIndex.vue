@@ -25,6 +25,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -35,8 +36,8 @@ export default {
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: null,
-        address: null,
+        name: "",
+        address: "",
       },
       activeFilters: null,
     };
