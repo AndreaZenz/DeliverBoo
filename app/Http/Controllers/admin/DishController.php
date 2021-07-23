@@ -67,7 +67,19 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        if (Auth::check()) {
+            $data = Dish::find($id);
+            if (Auth::User()->id  == $data->User->id) {
+                $dish = Auth::User()->User;
+                return view('admin.dishes.index', compact('dish'));
+            } else {
+                $dish = Dish::where("id", $id)->with("User")->get();
+                return view("admin.dishes.show", compact("dish"));
+            }
+        } else {
+            $dish = Dish::where("id", $id)->with("User")->get();
+            return view("admin.dishes.show", compact("dish"));
+        }
     }
 
     /**
