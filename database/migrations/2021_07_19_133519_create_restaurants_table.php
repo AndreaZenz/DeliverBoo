@@ -17,6 +17,7 @@ class CreateRestaurantsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('address');
             $table->string('img_url')->nullable();
         });

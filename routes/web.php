@@ -45,6 +45,13 @@ Route::prefix('admin')
         //Route::get("/posts/filter", "PostController@filter")->name("posts.filter");
         Route::resource("/users", "UserController");
 
-        Route::resource("/restaurants", "RestaurantsController");
         Route::resource("/dishes", "DishController");
+        
+        Route::resource("/restaurants", "RestaurantsController");
+        Route::prefix('restaurants/{id}')
+            ->name('restaurants')
+            ->group(function () {
+                Route::resource("/dishes", "DishController");
+
+            });
 });

@@ -9,6 +9,7 @@ use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Route;
 
 
 class DishController extends Controller
@@ -18,12 +19,29 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     { 
         $user_id = Auth::user()->id;
+        /////////////////////////////////////////////////////////////////
 
+        $getrs = Restaurant::all();
+        $arraytest = [];
+        foreach($getrs as $getr){
+            $arraytest[] = $getr->id;
+        }
+        $testr = Route::get('{id}/dishes', function ($id) {
+            return 'Restaurant '.$id;
+        });
+        dump($testr);
+
+        /////////////////////////////////////////////////////////////////
         $dishes = Auth::user()->id;
-        
+        $dishes = Dish::all();
+
+        return view('admin.dishes.index', [
+
+            "dishes" => $dishes
+        ]);
 
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
@@ -66,32 +84,35 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Restaurant $restaurant)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'price' => 'required|max:8|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
-            'description' => 'required',
-            'ingredient_list' => 'required',
-            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
-        ]);
 
-        $newDishData = $request->all();
+        return view(['restaurant' => $restaurant], 'admin.dishes.index ');
 
-        $newDish = new Dish();
-        
-        if (array_key_exists('img_url', $newDishData)) {
-            $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
-            $newDishData['img_url'] = $image_path;
-        }
-        
-        $newDish->fill($newDishData);
+        // $request->validate([
+        //     'name' => 'required|max:255',
+        //     'price' => 'required|max:8|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+        //     'description' => 'required',
+        //     'ingredient_list' => 'required',
+        //     'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+        // ]);
 
-        $newDish->restaurants_id = Auth::user()->id;
+        // $newDishData = $request->all();
+
+        // $newDish = new Dish();
         
-        $newDish->save();
+        // if (array_key_exists('img_url', $newDishData)) {
+        //     $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
+        //     $newDishData['img_url'] = $image_path;
+        // }
         
-        return redirect()->route('admin.dishes.index', $newDish->id);
+        // $newDish->fill($newDishData);
+
+        // //$newDish->restaurants_id = Auth::user()->id;
+        
+        // $newDish->save();
+        
+        // return redirect()->route('admin.dishes.index', $newDish->id);
     }
 
 
