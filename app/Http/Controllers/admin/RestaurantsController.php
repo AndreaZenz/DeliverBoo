@@ -26,7 +26,7 @@ class RestaurantsController extends Controller
         
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
-            'types' => Type::All(),
+            //'types' => Type::All(),
         ];
 
 

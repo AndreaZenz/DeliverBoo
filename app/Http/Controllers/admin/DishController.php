@@ -19,48 +19,10 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($restaurant_id)
     {
-        $user_id = Auth::user()->id;
-        /////////////////////////////////////////////////////////////////
-
-        $getRestaurants = Restaurant::where('user_id', $user_id)->get();
-        $getRestaurantsID = $getRestaurants->id;
-        $getR = compact('getRestaurantsID');
-        //$restaurant_id = $getR['id'];
-        $getDishes = Dish::where('restaurants_id', $user_id)->get();
-        $arraytest = [];
-
-        $nDishes = count($getDishes);
-        $nRestaurants = count($getRestaurants);
-        
-        $loop = ($nDishes > $nRestaurants)
-        ? $nDishes : $nRestaurants;
-
-        foreach ($getRestaurants as $getr) {
-            $arraytest[] = $getr->id;
-        }
-        $testr = Route::get('{id}/dishes', function ($id) {
-            return 'Restaurant ' . $id;
-        });
-        dump($getRestaurants);
-
-        /////////////////////////////////////////////////////////////////
-        $dishes = Auth::user()->id;
-        $dishes = Dish::all();
-
-        return view('admin.dishes.index', [
-
-            "dishes" => $dishes
-        ]);
-
-        $data = [
-            'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
-            'types' => Type::All(),
-            'dishes' => Dish::where('restaurants_id', $dishes)->orderBy('name', 'asc')->get()
-        ];
-
-        return view('admin.dishes.index', $data);
+        $dishes = Dish::where('restaurants_id', $restaurant_id)->get();
+        return view('admin.dishes.index', compact('dishes'));
     }
     /* per registrare un piatto ad un ristorante noi ci riferiamo all'user id: Ora il problema qual'è che quando andiamo a filtrare i piatti tutti i ristoranti utilizzano lo stesso restaurant_id che a sua volta corrisponde all'user_id 
     e di conseguenza non possiamo specificare il ristorante strettamente al ristorante perché il ristorante non ha un id specifico??
@@ -77,7 +39,7 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($restaurant_id)
     {
         $types = Type::all();
 
@@ -86,7 +48,7 @@ class DishController extends Controller
             $newDishData["img_url"] = $storageImage;
         }
 
-        return view("admin.dishes.create", compact("types"));
+        return view("admin.dishes.create", compact("restaurant_id", "types"));
     }
 
     /**
@@ -95,7 +57,7 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Restaurant $restaurant)
+    public function store($restaurant_id, Request $request)
     {
         $request->validate([
             'name' => 'required|max:255',
@@ -105,22 +67,29 @@ class DishController extends Controller
             'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
 
-        $newDishData = $request->all();
+        // $newDishData = $request->all();
 
-        $newDish = new Dish();
+        // $newDish = new Dish();
 
-        if (array_key_exists('img_url', $newDishData)) {
-            $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
-            $newDishData['img_url'] = $image_path;
-        }
+        // if (array_key_exists('img_url', $newDishData)) {
+        //     $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
+        //     $newDishData['img_url'] = $image_path;
+        // }
 
-        $newDish->fill($newDishData);
+        // $restaurant = Restaurant::findOrFail($restaurant_id);
+        // $restaurant->dishes()->create($request->all());
 
-        $newDish->restaurants_id = Auth::user()->id;
 
-        $newDish->save();
+        // $newDish->fill($newDishData);
 
-        return redirect()->route('admin.dishes.index', $newDish->id);
+        // $newDish->restaurants_id = Auth::user()->id;
+
+        // $newDish->save();
+        
+        Dish::create($request->all() + ['restaurants_id' => $restaurant_id]);
+        
+        //return redirect()->route('admin.dishes.index', $newDish->id);
+        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
     }
 
 
@@ -133,9 +102,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Dish $dish)
+    public function show($restaurant_id, Dish $dish)
     {
-        return view("admin.dishes.show", ['dish'=>$dish]);
+        return view('admin.dishes.show', compact('restaurants_id', 'dish'));
         // if (Auth::check()) {
         //     $data = Dish::find($id);
         //     if (Auth::User()->id  == $data->User->id) {
@@ -157,19 +126,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dish $dish)
+    public function edit($restaurant_id, Dish $dish)
     {
-        // $user_id = Auth::user()->id;
-        // $dish = Restaurant::find($id);
-
-
-        // if ($dish && $dish->user_id == $user_id) {
-        $data = [
-            'dish' => $dish,
-            'types' => Type::all()
-        ];
-        return view('admin.dishes.edit', $data);
-        // }
+        return view('admin.dishes.edit', compact('restaurants_id', 'dish'));
 
     }
 
@@ -180,7 +139,7 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dish $dish)
+    public function update($restaurant_id, Request $request, Dish $dish)
     {
         $request->validate([
             'name' => 'required|max:255',
@@ -205,7 +164,7 @@ class DishController extends Controller
 
         $dish->update($form_data);
 
-        return redirect()->route('admin.dishes.index');
+        return redirect()->route('restaurants.dishes.index', $restaurant_id);
     }
 
     /**
@@ -214,14 +173,14 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dish $dish)
+    public function destroy($restaurant_id, Dish $dish)
     {
         // $user_id = Auth::user()->id;
 
 
         $dish->delete();
 
-        return redirect()->route('admin.dishes.index');
+        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
 
         abort(404, "non è possibile eliminare il piatto selezionato");
     }

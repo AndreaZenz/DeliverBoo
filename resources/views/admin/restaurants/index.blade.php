@@ -37,11 +37,8 @@
                     @include('partials.deleteBtn', ["restaurant"=> $restaurant])
                     @include('partials.modifyBtn')
                     @include('partials.showBtn')
-
-                    <a class="btn btn-secondary spacing" href=" {{ route('admin.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
-                    <button type="button" class="btn btn-info spacing">
-                        <a href=" {{ route('admin.dishes.index') }} ">Visualizza i piatti</a>
-                    </button>
+                    
+                    <a class="btn btn-secondary spacing" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
 
                 </div>
                 @endforeach
