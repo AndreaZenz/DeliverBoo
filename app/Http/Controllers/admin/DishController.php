@@ -126,9 +126,11 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($restaurant_id, Dish $dish)
+    public function edit($restaurants_id, Dish $dish)
     {
-        return view('admin.dishes.edit', compact('restaurants_id', 'dish'));
+        $types = Type::all();
+
+        return view('admin.dishes.edit', compact('restaurants_id', 'dish', 'types'));
 
     }
 
@@ -164,7 +166,8 @@ class DishController extends Controller
 
         $dish->update($form_data);
 
-        return redirect()->route('restaurants.dishes.index', $restaurant_id);
+        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
+
     }
 
     /**

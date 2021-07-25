@@ -46,7 +46,7 @@ Route::prefix('admin')
         Route::resource("/users", "UserController");
 
         //Route::resource("/dishes", "DishController");
-        // Route::get("/dishes/{id}", "DishController")->name("dishes.index");
+        //completamente rifatta
         
         Route::resource("/restaurants", "RestaurantsController");
 
