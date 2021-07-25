@@ -67,14 +67,14 @@ class DishController extends Controller
             'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
 
-        // $newDishData = $request->all();
+        $newDishData = $request->all();
 
         // $newDish = new Dish();
 
-        // if (array_key_exists('img_url', $newDishData)) {
-        //     $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
-        //     $newDishData['img_url'] = $image_path;
-        // }
+        if (array_key_exists('img_url', $newDishData)) {
+            $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
+            $newDishData['img_url'] = $image_path;
+        }
 
         // $restaurant = Restaurant::findOrFail($restaurant_id);
         // $restaurant->dishes()->create($request->all());
@@ -85,9 +85,9 @@ class DishController extends Controller
         // $newDish->restaurants_id = Auth::user()->id;
 
         // $newDish->save();
-        
-        Dish::create($request->all() + ['restaurants_id' => $restaurant_id]);
-        
+
+        Dish::create($newDishData + ['restaurants_id' => $restaurant_id]);
+
         //return redirect()->route('admin.dishes.index', $newDish->id);
         return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
     }
