@@ -20,19 +20,30 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    { 
+    {
         $user_id = Auth::user()->id;
         /////////////////////////////////////////////////////////////////
 
-        $getrs = Restaurant::all();
+        $getRestaurants = Restaurant::where('user_id', $user_id)->get();
+        $getRestaurantsID = $getRestaurants->id;
+        $getR = compact('getRestaurantsID');
+        //$restaurant_id = $getR['id'];
+        $getDishes = Dish::where('restaurants_id', $user_id)->get();
         $arraytest = [];
-        foreach($getrs as $getr){
+
+        $nDishes = count($getDishes);
+        $nRestaurants = count($getRestaurants);
+        
+        $loop = ($nDishes > $nRestaurants)
+        ? $nDishes : $nRestaurants;
+
+        foreach ($getRestaurants as $getr) {
             $arraytest[] = $getr->id;
         }
         $testr = Route::get('{id}/dishes', function ($id) {
-            return 'Restaurant '.$id;
+            return 'Restaurant ' . $id;
         });
-        dump($testr);
+        dump($getRestaurants);
 
         /////////////////////////////////////////////////////////////////
         $dishes = Auth::user()->id;
@@ -86,38 +97,35 @@ class DishController extends Controller
      */
     public function store(Request $request, Restaurant $restaurant)
     {
+        $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required|max:8|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
+            'description' => 'required',
+            'ingredient_list' => 'required',
+            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+        ]);
 
-        return view(['restaurant' => $restaurant], 'admin.dishes.index ');
+        $newDishData = $request->all();
 
-        // $request->validate([
-        //     'name' => 'required|max:255',
-        //     'price' => 'required|max:8|regex:/^-?[0-9]+(?:.[0-9]{1,2})?$/',
-        //     'description' => 'required',
-        //     'ingredient_list' => 'required',
-        //     'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
-        // ]);
+        $newDish = new Dish();
 
-        // $newDishData = $request->all();
+        if (array_key_exists('img_url', $newDishData)) {
+            $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
+            $newDishData['img_url'] = $image_path;
+        }
 
-        // $newDish = new Dish();
-        
-        // if (array_key_exists('img_url', $newDishData)) {
-        //     $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
-        //     $newDishData['img_url'] = $image_path;
-        // }
-        
-        // $newDish->fill($newDishData);
+        $newDish->fill($newDishData);
 
-        // //$newDish->restaurants_id = Auth::user()->id;
-        
-        // $newDish->save();
-        
-        // return redirect()->route('admin.dishes.index', $newDish->id);
+        $newDish->restaurants_id = Auth::user()->id;
+
+        $newDish->save();
+
+        return redirect()->route('admin.dishes.index', $newDish->id);
     }
 
 
 
-    
+
 
     /**
      * Display the specified resource.
@@ -125,21 +133,22 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $dish)
     {
-        if (Auth::check()) {
-            $data = Dish::find($id);
-            if (Auth::User()->id  == $data->User->id) {
-                $dish = Auth::User()->User;
-                return view('admin.dishes.index', compact('dish'));
-            } else {
-                $dish = Dish::where("id", $id)->with("User")->get();
-                return view("admin.dishes.show", compact("dish"));
-            }
-        } else {
-            $dish = Dish::where("id", $id)->with("User")->get();
-            return view("admin.dishes.show", compact("dish"));
-        }
+        return view("admin.dishes.show", ['dish'=>$dish]);
+        // if (Auth::check()) {
+        //     $data = Dish::find($id);
+        //     if (Auth::User()->id  == $data->User->id) {
+        //         $dish = Auth::User()->User;
+        //         return view('admin.dishes.index', compact('dish'));
+        //     } else {
+        //         $dish = Dish::where("id", $id)->with("User")->get();
+        //         return view("admin.dishes.show", compact("dish"));
+        //     }
+        // } else {
+        //     $dish = Dish::where("id", $id)->with("User")->get();
+        //     return view("admin.dishes.show", compact("dish"));
+        // }
     }
 
     /**
@@ -155,13 +164,13 @@ class DishController extends Controller
 
 
         // if ($dish && $dish->user_id == $user_id) {
-            $data = [
-                'dish' => $dish,
-                'types' => Type::all()
-            ];
-            return view('admin.dishes.edit', $data);
+        $data = [
+            'dish' => $dish,
+            'types' => Type::all()
+        ];
+        return view('admin.dishes.edit', $data);
         // }
-        
+
     }
 
     /**
@@ -188,7 +197,7 @@ class DishController extends Controller
             if ($dish->img_url) {
                 Storage::delete($dish->img_url);
             }
-            
+
             $image_path = Storage::put('dish_cover', $form_data['img_url']);
 
             $form_data['img_url'] = $image_path;
@@ -208,13 +217,12 @@ class DishController extends Controller
     public function destroy(Dish $dish)
     {
         // $user_id = Auth::user()->id;
-        
 
-            $dish->delete();
 
-            return redirect()->route('admin.dishes.index');
-        
+        $dish->delete();
+
+        return redirect()->route('admin.dishes.index');
+
         abort(404, "non è possibile eliminare il piatto selezionato");
-    
     }
 }
