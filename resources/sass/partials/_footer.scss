@@ -1,0 +1,20 @@
+footer{
+    background-color : $footer-bg;
+    color: white;
+    .container{
+        .row{
+            .col{
+                h4{
+                    padding: 10px;
+                    text-align: center;
+                }
+               
+            }
+        }
+    }
+    
+}
+
+ul{
+    list-style: none;
+}

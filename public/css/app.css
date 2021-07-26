@@ -19,6 +19,20 @@ body {
   text-decoration: none;
 }
 
+footer {
+  background-color: #2E3333;
+  color: white;
+}
+
+footer .container .row .col h4 {
+  padding: 10px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

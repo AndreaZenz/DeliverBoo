@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -80,6 +82,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            @include('partials.footer')
+        </footer>
     </div>
 </body>
 </html>
