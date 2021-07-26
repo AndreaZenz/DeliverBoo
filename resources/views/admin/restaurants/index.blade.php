@@ -36,8 +36,12 @@
 
                     @include('partials.deleteBtn', ["restaurant"=> $restaurant])
                     @include('partials.modifyBtn')
-                    @include('partials.showBtn')
-                    
+
+                    <button type="button" class="btn btn-info spacing">
+                        <a href=" {{ route('admin.restaurants.show', [$restaurant->id]) }} ">Visualizza il tuo ristorante</a>
+                    </button>
+
+
                     <a class="btn btn-secondary spacing" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
 
 

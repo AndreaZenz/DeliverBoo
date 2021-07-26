@@ -25,15 +25,6 @@ class DishController extends Controller
         $dishes = Dish::where('restaurants_id', $restaurant_id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }
-    /* per registrare un piatto ad un ristorante noi ci riferiamo all'user id: Ora il problema qual'è che quando andiamo a filtrare i piatti tutti i ristoranti utilizzano lo stesso restaurant_id che a sua volta corrisponde all'user_id 
-    e di conseguenza non possiamo specificare il ristorante strettamente al ristorante perché il ristorante non ha un id specifico??
-    Oppure dobbiamo collegarlo con l'id singolo del ristorante, son 2 ore che ci provo con questa query 
-        $dishes = Auth::user()->id;
-    ma non riesco a capire dovrei avere per esempio un
-        $disesh = Dish::restaurant_id
-    solo che ovviamente questa non funziona perché quello che fa Auth lo fa perché è stato scritto nei meandri di laravel?
-    non ne ho idea
-    /*
 
     /**
      * Show the form for creating a new resource.
