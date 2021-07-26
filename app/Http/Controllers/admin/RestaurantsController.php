@@ -23,11 +23,11 @@ class RestaurantsController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        // $dishes = Dish::all()
+        
         
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
-            //'types' => Type::All(),
+            'types' => Type::where(''),
         ];
 
 
@@ -48,7 +48,7 @@ class RestaurantsController extends Controller
             $newRestaurantData["img_url"] = $storageImage;
         }
 
-        return view("admin.restaurants.create", compact("types"));
+        return view("admin.restaurants.create", ['types' => $types]);
     }
 
     /**
@@ -81,7 +81,13 @@ class RestaurantsController extends Controller
 
         $newRestaurant->save();
 
-        return redirect()->route('admin.restaurants.index', $newRestaurant->id);
+        // $newRestaurant->types()->attach($newRestaurant["types"]);
+
+        // if (isset($newRestaurantData['types'])) {
+            $newRestaurant->type()->sync($newRestaurantData['types']);
+        
+
+        return redirect()->route('admin.restaurants.show', $newRestaurant->id);
     }
 
     /**
@@ -99,19 +105,7 @@ class RestaurantsController extends Controller
             'restaurant' => $restaurant,
             'dishes' => $dishes
         ]);
-        // if (Auth::check()) {
-        //     $data = Restaurant::find($id);
-        //     if (Auth::User()->id  == $data->User->id) {
-        //         $restaurant = Auth::User()->User;
-        //         return view('admin.restaurants.index', compact('restaurant'));
-        //     } else {
-        //         $restaurant = Restaurant::where("id", $id)->with("User")->get();
-        //         return view("admin.restaurants.show", compact("restaurant"));
-        //     }
-        // } else {
-        //     $restaurant = Restaurant::where("id", $id)->with("User")->get();
-        //     return view("admin.restaurants.show", compact("restaurant"));
-        // }
+
     }
 
     /**

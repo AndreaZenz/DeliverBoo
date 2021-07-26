@@ -2,7 +2,7 @@
 
 @section('content')
 
-<restaurant-index></restaurant-index>
+<restaurant-index :types='@json($types)'></restaurant-index>
 
 
 @endsection

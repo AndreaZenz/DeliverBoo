@@ -2064,17 +2064,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
+  props: {
+    types: Array
+  },
   data: function data() {
     return {
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
         name: "",
-        address: ""
+        address: "",
+        types: null
       },
-      activeFilters: null
+      activeFilters: null,
+      typesList: []
     };
   },
   methods: {
@@ -2105,6 +2116,76 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (er) {
       alert("Impossibile recuperare l'elenco dei ristoranti");
     });
+    axios.get("/api/types").then(function (resp) {
+      _this2.typesList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Non posso recuperare le tipologie di ristorante");
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "MultiCheckInput",
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    label: String,
+    value: Array
+  },
+  data: function data() {
+    return {
+      selectedValues: []
+    };
+  },
+  methods: {
+    onChange: function onChange(ev) {
+      var checked = ev.target.checked;
+
+      if (checked) {
+        this.selectedValues.push(ev.target.value);
+      } else {
+        var index = this.selectedValues.indexOf(ev.target.value);
+        this.selectedValues.splice(index, 1);
+      }
+
+      this.$emit("input", this.selectedValues);
+    }
   }
 });
 
@@ -37934,16 +38015,23 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("text-input", {
-                attrs: { label: "Indirizzo" },
-                model: {
-                  value: _vm.filters.address,
-                  callback: function($$v) {
-                    _vm.$set(_vm.filters, "address", $$v)
-                  },
-                  expression: "filters.address"
-                }
-              })
+              _c(
+                "div",
+                { staticClass: "col" },
+                [
+                  _c("multi-check-input", {
+                    attrs: { label: "type", items: _vm.types },
+                    model: {
+                      value: _vm.filters.types,
+                      callback: function($$v) {
+                        _vm.$set(_vm.filters, "types", $$v)
+                      },
+                      expression: "filters.types"
+                    }
+                  })
+                ],
+                1
+              )
             ],
             1
           )
@@ -37977,7 +38065,8 @@ var render = function() {
               "img-url": restaurant.img_url,
               name: restaurant.name,
               address: restaurant.address,
-              link: restaurant.link
+              link: restaurant.link,
+              types: restaurant.type
             }
           })
         }),
@@ -37985,6 +38074,57 @@ var render = function() {
       )
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=template&id=97c3c538&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=template&id=97c3c538& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "mb-3" },
+    [
+      _c("label", { staticClass: "form-label" }, [_vm._v(_vm._s(_vm.label))]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _vm._l(_vm.items, function(item) {
+        return _c(
+          "div",
+          { key: item.id, staticClass: "form-check form-check-inline" },
+          [
+            _c("label", { staticClass: "form-check-label" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox" },
+                domProps: { value: item.id },
+                on: { change: _vm.onChange }
+              }),
+              _vm._v("\n            " + _vm._s(item.name) + "\n        ")
+            ])
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50272,6 +50412,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 Vue.component('RestaurantCard', __webpack_require__(/*! ./components/RestaurantCard.vue */ "./resources/js/components/RestaurantCard.vue")["default"]);
 Vue.component('RestaurantIndex', __webpack_require__(/*! ./components/RestaurantIndex.vue */ "./resources/js/components/RestaurantIndex.vue")["default"]);
 Vue.component('TextInput', __webpack_require__(/*! ./components/formInputs/TextInput.vue */ "./resources/js/components/formInputs/TextInput.vue")["default"]);
+Vue.component('MultiCheckInput', __webpack_require__(/*! ./components/formInputs/MultiCheckInput.vue */ "./resources/js/components/formInputs/MultiCheckInput.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50546,6 +50687,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/formInputs/MultiCheckInput.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/formInputs/MultiCheckInput.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MultiCheckInput_vue_vue_type_template_id_97c3c538___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MultiCheckInput.vue?vue&type=template&id=97c3c538& */ "./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=template&id=97c3c538&");
+/* harmony import */ var _MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MultiCheckInput.vue?vue&type=script&lang=js& */ "./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MultiCheckInput_vue_vue_type_template_id_97c3c538___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MultiCheckInput_vue_vue_type_template_id_97c3c538___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/formInputs/MultiCheckInput.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MultiCheckInput.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=template&id=97c3c538&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=template&id=97c3c538& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_template_id_97c3c538___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MultiCheckInput.vue?vue&type=template&id=97c3c538& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInputs/MultiCheckInput.vue?vue&type=template&id=97c3c538&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_template_id_97c3c538___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_template_id_97c3c538___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/formInputs/TextInput.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/formInputs/TextInput.vue ***!
@@ -50633,8 +50843,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

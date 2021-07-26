@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Restaurant;
 use App\Dish;
 use App\Http\Controllers\Controller;
+use App\Type;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -18,8 +19,9 @@ class RestaurantController extends Controller
     {
         $restaurants = Restaurant::all();
         $dishes = Dish::all();
+        $types = Type::all();
 
-        return view("restaurants.index", compact("restaurants", "dishes"));
+        return view("restaurants.index", compact("restaurants", "dishes", "types"));
     }
 
     /**
