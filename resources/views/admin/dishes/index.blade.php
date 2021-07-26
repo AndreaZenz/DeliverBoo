@@ -34,6 +34,7 @@
                         <h2>{{ $dish->description }}</h2>
                         <h2>{{ $dish->ingredient_list }}</h2>
                         <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurants_id, $dish->id]) }} ">Modifica</a>
+
                         <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurants_id, $dish->id]) }} " method="POST" class="delete_form">
                             @csrf
                             @method('DELETE')

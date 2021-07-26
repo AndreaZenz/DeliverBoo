@@ -119,14 +119,25 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($restaurants_id, Dish $dish)
+    public function edit($restaurant_id, Dish $dish)
     {
         $types = Type::all();
 
-        return view('admin.dishes.edit', compact('restaurants_id', 'dish', 'types'));
+        return view('admin.dishes.edit', compact('restaurant_id', 'dish', 'types'));
 
     }
 
+    public function edit2($restaurant_id, Dish $dish)
+    {
+        $data = [
+            'restaurant_id' => $restaurant_id,
+            'dish' => $dish,
+            'types' => Type::all()
+        ];
+
+        return view('admin.dishes.edit', $data);
+
+    }
     /**
      * Update the specified resource in storage.
      *
