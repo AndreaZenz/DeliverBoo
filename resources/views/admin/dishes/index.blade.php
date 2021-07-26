@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 @endforeach
-                <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.dishes.create', $dish->id) }} ">Crea un nuovo piatto</a>
+                <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un nuovo piatto</a>
             </div>
         </div>
     </div>

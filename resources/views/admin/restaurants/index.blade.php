@@ -37,7 +37,7 @@
                             @include('partials.modifyBtn') <br>
                             @include('partials.showBtn') <br>
                             <a class="btn btn-secondary spacing" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
-                            <a href=" {{ route('admin.restaurants.dishes.index', [$dish->restaurants_id, $dish->id]) }} " class="btn mg-top-bot-10 btn-primary">Visualizza i piatti</a>
+                            <a href=" {{ route('admin.restaurants.dishes.index', [$restaurant->id]) }} " class="btn mg-top-bot-10 btn-primary">Visualizza i piatti</a>
                         </div>
                     </div>
 
