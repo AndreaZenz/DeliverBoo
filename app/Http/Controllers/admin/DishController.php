@@ -170,7 +170,7 @@ class DishController extends Controller
 
         $dish->update($form_data);
 
-        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
+        return redirect()->route('admin.restaurants.show', $restaurant_id);
 
     }
 
@@ -184,6 +184,7 @@ class DishController extends Controller
     {
         // $user_id = Auth::user()->id;
 
+        $dish->restaurants->detach();
 
         $dish->delete();
 
