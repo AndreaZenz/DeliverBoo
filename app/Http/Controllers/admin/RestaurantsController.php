@@ -93,6 +93,7 @@ class RestaurantsController extends Controller
     public function show(Restaurant $restaurant)
     {
         $dishes = Dish::all();
+        
 
         return view('admin.restaurants.show', [
             'restaurant' => $restaurant,
