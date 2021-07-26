@@ -23,9 +23,10 @@ class RestaurantsController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
+        
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
-            'types' => Type::All(),
+            //'types' => Type::All(),
         ];
 
 

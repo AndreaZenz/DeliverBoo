@@ -33,8 +33,8 @@
                         <h2>{{ $dish->price }}</h2>
                         <h2>{{ $dish->description }}</h2>
                         <h2>{{ $dish->ingredient_list }}</h2>
-                        <a href=" {{ route('admin.dishes.edit', $dish->id) }} ">Modifica</a>
-                        <form action=" {{ route('admin.dishes.destroy', $dish->id) }} " method="post" class="delete_form">
+                        <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurants_id, $dish->id]) }} ">Modifica</a>
+                        <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurants_id, $dish->id]) }} " method="POST" class="delete_form">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Cancella" class="btn btn-danger spacing">

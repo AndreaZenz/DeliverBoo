@@ -8,7 +8,13 @@
     @endif
     <h1>{{$restaurant->name}}</h1>
     <p>{{$restaurant->address}}</p>
-    <a class="btn btn-secondary spacing" href=" {{ route('admin.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
+    
+    <button type="button" class="btn btn-info spacing">
+        <a href=" {{ route('admin.restaurants.dishes.index', $restaurant->id) }} ">Visualizza i piatti</a>
+        {{-- <a href=" {{ url('admin/dishes/'. $restaurant->id) }} ">Visualizza i piatti</a> --}}
+        {{-- <a href=" {{ url('admin/restaurant/'. $restaurant->id . '/dishes', ) }} ">Visualizza i piatti</a> --}}
+    </button>
+    
 </div>
 
 @endsection
