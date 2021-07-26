@@ -8,6 +8,7 @@ use App\Dish;
 use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
 
@@ -90,6 +91,7 @@ class DishController extends Controller
 
         //return redirect()->route('admin.dishes.index', $newDish->id);
         return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
+
     }
 
 
