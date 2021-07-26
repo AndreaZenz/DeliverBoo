@@ -1,8 +1,8 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
@@ -14,14 +14,8 @@
                     </div>
                     @endif
 
-                    {{ __('All your dishes') }}
+                    {{ __('All the dishes') }}
                 </div>
-
-                {{-- pulsante create restaurant --}}
-                {{-- <div class="links">
-                    <a href=" {{route('admin.restaurants.create')}} ">Create</a>
-            </div> --}}
-
             <div class="container">
                 @foreach ($dishes as $dish)
                 <div class="col-12">
@@ -34,19 +28,12 @@
                             <h4 class="card-text">{{ $dish->price }}</h4>
                             <p class="card-text">{{ $dish->description }}</p>
                             <p class="card-text">{{ $dish->ingredient_list }}</p>
-                            <a href=" {{ route('admin.dishes.edit', $dish->id) }} " class="btn mg-top-bot-10 btn-warning">Modifica</a>
-                            <form action=" {{ route('admin.dishes.destroy', $dish->id) }} " method="post" class="delete_form">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" value="Cancella" class="btn btn-danger spacing">
-                            </form>
                         </div>
                     </div>
                 </div>
                 @endforeach
-                <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.dishes.create', $dish->id) }} ">Crea un nuovo piatto</a>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 @endsection

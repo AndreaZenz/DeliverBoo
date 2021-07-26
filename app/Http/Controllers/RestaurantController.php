@@ -51,7 +51,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
 
-        return view('admin.restaurants.show', [
+        return view('restaurants.show', [
             "restaurant" => $restaurant
         ]);
     }

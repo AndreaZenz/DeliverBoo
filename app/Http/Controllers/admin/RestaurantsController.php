@@ -63,7 +63,7 @@ class RestaurantsController extends Controller
             'address' => 'required | max:255',
             'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
-
+        
         $newRestaurantData = $request->all();
 
         $newRestaurant = new Restaurant();

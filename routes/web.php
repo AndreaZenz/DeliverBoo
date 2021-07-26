@@ -16,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'HomeController@index')->name('homepage');
+Route::get('/restautans', "RestaurantController@index")->name("restaurants.index");
+Route::get('/restaurants/{id}', "RestaurantController@show")->name("restaurants.show");
+Route::get('/dishes', "DishController@index")->name("dishes.index");
 
 Auth::routes();
 
 Route::resource("/restaurants", "RestaurantController");
-Route::resource("/dishes", "DishController");
+// Route::resource("/dishes", "DishController");
+
 
 Route::resource("/orders", "OrderController");
 

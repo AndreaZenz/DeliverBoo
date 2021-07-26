@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    {{ __('all your restaurants') }}
+                    {{ __('All your restaurants') }}
                 </div>
 
                 {{-- pulsante create restaurant --}}
@@ -25,23 +25,20 @@
             <div class="container">
                 @foreach ($restaurants as $restaurant)
                 <div class="col-12">
-                    @if($restaurant->img_url)
+                    <div class="card mg-top-bot-10" style="width: 100%;">
+                        @if($restaurant->img_url)
 
-                    <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
-                    @endif
-
-                    <h1>{{$restaurant->name}}</h1>
-                    <h2>{{$restaurant->address}}</h2>
-
-
-                    @include('partials.deleteBtn', ["restaurant"=> $restaurant])
-                    @include('partials.modifyBtn')
-                    @include('partials.showBtn')
-
-
-                    <button type="button" class="btn btn-info spacing">
-                        <a href=" {{ route('admin.dishes.index') }} ">Visualizza i piatti</a>
-                    </button>
+                        <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid card-img-top" style="width: 100%; max-height: 150px; object-fit: cover">
+                        @endif
+                        <div class="card-body">
+                            <h5 class="card-title">{{$restaurant->name}}</h5>
+                            <p class="card-text">{{$restaurant->address}}</p>
+                            @include('partials.deleteBtn', ["restaurant"=> $restaurant])
+                            @include('partials.modifyBtn') <br>
+                            @include('partials.showBtn') <br>
+                            <a href=" {{ route('admin.dishes.index') }} " class="btn mg-top-bot-10 btn-primary">Visualizza i piatti</a>
+                        </div>
+                    </div>
 
                 </div>
                 @endforeach

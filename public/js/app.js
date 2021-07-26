@@ -1997,6 +1997,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantCard",
   props: {
@@ -2007,7 +2016,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     imgSrc: function imgSrc() {
-      var defaultImg = 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
+      var defaultImg = "https://www.linga.org/site/photos/Largnewsimages/image-not-found.png";
       return this.imgUrl ? "storage/" + this.imgUrl : defaultImg;
     }
   }
@@ -37849,21 +37858,29 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-4" }, [
-    _c("h1", [_vm._v(_vm._s(_vm.name))]),
-    _vm._v(" "),
-    _c("h2", [_vm._v(_vm._s(_vm.address))]),
-    _vm._v(" "),
-    _c("img", {
-      staticClass: "img-fluid",
-      staticStyle: {
-        width: "100%",
-        "max-height": "150px",
-        "object-fit": "cover"
-      },
-      attrs: { src: _vm.imgUrl, alt: "" }
-    }),
-    _vm._v(" "),
-    _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri...")])
+    _c(
+      "div",
+      { staticClass: "card mg-top-bot-10", staticStyle: { width: "100%" } },
+      [
+        _c("img", {
+          staticClass: "img-fluid card-img-top",
+          staticStyle: {
+            width: "100%",
+            "max-height": "150px",
+            "object-fit": "cover"
+          },
+          attrs: { src: _vm.imgUrl, alt: "" }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.name))]),
+          _vm._v(" "),
+          _c("h4", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.address))]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
