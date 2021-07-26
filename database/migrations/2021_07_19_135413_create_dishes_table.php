@@ -19,7 +19,7 @@ class CreateDishesTable extends Migration
             $table->string('name');
             $table->decimal('price', $precision = 8, $scale = 2);
             $table->longtext('description')->nullable();
-            $table->boolean('visible')->nullable();
+            $table->boolean('visible')->default(true);
             $table->text('ingredient_list');
             $table->string('img_url')->nullable();
             

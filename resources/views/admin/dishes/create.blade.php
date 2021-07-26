@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action=" {{ route('admin.dishes.store') }} " method="post" enctype="multipart/form-data">
+    <form action=" {{ route('admin.restaurants.dishes.store', $restaurant_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="name">Dish name</label>
         <input type="text" name="name" id="name">

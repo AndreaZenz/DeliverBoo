@@ -9,6 +9,7 @@
     <h1>{{$restaurant->name}}</h1>
     <p>{{$restaurant->address}}</p>
     <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
+    <a href=" {{ route('admin.restaurants.dishes.index', $restaurant->id) }} ">Visualizza i piatti</a>
 </div>
 
 @endsection
