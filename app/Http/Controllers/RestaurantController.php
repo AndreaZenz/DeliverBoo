@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+use App\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,9 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::all();
+        $dishes = Dish::all();
 
-        return view("restaurants.index", compact("restaurants"));
+        return view("restaurants.index", compact("restaurants", "dishes"));
     }
 
     /**
@@ -50,9 +52,11 @@ class RestaurantController extends Controller
     public function show($id)
     {
         $restaurant = Restaurant::find($id);
+        $dishes = Dish::all();
 
         return view('restaurants.show', [
-            "restaurant" => $restaurant
+            "restaurant" => $restaurant,
+            "dishes" => $dishes
         ]);
     }
 

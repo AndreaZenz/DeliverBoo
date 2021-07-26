@@ -23,6 +23,7 @@ class RestaurantsController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
+        // $dishes = Dish::all()
         
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
@@ -91,7 +92,13 @@ class RestaurantsController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('admin.restaurants.show', ['restaurant' => $restaurant]);
+        $dishes = Dish::all();
+        
+
+        return view('admin.restaurants.show', [
+            'restaurant' => $restaurant,
+            'dishes' => $dishes
+        ]);
         // if (Auth::check()) {
         //     $data = Restaurant::find($id);
         //     if (Auth::User()->id  == $data->User->id) {
@@ -117,12 +124,13 @@ class RestaurantsController extends Controller
     {
         $user_id = Auth::user()->id;
         // $restaurant = Restaurant::find($id);
-
+        
 
         if ($restaurant && $restaurant->user_id == $user_id) {
             $data = [
                 'restaurant' => $restaurant,
-                'types' => Type::all()
+                'types' => Type::all(),
+                'dishes' => Dish::all()
             ];
             return view('admin.restaurants.edit', $data);
         }
