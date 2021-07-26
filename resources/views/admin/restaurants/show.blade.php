@@ -25,8 +25,6 @@
                     <p class="card-text">{{ $dish->ingredient_list }}</p>
                     <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurants_id, $dish->id]) }} " class="btn mg-top-bot-10 btn-warning">Modifica</a>
 
-                    <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurants_id, $dish->id]) }} ">Modifica</a>
-
                     <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurants_id, $dish->id]) }} " method="post" class="delete_form">
                         @csrf
                         @method('DELETE')

@@ -119,7 +119,7 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($restaurant_id, Dish $dish)
+    public function edit2($restaurant_id, Dish $dish)
     {
         $types = Type::all();
 
@@ -127,7 +127,7 @@ class DishController extends Controller
 
     }
 
-    public function edit2($restaurant_id, Dish $dish)
+    public function edit($restaurant_id, Dish $dish)
     {
         $data = [
             'restaurant_id' => $restaurant_id,
