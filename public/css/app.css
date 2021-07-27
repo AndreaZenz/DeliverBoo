@@ -10,9 +10,41 @@ body {
   color: #2e3333;
 }
 
-.spacing {
-  margin-top: 12px;
-  margin-bottom: 12px;
+.mg-top-bot-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+footer {
+  background-color: #2E3333;
+  color: white;
+}
+
+footer .container .row .col h4 {
+  padding: 10px;
+  text-align: center;
+}
+
+footer .container .row .col ul {
+  list-style: none;
+}
+
+.footer-down {
+  justify-content: flex-end;
+}
+
+.footer-down .icons {
+  list-style: none;
+}
+
+.footer-down .icons li {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 /*!

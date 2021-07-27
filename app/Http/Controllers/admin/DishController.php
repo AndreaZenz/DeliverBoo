@@ -22,7 +22,7 @@ class DishController extends Controller
      */
     public function index($restaurant_id)
     {
-        $dishes = Dish::where('restaurants_id', $restaurant_id)->get();
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -61,7 +61,7 @@ class DishController extends Controller
 
         $newDishData = $request->all();
 
-        // $newDish = new Dish();
+        $newDish = new Dish();
 
         if (array_key_exists('img_url', $newDishData)) {
             $image_path = Storage::put('restaurants_cover', $newDishData['img_url']);
@@ -72,13 +72,13 @@ class DishController extends Controller
         // $restaurant->dishes()->create($request->all());
 
 
-        // $newDish->fill($newDishData);
+        $newDish->fill($newDishData);
 
-        // $newDish->restaurants_id = Auth::user()->id;
+        $newDish->restaurant_id = $restaurant_id;
 
-        // $newDish->save();
+        $newDish->save();
 
-        Dish::create($newDishData + ['restaurants_id' => $restaurant_id]);
+        // Dish::create($newDishData + ['restaurant_id' => $restaurant_id]);
 
         //return redirect()->route('admin.dishes.index', $newDish->id);
         return redirect()->route('admin.restaurants.show', $restaurant_id);
@@ -97,7 +97,7 @@ class DishController extends Controller
      */
     public function show($restaurant_id, Dish $dish)
     {
-        return view('admin.dishes.show', compact('restaurants_id', 'dish'));
+        return view('admin.dishes.show', compact('restaurant_id', 'dish'));
         // if (Auth::check()) {
         //     $data = Dish::find($id);
         //     if (Auth::User()->id  == $data->User->id) {

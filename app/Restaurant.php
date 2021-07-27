@@ -29,7 +29,7 @@ class Restaurant extends Model
         return $this->belongsTo("App\User", "user_id");
     }
 
-    public function Dish() 
+    public function Dishes() 
     {
         return $this->hasMany("App\Dish");
     }

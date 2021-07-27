@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -13,7 +14,9 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::all();
+
+        return view("dishes.index", compact("dishes"));
     }
 
     /**
@@ -45,7 +48,11 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        $dish = Dish::find($id);
+
+        return view('dishes.show', [
+            "dish" => $dish
+        ]);
     }
 
     /**

@@ -33,7 +33,7 @@
             </a>
             <ul class="navbar-nav px-3 ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('homepage')}}">
+                    <a class="nav-link" href="{{route('restaurants.index')}}">
                         Visita il sito
                     </a>
                 </li>

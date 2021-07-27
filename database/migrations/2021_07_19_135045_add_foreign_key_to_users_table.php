@@ -15,10 +15,8 @@ class AddForeignKeyToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-        $table->unsignedBigInteger("restaurants_id")->nullable();
-
-    
-        $table->foreign("restaurants_id")
+        $table->unsignedBigInteger("restaurant_id")->nullable();
+        $table->foreign("restaurant_id")
             ->references("id")
             ->on("restaurants");
         });
@@ -33,7 +31,7 @@ class AddForeignKeyToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign("users_restaurants_id_foreign");
-            $table->dropColumn("restaurants_id");
+            $table->dropColumn("restaurant_id");
         });
     }
 }

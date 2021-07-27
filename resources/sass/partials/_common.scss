@@ -3,7 +3,11 @@ body{
     color: $primary-color;
 }
 
-.spacing{
-    margin-top: 12px;
-    margin-bottom: 12px;
+.mg-top-bot-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.no-decoration {
+    text-decoration: none;
 }

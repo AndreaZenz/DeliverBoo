@@ -4,7 +4,13 @@
       <div class="row">
         <div class="col">
           <text-input label="Nome" v-model="filters.name"></text-input>
-          <text-input label="Indirizzo" v-model="filters.address"></text-input>
+          <div class="col">
+            <multi-check-input
+              label="type"
+              :items="types"
+              v-model="filters.types"
+            ></multi-check-input>
+          </div>
         </div>
       </div>
 
@@ -22,16 +28,19 @@
           :name="restaurant.name"
           :address="restaurant.address"
           :link="restaurant.link"
+          :types="restaurant.type"
         ></restaurant-card>
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
 export default {
   name: "RestaurantIndex",
+  props: {
+  types: Array,
+  },
   data() {
     return {
       allRestaurantsList: [],
@@ -39,8 +48,10 @@ export default {
       filters: {
         name: "",
         address: "",
+        types: null,
       },
       activeFilters: null,
+      typesList: [],
     };
   },
   methods: {
@@ -49,11 +60,11 @@ export default {
         .get("/api/restaurants/filter", {
           params: this.filters,
         })
-        .then(resp => {
+        .then((resp) => {
           this.restaurantsList = resp.data.results;
           this.activeFilters = resp.data.filters;
         })
-        .catch(er => {
+        .catch((er) => {
           console.error(er);
           alert("Errore in fase di filtraggio dati.");
         });
@@ -72,6 +83,16 @@ export default {
       })
       .catch((er) => {
         alert("Impossibile recuperare l'elenco dei ristoranti");
+      });
+    axios
+      .get("/api/types")
+      .then((resp) => {
+        this.typesList = resp.data.results;
+      })
+      .catch((er) => {
+        console.error(er);
+
+        alert("Non posso recuperare le tipologie di ristorante");
       });
   },
 };

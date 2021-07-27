@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    {{ __('all your restaurants') }}
+                    {{ __('All your restaurants') }}
                 </div>
 
                 {{-- pulsante create restaurant --}}
