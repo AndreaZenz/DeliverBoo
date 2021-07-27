@@ -55,10 +55,12 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $dishes = Dish::all();
+        $types = Type::all();
 
         return view('restaurants.show', [
             "restaurant" => $restaurant,
-            "dishes" => $dishes
+            "dishes" => $dishes,
+            "types" => $types,
         ]);
     }
 

@@ -8,7 +8,6 @@
     @endif
     <h1>{{$restaurant->name}}</h1>
     <p>{{$restaurant->address}}</p>
-
     <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
     <div class="container">
 

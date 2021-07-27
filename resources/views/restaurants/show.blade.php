@@ -7,7 +7,13 @@
         <div class="card-body">
             <h5 class="card-title">{{$restaurant->name}}</h5>
             <p class="card-text">{{$restaurant->address}}</p>
-            
+            {{-- @if(count($restaurant->types) > 0) --}}
+            {{-- @foreach($restaurant->types as $type)
+            <span class="badge badge-primary">{{ $type->name }}</span>
+            @endforeach --}}
+            {{-- @else
+            <p>Nessun tag disponibile...</p>
+            @endif --}}
         </div>
         <div class="container">
             @foreach ($dishes as $dish)

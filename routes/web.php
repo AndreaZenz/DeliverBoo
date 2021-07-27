@@ -40,21 +40,20 @@ Route::prefix('admin')
     ->name("admin.")
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home_login');
+        Route::get('/types', 'TypeController@index')->name('types.index');
+        Route::get("/restaurants/filter", "RestaurantsController@filter")->name("restaurants.filter");
 
-        //Route::get('/types', 'TypeController@index')->name('types.index');
         
-        //Genera tutte le rotte necessarie per la crud dei posts
         Route::resource("/orders", "OrderController");
-
-        //Route::resource("/statistics", "StatisticController");
-
-        //Route::get("/posts/filter", "PostController@filter")->name("posts.filter");
         Route::resource("/users", "UserController");
+        Route::resource("/restaurants", "RestaurantsController");
         
+        Route::resource('restaurants.dishes', "DishController");
+        
+        
+        //Route::resource("/statistics", "StatisticController");
         //Route::resource("/dishes", "DishController");
         //completamente rifatta
         
-        Route::resource("/restaurants", "RestaurantsController");
 
-        Route::resource('restaurants.dishes', "DishController");
 });
