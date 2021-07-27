@@ -29,18 +29,18 @@
                         @if($dish->img_url)
                         <img src="{{ asset('storage/' . $dish->img_url) }}" class="img-fluid card-img-top" style="width: 100%; max-height: 150px; object-fit: cover">
                         @endif
-
-                        <h1>{{ $dish->name }}</h1>
-                        <h2>{{ $dish->price }}</h2>
-                        <h2>{{ $dish->description }}</h2>
-                        <h2>{{ $dish->ingredient_list }}</h2>
-                        <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurant_id, $dish->id]) }} ">Modifica</a>
-
-                        <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurant_id, $dish->id]) }} " method="POST" class="delete_form">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="Cancella" class="btn btn-danger spacing">
-                        </form>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $dish->name }}</h5>
+                            <h4 class="card-text">{{ $dish->price }}</h4>
+                            <p class="card-text">{{ $dish->description }}</p>
+                            <p class="card-text">{{ $dish->ingredient_list }}</p>
+                            <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurant_id, $dish->id]) }} " class="btn mg-top-bot-10 btn-warning">Modifica</a>
+                            <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurant_id, $dish->id]) }} " method="post" class="delete_form">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="Cancella" class="btn btn-danger spacing">
+                            </form>
+                        </div>
                     </div>
                 </div>
                 {{-- <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un nuovo piatto</a> --}}
