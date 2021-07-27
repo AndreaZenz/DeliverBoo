@@ -48,7 +48,7 @@ class RestaurantsController extends Controller
             $newRestaurantData["img_url"] = $storageImage;
         }
 
-        return view("admin.restaurants.create", ['types' => $types]);
+        return view("admin.restaurants.create", compact("types"));
     }
 
     /**
@@ -81,13 +81,13 @@ class RestaurantsController extends Controller
 
         $newRestaurant->save();
 
-        // $newRestaurant->types()->attach($newRestaurant["types"]);
+        // $newRestaurant->type()->attach($newRestaurant["types"]);
 
-        // if (isset($newRestaurantData['types'])) {
+        if (isset($newRestaurantData['types'])) {
             $newRestaurant->type()->sync($newRestaurantData['types']);
-        
+        }
 
-        return redirect()->route('admin.restaurants.show', $newRestaurant->id);
+        return redirect()->route('admin.restaurants.index', $newRestaurant->id);
     }
 
     /**
@@ -105,7 +105,19 @@ class RestaurantsController extends Controller
             'restaurant' => $restaurant,
             'dishes' => $dishes
         ]);
-
+        // if (Auth::check()) {
+        //     $data = Restaurant::find($id);
+        //     if (Auth::User()->id  == $data->User->id) {
+        //         $restaurant = Auth::User()->User;
+        //         return view('admin.restaurants.index', compact('restaurant'));
+        //     } else {
+        //         $restaurant = Restaurant::where("id", $id)->with("User")->get();
+        //         return view("admin.restaurants.show", compact("restaurant"));
+        //     }
+        // } else {
+        //     $restaurant = Restaurant::where("id", $id)->with("User")->get();
+        //     return view("admin.restaurants.show", compact("restaurant"));
+        // }
     }
 
     /**
@@ -170,7 +182,7 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy(Restaurant $restaurant, Dish $Dishes)
     {
         $user_id = Auth::user()->id;
         
@@ -178,6 +190,7 @@ class RestaurantsController extends Controller
 
         if ($restaurant && $restaurant->user_id == $user_id) {
 
+            $restaurant->dishes()->delete();
             $restaurant->delete();
 
             return redirect()->route('admin.restaurants.index');

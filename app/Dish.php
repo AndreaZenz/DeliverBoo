@@ -23,6 +23,6 @@ class Dish extends Model
 
     public function Restaurant()
     {
-        return $this->belongsTo("App\Restaurant", "restaurants_id");
+        return $this->belongsTo("App\Restaurant", "restaurant_id");
     }
 }
