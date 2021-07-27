@@ -37,7 +37,7 @@
 
 
 
-      <div class="row align-items-start">
+      <div class="row align-items-start footer-down">
           <div class="">
               <p>
                 &copy;Deliveboo 2021
@@ -45,11 +45,11 @@
           </div>
 
           <div class="">
-              <ul>
+              <ul class="icons">
                   <li><a href="https://www.facebook.com/boolean.careers/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
                   <li><a href="https://twitter.com/booleancareers" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                   <li><a href="https://youtu.be/59zORE5buOo" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                  <li><a href="https://www.linkedin.com/school/boolean-careers/mycompany/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                  <li><a href="https://www.linkedin.com/school/boolean-careers/mycompany/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                   <li><a href="https://www.instagram.com/boolean.careers/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                 </ul>
           </div>
