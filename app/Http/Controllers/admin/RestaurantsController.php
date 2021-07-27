@@ -7,6 +7,7 @@ use App\Type;
 use App\Payment;
 use App\Dish;
 use App\Http\Controllers\Controller;
+use Exception;
 use Faker\Guesser\Name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -23,8 +24,8 @@ class RestaurantsController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        
-        
+
+
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
             'types' => Type::where(''),
@@ -65,7 +66,7 @@ class RestaurantsController extends Controller
             'address' => 'required | max:255',
             'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
-        
+
         $newRestaurantData = $request->all();
 
         $newRestaurant = new Restaurant();
@@ -84,7 +85,7 @@ class RestaurantsController extends Controller
         // $newRestaurant->type()->attach($newRestaurant["types"]);
 
         if (isset($newRestaurantData['types'])) {
-            $newRestaurant->type()->sync($newRestaurantData['types']);
+            $newRestaurant->types()->sync($newRestaurantData['types']);
         }
 
         return redirect()->route('admin.restaurants.index', $newRestaurant->id);
@@ -117,7 +118,7 @@ class RestaurantsController extends Controller
     {
         $user_id = Auth::user()->id;
         // $restaurant = Restaurant::find($id);
-        
+
 
         if ($restaurant && $restaurant->user_id == $user_id) {
             $data = [
@@ -143,7 +144,8 @@ class RestaurantsController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'address' => 'required | max:255',
-            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
+            'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700',
+            'types' => "exists:types,id"
         ]);
 
         $form_data = $request->all();
@@ -153,10 +155,23 @@ class RestaurantsController extends Controller
             if ($restaurant->img_url) {
                 Storage::delete($restaurant->img_url);
             }
-            
+
             $image_path = Storage::put('restaurants_cover', $form_data['img_url']);
 
             $form_data['img_url'] = $image_path;
+        }
+
+        if (!key_exists("types", $form_data)) {
+            $form_data["types"] = [];
+        }
+
+        // $restaurant->Type()->detach();
+        // $restaurant->Type()->attach($form_data["types"]);
+
+        try {
+            $restaurant->types()->sync($form_data["types"]);
+        } catch (Exception $er) {
+            abort(400, "Type inesistente");
         }
 
         $restaurant->update($form_data);
@@ -172,7 +187,7 @@ class RestaurantsController extends Controller
     public function destroy(Restaurant $restaurant, Dish $Dishes)
     {
         $user_id = Auth::user()->id;
-        
+
 
 
         if ($restaurant && $restaurant->user_id == $user_id) {
@@ -183,5 +198,12 @@ class RestaurantsController extends Controller
             return redirect()->route('admin.restaurants.index');
         }
         abort(404, "non è possibile eliminare il ristorante selezionato");
+    }
+    public function filter(Request $request) {
+        $filters = $request->all();
+        $restaurants = Restaurant::join("restaurant_type", "restaurants.id", "=", "restaurant_type.restaurant_id")
+            ->where("restaurant_type.type_id", $filters["type"])->get();
+
+        return redirect()->route("admin.restaurants.index")->with(["restaurants" => $restaurants]);
     }
 }

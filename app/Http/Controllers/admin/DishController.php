@@ -184,7 +184,7 @@ class DishController extends Controller
     {
         // $user_id = Auth::user()->id;
 
-        $dish->restaurants->detach();
+        // $dish->restaurants()->detach();
 
         $dish->delete();
 

@@ -2006,12 +2006,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantCard",
   props: {
     imgUrl: String,
     name: String,
-    address: String,
+    types: Array,
     link: String
   },
   computed: {
@@ -2070,6 +2077,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -2080,8 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: "",
-        address: "",
+        names: null,
         types: null
       },
       activeFilters: null,
@@ -2104,7 +2118,27 @@ __webpack_require__.r(__webpack_exports__);
     },
     onReset: function onReset() {
       this.restaurantsList = this.allRestaurantsList;
-      this.activeFilters = null;
+      this.filters.name = "";
+      this.filters.type = null;
+    },
+    // resetTypes() {
+    //   this.restaurantsList = this.allRestaurantsList;
+    //   this.filters.name = "";
+    //   this.filters.type = [];
+    //   this.activeFilters = null;
+    // },
+    printActiveFilters: function printActiveFilters() {
+      var toReturn = [];
+
+      if (Object.keys(this.activeFilters).length === 0) {
+        return;
+      }
+
+      for (var chiaveFiltro in this.activeFilters) {
+        toReturn.push(chiaveFiltro + " = " + this.activeFilters[chiaveFiltro]);
+      }
+
+      return toReturn.join("<br>");
     }
   },
   mounted: function mounted() {
@@ -37953,13 +37987,26 @@ var render = function() {
           attrs: { src: _vm.imgUrl, alt: "" }
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.name))]),
-          _vm._v(" "),
-          _c("h4", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.address))]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
-        ])
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.name))]),
+            _vm._v(" "),
+            _vm._l(_vm.types, function(type) {
+              return _c(
+                "span",
+                { key: type.id, staticClass: "badge badge-primary" },
+                [_vm._v("\n        " + _vm._s(type.name) + "\n      ")]
+              )
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
+          ],
+          2
+        )
       ]
     )
   ])
@@ -37987,72 +38034,80 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.filterData.apply(null, arguments)
-          },
-          reset: _vm.onReset
-        }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.filterData.apply(null, arguments)
+            },
+            reset: _vm.onReset
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _c("text-input", {
+                  attrs: { label: "Nome" },
+                  model: {
+                    value: _vm.filters.name,
+                    callback: function($$v) {
+                      _vm.$set(_vm.filters, "name", $$v)
+                    },
+                    expression: "filters.name"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col" },
+                  [
+                    _c("multi-check-input", {
+                      attrs: { label: "Types", items: _vm.types },
+                      model: {
+                        value: _vm.filters.types,
+                        callback: function($$v) {
+                          _vm.$set(_vm.filters, "types", $$v)
+                        },
+                        expression: "filters.types"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "col" },
-            [
-              _c("text-input", {
-                attrs: { label: "Nome" },
-                model: {
-                  value: _vm.filters.name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.filters, "name", $$v)
-                  },
-                  expression: "filters.name"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col" },
-                [
-                  _c("multi-check-input", {
-                    attrs: { label: "type", items: _vm.types },
-                    model: {
-                      value: _vm.filters.types,
-                      callback: function($$v) {
-                        _vm.$set(_vm.filters, "types", $$v)
-                      },
-                      expression: "filters.types"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("Filtra")]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Filtra")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-secondary",
-            attrs: { type: "reset" }
-          },
-          [_vm._v("\n      Annulla filtri\n    ")]
-        )
-      ]
-    ),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(0)
+    ]),
+    _vm._v(" "),
+    _vm.activeFilters
+      ? _c("div", { staticClass: "alert alert-success mb-5" }, [
+          _vm._v(
+            "\n    Sono stati trovati " +
+              _vm._s(_vm.restaurantsList.length) +
+              " risulati per il filtro:\n    "
+          ),
+          _c("div", {
+            domProps: { innerHTML: _vm._s(_vm.printActiveFilters()) }
+          })
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
@@ -38064,9 +38119,7 @@ var render = function() {
             attrs: {
               "img-url": restaurant.img_url,
               name: restaurant.name,
-              address: restaurant.address,
-              link: restaurant.link,
-              types: restaurant.type
+              types: restaurant.types
             }
           })
         }),
@@ -38075,7 +38128,21 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-outline-secondary",
+        attrs: { type: "reset", href: "#" }
+      },
+      [_c("a", { attrs: { href: "/" } }, [_vm._v("Annulla filtri")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -50843,8 +50910,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

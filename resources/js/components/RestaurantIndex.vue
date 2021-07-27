@@ -1,24 +1,34 @@
 <template>
   <div class="container">
-    <form @submit.prevent="filterData" @reset="onReset">
-      <div class="row">
-        <div class="col">
-          <text-input label="Nome" v-model="filters.name"></text-input>
+    <div class="card-body">
+      <form @submit.prevent="filterData" @reset="onReset">
+        <div class="row">
           <div class="col">
-            <multi-check-input
-              label="type"
-              :items="types"
-              v-model="filters.types"
-            ></multi-check-input>
+            <text-input label="Nome" v-model="filters.name"></text-input>
+            <div class="col">
+              <multi-check-input
+                label="Types"
+                :items="types"
+                v-model="filters.types"
+              ></multi-check-input>
+            </div>
           </div>
         </div>
-      </div>
 
-      <button type="submit" class="btn btn-primary">Filtra</button>
-      <button type="reset" class="btn btn-outline-secondary">
-        Annulla filtri
+        <button type="submit" class="btn btn-primary">Filtra</button>
+      </form>
+      
+      <button type="reset" href="#" class="btn btn-outline-secondary">
+        <a href="/">Annulla filtri</a>
       </button>
-    </form>
+
+      
+    </div>
+    <div class="alert alert-success mb-5" v-if="activeFilters">
+      Sono stati trovati {{ restaurantsList.length }} risulati per il filtro:
+      <div v-html="printActiveFilters()"></div>
+    </div>
+
     <div class="row justify-content-center">
       <div class="col-12">
         <restaurant-card
@@ -26,9 +36,7 @@
           :key="restaurant.id"
           :img-url="restaurant.img_url"
           :name="restaurant.name"
-          :address="restaurant.address"
-          :link="restaurant.link"
-          :types="restaurant.type"
+          :types="restaurant.types"
         ></restaurant-card>
       </div>
     </div>
@@ -39,15 +47,14 @@
 export default {
   name: "RestaurantIndex",
   props: {
-  types: Array,
+    types: Array,
   },
   data() {
     return {
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: "",
-        address: "",
+        names: null,
         types: null,
       },
       activeFilters: null,
@@ -71,7 +78,27 @@ export default {
     },
     onReset() {
       this.restaurantsList = this.allRestaurantsList;
-      this.activeFilters = null;
+      this.filters.name = "";
+      this.filters.type = null;
+    },
+    // resetTypes() {
+    //   this.restaurantsList = this.allRestaurantsList;
+    //   this.filters.name = "";
+    //   this.filters.type = [];
+    //   this.activeFilters = null;
+    // },
+    printActiveFilters() {
+      const toReturn = [];
+
+      if (Object.keys(this.activeFilters).length === 0) {
+        return;
+      }
+
+      for (const chiaveFiltro in this.activeFilters) {
+        toReturn.push(chiaveFiltro + " = " + this.activeFilters[chiaveFiltro]);
+      }
+
+      return toReturn.join("<br>");
     },
   },
   mounted() {
@@ -91,7 +118,6 @@ export default {
       })
       .catch((er) => {
         console.error(er);
-
         alert("Non posso recuperare le tipologie di ristorante");
       });
   },

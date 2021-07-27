@@ -9,7 +9,14 @@
       />
       <div class="card-body">
         <h5 class="card-title">{{ name }}</h5>
-        <h4 class="card-text">{{ address }}</h4>
+        <span class="badge badge-primary" 
+        v-for="type in types" 
+        :key="type.id"
+        >
+          {{ type.name }}
+        </span>
+
+        <br />
         <a :href="link">Apri</a>
       </div>
     </div>
@@ -22,7 +29,7 @@ export default {
   props: {
     imgUrl: String,
     name: String,
-    address: String,
+    types: Array,
     link: String,
   },
   computed: {
@@ -31,7 +38,7 @@ export default {
         "https://www.linga.org/site/photos/Largnewsimages/image-not-found.png";
 
       return this.imgUrl ? "storage/" + this.imgUrl : defaultImg;
-    }
+    },
   },
 };
 </script>

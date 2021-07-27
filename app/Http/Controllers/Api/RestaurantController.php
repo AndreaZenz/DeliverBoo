@@ -12,7 +12,7 @@ class RestaurantController extends Controller
 {
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::with("types")->get();
 
         foreach ($restaurants as $restaurant) {
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
@@ -25,37 +25,36 @@ class RestaurantController extends Controller
         ]);
     }
 
-    public function filter()
+    public function filter(Request $request)
     {
-        $restaurants = Restaurant::all();
+        $filters = $request->only(["name", "types"]);
 
-        $name = isset($_GET['name']) ? strtolower($_GET['name']) : "";
-        $address = isset($_GET['address']) ? strtolower($_GET['address']) : "";
+        $result = Restaurant::with('types');
 
-        if ($name == "") {
-            return $restaurants;
+        foreach ($filters as $filter => $value) {
+            if ($filter === "types") {
+                if (!is_array($value)) {
+                    $value = explode(",", $value);
+                }
+                
+                $result->join("restaurant_type", "restaurants.id", "=", "restaurant_type.restaurant_id")
+                    ->whereIn("restaurant_type.type_id", $value);
+            } 
+            else {
+                $result->where($filter, "LIKE", "%$value%");
+            }
         }
+        $restaurants = $result->get();
 
-
-        $restaurantsResult = [];
-
-        foreach ($restaurants as $restaurant) {
+        foreach ($restaurants as $restaurant){
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
-            // $restaurant->link = route("restaurants.show", $restaurant->id);
-            $result = strpos(strtolower($restaurant['name']), $name);
-
-            if ($result !== false) {
-                $restaurantsResult[] = $restaurant;
-            };
-
-            // $restaurant->link = route("admin.restaurants.show",  $restaurant->id);
         }
 
         return response()->json([
             "success" => true,
-            "results" => $restaurantsResult,
-            "name" => $name
+            "filters" => $filters,
+            "query" => $result->getQuery()->toSql(),
+            "results" => $restaurants
         ]);
     }
-    
 }
