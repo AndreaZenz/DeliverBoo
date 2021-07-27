@@ -98,7 +98,7 @@ class RestaurantsController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $dishes = Dish::where('restaurants_id', $restaurant->id)->get();
+        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
 
         return view('admin.restaurants.show', [
             'restaurant' => $restaurant,
