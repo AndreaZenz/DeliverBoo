@@ -184,6 +184,8 @@ class DishController extends Controller
     {
         // $user_id = Auth::user()->id;
 
+        $dish->restaurants->detach();
+
         $dish->delete();
 
         return redirect()->route('admin.restaurants.show', $restaurant_id);
