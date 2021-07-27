@@ -12,7 +12,7 @@ class RestaurantController extends Controller
 {
     public function index()
     {
-        $restaurants = Restaurant::with("Type")->get();
+        $restaurants = Restaurant::with("types")->get();
 
         foreach ($restaurants as $restaurant) {
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
@@ -29,23 +29,32 @@ class RestaurantController extends Controller
     {
         $filters = $request->only(["name", "types"]);
 
-        $result = Restaurant::with('Type');
+        $result = Restaurant::with('types');
 
         foreach ($filters as $filter => $value) {
+            // if ($filter === "types") {
+            //     if (!is_array($value)) {
+            //         $value = explode(",", $value);
+            //     }
+
+            //     $result->join("restaurant_type", "restaurants.id", "=", "restaurant_type.restaurant_id")
+            //         ->whereIn("restaurant_type.type_id", $value);
+            // } 
             if ($filter === "types") {
                 if (!is_array($value)) {
                     $value = explode(",", $value);
                 }
-                
-                $result->join("restaurant_type", "restaurants.id", "=", "restaurant_type.restaurant_id")
-                    ->whereIn("restaurant_type.type_id", $value);
+
+                $result->whereIn("type_id", $value);
+                //$result->whereNotNull("category_id");
+
             } else {
                 $result->where($filter, "LIKE", "%$value%");
             }
         }
         $restaurants = $result->get();
 
-        foreach ($restaurants as $restaurant){
+        foreach ($restaurants as $restaurant) {
             $restaurant->img_url = $restaurant->img_url ? asset('storage/' . $restaurant->img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png';
         }
 

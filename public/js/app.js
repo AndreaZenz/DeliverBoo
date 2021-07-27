@@ -2082,30 +2082,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -2137,17 +2113,17 @@ __webpack_require__.r(__webpack_exports__);
         alert("Errore in fase di filtraggio dati.");
       });
     },
-    // onReset() {
-    //   this.restaurantsList = this.allRestaurantsList;
-    //   this.filters.name = "";
-    //   this.filters.type = null;
-    // },
-    resetTypes: function resetTypes() {
+    onReset: function onReset() {
       this.restaurantsList = this.allRestaurantsList;
       this.filters.name = "";
-      this.filters.type = [];
-      this.activeFilters = null;
+      this.filters.type = null;
     },
+    // resetTypes() {
+    //   this.restaurantsList = this.allRestaurantsList;
+    //   this.filters.name = "";
+    //   this.filters.type = [];
+    //   this.activeFilters = null;
+    // },
     printActiveFilters: function printActiveFilters() {
       var toReturn = [];
 
@@ -2217,7 +2193,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "MultiCheckInput",
   props: {
     items: {
-      types: Array,
+      type: Array,
       required: true
     },
     label: String,
@@ -38055,147 +38031,74 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.filterData.apply(null, arguments)
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.filterData.apply(null, arguments)
+            },
+            reset: _vm.onReset
           }
-        }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col" },
-            [
-              _c("text-input", {
-                attrs: { label: "Nome" },
-                model: {
-                  value: _vm.filters.name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.filters, "name", $$v)
-                  },
-                  expression: "filters.name"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _c("text-input", {
+                  attrs: { label: "Nome" },
+                  model: {
+                    value: _vm.filters.name,
+                    callback: function($$v) {
+                      _vm.$set(_vm.filters, "name", $$v)
+                    },
+                    expression: "filters.name"
+                  }
+                }),
+                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "mb-3" },
+                  { staticClass: "col" },
                   [
-                    _c("label", { staticClass: "form-label" }, [
-                      _vm._v("filtri")
-                    ]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _vm._l(_vm.typesList, function(type) {
-                      return _c(
-                        "div",
-                        {
-                          key: type.id,
-                          staticClass: "form-check form-check-inline"
+                    _c("multi-check-input", {
+                      attrs: { label: "Types", items: _vm.types },
+                      model: {
+                        value: _vm.filters.type,
+                        callback: function($$v) {
+                          _vm.$set(_vm.filters, "type", $$v)
                         },
-                        [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "form-check-label",
-                              attrs: { for: type.id }
-                            },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.filters.type,
-                                    expression: "filters.type"
-                                  }
-                                ],
-                                staticClass: "form-check-input",
-                                attrs: { id: type.id, type: "checkbox" },
-                                domProps: {
-                                  value: type.id,
-                                  checked: Array.isArray(_vm.filters.type)
-                                    ? _vm._i(_vm.filters.type, type.id) > -1
-                                    : _vm.filters.type
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$a = _vm.filters.type,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = type.id,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.filters,
-                                            "type",
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.filters,
-                                            "type",
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.filters, "type", $$c)
-                                    }
-                                  }
-                                }
-                              }),
-                              _vm._v(
-                                "\n                " +
-                                  _vm._s(type.name) +
-                                  "\n              "
-                              )
-                            ]
-                          )
-                        ]
-                      )
+                        expression: "filters.type"
+                      }
                     })
                   ],
-                  2
+                  1
                 )
-              ])
-            ],
-            1
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("Filtra")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary",
+              attrs: { type: "reset" }
+            },
+            [_vm._v("\n        Annulla filtri\n      ")]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Filtra")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-secondary",
-            attrs: { type: "reset" },
-            on: {
-              click: function($event) {
-                return _vm.resetTypes()
-              }
-            }
-          },
-          [_vm._v("\n      Annulla filtri\n    ")]
-        )
-      ]
-    ),
+        ]
+      )
+    ]),
     _vm._v(" "),
     _vm.activeFilters
       ? _c("div", { staticClass: "alert alert-success mb-5" }, [
@@ -38204,15 +38107,9 @@ var render = function() {
               _vm._s(_vm.restaurantsList.length) +
               " risulati per il filtro:\n    "
           ),
-          this.filters.name
-            ? _c("div", [_c("p", [_vm._v("nome:" + _vm._s(_vm.filters.name))])])
-            : _vm._e(),
-          _vm._v(" "),
-          this.filters.type.length > 0
-            ? _c("div", [
-                _c("p", [_vm._v("filtri:" + _vm._s(_vm.filters.type))])
-              ])
-            : _vm._e()
+          _c("div", {
+            domProps: { innerHTML: _vm._s(_vm.printActiveFilters()) }
+          })
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -51003,8 +50900,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

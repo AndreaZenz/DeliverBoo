@@ -43,7 +43,7 @@
 
             <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                    <input name="types[]" class="form-check-input" type="checkbox" value="{{ $type->id }}" {{ $restaurant->Type->contains($type) ? 'checked' : '' }}>
+                    <input name="types[]" class="form-check-input" type="checkbox" value="{{ $type->id }}" {{ $restaurant->types->contains($type) ? 'checked' : '' }}>
                     {{ $type->name }}
                 </label>
             </div>

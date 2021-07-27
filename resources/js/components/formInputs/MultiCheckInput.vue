@@ -25,7 +25,7 @@ export default {
     name: "MultiCheckInput",
     props: {
         items: {
-            types: Array,
+            type: Array,
             required: true
         },
         label: String,

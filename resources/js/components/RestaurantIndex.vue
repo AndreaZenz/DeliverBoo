@@ -1,53 +1,29 @@
 <template>
   <div class="container">
-    <form @submit.prevent="filterData">
-      <div class="row">
-        <div class="col">
-          <text-input label="Nome" v-model="filters.name"></text-input>
+    <div class="card-body">
+      <form @submit.prevent="filterData" @reset="onReset">
+        <div class="row">
           <div class="col">
-            <div class="mb-3">
-              <label class="form-label">filtri</label>
-              <br />
-              <div
-                class="form-check form-check-inline"
-                v-for="type in typesList"
-                :key="type.id"
-              >
-                <label :for="type.id" class="form-check-label">
-                  <input
-                    :id="type.id"
-                    class="form-check-input"
-                    type="checkbox"
-                    :value="type.id"
-                    v-model="filters.type"
-                  />
-                  {{ type.name }}
-                </label>
-              </div>
+            <text-input label="Nome" v-model="filters.name"></text-input>
+            <div class="col">
+              <multi-check-input
+                label="Types"
+                :items="types"
+                v-model="filters.type"
+              ></multi-check-input>
             </div>
           </div>
         </div>
-      </div>
 
-      <button type="submit" class="btn btn-primary">Filtra</button>
-      <button
-        type="reset"
-        class="btn btn-outline-secondary"
-        @click="resetTypes()"
-      >
-        Annulla filtri
-      </button>
-    </form>
-
+        <button type="submit" class="btn btn-primary">Filtra</button>
+        <button type="reset" class="btn btn-outline-secondary">
+          Annulla filtri
+        </button>
+      </form>
+    </div>
     <div class="alert alert-success mb-5" v-if="activeFilters">
       Sono stati trovati {{ restaurantsList.length }} risulati per il filtro:
-      <div v-if="this.filters.name">
-        <p>nome:{{ filters.name }}</p>
-      </div>
-      <div v-if="this.filters.type.length > 0">
-        <p>filtri:{{ filters.type }}</p>
-      </div>
-      <!-- <div v-html="printActiveFilters()"></div> -->
+      <div v-html="printActiveFilters()"></div>
     </div>
 
     <div class="row justify-content-center">
@@ -97,17 +73,17 @@ export default {
           alert("Errore in fase di filtraggio dati.");
         });
     },
-    // onReset() {
-    //   this.restaurantsList = this.allRestaurantsList;
-    //   this.filters.name = "";
-    //   this.filters.type = null;
-    // },
-    resetTypes() {
+    onReset() {
       this.restaurantsList = this.allRestaurantsList;
       this.filters.name = "";
-      this.filters.type = [];
-      this.activeFilters = null;
+      this.filters.type = null;
     },
+    // resetTypes() {
+    //   this.restaurantsList = this.allRestaurantsList;
+    //   this.filters.name = "";
+    //   this.filters.type = [];
+    //   this.activeFilters = null;
+    // },
     printActiveFilters() {
       const toReturn = [];
 

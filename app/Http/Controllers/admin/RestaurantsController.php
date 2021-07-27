@@ -85,7 +85,7 @@ class RestaurantsController extends Controller
         // $newRestaurant->type()->attach($newRestaurant["types"]);
 
         if (isset($newRestaurantData['types'])) {
-            $newRestaurant->type()->sync($newRestaurantData['types']);
+            $newRestaurant->types()->sync($newRestaurantData['types']);
         }
 
         return redirect()->route('admin.restaurants.index', $newRestaurant->id);
@@ -169,7 +169,7 @@ class RestaurantsController extends Controller
         // $restaurant->Type()->attach($form_data["types"]);
 
         try {
-            $restaurant->Type()->sync($form_data["types"]);
+            $restaurant->types()->sync($form_data["types"]);
         } catch (Exception $er) {
             abort(400, "Type inesistente");
         }
