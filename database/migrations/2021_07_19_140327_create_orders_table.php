@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->longText('client_comment')->nullable();
             $table->char('client_email', 128)->nullable();
             $table->decimal('total_price', $precision = 8, $scale = 2);
+            //$table->text('ArrayDishes');
             $table->boolean('is_payed');
 
             $table->unsignedBigInteger("restaurant_id")->nullable();

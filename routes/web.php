@@ -29,7 +29,7 @@ Route::resource("/restaurants", "RestaurantController");
 
 Route::resource("/orders", "OrderController");
 
-Route::get('payment', 'PaymentController@index')->name('payment.index');
+Route::get('/payment', 'PaymentController@index')->name('payment.index');
 
 Route::post('payment/checkout', 'PaymentController@checkout')->name('shop.payment.checkout');
 
