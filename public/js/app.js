@@ -2082,6 +2082,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -2092,8 +2095,8 @@ __webpack_require__.r(__webpack_exports__);
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: null,
-        type: []
+        names: null,
+        types: null
       },
       activeFilters: null,
       typesList: []
@@ -38067,11 +38070,11 @@ var render = function() {
                     _c("multi-check-input", {
                       attrs: { label: "Types", items: _vm.types },
                       model: {
-                        value: _vm.filters.type,
+                        value: _vm.filters.types,
                         callback: function($$v) {
-                          _vm.$set(_vm.filters, "type", $$v)
+                          _vm.$set(_vm.filters, "types", $$v)
                         },
-                        expression: "filters.type"
+                        expression: "filters.types"
                       }
                     })
                   ],
@@ -38086,18 +38089,11 @@ var render = function() {
             "button",
             { staticClass: "btn btn-primary", attrs: { type: "submit" } },
             [_vm._v("Filtra")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: { type: "reset" }
-            },
-            [_vm._v("\n        Annulla filtri\n      ")]
           )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _vm._m(0)
     ]),
     _vm._v(" "),
     _vm.activeFilters
@@ -38123,7 +38119,7 @@ var render = function() {
             attrs: {
               "img-url": restaurant.img_url,
               name: restaurant.name,
-              types: restaurant.type
+              types: restaurant.types
             }
           })
         }),
@@ -38132,7 +38128,21 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-outline-secondary",
+        attrs: { type: "reset", href: "#" }
+      },
+      [_c("a", { attrs: { href: "/" } }, [_vm._v("Annulla filtri")])]
+    )
+  }
+]
 render._withStripped = true
 
 

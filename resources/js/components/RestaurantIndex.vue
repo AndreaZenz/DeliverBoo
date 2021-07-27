@@ -9,17 +9,20 @@
               <multi-check-input
                 label="Types"
                 :items="types"
-                v-model="filters.type"
+                v-model="filters.types"
               ></multi-check-input>
             </div>
           </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Filtra</button>
-        <button type="reset" class="btn btn-outline-secondary">
-          Annulla filtri
-        </button>
       </form>
+      
+      <button type="reset" href="#" class="btn btn-outline-secondary">
+        <a href="/">Annulla filtri</a>
+      </button>
+
+      
     </div>
     <div class="alert alert-success mb-5" v-if="activeFilters">
       Sono stati trovati {{ restaurantsList.length }} risulati per il filtro:
@@ -33,7 +36,7 @@
           :key="restaurant.id"
           :img-url="restaurant.img_url"
           :name="restaurant.name"
-          :types="restaurant.type"
+          :types="restaurant.types"
         ></restaurant-card>
       </div>
     </div>
@@ -51,8 +54,8 @@ export default {
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: null,
-        type: [],
+        names: null,
+        types: null,
       },
       activeFilters: null,
       typesList: [],
@@ -115,7 +118,6 @@ export default {
       })
       .catch((er) => {
         console.error(er);
-
         alert("Non posso recuperare le tipologie di ristorante");
       });
   },
