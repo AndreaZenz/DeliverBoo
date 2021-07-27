@@ -7,7 +7,7 @@
     <img src="{{ asset('storage/' . $dish->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
     @endif
 
-    <form method="POST" action="{{ route('admin.restaurants.dishes.update' , [$dish->restaurants_id, $dish->id])}}" enctype="multipart/form-data">
+    <form action="{{ route('admin.restaurants.dishes.update', [$dish->restaurant_id, $dish->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
