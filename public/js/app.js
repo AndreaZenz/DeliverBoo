@@ -2006,12 +2006,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantCard",
   props: {
     imgUrl: String,
     name: String,
-    address: String,
+    types: Array,
     link: String
   },
   computed: {
@@ -2070,6 +2077,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -2080,9 +2116,8 @@ __webpack_require__.r(__webpack_exports__);
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: "",
-        address: "",
-        types: null
+        name: null,
+        type: []
       },
       activeFilters: null,
       typesList: []
@@ -2102,9 +2137,29 @@ __webpack_require__.r(__webpack_exports__);
         alert("Errore in fase di filtraggio dati.");
       });
     },
-    onReset: function onReset() {
+    // onReset() {
+    //   this.restaurantsList = this.allRestaurantsList;
+    //   this.filters.name = "";
+    //   this.filters.type = null;
+    // },
+    resetTypes: function resetTypes() {
       this.restaurantsList = this.allRestaurantsList;
+      this.filters.name = "";
+      this.filters.type = [];
       this.activeFilters = null;
+    },
+    printActiveFilters: function printActiveFilters() {
+      var toReturn = [];
+
+      if (Object.keys(this.activeFilters).length === 0) {
+        return;
+      }
+
+      for (var chiaveFiltro in this.activeFilters) {
+        toReturn.push(chiaveFiltro + " = " + this.activeFilters[chiaveFiltro]);
+      }
+
+      return toReturn.join("<br>");
     }
   },
   mounted: function mounted() {
@@ -2162,7 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "MultiCheckInput",
   props: {
     items: {
-      type: Array,
+      types: Array,
       required: true
     },
     label: String,
@@ -37953,13 +38008,26 @@ var render = function() {
           attrs: { src: _vm.imgUrl, alt: "" }
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.name))]),
-          _vm._v(" "),
-          _c("h4", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.address))]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
-        ])
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.name))]),
+            _vm._v(" "),
+            _vm._l(_vm.types, function(type) {
+              return _c(
+                "span",
+                { key: type.id, staticClass: "badge badge-primary" },
+                [_vm._v("\n        " + _vm._s(type.name) + "\n      ")]
+              )
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
+          ],
+          2
+        )
       ]
     )
   ])
@@ -37994,8 +38062,7 @@ var render = function() {
           submit: function($event) {
             $event.preventDefault()
             return _vm.filterData.apply(null, arguments)
-          },
-          reset: _vm.onReset
+          }
         }
       },
       [
@@ -38015,23 +38082,94 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col" },
-                [
-                  _c("multi-check-input", {
-                    attrs: { label: "type", items: _vm.types },
-                    model: {
-                      value: _vm.filters.types,
-                      callback: function($$v) {
-                        _vm.$set(_vm.filters, "types", $$v)
-                      },
-                      expression: "filters.types"
-                    }
-                  })
-                ],
-                1
-              )
+              _c("div", { staticClass: "col" }, [
+                _c(
+                  "div",
+                  { staticClass: "mb-3" },
+                  [
+                    _c("label", { staticClass: "form-label" }, [
+                      _vm._v("filtri")
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _vm._l(_vm.typesList, function(type) {
+                      return _c(
+                        "div",
+                        {
+                          key: type.id,
+                          staticClass: "form-check form-check-inline"
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: { for: type.id }
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.filters.type,
+                                    expression: "filters.type"
+                                  }
+                                ],
+                                staticClass: "form-check-input",
+                                attrs: { id: type.id, type: "checkbox" },
+                                domProps: {
+                                  value: type.id,
+                                  checked: Array.isArray(_vm.filters.type)
+                                    ? _vm._i(_vm.filters.type, type.id) > -1
+                                    : _vm.filters.type
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.filters.type,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = type.id,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            _vm.filters,
+                                            "type",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            _vm.filters,
+                                            "type",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(_vm.filters, "type", $$c)
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(type.name) +
+                                  "\n              "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ])
             ],
             1
           )
@@ -38047,12 +38185,36 @@ var render = function() {
           "button",
           {
             staticClass: "btn btn-outline-secondary",
-            attrs: { type: "reset" }
+            attrs: { type: "reset" },
+            on: {
+              click: function($event) {
+                return _vm.resetTypes()
+              }
+            }
           },
           [_vm._v("\n      Annulla filtri\n    ")]
         )
       ]
     ),
+    _vm._v(" "),
+    _vm.activeFilters
+      ? _c("div", { staticClass: "alert alert-success mb-5" }, [
+          _vm._v(
+            "\n    Sono stati trovati " +
+              _vm._s(_vm.restaurantsList.length) +
+              " risulati per il filtro:\n    "
+          ),
+          this.filters.name
+            ? _c("div", [_c("p", [_vm._v("nome:" + _vm._s(_vm.filters.name))])])
+            : _vm._e(),
+          _vm._v(" "),
+          this.filters.type.length > 0
+            ? _c("div", [
+                _c("p", [_vm._v("filtri:" + _vm._s(_vm.filters.type))])
+              ])
+            : _vm._e()
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
@@ -38064,8 +38226,6 @@ var render = function() {
             attrs: {
               "img-url": restaurant.img_url,
               name: restaurant.name,
-              address: restaurant.address,
-              link: restaurant.link,
               types: restaurant.type
             }
           })

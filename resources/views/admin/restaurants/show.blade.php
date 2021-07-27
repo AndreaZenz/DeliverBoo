@@ -8,11 +8,13 @@
     @endif
     <h1>{{$restaurant->name}}</h1>
     <p>{{$restaurant->address}}</p>
+    {{-- @if(count($restaurant->types) > 0) --}}
     {{-- @foreach($restaurant->types as $type)
-    <ul>
-        <li class="badge badge-primary">{{ $type->name }}</li>
-    </ul>
-    @endforeach --}}
+    <span class="badge badge-primary">{{ $type->name }}</span>
+    @endforeach  --}}
+    {{-- @else 
+    <p>Nessun tag disponibile...</p>
+    @endif --}}
     <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
     <div class="container">
         @foreach ($dishes as $dish)

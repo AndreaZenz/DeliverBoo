@@ -11,6 +11,6 @@ class TypeController extends Controller
     public function index(){
         $types = Type::all();
 
-        return view("admin.types.index",  ["types" => $types] );
+        return view("admin.types.index",  ["types" => $types]);
     }
 }

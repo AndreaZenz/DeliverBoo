@@ -1,24 +1,55 @@
 <template>
   <div class="container">
-    <form @submit.prevent="filterData" @reset="onReset">
+    <form @submit.prevent="filterData">
       <div class="row">
         <div class="col">
           <text-input label="Nome" v-model="filters.name"></text-input>
           <div class="col">
-            <multi-check-input
-              label="type"
-              :items="types"
-              v-model="filters.types"
-            ></multi-check-input>
+            <div class="mb-3">
+              <label class="form-label">filtri</label>
+              <br />
+              <div
+                class="form-check form-check-inline"
+                v-for="type in typesList"
+                :key="type.id"
+              >
+                <label :for="type.id" class="form-check-label">
+                  <input
+                    :id="type.id"
+                    class="form-check-input"
+                    type="checkbox"
+                    :value="type.id"
+                    v-model="filters.type"
+                  />
+                  {{ type.name }}
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <button type="submit" class="btn btn-primary">Filtra</button>
-      <button type="reset" class="btn btn-outline-secondary">
+      <button
+        type="reset"
+        class="btn btn-outline-secondary"
+        @click="resetTypes()"
+      >
         Annulla filtri
       </button>
     </form>
+
+    <div class="alert alert-success mb-5" v-if="activeFilters">
+      Sono stati trovati {{ restaurantsList.length }} risulati per il filtro:
+      <div v-if="this.filters.name">
+        <p>nome:{{ filters.name }}</p>
+      </div>
+      <div v-if="this.filters.type.length > 0">
+        <p>filtri:{{ filters.type }}</p>
+      </div>
+      <!-- <div v-html="printActiveFilters()"></div> -->
+    </div>
+
     <div class="row justify-content-center">
       <div class="col-12">
         <restaurant-card
@@ -26,8 +57,6 @@
           :key="restaurant.id"
           :img-url="restaurant.img_url"
           :name="restaurant.name"
-          :address="restaurant.address"
-          :link="restaurant.link"
           :types="restaurant.type"
         ></restaurant-card>
       </div>
@@ -39,16 +68,15 @@
 export default {
   name: "RestaurantIndex",
   props: {
-  types: Array,
+    types: Array,
   },
   data() {
     return {
       allRestaurantsList: [],
       restaurantsList: [],
       filters: {
-        name: "",
-        address: "",
-        types: null,
+        name: null,
+        type: [],
       },
       activeFilters: null,
       typesList: [],
@@ -69,9 +97,29 @@ export default {
           alert("Errore in fase di filtraggio dati.");
         });
     },
-    onReset() {
+    // onReset() {
+    //   this.restaurantsList = this.allRestaurantsList;
+    //   this.filters.name = "";
+    //   this.filters.type = null;
+    // },
+    resetTypes() {
       this.restaurantsList = this.allRestaurantsList;
+      this.filters.name = "";
+      this.filters.type = [];
       this.activeFilters = null;
+    },
+    printActiveFilters() {
+      const toReturn = [];
+
+      if (Object.keys(this.activeFilters).length === 0) {
+        return;
+      }
+
+      for (const chiaveFiltro in this.activeFilters) {
+        toReturn.push(chiaveFiltro + " = " + this.activeFilters[chiaveFiltro]);
+      }
+
+      return toReturn.join("<br>");
     },
   },
   mounted() {
