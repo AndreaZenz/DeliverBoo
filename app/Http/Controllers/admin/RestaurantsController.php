@@ -98,7 +98,7 @@ class RestaurantsController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $dishes = Dish::all();
+        $dishes = Dish::where('restaurants_id', $restaurant->id)->get();
         
 
         return view('admin.restaurants.show', [
@@ -120,6 +120,13 @@ class RestaurantsController extends Controller
         // }
     }
 
+        return view('admin.restaurants.show', [
+            'restaurant' => $restaurant,
+            'dishes' => $dishes
+        ]);
+    }
+    
+    
     /**
      * Show the form for editing the specified resource.
      *
