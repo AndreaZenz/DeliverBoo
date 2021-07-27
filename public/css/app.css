@@ -29,8 +29,22 @@ footer .container .row .col h4 {
   text-align: center;
 }
 
-ul {
+footer .container .row .col ul {
   list-style: none;
+}
+
+.footer-down {
+  justify-content: flex-end;
+}
+
+.footer-down .icons {
+  list-style: none;
+}
+
+.footer-down .icons li {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 /*!
