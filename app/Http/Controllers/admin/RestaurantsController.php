@@ -24,9 +24,10 @@ class RestaurantsController extends Controller
     {
         $user_id = Auth::user()->id;
         
+        
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
-            //'types' => Type::All(),
+            'types' => Type::where(''),
         ];
 
 
@@ -64,7 +65,7 @@ class RestaurantsController extends Controller
             'address' => 'required | max:255',
             'img_url' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg|max:700'
         ]);
-
+        
         $newRestaurantData = $request->all();
 
         $newRestaurant = new Restaurant();
@@ -80,6 +81,12 @@ class RestaurantsController extends Controller
 
         $newRestaurant->save();
 
+        // $newRestaurant->type()->attach($newRestaurant["types"]);
+
+        if (isset($newRestaurantData['types'])) {
+            $newRestaurant->type()->sync($newRestaurantData['types']);
+        }
+
         return redirect()->route('admin.restaurants.index', $newRestaurant->id);
     }
 
@@ -92,6 +99,26 @@ class RestaurantsController extends Controller
     public function show(Restaurant $restaurant)
     {
         $dishes = Dish::where('restaurants_id', $restaurant->id)->get();
+        
+
+        return view('admin.restaurants.show', [
+            'restaurant' => $restaurant,
+            'dishes' => $dishes
+        ]);
+        // if (Auth::check()) {
+        //     $data = Restaurant::find($id);
+        //     if (Auth::User()->id  == $data->User->id) {
+        //         $restaurant = Auth::User()->User;
+        //         return view('admin.restaurants.index', compact('restaurant'));
+        //     } else {
+        //         $restaurant = Restaurant::where("id", $id)->with("User")->get();
+        //         return view("admin.restaurants.show", compact("restaurant"));
+        //     }
+        // } else {
+        //     $restaurant = Restaurant::where("id", $id)->with("User")->get();
+        //     return view("admin.restaurants.show", compact("restaurant"));
+        // }
+    }
 
         return view('admin.restaurants.show', [
             'restaurant' => $restaurant,
@@ -110,12 +137,13 @@ class RestaurantsController extends Controller
     {
         $user_id = Auth::user()->id;
         // $restaurant = Restaurant::find($id);
-
+        
 
         if ($restaurant && $restaurant->user_id == $user_id) {
             $data = [
                 'restaurant' => $restaurant,
-                'types' => Type::all()
+                'types' => Type::all(),
+                'dishes' => Dish::all()
             ];
             return view('admin.restaurants.edit', $data);
         }
@@ -161,7 +189,7 @@ class RestaurantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy(Restaurant $restaurant, Dish $Dishes)
     {
         $user_id = Auth::user()->id;
         
@@ -169,6 +197,7 @@ class RestaurantsController extends Controller
 
         if ($restaurant && $restaurant->user_id == $user_id) {
 
+            $restaurant->dishes()->delete();
             $restaurant->delete();
 
             return redirect()->route('admin.restaurants.index');

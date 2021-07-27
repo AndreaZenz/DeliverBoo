@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('RestaurantCard', require('./components/RestaurantCard.vue').default);
 Vue.component('RestaurantIndex', require('./components/RestaurantIndex.vue').default);
 Vue.component('TextInput', require('./components/formInputs/TextInput.vue').default);
+Vue.component('MultiCheckInput', require('./components/formInputs/MultiCheckInput.vue').default);
 
 
 /**

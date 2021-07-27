@@ -1,5 +1,6 @@
 <?php
 
+use App\Type;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,16 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'HomeController@index')->name('homepage');
+
+Route::get('/', "RestaurantController@index")->name("restaurants.index");
+Route::get('/restaurants/{id}', "RestaurantController@show")->name("restaurants.show");
+Route::get('/dishes', "DishController@index")->name("dishes.index");
 
 Auth::routes();
 
 Route::resource("/restaurants", "RestaurantController");
-Route::resource("/dishes", "DishController");
+// Route::resource("/dishes", "DishController");
+
 
 Route::resource("/orders", "OrderController");
 
-Route::resource("/types", "TypeController");
+
 
 
 
@@ -44,7 +49,7 @@ Route::prefix('admin')
 
         //Route::get("/posts/filter", "PostController@filter")->name("posts.filter");
         Route::resource("/users", "UserController");
-
+        
         //Route::resource("/dishes", "DishController");
         //completamente rifatta
         

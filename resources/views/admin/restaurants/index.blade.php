@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    {{ __('all your restaurants') }}
+                    {{ __('All your restaurants') }}
                 </div>
 
                 {{-- pulsante create restaurant --}}
@@ -25,6 +25,7 @@
             <div class="container">
                 @foreach ($restaurants as $restaurant)
                 <div class="col-12">
+                
                     @if($restaurant->img_url)
 
                     <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
@@ -43,6 +44,7 @@
 
 
                     <a class="btn btn-secondary spacing" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
+
 
 
                 </div>
