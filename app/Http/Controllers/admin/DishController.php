@@ -25,7 +25,6 @@ class DishController extends Controller
         $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -82,7 +81,7 @@ class DishController extends Controller
         // Dish::create($newDishData + ['restaurant_id' => $restaurant_id]);
 
         //return redirect()->route('admin.dishes.index', $newDish->id);
-        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
+        return redirect()->route('admin.restaurants.show', $restaurant_id);
 
     }
 
@@ -120,7 +119,7 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($restaurant_id, Dish $dish)
+    public function edit2($restaurant_id, Dish $dish)
     {
         $types = Type::all();
 
@@ -128,6 +127,17 @@ class DishController extends Controller
 
     }
 
+    public function edit($restaurant_id, Dish $dish)
+    {
+        $data = [
+            'restaurant_id' => $restaurant_id,
+            'dish' => $dish,
+            'types' => Type::all()
+        ];
+
+        return view('admin.dishes.edit', $data);
+
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -160,7 +170,7 @@ class DishController extends Controller
 
         $dish->update($form_data);
 
-        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
+        return redirect()->route('admin.restaurants.show', $restaurant_id);
 
     }
 
@@ -174,10 +184,11 @@ class DishController extends Controller
     {
         // $user_id = Auth::user()->id;
 
+        $dish->restaurants->detach();
 
         $dish->delete();
 
-        return redirect()->route('admin.restaurants.dishes.index', $restaurant_id);
+        return redirect()->route('admin.restaurants.show', $restaurant_id);
 
         abort(404, "non è possibile eliminare il piatto selezionato");
     }

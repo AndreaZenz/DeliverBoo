@@ -98,28 +98,15 @@ class RestaurantsController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $dishes = Dish::all();
-        
+        $dishes = Dish::where('restaurants_id', $restaurant->id)->get();
 
         return view('admin.restaurants.show', [
             'restaurant' => $restaurant,
             'dishes' => $dishes
         ]);
-        // if (Auth::check()) {
-        //     $data = Restaurant::find($id);
-        //     if (Auth::User()->id  == $data->User->id) {
-        //         $restaurant = Auth::User()->User;
-        //         return view('admin.restaurants.index', compact('restaurant'));
-        //     } else {
-        //         $restaurant = Restaurant::where("id", $id)->with("User")->get();
-        //         return view("admin.restaurants.show", compact("restaurant"));
-        //     }
-        // } else {
-        //     $restaurant = Restaurant::where("id", $id)->with("User")->get();
-        //     return view("admin.restaurants.show", compact("restaurant"));
-        // }
     }
-
+    
+    
     /**
      * Show the form for editing the specified resource.
      *

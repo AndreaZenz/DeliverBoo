@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 
@@ -8,13 +8,10 @@
     @endif
     <h1>{{$restaurant->name}}</h1>
     <p>{{$restaurant->address}}</p>
-    {{-- @foreach($restaurant->types as $type)
-    <ul>
-        <li class="badge badge-primary">{{ $type->name }}</li>
-    </ul>
-    @endforeach --}}
+
     <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
     <div class="container">
+
         @foreach ($dishes as $dish)
         <div class="col-12">
             <div class="card mg-top-bot-10" style="width: 100%;">
@@ -26,8 +23,8 @@
                     <h4 class="card-text">{{ $dish->price }}</h4>
                     <p class="card-text">{{ $dish->description }}</p>
                     <p class="card-text">{{ $dish->ingredient_list }}</p>
-                    <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurants_id, $dish->id]) }} " class="btn mg-top-bot-10 btn-warning">Modifica</a>
-                    <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurants_id, $dish->id]) }} " method="post" class="delete_form">
+                    <a href=" {{ route('admin.restaurants.dishes.edit', [$dish->restaurant_id, $dish->id]) }} " class="btn mg-top-bot-10 btn-warning">Modifica</a>
+                    <form action=" {{ route('admin.restaurants.dishes.destroy', [$dish->restaurant_id, $dish->id]) }} " method="post" class="delete_form">
                         @csrf
                         @method('DELETE')
                         <input type="submit" value="Cancella" class="btn btn-danger spacing">
@@ -36,8 +33,18 @@
             </div>
         </div>
         @endforeach
-        {{-- <a class="btn btn-primary mg-top-bot-10" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un nuovo piatto</a> --}}
+
+        {{-- @include('admin.dishes.index', $restaurant->id) --}}
+
     </div>
+
+    {{--
+    funziona
+    <button type="button" class="btn btn-info spacing">
+        <a href=" {{ route('admin.restaurants.dishes.index', $restaurant->id) }} ">Visualizza i piatti</a>
+    </button>
+    --}}
+
 </div>
 
 @endsection

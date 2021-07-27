@@ -13,7 +13,7 @@ class Dish extends Model
         'visible',
         'ingredient_list',
         'img_url',
-        'restaurants_id'
+        'restaurant_id'
     ];
 
     public function Order()
