@@ -49760,9 +49760,9 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   data: {
     oneDish: {
       "name": null,
-      "price": null,
-      "img_url": null
+      "price": null
     },
+    onedishTest: null,
     cart_dishes: [],
     tot_price: 0,
     delivery: 2.00,
@@ -49785,8 +49785,11 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   //   this.tot_price = parseFloat(this.tot_price);
   // },
   methods: {
-    AddToCart: function AddToCart(name, price, img_url) {
-      this.oneDish;
+    AddToCart: function AddToCart(name, price) {
+      this.oneDish = {
+        "name": name,
+        "price": price
+      };
     },
     dish_minus: function dish_minus(index) {},
     dish_plus: function dish_plus(index) {}

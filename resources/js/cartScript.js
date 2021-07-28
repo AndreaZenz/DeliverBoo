@@ -12,8 +12,8 @@ new Vue(
       oneDish: {
         "name": null,
         "price": null,
-        "img_url": null,
       },
+      onedishTest: null,
       cart_dishes: [],
       tot_price: 0,
       delivery: 2.00,
@@ -38,9 +38,13 @@ new Vue(
     // },
 
     methods: {
-      AddToCart(name, price, img_url){
-        this.oneDish
+      AddToCart(name, price){
+        this.oneDish = {
+          "name": name,
+          "price": price,
+        };
       },
+      
       dish_minus: function(index){
       },
       dish_plus: function(index){
