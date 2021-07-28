@@ -2085,6 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -38120,7 +38121,8 @@ var render = function() {
             attrs: {
               "img-url": restaurant.img_url,
               name: restaurant.name,
-              types: restaurant.types
+              types: restaurant.types,
+              link: restaurant.link
             }
           })
         }),

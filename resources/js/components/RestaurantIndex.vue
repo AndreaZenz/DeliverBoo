@@ -37,6 +37,7 @@
           :img-url="restaurant.img_url"
           :name="restaurant.name"
           :types="restaurant.types"
+          :link="restaurant.link"
         ></restaurant-card>
       </div>
     </div>
