@@ -9,7 +9,11 @@ new Vue(
   {
     el: '#app',
     data: {
-      oneDish: null,
+      oneDish: {
+        "name": null,
+        "price": null,
+        "img_url": null,
+      },
       cart_dishes: [],
       tot_price: 0,
       delivery: 2.00,

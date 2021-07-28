@@ -49758,7 +49758,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: {
-    oneDish: null,
+    oneDish: {
+      "name": null,
+      "price": null,
+      "img_url": null
+    },
     cart_dishes: [],
     tot_price: 0,
     delivery: 2.00,
