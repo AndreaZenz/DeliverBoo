@@ -9,12 +9,12 @@ new Vue(
   {
     el: '#app',
     data: {
-      oneDish: {
+      one_dish: {
         "name": null,
         "price": null,
       },
       onedishTest: null,
-      cart_dishes: [],
+      cart_dishes: "",
       tot_price: 0,
       delivery: 2.00,
       dish: {
@@ -25,27 +25,19 @@ new Vue(
           "img_url": ""
         },
       restaurant_id: 0
-    },   
-    // function(){
-    //   this.restaurant_id = restaurant_id_js;
-    //   if(localStorage.getItem('tot_price') != undefined && this.restaurant_id == localStorage.getItem('restaurant_id')) {
-    //     this.tot_price = parseFloat(localStorage.getItem('tot_price')).toFixed(2);
-    //     this.delivery = parseFloat(localStorage.getItem('delivery')).toFixed(2);
-    //     this.cart_dishes = JSON.parse(localStorage.getItem('dishes'));
-    //   }
-
-    //   this.tot_price = parseFloat(this.tot_price);
-    // },
+    },
 
     methods: {
       AddToCart(name, price){
-        this.oneDish = {
+        this.one_dish = {
           "name": name,
           "price": price,
         };
+        this.cart_dishes.push(this.one_dish);
+
       },
       
-      dish_minus: function(index){
+      PrintToCart: function(index){
       },
       dish_plus: function(index){
 

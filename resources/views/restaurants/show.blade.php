@@ -122,16 +122,18 @@
 
 
                                 {{-- carrello --}}
-                                <div class="shop_cart" v-if="cart_plates.length > 0">
+
+                                {{-- memo aggiungere v-if cart non vuoto --}}
+                                <div class="shop_cart" >
 
                                     <div id="shop_cart_top">
 
                                         {{-- save order and go to Payment.index --}}
                                         <a href="{{ route('payment.index') }}">
-                                            <button type="button" class="btn btn-info spacing" @click="save">Go To Checkout</button>
+                                            <button type="button" class="btn btn-info spacing" @click="">Go To Checkout</button>
                                         </a>
 
-                                        
+
                                         <ul>
                                             <li v-for="(item,index) in cart_plates" class="clearfix">
 
@@ -153,12 +155,12 @@
 
                                     <div id="shop_cart_bottom">
                                         <div id="shop_cart_bottom_delivery">
-                                            <div>Spese di consegna</div>
+                                            <div>Delievery fees</div>
                                             <div>@{{ delivery.toLocaleString("it-IT", {'minimumFractionDigits':2,'maximumFractionDigits':2}) }}€</div>
                                         </div>
 
                                         <div id="shop_cart_bottom_total">
-                                            <div>Totale</div>
+                                            <div>Total</div>
                                             <div id="item_plate" class="price_animation">@{{ tot_price.toLocaleString("it-IT", {'minimumFractionDigits':2,'maximumFractionDigits':2}) }}€</div>
                                         </div>
                                     </div>
