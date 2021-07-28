@@ -31,11 +31,9 @@
                         <span>
                             <a class="btn-link">
                                 <i class="fas fa-plus-circle" 
-                                @click=" AddToCart( {{ $dish->name }}, 
-                                {{ $dish->price }}, 
-                                {{ $dish->img_url }} ) "></i>
+                                @click: AddToCart( {{$dish->name}}, {{ $dish->price }}, {{ $dish->img_url }})></i>
                             </a>
-                            <a class="btn-link" href="/">
+                            <a class="btn-link" href="#">
                                 <i class="fas fa-info-circle"></i>
                             </a>
                         </span>
@@ -53,7 +51,7 @@
     </div>
 </div>
 
-<script src="{{ asset('js/cartScript.js') }}"></script>
 
+<script src="{{ asset('js/cartScript.js') }}"></script>
 
 @endsection
