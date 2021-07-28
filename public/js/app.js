@@ -38054,6 +38054,7 @@ var render = function() {
               [
                 _c("text-input", {
                   attrs: { label: "Nome" },
+                  on: { input: _vm.filterData },
                   model: {
                     value: _vm.filters.name,
                     callback: function($$v) {

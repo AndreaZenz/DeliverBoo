@@ -4,7 +4,7 @@
       <form @submit.prevent="filterData" @reset="onReset">
         <div class="row">
           <div class="col">
-            <text-input label="Nome" v-model="filters.name"></text-input>
+            <text-input @input="filterData" label="Nome" v-model="filters.name"></text-input>
             <div class="col">
               <multi-check-input
                 label="Types"

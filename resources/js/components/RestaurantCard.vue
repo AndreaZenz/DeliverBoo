@@ -17,7 +17,7 @@
         </span>
 
         <br />
-        <a :href="link">Apri</a>
+          <a :href="link">Apri</a>
       </div>
     </div>
   </div>
