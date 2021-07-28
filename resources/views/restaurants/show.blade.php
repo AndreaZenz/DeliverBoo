@@ -135,7 +135,7 @@
 
 
                                         <ul>
-                                            <li v-for="(item,index) in cart_plates" class="clearfix">
+                                            <li v-for="(item,index) in cart_dishes" class="clearfix">
 
                                                 <div class="cart_left_div">
                                                     <i class="fas fa-minus-circle" @click="plate_minus(index)"></i> <span>@{{ item.amount }}</span> <i class="fas fa-plus-circle" @click="plate_plus(index)"></i>
@@ -167,7 +167,7 @@
 
                                 </div>
 
-                                <div class="shop_cart" v-else>
+                                <div class="shop_cart">
                                     <a href="#">
                                         <button type="button" class="btn btn-info spacing">Go To Checkout</button>
                                     </a>
