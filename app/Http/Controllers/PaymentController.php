@@ -39,7 +39,7 @@ class PaymentController extends Controller
         $nonce = $request->payment_method_nonce;
 
         $result = $gateway->transaction()->sale([
-            'amount' => $amount,
+            'amount' => 40,
             'paymentMethodNonce' => $nonce,
             'customer' => [
                 'firstName' => 'Tony',
@@ -57,7 +57,7 @@ class PaymentController extends Controller
 
             $order = new Order();
             $data =  $request->all();
-            $data['user_id'] = (int)$data['user_id'];
+            $data['restaurant_id'] = (int)$data['restaurant_id'];
             $order->fill($data);
             $order->save();
     

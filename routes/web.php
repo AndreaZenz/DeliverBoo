@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', "RestaurantController@index")->name("restaurants.index");
 Route::get('/restaurants/{id}', "RestaurantController@show")->name("restaurants.show");
 Route::get('/dishes', "DishController@index")->name("dishes.index");
+Route::get('/restaurants/{restaurant}/dishes/{dish}', "DishController@show")->name("dishes.show");
 
 Auth::routes();
 

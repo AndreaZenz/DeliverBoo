@@ -35,8 +35,8 @@
                                 {{ $dish->price }}, 
                                 {{ $dish->img_url }} ) "></i>
                             </a>
-                            <a class="btn-link">
-                                <i class="fas fa-info-circle" @click=""></i>
+                            <a class="btn-link" href="{{ route()}}"
+                                <i class="fas fa-info-circle"></i>
                             </a>
                         </span>
                     </div>
