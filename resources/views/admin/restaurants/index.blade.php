@@ -32,7 +32,9 @@
 
                     <h1>{{$restaurant->name}}</h1>
                     <h2>{{$restaurant->address}}</h2>
-
+                    @foreach($restaurant->types as $type)
+                    <span class="badge badge-primary">{{ $type->name }}</span>
+                    @endforeach
 
                     @include('partials.deleteBtn', ["restaurant"=> $restaurant])
                     @include('partials.modifyBtn')

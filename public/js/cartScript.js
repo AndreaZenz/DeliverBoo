@@ -49804,7 +49804,7 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\js\cartScript.js */"./resources/js/cartScript.js");
+module.exports = __webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/js/cartScript.js */"./resources/js/cartScript.js");
 
 
 /***/ })
