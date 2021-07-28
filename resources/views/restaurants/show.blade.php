@@ -124,29 +124,29 @@
                                 {{-- carrello --}}
 
                                 {{-- memo aggiungere v-if cart non vuoto --}}
-                                <div class="shop_cart" >
+                                <div class="shop_cart" v-if="cart_dishes.length > 0">
 
                                     <div id="shop_cart_top">
 
                                         {{-- save order and go to Payment.index --}}
                                         <a href="{{ route('payment.index') }}">
-                                            <button type="button" class="btn btn-info spacing" @click="">Go To Checkout</button>
+                                            <button type="button" class="btn btn-info spacing" @click="SaveOrderToPayment()">Go To Checkout</button>
                                         </a>
 
 
                                         <ul>
-                                            <li v-for="(item,index) in cart_dishes" class="clearfix">
+                                            <li v-for="(dish,index) in cart_dishes" class="clearfix">
 
                                                 <div class="cart_left_div">
-                                                    <i class="fas fa-minus-circle" @click="plate_minus(index)"></i> <span>@{{ item.amount }}</span> <i class="fas fa-plus-circle" @click="plate_plus(index)"></i>
+                                                    <i class="fas fa-minus-circle" @click="plate_minus(index)"></i> <span>@{{ dish.amount }}</span> <i class="fas fa-plus-circle" @click="plate_plus(index)"></i>
                                                 </div>
 
                                                 <div class="cart_middle_div">
-                                                    @{{ item.name }}
+                                                    @{{ dish.name }}
                                                 </div>
 
                                                 <div class="cart_right_div">
-                                                    @{{ item.price.toLocaleString("it-IT", {'minimumFractionDigits':2,'maximumFractionDigits':2}) }}€
+                                                    @{{ dish.price.toLocaleString("it-IT", {'minimumFractionDigits':2,'maximumFractionDigits':2}) }}€
                                                 </div>
 
                                             </li>
@@ -161,7 +161,7 @@
 
                                         <div id="shop_cart_bottom_total">
                                             <div>Total</div>
-                                            <div id="item_plate" class="price_animation">@{{ tot_price.toLocaleString("it-IT", {'minimumFractionDigits':2,'maximumFractionDigits':2}) }}€</div>
+                                            <div id="dish_plate" class="price_animation">@{{ tot_price.toLocaleString("it-IT", {'minimumFractionDigits':2,'maximumFractionDigits':2}) }}€</div>
                                         </div>
                                     </div>
 

@@ -12,7 +12,9 @@ new Vue(
       one_dish: {
         "name": null,
         "price": null,
+        "index": 0,
       },
+      index: null,
       onedishTest: null,
       cart_dishes: "",
       tot_price: 0,
@@ -32,14 +34,19 @@ new Vue(
         this.one_dish = {
           "name": name,
           "price": price,
+          "index": 0,
         };
-        this.cart_dishes.push(this.one_dish);
+        this.tot_price += price;
+        this.index = this.one_dish.index;
+        this.cart_dishes += this.one_dish;
 
       },
       
       PrintToCart: function(index){
       },
       dish_plus: function(index){
+      },
+      SaveOrderToPayment(){
 
       },
 

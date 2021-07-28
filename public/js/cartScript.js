@@ -49760,8 +49760,10 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   data: {
     one_dish: {
       "name": null,
-      "price": null
+      "price": null,
+      "index": 0
     },
+    index: null,
     onedishTest: null,
     cart_dishes: "",
     tot_price: 0,
@@ -49779,12 +49781,16 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     AddToCart: function AddToCart(name, price) {
       this.one_dish = {
         "name": name,
-        "price": price
+        "price": price,
+        "index": 0
       };
-      this.cart_dishes.push(this.one_dish);
+      this.tot_price += price;
+      this.index = this.one_dish.index;
+      this.cart_dishes += this.one_dish;
     },
     PrintToCart: function PrintToCart(index) {},
-    dish_plus: function dish_plus(index) {}
+    dish_plus: function dish_plus(index) {},
+    SaveOrderToPayment: function SaveOrderToPayment() {}
   },
   mounted: function mounted() {}
 });
