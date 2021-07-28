@@ -1,11 +1,15 @@
 import axios from 'axios';
 import Vue from 'vue';
 
+require('./bootstrap');
 
-var app = new Vue(
+window.Vue = require('vue');
+
+new Vue(
   {
     el: '#app',
     data: {
+      oneDish: null,
       cart_dishes: [],
       tot_price: 0,
       delivery: 2.00,
@@ -18,26 +22,29 @@ var app = new Vue(
         },
       restaurant_id: 0
     },   
+    // function(){
+    //   this.restaurant_id = restaurant_id_js;
+    //   if(localStorage.getItem('tot_price') != undefined && this.restaurant_id == localStorage.getItem('restaurant_id')) {
+    //     this.tot_price = parseFloat(localStorage.getItem('tot_price')).toFixed(2);
+    //     this.delivery = parseFloat(localStorage.getItem('delivery')).toFixed(2);
+    //     this.cart_dishes = JSON.parse(localStorage.getItem('dishes'));
+    //   }
 
-    mounted: function(){
-      this.restaurant_id = restaurant_id_js;
-      if(localStorage.getItem('tot_price') != undefined && this.restaurant_id == localStorage.getItem('restaurant_id')) {
-        this.tot_price = parseFloat(localStorage.getItem('tot_price')).toFixed(2);
-        this.delivery = parseFloat(localStorage.getItem('delivery')).toFixed(2);
-        this.cart_dishes = JSON.parse(localStorage.getItem('dishs'));
-      }
-
-      this.tot_price = parseFloat(this.tot_price);
-    },
+    //   this.tot_price = parseFloat(this.tot_price);
+    // },
 
     methods: {
-      push_dish: function(name, price, img_url){
+      AddToCart(name, price, img_url){
+        this.oneDish
       },
       dish_minus: function(index){
       },
       dish_plus: function(index){
 
       },
+
+    },
+    mounted(){
 
     }
   });
