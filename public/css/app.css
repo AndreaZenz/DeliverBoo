@@ -47,6 +47,40 @@ footer .container .row .col ul {
   margin-right: 3px;
 }
 
+.spacier-top {
+  margin-top: 44px;
+}
+
+.spacier-24 {
+  margin-bottom: 24;
+  margin-top: 24px;
+}
+
+.gray-text {
+  color: #8d9090;
+  font-size: 16px;
+}
+
+.create-text h1 {
+  margin-bottom: 24px;
+}
+
+.create-text .gray-text {
+  color: #8d9090;
+  font-size: 18px;
+}
+
+.volavola {
+  position: absolute;
+  left: 54%;
+  top: -1%;
+  z-index: -1;
+}
+
+.input-text {
+  color: #8d9090;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
