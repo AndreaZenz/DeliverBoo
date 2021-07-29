@@ -30,13 +30,20 @@
 }
 
 // dashboard utente loggato
-.nav-item-ut{
-    background-color: $hero-color1;
-    margin: 15px;
-    border-radius: 13px;
-    padding: 5px;
-    .nav-link-ut{
-        color: white;
+.navbar-brand{
+    img{
+        height: 73px;
+    }
+}
+    .nav-item-ut{
+        background-color: $hero-color1;
+        margin: 15px;
+        border-radius: 13px;
+        padding: 5px;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        .nav-link-ut{
+            color: white;
+        }
     }
 
-}

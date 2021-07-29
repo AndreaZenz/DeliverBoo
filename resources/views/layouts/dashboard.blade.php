@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-md navbar-link bg-light flex-md-nowrap p-0">
+        <nav class="navbar navbar-expand-md navbar-link bg-white flex-md-nowrap p-0">
 
             {{-- LOGO DA USARE PER DASHBOARD --}}
             {{-- <a class="navbar-brand" href="{{ url('/') }}">
@@ -29,7 +29,7 @@
             </a> --}}
 
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
+                <img src="{{ asset('img/loghi/white-logo.png')}}" alt="">
             </a>
             <ul class="navbar-nav px-3 ml-auto">
                 <li class="nav-item-ut">

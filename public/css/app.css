@@ -59,11 +59,17 @@ body {
   color: black;
 }
 
+.navbar-brand img {
+  height: 73px;
+}
+
 .nav-item-ut {
   background-color: #00CCBB;
   margin: 15px;
   border-radius: 13px;
   padding: 5px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .nav-item-ut .nav-link-ut {
