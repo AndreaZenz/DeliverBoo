@@ -10,25 +10,25 @@ footer{
                     padding: 10px;
                     text-align: center;
                 }
-                ul{
+                ul {
                     list-style: none;
                 }
             }
         }
     }
-    
 }
-.footer-down{
+.footer-down {
     justify-content: flex-end;
-    .icons{
+    .icons {
         list-style: none;
-        li{
+        li {
             display: inline-block;
             margin-left: 3px;
             margin-right: 3px;
         }
     }
 }
+<<<<<<< HEAD:resources/sass/partials/layouts/_footer.scss
 
 @media screen and (max-width:768px){
     footer{
@@ -50,3 +50,5 @@ footer{
         }
     }
 }
+=======
+>>>>>>> origin/master:resources/sass/partials/_footer.scss

@@ -22,7 +22,6 @@
   </head>
   <body class="checkout">
 
-    @include('partials.header')
     
     <main>
       <div class="container">

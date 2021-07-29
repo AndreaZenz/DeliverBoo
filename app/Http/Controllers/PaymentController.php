@@ -36,10 +36,13 @@ class PaymentController extends Controller
 
         $amount = $request->amount;
         
+
         $nonce = $request->payment_method_nonce;
 
+
+        //dati inviati al sito braintree
         $result = $gateway->transaction()->sale([
-            'amount' => '10',
+            'amount' => $amount,
             'paymentMethodNonce' => $nonce,
             'customer' => [
                 'firstName' => 'Alessandro',
@@ -53,15 +56,18 @@ class PaymentController extends Controller
     
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: transaction.php?id=" . $transaction->id);
 
+            
             $order = new Order();
             $data =  $request->all();
-            $data['client_name'] = (int)$data['client_name'];   
+
+            $data['restaurant_id'] = (int)$data['restaurant_id'];   
+            $data['total_price'] = $data['amount'];
+
             $order->fill($data);
             $order->save();
     
-            return view('payment.checkout')->with('success_message', 'Il pagamento è stato effettuato. L\'id è:'. $transaction->id);
+            return view('payment.checkout')->with('success_message', 'The payment was successfully. The id:'. $transaction->id);
         } else {
             $errorString = "";
     

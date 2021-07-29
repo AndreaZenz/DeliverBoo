@@ -28,8 +28,6 @@ Route::resource("/restaurants", "RestaurantController");
 // Route::resource("/dishes", "DishController");
 
 
-Route::resource("/orders", "OrderController");
-
 Route::get('/payment', 'PaymentController@index')->name('payment.index');
 
 Route::post('payment/checkout', 'PaymentController@checkout')->name('payment.checkout');
@@ -45,7 +43,9 @@ Route::prefix('admin')
         Route::get("/restaurants/filter", "RestaurantsController@filter")->name("restaurants.filter");
 
         
-        Route::resource("/orders", "OrderController");
+        //Route::resource("/orders", "OrderController");
+        Route::get('orders', 'OrderController@index')->name('orders');
+        
         Route::resource("/users", "UserController");
         Route::resource("/restaurants", "RestaurantsController");
         

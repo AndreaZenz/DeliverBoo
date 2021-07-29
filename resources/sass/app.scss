@@ -1,3 +1,6 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -13,11 +16,12 @@
 @import 'partials/layouts/footer';
 
 
+//admin_restaurant
+@import 'admin_restaurants/restaurant_create';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 @import 'partials/homepage';
+
 .maxh{
     max-height: 200px;
 }
