@@ -28,8 +28,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light">
-            <div class="container hero">
+        <nav class="navbar_my navbar-expand-md navbar-light">
+        <div class="big-container">
+            <div class="container_my hero">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
                 </a>
@@ -81,6 +82,7 @@
                     </ul>
                 </div>
             </div>
+        </div>
         </nav>
 
         <main class="py-4">

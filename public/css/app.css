@@ -19,6 +19,34 @@ body {
   text-decoration: none;
 }
 
+.big-container {
+  width: 1400px;
+  margin: auto;
+}
+
+.navbar_my {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  background-color: #00CCBB;
+}
+
+.navbar_my .container_my {
+  width: 100%;
+  display: flex;
+}
+
+.navbar_my .container_my .navbar-brand {
+  margin: 10px;
+}
+
+.navbar_my .container_my .navbar-brand img {
+  height: 50px;
+}
+
 footer {
   background-color: #2E3333;
   color: white;
@@ -10989,7 +11017,7 @@ a.text-dark:focus {
   }
 }
 
-.hero {
+.hero_green {
   background-color: #00CCBB;
 }
 

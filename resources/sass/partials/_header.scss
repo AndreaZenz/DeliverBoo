@@ -1,0 +1,19 @@
+.navbar_my{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background-color: $hero-color1;
+    .container_my{
+        width: 100%;
+        display: flex;
+        .navbar-brand{
+            margin: 10px;
+            img{
+                height: 50px;
+            }
+        }
+    }
+}
