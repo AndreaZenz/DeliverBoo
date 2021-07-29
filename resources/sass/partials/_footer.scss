@@ -27,3 +27,19 @@ footer{
         }
     }
 }
+
+@media screen and (max-width:768px){
+    footer{
+        .container{
+            .row{
+                display: block;
+                .col{
+                    text-align: center;
+                    ul{
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -76,6 +76,14 @@ body {
   color: white;
 }
 
+.navbar-toggler-ut {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: #00CCBB;
+  border-radius: 0.25rem;
+}
+
 footer {
   background-color: #2E3333;
   color: white;
@@ -102,6 +110,20 @@ footer .container .row .col ul {
   display: inline-block;
   margin-left: 3px;
   margin-right: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  footer .container .row {
+    display: block;
+  }
+
+  footer .container .row .col {
+    text-align: center;
+  }
+
+  footer .container .row .col ul {
+    padding: 10px;
+  }
 }
 
 /*!
