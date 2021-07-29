@@ -10980,7 +10980,6 @@ body {
   justify-content: space-between;
   padding: 0;
   background-color: #00CCBB;
-  height: 90px;
 }
 
 .navbar_my .container_my {
@@ -11025,12 +11024,8 @@ body {
   color: white;
 }
 
-.navbar-toggler-ut {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1;
+.nav-tog-ut {
   background-color: #00CCBB;
-  border-radius: 0.25rem;
 }
 
 main {
@@ -11054,7 +11049,6 @@ footer {
   background-color: #2E3333;
   color: white;
   width: 100%;
-  height: 210px;
 }
 
 footer .container .row .col h4 {
