@@ -22,12 +22,10 @@
   </head>
   <body class="checkout">
 
-    @include('partials.header')
     
     <main>
       <div class="container">
         <h1>Transazione avvenuta con successo!</h1>
-        <img src="{{ asset('img/pagamento.png') }}" alt="">
         <a href="{{ url('/') }}">Torna alla homepage</a>
       </div>
     </main>
@@ -36,8 +34,6 @@
 
     <script>
       localStorage.removeItem('tot_price');
-      localStorage.removeItem('delivery');
-      localStorage.removeItem('plates');
       localStorage.removeItem('restaurant_id');
     </script>
     

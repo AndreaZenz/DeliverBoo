@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "RestaurantCard",
+  name: "OrderCard",
   props: {
     imgUrl: String,
     name: String,

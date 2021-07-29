@@ -4,7 +4,7 @@
       <form @submit.prevent="filterData" @reset="onReset">
         <div class="row">
           <div class="col">
-            <text-input label="Nome" v-model="filters.name"></text-input>
+            <text-input @input="filterData" label="Nome" v-model="filters.name"></text-input>
             <div class="col">
               <multi-check-input
                 label="Types"
@@ -30,13 +30,14 @@
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-12 d-flex flex-row">
         <restaurant-card
           v-for="restaurant in restaurantsList"
           :key="restaurant.id"
           :img-url="restaurant.img_url"
           :name="restaurant.name"
           :types="restaurant.types"
+          :link="restaurant.link"
         ></restaurant-card>
       </div>
     </div>

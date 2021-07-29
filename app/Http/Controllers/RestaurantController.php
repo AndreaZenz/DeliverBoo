@@ -17,6 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
+        
         $restaurants = Restaurant::all();
         $dishes = Dish::all();
         $types = Type::all();
@@ -51,10 +52,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Restaurant $restaurant)
     {
         $restaurant = Restaurant::find($id);
-        $dishes = Dish::all();
+        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
         $types = Type::all();
 
         return view('restaurants.show', [
@@ -64,6 +65,7 @@ class RestaurantController extends Controller
         ]);
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *

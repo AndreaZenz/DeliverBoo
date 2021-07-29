@@ -1,12 +1,22 @@
 import axios from 'axios';
 import Vue from 'vue';
 
+require('./bootstrap');
 
-var app = new Vue(
+window.Vue = require('vue');
+
+new Vue(
   {
     el: '#app',
     data: {
-      cart_dishes: [],
+      one_dish: {
+        "name": null,
+        "price": null,
+        "index": 0,
+      },
+      index: null,
+      onedishTest: null,
+      cart_dishes: "",
       tot_price: 0,
       delivery: 2.00,
       dish: {
@@ -17,27 +27,31 @@ var app = new Vue(
           "img_url": ""
         },
       restaurant_id: 0
-    },   
-
-    mounted: function(){
-      this.restaurant_id = restaurant_id_js;
-      if(localStorage.getItem('tot_price') != undefined && this.restaurant_id == localStorage.getItem('restaurant_id')) {
-        this.tot_price = parseFloat(localStorage.getItem('tot_price')).toFixed(2);
-        this.delivery = parseFloat(localStorage.getItem('delivery')).toFixed(2);
-        this.cart_dishes = JSON.parse(localStorage.getItem('dishs'));
-      }
-
-      this.tot_price = parseFloat(this.tot_price);
     },
 
     methods: {
-      push_dish: function(name, price, img_url){
-      },
-      dish_minus: function(index){
-      },
-      dish_plus: function(index){
+      AddToCart(name, price){
+        this.one_dish = {
+          "name": name,
+          "price": price,
+          "index": 0,
+        };
+        this.tot_price += price;
+        this.index = this.one_dish.index;
+        this.cart_dishes += this.one_dish;
 
       },
+      
+      PrintToCart: function(index){
+      },
+      dish_plus: function(index){
+      },
+      SaveOrderToPayment(){
+
+      },
+
+    },
+    mounted(){
 
     }
   });
