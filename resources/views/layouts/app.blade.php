@@ -84,7 +84,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="grande">
+                @yield('content')
+            </div>
         </main>
 
         @include('partials.footer')

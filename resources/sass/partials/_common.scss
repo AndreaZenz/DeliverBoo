@@ -3,6 +3,12 @@ body{
     color: $primary-color;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .mg-top-bot-10 {
     margin-top: 10px;
     margin-bottom: 10px;
