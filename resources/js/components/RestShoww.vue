@@ -17,7 +17,7 @@
         <div class="col-8 pr-1">
           <div class="row">
             <div
-             class="card mg-top-bot-10 col-4"
+              class="card mg-top-bot-10 col-4"
               v-for="(dish, index) in dishes"
               :key="dish.id"
             >
@@ -41,16 +41,23 @@
                 </button>
                 <br />
               </div>
-  
             </div>
           </div>
         </div>
-        <div class="col-4" v-if="cart.length > 0">
-          <h1>Carrello</h1>
-          <div v-for="(item, index) in cart" :key="index">
-            <!-- aggiunta del piatto -->
-          </div>
-          <div class="div">TotalPrice: {{ prezzototale }}</div>
+        <div class="card" style="width: 18rem" v-if="cart.length > 0">
+          <div class="card-header">Cart</div>
+          <ul class="list-group list-group-flush">
+            <li
+              v-for="(item, index) in cart"
+              :key="index"
+              class="list-group-item"
+            >
+              <span>{{ item.quantity }}</span> 
+              <span>{{ item.name }}</span> 
+              <span>{{ item.price }}</span>
+            </li>
+            <li class="list-group-item">TotalPrice: {{ prezzototale }}</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -71,25 +78,74 @@ export default {
       id: this.id,
       cart: [],
       prezzototale: 0,
+      allDishQuantity: [],
     };
   },
   methods: {
     increse(i) {
-      this.cart.push(this.dishes[i].price);
+      const checkPresenza = this.cart.indexOf(this.dishes[i]);
+
+      ////if non c'e' gia' nel carrello
+      if (checkPresenza === -1) {
+        this.dishes[i].quantity = 1;
+        this.cart.push(this.dishes[i]);
+      } else {
+        this.dishes[i].quantity++;
+      }
 
       this.prezzototale += parseFloat(this.dishes[i].price);
     },
 
     decrese(i) {
-      const index = this.cart.indexOf(this.dishes[i].price);
-      if (index > -1) {
-        this.cart.splice(index, 1);
-      }
-      if (this.prezzototale > 0) {
+      const checkPresenza = this.cart.indexOf(this.dishes[i]);
+      if (checkPresenza > -1 && this.dishes[i].quantity === 1) {
+        //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
+        this.cart.splice(checkPresenza, 1);
+
+        if (this.dishes[i].quantity)
+          this.prezzototale -= parseFloat(this.dishes[i].price);
+
+      } else if(this.dishes[i].quantity > 1){
+        this.dishes[i].quantity--;
+
+        if (this.dishes[i].quantity)
         this.prezzototale -= parseFloat(this.dishes[i].price);
       }
     },
   },
+  // methods: {
+  //   increse(i) {
+  //     const checkPresenza = this.cart.indexOf(this.dishes[i]);
+
+  //     ////if non c'e' gia' nel carrello
+  //     if (checkPresenza === -1) {
+  //       this.cart.push(this.dishes[i]);
+  //       this.cart[i].quantity = 1;
+  //     } else {
+  //       this.cart[i].quantity++;
+  //     }
+
+  //     this.prezzototale += parseFloat(this.cart[i].price);
+  //   },
+
+  //   decrese(i) {
+  //     const checkPresenza = this.cart.indexOf(this.dishes[i]);
+  //     if (checkPresenza > -1 && this.cart[i].quantity === 1) {
+  //       this.prezzototale -= parseFloat(this.cart[i].price);
+
+  //       //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
+  //       this.cart.splice(checkPresenza, 1);
+
+        
+
+  //     } else {
+  //       this.cart[i].quantity--;
+
+  //       if (this.cart[i].quantity)
+  //       this.prezzototale -= parseFloat(this.cart[i].price);
+  //     }
+  //   },
+  // },
   mounted() {
     axios
       .get("/api/restaurant/" + this.id)

@@ -18,7 +18,7 @@ window.Vue = require('vue');
  */
 
 
-// queste 2 righe di comando fanno la chiamata in automatico
+// queste 2 righe di comando chiamano tutte le Vue.component in automatico
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -27,7 +27,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 // Vue.component('RestaurantIndex', require('./components/RestaurantIndex.vue').default);
 // Vue.component('TextInput', require('./components/formInputs/TextInput.vue').default);
 // Vue.component('MultiCheckInput', require('./components/formInputs/MultiCheckInput.vue').default);
-//
+//Vue.component('DishCard', require('./components/DishCard.vue').default);
 
 
 /**
