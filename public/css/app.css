@@ -124,6 +124,10 @@ footer .container .row .col ul {
   footer .container .row .col ul {
     padding: 10px;
   }
+
+  footer .container .footer-down {
+    display: flex;
+  }
 }
 
 /*!
