@@ -87,6 +87,9 @@ body {
 footer {
   background-color: #2E3333;
   color: white;
+  width: 100%;
+  position: absolute;
+  margin-bottom: 0;
 }
 
 footer .container .row .col h4 {
@@ -113,6 +116,10 @@ footer .container .row .col ul {
 }
 
 @media screen and (max-width: 768px) {
+  footer {
+    padding: 20px;
+  }
+
   footer .container .row {
     display: block;
   }

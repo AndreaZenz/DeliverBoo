@@ -1,6 +1,9 @@
 footer{
     background-color : $footer-bg;
     color: white;
+    width: 100%;
+    position: absolute;
+    margin-bottom: 0;
     .container{
         .row{
             .col{
@@ -30,6 +33,7 @@ footer{
 
 @media screen and (max-width:768px){
     footer{
+        padding: 20px;
         .container{
             .row{
                 display: block;
@@ -42,6 +46,7 @@ footer{
             }
             .footer-down{
                 display: flex;
+                
             }
         }
     }
