@@ -50,41 +50,47 @@
                             @csrf
                             @method('POST')
 
+
                             <div class="form-group">
-                                <label for="name">Name: </label>
-                                <input type="text" class="form-control" name="name" placeholder="Write your name" id="name" required>
+                                <label for="client_name">Name: </label>
+                                <input type="text" class="form-control" name="client_name" placeholder="Write your name" id="client_name" required>
                             </div>
 
                             {{-- <div class="form-group">
-                            <label for="surname">Surname: </label>
-                            <input type="text" class="form-control" name="surname" placeholder="Write your surname" id="surname" required>
-                        </div> --}}
+                                <label for="client_surname">Surname: </label>
+                                <input type="text" class="form-control" name="client_surname" placeholder="Write your surname" id="client_surname"  required>
+                            </div> --}}
 
                             <div class="form-group">
-                                <label for="address">Address: </label>
-                                <input type="text" class="form-control" name="address" placeholder="Write your address" id="address" required>
+                                <label for="client_address">Address: </label>
+                                <input type="text" class="form-control" name="client_address" placeholder="Write your address" id="client_address" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="mail">Email: </label>
-                                <input type="text" class="form-control" name="email" placeholder="Write your email" id="mail" required>
+                                <label for="client_email">Email: </label>
+                                <input type="text" class="form-control" name="client_email" placeholder="Write your email" id="client_email"  required>
                             </div>
+
+                            {{-- <div class="form-group">
+                                <label for="client_phone">Phone: </label>
+                                <input type="text" class="form-control" name="client_phone" placeholder="Write your phone" id="client_phone" required>
+                            </div> --}}
 
                             {{-- <label for="mail">Orario di consegna: </label>
                             <input type="time" name="time" id="mail" required> --}}
 
                             <div class="form-group">
-                                <label for="comment">Commento: </label>
-                                <textarea class="form-control" id="comment" rows="3" name="comment" rows="5" placeholder="Write a comment"></textarea>
+                                <label for="client_comment">Commento: </label>
+                                <textarea class="form-control" id="client_comment" rows="3" name="client_comment" rows="5" placeholder="Write a comment"></textarea>
                             </div>
 
-                            <input id="restaurant_id" name="client_name" type="hidden" min="1" :value="restaurant_id" readonly>
+                            <input id="restaurant_id" name="restaurant_id" type="hidden" min="1" :value="restaurant_id" readonly>
 
                             <section>
                                 <label for="amount">
                                     <div class="input-wrapper amount-wrapper">
                                         <input id="amount" name="amount" type="hidden" min="1" :value="parseFloat(prezzototale).toFixed(2)" readonly>
-                                        <input id="amount" name="price" type="hidden" min="1" :value="parseFloat(prezzototale).toFixed(2)" readonly>
+                                        <input id="amount" name="amount" type="hidden" min="1" :value="parseFloat(prezzototale).toFixed(2)" readonly>
                                     </div>
                                 </label>
 
@@ -114,20 +120,20 @@
                             <p class="title_top">Piatti acquistati: </p>
                             <div v-for="(item, index) in arrItems">
                                 <p>@{{ index + 1 }}) @{{ item.name }} x@{{ item.amount }} prezzo: @{{ item.price }}€</p>
-                            </div>
-                        </div> --}}
+                    </div>
+                </div> --}}
 
-                        <div id="shop_cart_bottom">
+                <div id="shop_cart_bottom">
 
-                            <div id="shop_cart_bottom_total">
-                                <div>Totale</div>
-                                <div id="item_plate" class="price_animation">@{{ parseFloat(prezzototale).toFixed(2) }}€</div>
-                            </div>
-                        </div>
-
+                    <div id="shop_cart_bottom_total">
+                        <div>Totale</div>
+                        <div id="item_plate" class="price_animation">@{{ parseFloat(prezzototale).toFixed(2) }}€</div>
                     </div>
                 </div>
+
             </div>
+        </div>
+        </div>
         </div>
     </main>
 
@@ -166,4 +172,3 @@
     </script>
 </body>
 </html>
-

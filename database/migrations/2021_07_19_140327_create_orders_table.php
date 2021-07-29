@@ -17,13 +17,13 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->char('client_name', 128);
-            //$table->char('client_surname', 128);
-            //$table->integer('client_phone');
+            $table->char('client_surname', 128);
+            $table->integer('client_phone')->nullable();
             $table->char('client_address', 255);
             $table->longText('client_comment')->nullable();
             $table->char('client_email', 128)->nullable();
             $table->decimal('total_price', $precision = 8, $scale = 2);
-            //$table->text('ArrayDishes');
+            $table->text('ArrayDishes');
             $table->boolean('is_payed');
 
             $table->unsignedBigInteger("restaurant_id")->nullable();

@@ -17,6 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
+        
         $restaurants = Restaurant::all();
         $dishes = Dish::all();
         $types = Type::all();
