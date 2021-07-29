@@ -9,6 +9,7 @@
     .container_my{
         width: 100%;
         display: flex;
+        justify-content: space-between;
         .navbar-brand{
             margin: 10px;
             img{
@@ -16,4 +17,26 @@
             }
         }
     }
+}
+
+.nav-item{
+    background-color: white;
+    margin: 15px;
+    border-radius: 13px;
+    padding: 5px;
+    .nav-link{
+        color: black;
+    }
+}
+
+// dashboard utente loggato
+.nav-item-ut{
+    background-color: $hero-color1;
+    margin: 15px;
+    border-radius: 13px;
+    padding: 5px;
+    .nav-link-ut{
+        color: white;
+    }
+
 }

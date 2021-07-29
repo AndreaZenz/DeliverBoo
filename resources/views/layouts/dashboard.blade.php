@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-nowrap p-0">
+        <nav class="navbar navbar-expand-md navbar-link bg-light flex-md-nowrap p-0">
 
             {{-- LOGO DA USARE PER DASHBOARD --}}
             {{-- <a class="navbar-brand" href="{{ url('/') }}">
@@ -32,13 +32,13 @@
                 <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
             </a>
             <ul class="navbar-nav px-3 ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('restaurants.index')}}">
+                <li class="nav-item-ut">
+                    <a class="nav-link-ut" href="{{route('restaurants.index')}}">
                         Visita il sito
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                <li class="nav-item-ut">
+                    <a class="nav-link-ut" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                         Logout
                     </a>

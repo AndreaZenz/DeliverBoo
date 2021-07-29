@@ -37,6 +37,7 @@ body {
 .navbar_my .container_my {
   width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
 .navbar_my .container_my .navbar-brand {
@@ -45,6 +46,28 @@ body {
 
 .navbar_my .container_my .navbar-brand img {
   height: 50px;
+}
+
+.nav-item {
+  background-color: white;
+  margin: 15px;
+  border-radius: 13px;
+  padding: 5px;
+}
+
+.nav-item .nav-link {
+  color: black;
+}
+
+.nav-item-ut {
+  background-color: #00CCBB;
+  margin: 15px;
+  border-radius: 13px;
+  padding: 5px;
+}
+
+.nav-item-ut .nav-link-ut {
+  color: white;
 }
 
 footer {
