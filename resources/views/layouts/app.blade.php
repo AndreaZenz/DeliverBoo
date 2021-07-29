@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light">
             <div class="container hero">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
