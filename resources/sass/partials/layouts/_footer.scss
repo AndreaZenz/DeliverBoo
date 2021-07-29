@@ -1,0 +1,54 @@
+footer{
+    background-color : $footer-bg;
+    color: white;
+    width: 100%;
+    height: 210px;
+    .container{
+        .row{
+            .col{
+                h4{
+                    padding: 10px;
+                    text-align: center;
+                }
+                ul {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+.footer-down {
+    justify-content: flex-end;
+    .icons {
+        list-style: none;
+        li {
+            display: inline-block;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+    }
+}
+<<<<<<< HEAD:resources/sass/partials/layouts/_footer.scss
+
+@media screen and (max-width:768px){
+    footer{
+        padding: 20px;
+        .container{
+            .row{
+                display: block;
+                .col{
+                    text-align: center;
+                    ul{
+                        padding: 10px;
+                    }
+                }
+            }
+            .footer-down{
+                display: flex;
+                
+            }
+        }
+    }
+}
+=======
+>>>>>>> origin/master:resources/sass/partials/_footer.scss

@@ -1,36 +1,39 @@
 {{-- @extends('layouts.app') --}}
 
-<footer>
-    <div class="alessandro-container">
-        <div class="container">
-            <div class="row align-items-start ">
-                <div class="col">
-                    <h4>ABOUT US</h4>
-                    <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <strong><a href="https://www.boolean.careers/" target="_blank">Boolean</a></strong>.</p>
-                </div>
-                <div class="col">
-                    <h4>TEAM</h4>
-                    <ul>
-                        <li>
-                            <a href="https://www.linkedin.com/in/hi-marco-zhou/" target="_blank">Marco Zhou</a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/andrea-valerizenz/" target="_blank">Andrea Valeri</a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/simone-maletta/" target="_blank">Simone Maletta</a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/ale-puglisi/" target="_blank">Alessandro Puglisi</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>CONTACTS</h4>
-                    <ul>
-                        <li>tel: +39 333 4455667</li>
-                        <li>deliveboo.info@email.com</li>
-                    </ul>
+<footer class="">
+  <div class="container ">
+      
+      <div class="row align-items-start">
+          <div class="col col-xs-12">
+              <h4>ABOUT US</h4>
+              <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <strong><a href="https://www.boolean.careers/" target="_blank">Boolean</a></strong>.</p>
+          </div>
+          <div class="col col-xs-12">
+              <h4>TEAM</h4>
+              <ul>
+                    <li>
+                      <a href="https://www.linkedin.com/in/hi-marco-zhou/" target="_blank">Marco Zhou</a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/in/andrea-valerizenz/" target="_blank">Andrea Valeri</a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/in/simone-maletta/" target="_blank">Simone Maletta</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/ale-puglisi/" target="_blank">Alessandro Puglisi</a>
+                    </li>
+              </ul>
+          </div>
+          <div class="col col-xs-12">
+              <h4>CONTACTS</h4>
+              <ul>
+                  <li>tel: +39 333 4455667</li>
+                  <li>deliveboo.info@email.com</li>
+              </ul>
+              
+          </div>
+      </div>
 
                 </div>
             </div>

@@ -1,5 +1,159 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+/*
+stratos, sans-serif
+plex-sans, "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑体, "Hiragino Sans GB", 冬青黑体, sans-serif
+*/
+
+body {
+  background-color: #FFFFFF;
+  color: #2e3333;
+}
+
+.mg-top-bot-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.big-container {
+  width: 1400px;
+  margin: auto;
+}
+
+.navbar_my {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  background-color: #00CCBB;
+  height: 90px;
+}
+
+.navbar_my .container_my {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar_my .container_my .navbar-brand {
+  margin: 10px;
+}
+
+.navbar_my .container_my .navbar-brand img {
+  height: 50px;
+}
+
+.nav-item {
+  background-color: white;
+  margin: 15px;
+  border-radius: 13px;
+  padding: 5px;
+}
+
+.nav-item .nav-link {
+  color: black;
+}
+
+.navbar-brand img {
+  height: 73px;
+}
+
+.nav-item-ut {
+  background-color: #00CCBB;
+  margin: 15px;
+  border-radius: 13px;
+  padding: 5px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.nav-item-ut .nav-link-ut {
+  color: white;
+}
+
+.navbar-toggler-ut {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: #00CCBB;
+  border-radius: 0.25rem;
+}
+
+main {
+  min-height: calc(100vh - 300px);
+}
+
+main .hero-container {
+  background-color: #00CCBB;
+}
+
+main .hero-container .container_my {
+  width: 1400px;
+  margin: auto;
+}
+
+main .hero-container .container_my .hero-research {
+  padding: 20px;
+}
+
+footer {
+  background-color: #2E3333;
+  color: white;
+  width: 100%;
+  height: 210px;
+}
+
+footer .container .row .col h4 {
+  padding: 10px;
+  text-align: center;
+}
+
+footer .container .row .col ul {
+  list-style: none;
+}
+
+.footer-down {
+  justify-content: flex-end;
+}
+
+.footer-down .icons {
+  list-style: none;
+}
+
+.footer-down .icons li {
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 20px;
+  }
+
+  footer .container .row {
+    display: block;
+  }
+
+  footer .container .row .col {
+    text-align: center;
+  }
+
+  footer .container .row .col ul {
+    padding: 10px;
+  }
+
+  footer .container .footer-down {
+    display: flex;
+  }
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10942,6 +11096,9 @@ a.text-dark:focus {
   }
 }
 
+<<<<<<< HEAD
+.hero_green {
+=======
 /*
 stratos, sans-serif
 plex-sans, "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑体, "Hiragino Sans GB", 冬青黑体, sans-serif
@@ -11031,6 +11188,7 @@ footer .alessandro-container .row .col ul {
 }
 
 .hero {
+>>>>>>> origin/master
   background-color: #00CCBB;
 }
 

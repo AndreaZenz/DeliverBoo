@@ -1,0 +1,57 @@
+.navbar_my{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background-color: $hero-color1;
+    height: 90px;
+    .container_my{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .navbar-brand{
+            margin: 10px;
+            img{
+                height: 50px;
+            }
+        }
+    }
+}
+
+.nav-item{
+    background-color: white;
+    margin: 15px;
+    border-radius: 13px;
+    padding: 5px;
+    .nav-link{
+        color: black;
+    }
+}
+
+// dashboard utente loggato
+.navbar-brand{
+    img{
+        height: 73px;
+    }
+}
+    .nav-item-ut{
+        background-color: $hero-color1;
+        margin: 15px;
+        border-radius: 13px;
+        padding: 5px;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        .nav-link-ut{
+            color: white;
+        }
+    }
+    .navbar-toggler-ut{
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: $hero-color1;
+        border-radius: 0.25rem;
+    }
+
