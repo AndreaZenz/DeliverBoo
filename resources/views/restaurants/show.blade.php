@@ -9,6 +9,7 @@
 
 <rest-showw
 :id = '{{$restaurant->id}}'
+{{-- :sganciaisordi = "route("payment")" --}}
 >
 </rest-showw>
 

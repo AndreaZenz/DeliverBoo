@@ -13,7 +13,6 @@ class Order extends Model
         'client_phone',
         'client_address',
         'client_name',
-        'client_surname',
         'client_email',
         'is_payed',
 

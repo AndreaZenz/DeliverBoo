@@ -17,8 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->char('client_name', 128);
-            $table->char('client_surname', 128);
-            $table->integer('client_phone');
+            //$table->char('client_surname', 128);
+            //$table->integer('client_phone');
             $table->char('client_address', 255);
             $table->longText('client_comment')->nullable();
             $table->char('client_email', 128)->nullable();

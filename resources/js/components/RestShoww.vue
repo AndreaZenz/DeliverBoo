@@ -45,6 +45,13 @@
           </div>
         </div>
         <div class="card" style="width: 18rem" v-if="cart.length > 0">
+          <a href="/payment">
+            <button
+              type="button"
+              class="btn btn-info spacing" @click="save">
+              Go To Checkout
+            </button>
+          </a>
           <div class="card-header">Cart</div>
           <ul class="list-group list-group-flush">
             <li
@@ -52,8 +59,8 @@
               :key="index"
               class="list-group-item"
             >
-              <span>{{ item.quantity }}</span> 
-              <span>{{ item.name }}</span> 
+              <span>{{ item.quantity }}</span>
+              <span>{{ item.name }}</span>
               <span>{{ item.price }}</span>
             </li>
             <li class="list-group-item">TotalPrice: {{ prezzototale }}</li>
@@ -70,6 +77,7 @@ export default {
   name: "RestaurantShow",
   props: {
     id: Number,
+    // sganciaisordi: String,
   },
   data() {
     return {
@@ -94,6 +102,10 @@ export default {
       }
 
       this.prezzototale += parseFloat(this.dishes[i].price);
+
+      localStorage.setItem('prezzototale', this.prezzototale);
+      localStorage.setItem('plates', JSON.stringify(this.dishes));
+      localStorage.setItem('restaurant_id', this.id);
     },
 
     decrese(i) {
@@ -104,14 +116,22 @@ export default {
 
         if (this.dishes[i].quantity)
           this.prezzototale -= parseFloat(this.dishes[i].price);
-
-      } else if(this.dishes[i].quantity > 1){
+      } else if (this.dishes[i].quantity > 1) {
         this.dishes[i].quantity--;
 
         if (this.dishes[i].quantity)
-        this.prezzototale -= parseFloat(this.dishes[i].price);
+          this.prezzototale -= parseFloat(this.dishes[i].price);
       }
+
+      localStorage.setItem('prezzototale', this.prezzototale);
+      localStorage.setItem('plates', JSON.stringify(this.dishes));
+      localStorage.setItem('restaurant_id', this.id);
     },
+    save: function () {
+      localStorage.setItem('prezzototale', this.prezzototale);
+      localStorage.setItem('plates', JSON.stringify(this.dishes));
+      localStorage.setItem('restaurant_id', this.id);
+      }
   },
   // methods: {
   //   increse(i) {
@@ -135,8 +155,6 @@ export default {
 
   //       //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
   //       this.cart.splice(checkPresenza, 1);
-
-        
 
   //     } else {
   //       this.cart[i].quantity--;

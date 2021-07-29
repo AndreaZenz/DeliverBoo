@@ -39,12 +39,12 @@ class PaymentController extends Controller
         $nonce = $request->payment_method_nonce;
 
         $result = $gateway->transaction()->sale([
-            'amount' => 40,
+            'amount' => '10',
             'paymentMethodNonce' => $nonce,
             'customer' => [
-                'firstName' => 'Tony',
-                'lastName' => 'Stark',
-                'email' => 'tony@avengers.com',
+                'firstName' => 'Alessandro',
+                'lastName' => 'Sainato',
+                'email' => 'alessandro.sainato@boolean.com',
             ],
             'options' => [
                 'submitForSettlement' => true
@@ -57,11 +57,11 @@ class PaymentController extends Controller
 
             $order = new Order();
             $data =  $request->all();
-            $data['restaurant_id'] = (int)$data['restaurant_id'];
+            $data['client_name'] = (int)$data['client_name'];   
             $order->fill($data);
             $order->save();
     
-            return view('shop.payment.checkout')->with('success_message', 'Il pagamento è stato effettuato. L\'id è:'. $transaction->id);
+            return view('payment.checkout')->with('success_message', 'Il pagamento è stato effettuato. L\'id è:'. $transaction->id);
         } else {
             $errorString = "";
     

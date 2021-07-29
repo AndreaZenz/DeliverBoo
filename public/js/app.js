@@ -2299,10 +2299,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
-    id: Number
+    id: Number // sganciaisordi: String,
+
   },
   data: function data() {
     return {
@@ -2326,6 +2334,9 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.prezzototale += parseFloat(this.dishes[i].price);
+      localStorage.setItem('prezzototale', this.prezzototale);
+      localStorage.setItem('plates', JSON.stringify(this.dishes));
+      localStorage.setItem('restaurant_id', this.id);
     },
     decrese: function decrese(i) {
       var checkPresenza = this.cart.indexOf(this.dishes[i]);
@@ -2338,6 +2349,15 @@ __webpack_require__.r(__webpack_exports__);
         this.dishes[i].quantity--;
         if (this.dishes[i].quantity) this.prezzototale -= parseFloat(this.dishes[i].price);
       }
+
+      localStorage.setItem('prezzototale', this.prezzototale);
+      localStorage.setItem('plates', JSON.stringify(this.dishes));
+      localStorage.setItem('restaurant_id', this.id);
+    },
+    save: function save() {
+      localStorage.setItem('prezzototale', this.prezzototale);
+      localStorage.setItem('plates', JSON.stringify(this.dishes));
+      localStorage.setItem('restaurant_id', this.id);
     }
   },
   // methods: {
@@ -38816,6 +38836,18 @@ var render = function() {
               "div",
               { staticClass: "card", staticStyle: { width: "18rem" } },
               [
+                _c("a", { attrs: { href: "/payment" } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info spacing",
+                      attrs: { type: "button" },
+                      on: { click: _vm.save }
+                    },
+                    [_vm._v("\n            Go To Checkout\n          ")]
+                  )
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "card-header" }, [_vm._v("Cart")]),
                 _vm._v(" "),
                 _c(
