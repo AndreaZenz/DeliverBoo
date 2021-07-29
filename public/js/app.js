@@ -2344,10 +2344,10 @@ __webpack_require__.r(__webpack_exports__);
       if (checkPresenza > -1 && this.dishes[i].quantity === 1) {
         //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
         this.cart.splice(checkPresenza, 1);
-        if (this.dishes[i].quantity) this.prezzototale -= parseFloat(this.dishes[i].price);
+        if (this.dishes[i].quantity) this.prezzototale -= parseFloat(this.dishes[i].price).toFixed(2);
       } else if (this.dishes[i].quantity > 1) {
         this.dishes[i].quantity--;
-        if (this.dishes[i].quantity) this.prezzototale -= parseFloat(this.dishes[i].price);
+        if (this.dishes[i].quantity) this.prezzototale -= parseFloat(this.dishes[i].price).toFixed(2);
       }
 
       localStorage.setItem('prezzototale', this.prezzototale);
@@ -38785,7 +38785,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Prezzo: " + _vm._s(dish.price))
+                      _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
                     ]),
                     _vm._v(" "),
                     _c("h5", { staticClass: "card-title" }, [
@@ -38863,13 +38863,17 @@ var render = function() {
                           _vm._v(" "),
                           _c("span", [_vm._v(_vm._s(item.name))]),
                           _vm._v(" "),
-                          _c("span", [_vm._v(_vm._s(item.price))])
+                          _c("span", [_vm._v(_vm._s(item.price) + " €")])
                         ]
                       )
                     }),
                     _vm._v(" "),
                     _c("li", { staticClass: "list-group-item" }, [
-                      _vm._v("TotalPrice: " + _vm._s(_vm.prezzototale))
+                      _vm._v(
+                        "TotalPrice: " +
+                          _vm._s(_vm.prezzototale.toFixed(2)) +
+                          " € "
+                      )
                     ])
                   ],
                   2
@@ -39044,7 +39048,7 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
-        { staticClass: "col-12" },
+        { staticClass: "col-12 d-flex flex-row" },
         _vm._l(_vm.restaurantsList, function(restaurant) {
           return _c("restaurant-card", {
             key: restaurant.id,
@@ -52371,8 +52375,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

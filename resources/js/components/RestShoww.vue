@@ -30,7 +30,7 @@
 
               <div class="card-body">
                 <h5 class="card-title">Name: {{ dish.name }}</h5>
-                <h5 class="card-title">Prezzo: {{ dish.price }}</h5>
+                <h5 class="card-title">Prezzo: {{ dish.price }} €</h5>
                 <h5 class="card-title">Descrizione: {{ dish.description }}</h5>
                 <h5 class="card-title">Ingredienti: {{ dish.ingredients }}</h5>
                 <button class="btn btn-primary" @click="increse(index)">
@@ -61,9 +61,9 @@
             >
               <span>{{ item.quantity }}</span>
               <span>{{ item.name }}</span>
-              <span>{{ item.price }}</span>
+              <span>{{ item.price }} €</span>
             </li>
-            <li class="list-group-item">TotalPrice: {{ prezzototale }}</li>
+            <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
           </ul>
         </div>
       </div>
@@ -115,12 +115,12 @@ export default {
         this.cart.splice(checkPresenza, 1);
 
         if (this.dishes[i].quantity)
-          this.prezzototale -= parseFloat(this.dishes[i].price);
+          this.prezzototale -= parseFloat(this.dishes[i].price).toFixed(2);
       } else if (this.dishes[i].quantity > 1) {
         this.dishes[i].quantity--;
 
         if (this.dishes[i].quantity)
-          this.prezzototale -= parseFloat(this.dishes[i].price);
+          this.prezzototale -= parseFloat(this.dishes[i].price).toFixed(2);
       }
 
       localStorage.setItem('prezzototale', this.prezzototale);

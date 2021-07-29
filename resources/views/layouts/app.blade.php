@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -83,7 +84,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="grande">
+                @yield('content')
+            </div>
         </main>
 
         @include('partials.footer')
