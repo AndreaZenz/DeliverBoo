@@ -25,18 +25,17 @@
                     </li>
               </ul>
           </div>
-          <div class="col col-xs-12">
-              <h4>CONTACTS</h4>
-              <ul>
-                  <li>tel: +39 333 4455667</li>
-                  <li>deliveboo.info@email.com</li>
-              </ul>
-              
-          </div>
+            <div class="col col-xs-12">
+                <h4>CONTACTS</h4>
+                <ul>
+                    <li>tel: +39 333 4455667</li>
+                    <li>deliveboo.info@email.com</li>
+                </ul>
+                
+            </div>
       </div>
 
-                </div>
-            </div>
+
 
 
 
@@ -59,5 +58,5 @@
             </div>
 
         </div>
-    </div>
+
 </footer>
