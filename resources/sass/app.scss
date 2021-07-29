@@ -8,8 +8,10 @@
 @import 'partials/mixins';
 
 //partials layout
-@import 'partials/header';
-@import 'partials/footer';
+@import 'partials/layouts/header';
+@import 'partials/layouts/restaurantIndex';
+@import 'partials/layouts/footer';
+
 
 
 // Bootstrap

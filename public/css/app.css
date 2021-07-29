@@ -32,6 +32,7 @@ body {
   justify-content: space-between;
   padding: 0;
   background-color: #00CCBB;
+  height: 90px;
 }
 
 .navbar_my .container_my {
@@ -84,12 +85,28 @@ body {
   border-radius: 0.25rem;
 }
 
+main {
+  min-height: calc(100vh - 300px);
+}
+
+main .hero-container {
+  background-color: #00CCBB;
+}
+
+main .hero-container .container_my {
+  width: 1400px;
+  margin: auto;
+}
+
+main .hero-container .container_my .hero-research {
+  padding: 20px;
+}
+
 footer {
   background-color: #2E3333;
   color: white;
   width: 100%;
-  position: absolute;
-  margin-bottom: 0;
+  height: 210px;
 }
 
 footer .container .row .col h4 {

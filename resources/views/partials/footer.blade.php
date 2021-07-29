@@ -1,7 +1,7 @@
 {{-- @extends('layouts.app') --}}
 
-<footer>
-  <div class="container">
+<footer class="">
+  <div class="container ">
       
       <div class="row align-items-start">
           <div class="col col-xs-12">
