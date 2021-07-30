@@ -11160,14 +11160,90 @@ footer .container .row .col ul {
   border-color: #00ccbc;
 }
 
+.text-link a {
+  color: #00a3a4;
+  text-decoration: none;
+}
+
+.home-page-container {
+  padding: 24px 0;
+}
+
 .pink-bg {
   background-color: #ffeae4;
-  height: 300px;
   width: 100%;
 }
 
 .pink-bg-text {
-  padding: 24px 0;
+  padding: 12px 0;
+}
+
+.pink-bg-text h1 {
+  font-weight: 800;
+  color: #00ccbc;
+  margin-left: 47px;
+}
+
+.evenly {
+  justify-content: space-evenly;
+}
+
+.burgher {
+  background-image: url(/images/burgher-430.jpg?e9f4b194bf22e7da879e96707e24603f);
+  height: 150px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.burgher .food-text {
+  color: white;
+  text-align: center;
+}
+
+.fruits {
+  background-image: url(/images/fruttina-430.jpg?ae1bfd2a722971f1fdd5ac014d325dd4);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fruits .food-text {
+  color: white;
+  text-align: center;
+}
+
+.vegetable {
+  background-image: url(/images/verdurine-430.jpg?21f1b6fd0747032ef88b679e8fdd62ab);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vegetable .food-text {
+  color: white;
+  text-align: center;
+}
+
+.ravioli {
+  background-image: url(/images/raviolini-430.jpg?2fd7a8f59e10a87d1b71e807c60cc690);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ravioli .food-text {
+  color: white;
+  text-align: center;
+}
+
+.ravioli .food-text h1 {
+  font-weight: 700;
+  font-size: 26px;
 }
 
 .card-my {
