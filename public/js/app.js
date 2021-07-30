@@ -2309,6 +2309,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -38770,7 +38784,15 @@ var render = function() {
         _c("div", { staticClass: "description-public" }, [
           _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
           _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))])
+          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Ordina il tuo piatto preferito a casa tua da "),
+            _c("strong", [_vm._v(_vm._s(_vm.ristorante.name) + " ")]),
+            _vm._v(" grazie alla consegna a domicilio di DeliveBoo.")
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row-my flex-column" }, [
@@ -38912,7 +38934,29 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "vote" }, [
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", {
+        staticClass: "fa fa-star-o",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" "),
+      _c("span", [_vm._v("4.0")])
+    ])
+  }
+]
 render._withStripped = true
 
 

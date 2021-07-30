@@ -11261,6 +11261,10 @@ footer .container .row .col ul {
   flex-grow: 1;
 }
 
+.card-my .description-public .fa {
+  color: #20c997;
+}
+
 .card-my .row-my {
   display: flex;
 }
