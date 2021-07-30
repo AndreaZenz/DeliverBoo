@@ -1,7 +1,5 @@
 <template>
     <div class="mb-3">
-        <label class="form-label">{{ label }}</label>
-        <br />
         <div
             class="form-check form-check-inline"
             v-for="item in items"
