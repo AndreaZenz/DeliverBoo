@@ -2,10 +2,11 @@
   <div>
     <div class="container">
       <div class="ristorante-hero card">
+        <h1>prova 1</h1>
         <div class="row flex-column">
           <img
             :src="ristorante.img_url"
-            alt="daje lazio"
+            alt="restaurant image"
             class="img-fluid"
             style="width: 100%; max-height: 150px; object-fit: cover"
           />
