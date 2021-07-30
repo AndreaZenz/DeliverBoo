@@ -11246,6 +11246,30 @@ footer .container .row .col ul {
   font-size: 26px;
 }
 
+.card-my {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  margin-top: 20px;
+}
+
+.card-my .description-public {
+  flex-grow: 1;
+}
+
+.card-my .row-my {
+  display: flex;
+}
+
+.card-my .row-my .img-rest {
+  width: 200px;
+  margin-left: 10px;
+}
+
 .spacier-top {
   margin-top: 44px;
 }

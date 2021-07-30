@@ -1,17 +1,19 @@
 <template>
   <div>
     <div class="container">
-      <div class="ristorante-hero card">
-        <h1>prova 1</h1>
-        <div class="row flex-column">
+      <div class="ristorante-hero card-my">
+        <div class="description-public">
+
+          <h1>{{ ristorante.name }}</h1>
+          <h3>{{ ristorante.address }}</h3>
+        </div>
+        <div class="row-my flex-column">
           <img
             :src="ristorante.img_url"
             alt="restaurant image"
-            class="img-fluid"
+            class="img-fluid img-rest"
             style="width: 100%; max-height: 150px; object-fit: cover"
           />
-          <h1>{{ ristorante.name }}</h1>
-          <h3>{{ ristorante.address }}</h3>
         </div>
       </div>
       <div class="row">

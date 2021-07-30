@@ -2307,6 +2307,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -38764,23 +38766,23 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "ristorante-hero card" }, [
-        _c("h1", [_vm._v("prova 1")]),
+      _c("div", { staticClass: "ristorante-hero card-my" }, [
+        _c("div", { staticClass: "description-public" }, [
+          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
+          _vm._v(" "),
+          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))])
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row flex-column" }, [
+        _c("div", { staticClass: "row-my flex-column" }, [
           _c("img", {
-            staticClass: "img-fluid",
+            staticClass: "img-fluid img-rest",
             staticStyle: {
               width: "100%",
               "max-height": "150px",
               "object-fit": "cover"
             },
             attrs: { src: _vm.ristorante.img_url, alt: "restaurant image" }
-          }),
-          _vm._v(" "),
-          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
-          _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))])
+          })
         ])
       ]),
       _vm._v(" "),
@@ -52429,8 +52431,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
