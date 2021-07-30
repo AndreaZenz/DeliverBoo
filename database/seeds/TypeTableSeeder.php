@@ -2,6 +2,7 @@
 
 use App\Type;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TypeTableSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class TypeTableSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['Ristorante', 'Pizzeria', 'Pescheria', 'Griglieria', 'Risotteria', 'Sushi', 'Cinese', 'Koreano', 'Thailandese'];
+        $types = ['Ristorante', 'Pizzeria', 'Pescheria', 'Griglieria', 'Risotteria', 'Sushi', 'Cinese', 'Koreano', 'Thailandese', 'Pasticceria'];
 
         if(DB::table('Types')->count() == 0){
 

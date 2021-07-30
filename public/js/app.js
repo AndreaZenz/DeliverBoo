@@ -2306,6 +2306,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -38765,6 +38766,8 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "ristorante-hero card" }, [
+        _c("h1", [_vm._v("prova 1")]),
+        _vm._v(" "),
         _c("div", { staticClass: "row flex-column" }, [
           _c("img", {
             staticClass: "img-fluid",
@@ -38773,7 +38776,7 @@ var render = function() {
               "max-height": "150px",
               "object-fit": "cover"
             },
-            attrs: { src: _vm.ristorante.img_url, alt: "daje lazio" }
+            attrs: { src: _vm.ristorante.img_url, alt: "restaurant image" }
           }),
           _vm._v(" "),
           _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
