@@ -12,7 +12,7 @@
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star-o" aria-hidden="true"></i>
-            <span>4.0</span>
+            <span>4.0    (1042 recensioni)</span>
           </div>
 
           <!-- tags -->
@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="card col-3" style="width: 18rem" v-if="cart.length > 0">
+        <div class="card col-3 mg-t-5" style="width: 18rem" v-if="cart.length > 0">
         <div class="card-header">Il tuo ordine</div>
           <ul class="list-group list-group-flush">
             <li

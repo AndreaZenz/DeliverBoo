@@ -38894,7 +38894,10 @@ var render = function() {
         _vm.cart.length > 0
           ? _c(
               "div",
-              { staticClass: "card col-3", staticStyle: { width: "18rem" } },
+              {
+                staticClass: "card col-3 mg-t-5",
+                staticStyle: { width: "18rem" }
+              },
               [
                 _c("div", { staticClass: "card-header" }, [
                   _vm._v("Il tuo ordine")
@@ -38965,7 +38968,7 @@ var staticRenderFns = [
         attrs: { "aria-hidden": "true" }
       }),
       _vm._v(" "),
-      _c("span", [_vm._v("4.0")])
+      _c("span", [_vm._v("4.0    (1042 recensioni)")])
     ])
   },
   function() {
