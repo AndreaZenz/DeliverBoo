@@ -1,0 +1,13 @@
+main{
+    min-height: calc(100vh - 300px);
+    .hero-container{
+        background-color: $hero-color1;
+        .container_my{
+            width: 1400px;
+            margin: auto;
+            .hero-research{
+                padding: 20px;
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'DeliveBoo') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,8 +28,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container hero">
+        <nav class="navbar_my navbar-expand-md navbar-light">
+        <div class="big-container">
+            <div class="container_my hero">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
                 </a>
@@ -81,9 +82,10 @@
                     </ul>
                 </div>
             </div>
+        </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
 
