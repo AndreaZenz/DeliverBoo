@@ -38809,14 +38809,14 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-8 pr-1" }, [
+        _c("div", { staticClass: "col-8 pr-1 bg-menu" }, [
           _c(
             "div",
             { staticClass: "row" },
             _vm._l(_vm.dishes, function(dish, index) {
               return _c(
                 "div",
-                { key: dish.id, staticClass: "card mg-top-bot-10 col-4" },
+                { key: dish.id, staticClass: "card mg-10 col-4" },
                 [
                   _c("img", {
                     staticClass: "img-fluid card-img-top",
@@ -38885,19 +38885,9 @@ var render = function() {
               "div",
               { staticClass: "card", staticStyle: { width: "18rem" } },
               [
-                _c("a", { attrs: { href: "/payment" } }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-info spacing",
-                      attrs: { type: "button" },
-                      on: { click: _vm.save }
-                    },
-                    [_vm._v("\n            Go To Checkout\n          ")]
-                  )
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v("Il tuo ordine")
                 ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-header" }, [_vm._v("Cart")]),
                 _vm._v(" "),
                 _c(
                   "ul",
@@ -38926,7 +38916,19 @@ var render = function() {
                     ])
                   ],
                   2
-                )
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "/payment" } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info spacing",
+                      attrs: { type: "button" },
+                      on: { click: _vm.save }
+                    },
+                    [_vm._v("\n            Go To Checkout\n          ")]
+                  )
+                ])
               ]
             )
           : _vm._e()

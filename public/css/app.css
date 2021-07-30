@@ -11274,6 +11274,14 @@ footer .container .row .col ul {
   margin-left: 10px;
 }
 
+.bg-menu {
+  background-color: #f6f0f0;
+}
+
+.bg-menu .mg-10 {
+  margin: 10px;
+}
+
 .spacier-top {
   margin-top: 44px;
 }

@@ -31,10 +31,10 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-8 pr-1">
+        <div class="col-8 pr-1 bg-menu">
           <div class="row">
             <div
-              class="card mg-top-bot-10 col-4"
+              class="card mg-10 col-4"
               v-for="(dish, index) in dishes"
               :key="dish.id"
             >
@@ -62,14 +62,7 @@
           </div>
         </div>
         <div class="card" style="width: 18rem" v-if="cart.length > 0">
-          <a href="/payment">
-            <button
-              type="button"
-              class="btn btn-info spacing" @click="save">
-              Go To Checkout
-            </button>
-          </a>
-          <div class="card-header">Cart</div>
+          <div class="card-header">Il tuo ordine</div>
           <ul class="list-group list-group-flush">
             <li
               v-for="(item, index) in cart"
@@ -82,6 +75,13 @@
             </li>
             <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
           </ul>
+          <a href="/payment">
+            <button
+              type="button"
+              class="btn btn-info spacing" @click="save">
+              Go To Checkout
+            </button>
+          </a>
         </div>
       </div>
     </div>
