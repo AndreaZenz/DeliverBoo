@@ -2436,7 +2436,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantCard",
   props: {
@@ -38964,7 +38963,9 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
-            _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
+            _c("div", { staticClass: "text-link" }, [
+              _c("a", { attrs: { href: _vm.link } }, [_vm._v("Apri")])
+            ])
           ],
           2
         )
