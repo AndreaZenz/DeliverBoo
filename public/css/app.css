@@ -11160,6 +11160,16 @@ footer .container .row .col ul {
   border-color: #00ccbc;
 }
 
+.pink-bg {
+  background-color: #ffeae4;
+  height: 300px;
+  width: 100%;
+}
+
+.pink-bg-text {
+  padding: 24px 0;
+}
+
 .spacier-top {
   margin-top: 44px;
 }
