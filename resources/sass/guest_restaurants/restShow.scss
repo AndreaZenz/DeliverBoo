@@ -7,10 +7,16 @@
     background-color: #fff;
     background-clip: border-box;
     margin-top: 20px;
+    margin-bottom: 20px;
     .description-public{
         flex-grow: 1;
         .fa{
             color: $teal;
+        }
+        .sale{
+            padding: 10px;
+            background-color: lightcoral;
+            border-radius: 5px;
         }
     }
     .row-my{
@@ -21,11 +27,28 @@
     }
     }
 }
-
+.row-menu{
+    display: flex;
+    flex-wrap: wrap;
+}
 .bg-menu{
     background-color: rgb(246, 240, 240);
-    .mg-10{
-        margin: 10px;
+    .mg-5{
+        margin: 5px;
+    }
+    .pd-10{
+        padding-top: 10px;
+    }
+    .card-body{
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        p{
+            font-size: 13px;
+        }
+        .grow{
+            flex-grow: 1;
+        }
     }
 
 }

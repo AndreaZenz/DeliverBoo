@@ -19,6 +19,10 @@
           
 
         <p>Ordina il tuo piatto preferito a casa tua da <strong>{{ ristorante.name }} </strong> grazie alla consegna a domicilio di DeliveBoo.</p>
+          <div class="sale">
+            <h6>Ordinando in questo ristorante avrai diritto alla consegna gratuita!</h6>
+          </div>
+
         </div>
 
         <div class="row-my flex-column">
@@ -30,39 +34,42 @@
           />
         </div>
       </div>
-      <div class="row">
-        <div class="col-8 pr-1 bg-menu">
+      <div class="row-menu bg-menu">
+        <div class="col-9 pr-1 ">
           <div class="row">
             <div
-              class="card mg-10 col-4"
+              class="card mg-5 col-5 pd-10"
               v-for="(dish, index) in dishes"
               :key="dish.id"
             >
               <img
                 :src="dish.img_url"
                 class="img-fluid card-img-top"
-                style="width: 100%; max-height: 150px; object-fit: cover"
+                style="width: 100%; height: 150px; object-fit: cover"
                 alt=""
               />
 
               <div class="card-body">
-                <h5 class="card-title">Name: {{ dish.name }}</h5>
-                <h5 class="card-title">Prezzo: {{ dish.price }} €</h5>
-                <h5 class="card-title">Descrizione: {{ dish.description }}</h5>
-                <h5 class="card-title">Ingredienti: {{ dish.ingredients }}</h5>
+                <h6 class="card-title"> {{ dish.name }}</h6>
+                <h6 class="card-title">Prezzo: {{ dish.price }} €</h6>
+                <p class="card-title">Descrizione: {{ dish.description }}</p>
+                <p class="card-title grow">Ingredienti: {{ dish.ingredients }}</p>
+                <div>
+
                 <button class="btn btn-primary" @click="increse(index)">
                   +
                 </button>
                 <button class="btn btn-primary" @click="decrese(index)">
                   -
                 </button>
+                </div>
                 <br />
               </div>
             </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem" v-if="cart.length > 0">
-          <div class="card-header">Il tuo ordine</div>
+        <div class="card col-3" style="width: 18rem" v-if="cart.length > 0">
+        <div class="card-header">Il tuo ordine</div>
           <ul class="list-group list-group-flush">
             <li
               v-for="(item, index) in cart"
@@ -73,7 +80,7 @@
               <span>{{ item.name }}</span>
               <span>{{ item.price }} €</span>
             </li>
-            <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
+            <li class="list-group-item"> <strong> Prezzo totale: </strong> <br> {{ prezzototale.toFixed(2)}} € </li>
           </ul>
           <a href="/payment">
             <button

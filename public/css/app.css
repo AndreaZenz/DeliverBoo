@@ -11263,6 +11263,7 @@ footer .container .row .col ul {
   background-color: #fff;
   background-clip: border-box;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card-my .description-public {
@@ -11271,6 +11272,12 @@ footer .container .row .col ul {
 
 .card-my .description-public .fa {
   color: #20c997;
+}
+
+.card-my .description-public .sale {
+  padding: 10px;
+  background-color: lightcoral;
+  border-radius: 5px;
 }
 
 .card-my .row-my {
@@ -11282,12 +11289,35 @@ footer .container .row .col ul {
   margin-left: 10px;
 }
 
+.row-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .bg-menu {
   background-color: #f6f0f0;
 }
 
-.bg-menu .mg-10 {
-  margin: 10px;
+.bg-menu .mg-5 {
+  margin: 5px;
+}
+
+.bg-menu .pd-10 {
+  padding-top: 10px;
+}
+
+.bg-menu .card-body {
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-menu .card-body p {
+  font-size: 13px;
+}
+
+.bg-menu .card-body .grow {
+  flex-grow: 1;
 }
 
 .spacier-top {

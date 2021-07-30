@@ -2323,6 +2323,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -38792,7 +38799,9 @@ var render = function() {
             _vm._v("Ordina il tuo piatto preferito a casa tua da "),
             _c("strong", [_vm._v(_vm._s(_vm.ristorante.name) + " ")]),
             _vm._v(" grazie alla consegna a domicilio di DeliveBoo.")
-          ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row-my flex-column" }, [
@@ -38808,68 +38817,70 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-8 pr-1 bg-menu" }, [
+      _c("div", { staticClass: "row-menu bg-menu" }, [
+        _c("div", { staticClass: "col-9 pr-1 " }, [
           _c(
             "div",
             { staticClass: "row" },
             _vm._l(_vm.dishes, function(dish, index) {
               return _c(
                 "div",
-                { key: dish.id, staticClass: "card mg-10 col-4" },
+                { key: dish.id, staticClass: "card mg-5 col-5 pd-10" },
                 [
                   _c("img", {
                     staticClass: "img-fluid card-img-top",
                     staticStyle: {
                       width: "100%",
-                      "max-height": "150px",
+                      height: "150px",
                       "object-fit": "cover"
                     },
                     attrs: { src: dish.img_url, alt: "" }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Name: " + _vm._s(dish.name))
+                    _c("h6", { staticClass: "card-title" }, [
+                      _vm._v(" " + _vm._s(dish.name))
                     ]),
                     _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
+                    _c("h6", { staticClass: "card-title" }, [
                       _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
                     ]),
                     _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
+                    _c("p", { staticClass: "card-title" }, [
                       _vm._v("Descrizione: " + _vm._s(dish.description))
                     ]),
                     _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
+                    _c("p", { staticClass: "card-title grow" }, [
                       _vm._v("Ingredienti: " + _vm._s(dish.ingredients))
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.increse(index)
+                    _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.increse(index)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                +\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.decrese(index)
+                        },
+                        [_vm._v("\n                +\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.decrese(index)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                -\n              ")]
-                    ),
+                        },
+                        [_vm._v("\n                -\n              ")]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("br")
                   ])
@@ -38883,7 +38894,7 @@ var render = function() {
         _vm.cart.length > 0
           ? _c(
               "div",
-              { staticClass: "card", staticStyle: { width: "18rem" } },
+              { staticClass: "card col-3", staticStyle: { width: "18rem" } },
               [
                 _c("div", { staticClass: "card-header" }, [
                   _vm._v("Il tuo ordine")
@@ -38908,11 +38919,10 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("li", { staticClass: "list-group-item" }, [
-                      _vm._v(
-                        "TotalPrice: " +
-                          _vm._s(_vm.prezzototale.toFixed(2)) +
-                          " € "
-                      )
+                      _c("strong", [_vm._v(" Prezzo totale: ")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" " + _vm._s(_vm.prezzototale.toFixed(2)) + " € ")
                     ])
                   ],
                   2
@@ -38956,6 +38966,18 @@ var staticRenderFns = [
       }),
       _vm._v(" "),
       _c("span", [_vm._v("4.0")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sale" }, [
+      _c("h6", [
+        _vm._v(
+          "Ordinando in questo ristorante avrai diritto alla consegna gratuita!"
+        )
+      ])
     ])
   }
 ]
@@ -52480,8 +52502,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
