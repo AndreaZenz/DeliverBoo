@@ -9,6 +9,9 @@
     margin-top: 20px;
     .description-public{
         flex-grow: 1;
+        .fa{
+            color: $teal;
+        }
     }
     .row-my{
     display: flex;

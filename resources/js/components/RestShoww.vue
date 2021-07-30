@@ -6,7 +6,21 @@
 
           <h1>{{ ristorante.name }}</h1>
           <h3>{{ ristorante.address }}</h3>
+          <div class="vote">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <span>4.0</span>
+          </div>
+
+          <!-- tags -->
+          
+
+        <p>Ordina il tuo piatto preferito a casa tua da <strong>{{ ristorante.name }} </strong> grazie alla consegna a domicilio di DeliveBoo.</p>
         </div>
+
         <div class="row-my flex-column">
           <img
             :src="ristorante.img_url"
