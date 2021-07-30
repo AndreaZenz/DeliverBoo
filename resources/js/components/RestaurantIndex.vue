@@ -1,51 +1,63 @@
 <template>
-  <div class="">
+  <div>
     <div class="background-search">
-      <div class="container">
-        <div class="card-body">
-          <div class="front-text margin-20">
-            <h1>I piatti che ami, a domicilio</h1>
-          </div>
+      <div class="container jumbo-box">
+        <div class="row">
           <form @submit.prevent="filterData" @reset="onReset">
             <div class="row">
-              <div class="col-6">
-                <text-input
-                  
-                  @input="filterData"
-                  label="Nome"
-                  v-model="filters.name"
-                  placeholder="Nome del ristorante"
-                ></text-input>
-                <div class="col">
-                  <multi-check-input
-                    label="Types"
-                    :items="types"
-                    v-model="filters.types"
-                  ></multi-check-input>
+              <div class="front-text">
+                <h1>I piatti che ami, a domicilio</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 border bg-white">
+                <div class="row">
+                  <div class="col-12">
+                    <form @submit.prevent="filterData" @reset="onReset">
+                      <text-input
+                        @input="filterData"
+                        label="Nome"
+                        v-model="filters.name"
+                        placeholder="Nome del ristorante"
+                      ></text-input>
+
+                      <multi-check-input
+                        label="Types"
+                        :items="types"
+                        v-model="filters.types"
+                      ></multi-check-input>
+                      <button
+                        type="submit"
+                        class="btn btn-primary position-bar"
+                      >
+                        Filtra
+                      </button>
+                      <button
+                        type="reset"
+                        href="#"
+                        class="btn btn-outline-secondary position-stop-f"
+                      >
+                        <a href="/">Annulla filtri</a>
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-6">
-              <img src="public\img\restaurant_homepage\124f4b16019e12da2fc6d650bfdd86fc.png" alt="">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Filtra</button>
           </form>
-
-          <button type="reset" href="#" class="btn btn-outline-secondary">
-            <a href="/">Annulla filtri</a>
-          </button>
+          <div class="alert-style">
+            <div class="alert alert-success alert-style" v-if="activeFilters">
+              Sono stati trovati {{ restaurantsList.length }} risulati per il
+              filtro:
+              <div v-html="printActiveFilters()"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="alert alert-success mb-5" v-if="activeFilters">
-        Sono stati trovati {{ restaurantsList.length }} risulati per il filtro:
-        <div v-html="printActiveFilters()"></div>
-      </div>
-
+    <div class="restaurant-index container">
       <div class="row justify-content-center">
-        <div class="col-12 d-flex flex-row">
+        <div class="col-12 d-flex flex-row flex-wrap">
           <restaurant-card
             v-for="restaurant in restaurantsList"
             :key="restaurant.id"

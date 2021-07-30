@@ -1,14 +1,64 @@
 .background-search {
     background-color: #d0eb99;
     width: 100%;
+    background-image: url('../public/img/restaurant_homepage/124f4b16019e12da2fc6d650bfdd86fc.png');
+    background-repeat: no-repeat;
+    background-position: 70%;
 }
+
+.jumbo-box{
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
 .front-text {
+    display: bvl;
     h1 {
         color: #440071;
     }
 }
 
+.alert-style{
+    margin: 12px;
+    width: 200px;
+    position: relative;
+    
+}
+
 .margin-20{
     margin-top: 12px;
     margin-bottom: 18px;
+}
+
+
+
+.bg-white{
+    background-color: wheat;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: wheat;
+}
+
+.position-bar{
+    background-color: #00ccbc;
+    border-color: #00ccbc;
+    
+    &:hover{
+        background-color: #00ccaa;
+        border-color: #00ccbc;
+    }
+}
+
+.position-stop-f{
+
+    background-color: #00ccbc;
+    border-color: #00ccbc;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    &:hover{
+        background-color: #00ccaa;
+        border-color: #00ccbc;
+    }
 }
