@@ -2306,7 +2306,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -38756,9 +38755,7 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "ristorante-hero card" }, [
-        _c("h1", [_vm._v("prova 1")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row flex-column" }, [
+        _c("div", { staticClass: "row-my flex-column" }, [
           _c("img", {
             staticClass: "img-fluid",
             staticStyle: {

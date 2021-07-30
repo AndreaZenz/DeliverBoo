@@ -11110,6 +11110,10 @@ footer .container .row .col ul {
   margin-bottom: 18px;
 }
 
+.row-my {
+  display: flex;
+}
+
 .spacier-top {
   margin-top: 44px;
 }

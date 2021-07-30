@@ -2,8 +2,7 @@
   <div>
     <div class="container">
       <div class="ristorante-hero card">
-        <h1>prova 1</h1>
-        <div class="row flex-column">
+        <div class="row-my flex-column">
           <img
             :src="ristorante.img_url"
             alt="restaurant image"
