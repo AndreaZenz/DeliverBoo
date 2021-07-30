@@ -9,7 +9,7 @@
       />
       <div class="card-body">
         <h5 class="card-title">{{ name }}</h5>
-        <span class="badge badge-primary" v-for="type in types" :key="type.id">
+        <span class="badge badge-primary deliveroo-color" v-for="type in types" :key="type.id">
           {{ type.name }}
         </span>
 

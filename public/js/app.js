@@ -39004,7 +39004,10 @@ var render = function() {
             _vm._l(_vm.types, function(type) {
               return _c(
                 "span",
-                { key: type.id, staticClass: "badge badge-primary" },
+                {
+                  key: type.id,
+                  staticClass: "badge badge-primary deliveroo-color"
+                },
                 [_vm._v("\n        " + _vm._s(type.name) + "\n      ")]
               )
             }),

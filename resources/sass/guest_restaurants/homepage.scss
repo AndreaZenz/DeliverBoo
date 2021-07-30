@@ -21,7 +21,9 @@
 .alert-style {
     margin: 12px;
     width: 200px;
-    position: relative;
+    position: absolute;
+    top: 14%;
+    right: 36%;
 }
 
 .margin-20 {
@@ -141,4 +143,10 @@
             font-size: 26px;
         }
     }
+}
+
+.deliveroo-color{
+    background-color: #00ccbc;
+    color: #440071;
+    margin: 0px 4px ;
 }
