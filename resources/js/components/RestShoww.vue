@@ -1,75 +1,58 @@
 <template>
   <div>
     <div class="container">
-      <div class="ristorante-hero card-my">
-        <div class="description-public">
-
-          <h1>{{ ristorante.name }}</h1>
-          <h3>{{ ristorante.address }}</h3>
-          <div class="vote">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <span>4.0    (1042 recensioni)</span>
-          </div>
-
-          <!-- tags -->
-          
-
-        <p>Ordina il tuo piatto preferito a casa tua da <strong>{{ ristorante.name }} </strong> grazie alla consegna a domicilio di DeliveBoo.</p>
-          <div class="sale">
-            <h6>Ordinando in questo ristorante avrai diritto alla consegna gratuita!</h6>
-          </div>
-
-        </div>
-
-        <div class="row-my flex-column">
+      <div class="ristorante-hero card">
+        <div class="row flex-column">
           <img
             :src="ristorante.img_url"
-            alt="restaurant image"
-            class="img-fluid img-rest"
+            alt="daje lazio"
+            class="img-fluid"
             style="width: 100%; max-height: 150px; object-fit: cover"
           />
+          <h1>{{ ristorante.name }}</h1>
+          <h3>{{ ristorante.address }}</h3>
         </div>
       </div>
-      <div class="row-menu bg-menu">
-        <div class="col-9 pr-1 ">
+      <div class="row">
+        <div class="col-8 pr-1">
           <div class="row">
             <div
-              class="card mg-5 col-5 pd-10"
+              class="card mg-top-bot-10 col-4"
               v-for="(dish, index) in dishes"
               :key="dish.id"
             >
               <img
                 :src="dish.img_url"
                 class="img-fluid card-img-top"
-                style="width: 100%; height: 150px; object-fit: cover"
+                style="width: 100%; max-height: 150px; object-fit: cover"
                 alt=""
               />
 
               <div class="card-body">
-                <h6 class="card-title"> {{ dish.name }}</h6>
-                <h6 class="card-title">Prezzo: {{ dish.price }} €</h6>
-                <p class="card-title">Descrizione: {{ dish.description }}</p>
-                <p class="card-title grow">Ingredienti: {{ dish.ingredients }}</p>
-                <div>
-
+                <h5 class="card-title">Name: {{ dish.name }}</h5>
+                <h5 class="card-title">Prezzo: {{ dish.price }} €</h5>
+                <h5 class="card-title">Descrizione: {{ dish.description }}</h5>
+                <h5 class="card-title">Ingredienti: {{ dish.ingredients }}</h5>
                 <button class="btn btn-primary" @click="increse(index)">
                   +
                 </button>
                 <button class="btn btn-primary" @click="decrese(index)">
                   -
                 </button>
-                </div>
                 <br />
               </div>
             </div>
           </div>
         </div>
-        <div class="card col-3 mg-t-5" style="width: 18rem" v-if="cart.length > 0">
-        <div class="card-header">Il tuo ordine</div>
+        <div class="card" style="width: 18rem" v-if="cart.length > 0">
+          <a href="/payment">
+            <button
+              type="button"
+              class="btn btn-info spacing" @click="save">
+              Go To Checkout
+            </button>
+          </a>
+          <div class="card-header">Cart</div>
           <ul class="list-group list-group-flush">
             <li
               v-for="(item, index) in cart"
@@ -80,15 +63,8 @@
               <span>{{ item.name }}</span>
               <span>{{ item.price }} €</span>
             </li>
-            <li class="list-group-item"> <strong> Prezzo totale: </strong> <br> {{ prezzototale.toFixed(2)}} € </li>
+            <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
           </ul>
-          <a href="/payment">
-            <button
-              type="button"
-              class="btn btn-info spacing" @click="save">
-              Go To Checkout
-            </button>
-          </a>
         </div>
       </div>
     </div>
@@ -157,37 +133,37 @@ export default {
       localStorage.setItem('restaurant_id', this.id);
       }
   },
-  // methods: {
-  //   increse(i) {
-  //     const checkPresenza = this.cart.indexOf(this.dishes[i]);
+  methods: {
+    increse(i) {
+      const checkPresenza = this.cart.indexOf(this.dishes[i]);
 
-  //     ////if non c'e' gia' nel carrello
-  //     if (checkPresenza === -1) {
-  //       this.cart.push(this.dishes[i]);
-  //       this.cart[i].quantity = 1;
-  //     } else {
-  //       this.cart[i].quantity++;
-  //     }
+      ////if non c'e' gia' nel carrello
+      if (checkPresenza === -1) {
+        this.cart.push(this.dishes[i]);
+        this.cart[i].quantity = 1;
+      } else {
+        this.cart[i].quantity++;
+      }
 
-  //     this.prezzototale += parseFloat(this.cart[i].price);
-  //   },
+      this.prezzototale += parseFloat(this.cart[i].price);
+    },
 
-  //   decrese(i) {
-  //     const checkPresenza = this.cart.indexOf(this.dishes[i]);
-  //     if (checkPresenza > -1 && this.cart[i].quantity === 1) {
-  //       this.prezzototale -= parseFloat(this.cart[i].price);
+    decrese(i) {
+      const checkPresenza = this.cart.indexOf(this.dishes[i]);
+      if (checkPresenza > -1 && this.cart[i].quantity === 1) {
+        this.prezzototale -= parseFloat(this.cart[i].price);
 
-  //       //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
-  //       this.cart.splice(checkPresenza, 1);
+        //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
+        this.cart.splice(checkPresenza, 1);
 
-  //     } else {
-  //       this.cart[i].quantity--;
+      } else {
+        this.cart[i].quantity--;
 
-  //       if (this.cart[i].quantity)
-  //       this.prezzototale -= parseFloat(this.cart[i].price);
-  //     }
-  //   },
-  // },
+        if (this.cart[i].quantity)
+        this.prezzototale -= parseFloat(this.cart[i].price);
+      }
+    },
+  },
   mounted() {
     axios
       .get("/api/restaurant/" + this.id)

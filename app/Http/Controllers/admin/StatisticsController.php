@@ -139,7 +139,7 @@ class StatisticsController extends Controller
 
         dump(compact('monthly_order_data_array'));
 
-        return view("admin.statisticsvue", compact('monthly_order_data_array'));
+        return view("admin.statistics", compact('monthly_order_data_array'));
 
     }
 

@@ -211,6 +211,24 @@ export default {
     };
   },
   methods: {
+      getAllMonths(){
+          $month_array = array();
+		$orders_dates = this.orders.created_at;
+        //$orders_dates = getRestaurantOrders();
+		$orders_dates = json_decode( $orders_dates );
+        
+		if ( ! empty( $orders_dates ) ) {
+			foreach ( $orders_dates as $unformatted_date ) {
+				$date = new \DateTime( $unformatted_date );
+                
+				$month_no = $date->format( 'm' );
+				$month_name = $date->format( 'M' );
+				$month_array[ $month_no ] = $month_name;
+			}
+		}
+        
+		return $month_array;
+      }
     getMonthlyOrderData() {
     },
   },
