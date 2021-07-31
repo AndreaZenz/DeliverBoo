@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Vue from 'vue';
 
-require('./bootstrap');
+('./bootstrap');
 
 window.Vue = require('vue');
 

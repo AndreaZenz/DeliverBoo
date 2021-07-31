@@ -1,0 +1,57 @@
+.card-my{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .description-public{
+        flex-grow: 1;
+        .fa{
+            color: $teal;
+        }
+        .sale{
+            padding: 10px;
+            background-color: lightcoral;
+            border-radius: 5px;
+        }
+    }
+    .row-my{
+    display: flex;
+    .img-rest{
+        width: 200px;
+        margin-left: 10px;
+    }
+    }
+}
+.row-menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+.bg-menu{
+    background-color: rgb(246, 240, 240);
+    .mg-5{
+        margin: 5px;
+    }
+    .pd-10{
+        padding-top: 10px;
+    }
+    .card-body{
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        p{
+            font-size: 13px;
+        }
+        .grow{
+            flex-grow: 1;
+        }
+    }
+    .mg-t-5{
+        margin-top: 5px;
+    }
+
+}

@@ -11,7 +11,13 @@
 @import 'partials/mixins';
 
 //partials layout
-@import 'partials/footer';
+@import 'partials/layouts/header';
+@import 'partials/layouts/restaurantIndex';
+@import 'partials/layouts/footer';
+
+//guest_restaurant
+@import 'guest_restaurants/homepage';
+@import 'guest_restaurants/restShow';
 
 //admin_restaurant
 @import 'admin_restaurants/restaurant_create';

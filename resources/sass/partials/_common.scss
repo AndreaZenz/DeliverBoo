@@ -3,7 +3,7 @@ body{
     color: $primary-color;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,4 +16,9 @@ body{
 
 .no-decoration {
     text-decoration: none;
+}
+
+.big-container{
+    width: 1400px;
+    margin: auto;
 }

@@ -10967,18 +10967,96 @@ body {
   text-decoration: none;
 }
 
-footer .alessandro-container {
-  background: #2E3333;
-  color: white;
-  height: 208px;
+.big-container {
+  width: 1400px;
+  margin: auto;
 }
 
-footer .alessandro-container .row .col h4 {
+.navbar_my {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  background-color: #00CCBB;
+}
+
+.navbar_my .container_my {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar_my .container_my .navbar-brand {
+  margin: 10px;
+}
+
+.navbar_my .container_my .navbar-brand img {
+  height: 50px;
+}
+
+.nav-item {
+  background-color: white;
+  margin: 15px;
+  border-radius: 13px;
+  padding: 5px;
+}
+
+.nav-item .nav-link {
+  color: black;
+}
+
+.navbar-brand img {
+  height: 73px;
+}
+
+.nav-item-ut {
+  background-color: #00CCBB;
+  margin: 15px;
+  border-radius: 13px;
+  padding: 5px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.nav-item-ut .nav-link-ut {
+  color: white;
+}
+
+.nav-tog-ut {
+  background-color: #00CCBB;
+}
+
+main {
+  min-height: calc(100vh - 300px);
+}
+
+main .hero-container {
+  background-color: #00CCBB;
+}
+
+main .hero-container .container_my {
+  width: 1400px;
+  margin: auto;
+}
+
+main .hero-container .container_my .hero-research {
+  padding: 20px;
+}
+
+footer {
+  background-color: #2E3333;
+  color: white;
+  width: 100%;
+}
+
+footer .container .row .col h4 {
   padding: 10px;
   text-align: center;
 }
 
-footer .alessandro-container .row .col ul {
+footer .container .row .col ul {
   list-style: none;
 }
 
@@ -10994,6 +11072,256 @@ footer .alessandro-container .row .col ul {
   display: inline-block;
   margin-left: 3px;
   margin-right: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 20px;
+  }
+
+  footer .container .row {
+    display: block;
+  }
+
+  footer .container .row .col {
+    text-align: center;
+  }
+
+  footer .container .row .col ul {
+    padding: 10px;
+  }
+
+  footer .container .footer-down {
+    display: flex;
+  }
+}
+
+.background-search {
+  background-color: #d0eb99;
+  width: 100%;
+  background-image: url(/images/124f4b16019e12da2fc6d650bfdd86fc.png?124f4b16019e12da2fc6d650bfdd86fc);
+  background-repeat: no-repeat;
+  background-position: 70%;
+}
+
+.jumbo-box {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.front-text {
+  display: bvl;
+}
+
+.front-text h1 {
+  color: #440071;
+}
+
+.alert-style {
+  margin: 12px;
+  width: 200px;
+  position: absolute;
+  top: 14%;
+  right: 36%;
+}
+
+.margin-20 {
+  margin-top: 12px;
+  margin-bottom: 18px;
+}
+
+.bg-white {
+  background-color: wheat;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: wheat;
+}
+
+.position-bar {
+  background-color: #00ccbc;
+  border-color: #00ccbc;
+}
+
+.position-bar:hover {
+  background-color: #00ccaa;
+  border-color: #00ccbc;
+}
+
+.position-stop-f {
+  background-color: #00ccbc;
+  border-color: #00ccbc;
+}
+
+.position-stop-f a {
+  color: white;
+  text-decoration: none;
+}
+
+.position-stop-f:hover {
+  background-color: #00ccaa;
+  border-color: #00ccbc;
+}
+
+.text-link a {
+  color: #00a3a4;
+  text-decoration: none;
+}
+
+.home-page-container {
+  padding: 24px 0;
+}
+
+.pink-bg {
+  background-color: #ffeae4;
+  width: 100%;
+}
+
+.pink-bg-text {
+  padding-top: 12px;
+}
+
+.pink-bg-text h1 {
+  font-weight: 800;
+  color: #00ccbc;
+  margin-left: 47px;
+}
+
+.evenly {
+  justify-content: space-evenly;
+}
+
+.burgher {
+  background-image: url(/images/burgher-430.jpg?e9f4b194bf22e7da879e96707e24603f);
+  height: 150px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.burgher .food-text {
+  color: white;
+  text-align: center;
+}
+
+.fruits {
+  background-image: url(/images/fruttina-430.jpg?ae1bfd2a722971f1fdd5ac014d325dd4);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fruits .food-text {
+  color: white;
+  text-align: center;
+}
+
+.vegetable {
+  background-image: url(/images/verdurine-430.jpg?21f1b6fd0747032ef88b679e8fdd62ab);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vegetable .food-text {
+  color: white;
+  text-align: center;
+}
+
+.ravioli {
+  background-image: url(/images/raviolini-430.jpg?2fd7a8f59e10a87d1b71e807c60cc690);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ravioli .food-text {
+  color: white;
+  text-align: center;
+}
+
+.ravioli .food-text h1 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.deliveroo-color {
+  background-color: #00ccbc;
+  color: #440071;
+  margin: 0px 4px;
+}
+
+.card-my {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card-my .description-public {
+  flex-grow: 1;
+}
+
+.card-my .description-public .fa {
+  color: #20c997;
+}
+
+.card-my .description-public .sale {
+  padding: 10px;
+  background-color: lightcoral;
+  border-radius: 5px;
+}
+
+.card-my .row-my {
+  display: flex;
+}
+
+.card-my .row-my .img-rest {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.row-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bg-menu {
+  background-color: #f6f0f0;
+}
+
+.bg-menu .mg-5 {
+  margin: 5px;
+}
+
+.bg-menu .pd-10 {
+  padding-top: 10px;
+}
+
+.bg-menu .card-body {
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-menu .card-body p {
+  font-size: 13px;
+}
+
+.bg-menu .card-body .grow {
+  flex-grow: 1;
+}
+
+.bg-menu .mg-t-5 {
+  margin-top: 5px;
 }
 
 .spacier-top {
@@ -11030,7 +11358,7 @@ footer .alessandro-container .row .col ul {
   color: #8d9090;
 }
 
-.hero {
+.hero_green {
   background-color: #00CCBB;
 }
 
