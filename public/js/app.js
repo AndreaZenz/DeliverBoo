@@ -38791,7 +38791,7 @@ var render = function() {
         _c("div", { staticClass: "description-public" }, [
           _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
           _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))]),
+          _c("h4", [_vm._v(_vm._s(_vm.ristorante.address))]),
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
@@ -38809,7 +38809,7 @@ var render = function() {
             staticClass: "img-fluid img-rest",
             staticStyle: {
               width: "100%",
-              "max-height": "150px",
+              "max-height": "200px",
               "object-fit": "cover"
             },
             attrs: { src: _vm.ristorante.img_url, alt: "restaurant image" }
@@ -38818,10 +38818,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row-menu bg-menu" }, [
-        _c("div", { staticClass: "col-9 pr-1 " }, [
+        _c("div", { staticClass: "col-9 pr-1 contents" }, [
           _c(
             "div",
-            { staticClass: "row" },
+            { staticClass: "row-menu" },
             _vm._l(_vm.dishes, function(dish, index) {
               return _c(
                 "div",
@@ -38895,7 +38895,7 @@ var render = function() {
           ? _c(
               "div",
               {
-                staticClass: "card col-3 mg-t-5",
+                staticClass: "card col-3 mg-t-5 contents1",
                 staticStyle: { width: "18rem" }
               },
               [

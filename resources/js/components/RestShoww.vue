@@ -5,7 +5,7 @@
         <div class="description-public">
 
           <h1>{{ ristorante.name }}</h1>
-          <h3>{{ ristorante.address }}</h3>
+          <h4>{{ ristorante.address }}</h4>
           <div class="vote">
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
@@ -30,13 +30,13 @@
             :src="ristorante.img_url"
             alt="restaurant image"
             class="img-fluid img-rest"
-            style="width: 100%; max-height: 150px; object-fit: cover"
+            style="width: 100%; max-height: 200px; object-fit: cover"
           />
         </div>
       </div>
       <div class="row-menu bg-menu">
-        <div class="col-9 pr-1 ">
-          <div class="row">
+        <div class="col-9 pr-1 contents">
+          <div class="row-menu">
             <div
               class="card mg-5 col-5 pd-10"
               v-for="(dish, index) in dishes"
@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="card col-3 mg-t-5" style="width: 18rem" v-if="cart.length > 0">
+        <div class="card col-3 mg-t-5 contents1" style="width: 18rem" v-if="cart.length > 0">
         <div class="card-header">Il tuo ordine</div>
           <ul class="list-group list-group-flush">
             <li
