@@ -30,6 +30,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 // Vue.component('TextInput', require('./components/formInputs/TextInput.vue').default);
 // Vue.component('MultiCheckInput', require('./components/formInputs/MultiCheckInput.vue').default);
 //Vue.component('DishCard', require('./components/DishCard.vue').default);
+//Vue.component('StatisticsIndex', require('./components/StatisticsIndex.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

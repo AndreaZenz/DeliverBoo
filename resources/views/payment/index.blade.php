@@ -1,7 +1,26 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-@section('content')
-<div class="payment">
+    <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/img/favicon.png">
+
+    {{-- fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css" integrity="sha512-9iWaz7iMchMkQOKA8K4Qpz6bpQRbhedFJB+MSdmJ5Nf4qIN1+5wOVnzg5BQs/mYH3sKtzY+DOgxiwMz8ZtMCsw==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {{-- BRAINTREE --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
+
+    <title>Payment</title>
+</head>
+<body class="payment">
+
+
     <main id="app">
         <div class="container mb-4">
 
@@ -37,10 +56,10 @@
                                 <input type="text" class="form-control" name="client_name" placeholder="Write your name" id="client_name" required>
                             </div>
 
-                            <div class="form-group">
-                                <label for="surname">Surname: </label>
-                                <input type="text" class="form-control" name="surname" placeholder="Write your surname" id="surname" required>
-                            </div>
+                            {{-- <div class="form-group">
+                                <label for="client_surname">Surname: </label>
+                                <input type="text" class="form-control" name="client_surname" placeholder="Write your surname" id="client_surname"  required>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="client_address">Address: </label>
@@ -151,10 +170,5 @@
         });
 
     </script>
-<<<<<<< HEAD
 </body>
 </html>
-=======
-</div>
-@endsection
->>>>>>> 3a66e17f3f4b440f0c24848f18a1745b2843989a
