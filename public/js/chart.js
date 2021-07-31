@@ -184,7 +184,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\js\chart.js */"./resources/js/chart.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\chart.js */"./resources/js/chart.js");
 
 
 /***/ })

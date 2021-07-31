@@ -2231,27 +2231,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_name$props$data$meth = {
   name: "RestaurantShow",
   props: {
@@ -2562,9 +2541,249 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StatisticsIndex.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\resources\\js\\components\\StatisticsIndex.vue: Unexpected token, expected \",\" (221:27)\n\n\u001b[0m \u001b[90m 219 |\u001b[39m         \u001b[0m\n\u001b[0m \u001b[90m 220 |\u001b[39m \t\t\u001b[36mif\u001b[39m ( \u001b[33m!\u001b[39m empty( $orders_dates ) ) {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 221 |\u001b[39m \t\t\tforeach ( $orders_dates \u001b[36mas\u001b[39m $unformatted_date ) {\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \t\t\t                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 222 |\u001b[39m \t\t\t\t$date \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[37m\u001b[41m\u001b[1m\\\u001b[22m\u001b[49m\u001b[39m\u001b[33mDateTime\u001b[39m( $unformatted_date )\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 223 |\u001b[39m                 \u001b[0m\n\u001b[0m \u001b[90m 224 |\u001b[39m \t\t\t\t$month_no \u001b[33m=\u001b[39m $date\u001b[33m-\u001b[39m\u001b[33m>\u001b[39mformat( \u001b[32m'm'\u001b[39m )\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:816:17)\n    at Parser.raiseWithData (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:809:17)\n    at Parser.raise (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:770:17)\n    at Parser.unexpected (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:9893:16)\n    at Parser.expect (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:9867:28)\n    at Parser.parseCallExpressionArguments (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11069:14)\n    at Parser.parseCoverCallAndAsyncArrowHead (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10992:29)\n    at Parser.parseSubscript (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10925:19)\n    at Parser.parseSubscripts (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10898:19)\n    at Parser.parseExprSubscripts (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10887:17)\n    at Parser.parseUpdate (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10861:21)\n    at Parser.parseMaybeUnary (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10839:23)\n    at Parser.parseExprOps (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10696:23)\n    at Parser.parseMaybeConditional (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10670:23)\n    at Parser.parseMaybeAssign (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10633:21)\n    at Parser.parseExpressionBase (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10573:23)\n    at D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10567:39\n    at Parser.allowInAnd (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12328:16)\n    at Parser.parseExpression (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10567:17)\n    at Parser.parseStatementContent (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12665:23)\n    at Parser.parseStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13123:25)\n    at Parser.parseBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13114:10)\n    at Parser.parseBlock (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13098:10)\n    at Parser.parseStatementContent (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12610:21)\n    at Parser.parseStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseIfStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12897:28)\n    at Parser.parseStatementContent (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12579:21)\n    at Parser.parseStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13123:25)\n    at Parser.parseBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13114:10)\n    at Parser.parseBlock (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13098:10)\n    at Parser.parseFunctionBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11989:24)\n    at Parser.parseFunctionBodyAndFinish (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11973:10)\n    at Parser.parseMethod (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11923:10)\n    at Parser.parseObjectMethod (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11851:19)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "StatisticsIndex",
+  props: {},
+  data: function data() {
+    return {
+      orders: [],
+      restaurants: []
+    };
+  },
+  // methods: {
+  //     getAllMonths(){
+  //         $month_array = array();
+  // 	$orders_dates = this.orders.created_at;
+  //       //$orders_dates = getRestaurantOrders();
+  // 	$orders_dates = json_decode( $orders_dates );
+  // 	if ( ! empty( $orders_dates ) ) {
+  // 		foreach ( $orders_dates as $unformatted_date ) {
+  // 			$date = new \DateTime( $unformatted_date );
+  // 			$month_no = $date->format( 'm' );
+  // 			$month_name = $date->format( 'M' );
+  // 			$month_array[ $month_no ] = $month_name;
+  // 		}
+  // 	}
+  // 	return $month_array;
+  //     }
+  //   // getMonthlyOrderData() {
+  //   // },
+  // }
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/api/statisticsvue").then(function (resp) {
+      _this.restaurants = resp.data.results.restaurants;
+      _this.orders = resp.data.results.orders;
+    })["catch"](function (er) {
+      alert("Orders API call failed");
+    });
+  }
+});
 
 /***/ }),
 
@@ -38511,8 +38730,208 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "ristorante-hero card-my" }, [
+        _c("div", { staticClass: "description-public" }, [
+          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
+          _vm._v(" "),
+          _c("h4", [_vm._v(_vm._s(_vm.ristorante.address))]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Ordina il tuo piatto preferito a casa tua da "),
+            _c("strong", [_vm._v(_vm._s(_vm.ristorante.name) + " ")]),
+            _vm._v(" grazie alla consegna a domicilio di DeliveBoo.")
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row-my flex-column" }, [
+          _c("img", {
+            staticClass: "img-fluid img-rest",
+            staticStyle: {
+              width: "100%",
+              "max-height": "200px",
+              "object-fit": "cover"
+            },
+            attrs: { src: _vm.ristorante.img_url, alt: "restaurant image" }
+          }),
+          _vm._v(" "),
+          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
+          _vm._v(" "),
+          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row-menu bg-menu" }, [
+        _c("div", { staticClass: "col-9 pr-1 contents" }, [
+          _c(
+            "div",
+            { staticClass: "row-menu" },
+            _vm._l(_vm.dishes, function(dish, index) {
+              return _c(
+                "div",
+                { key: dish.id, staticClass: "card mg-top-bot-10 col-4" },
+                [
+                  _c("img", {
+                    staticClass: "img-fluid card-img-top",
+                    staticStyle: {
+                      width: "100%",
+                      "max-height": "150px",
+                      "object-fit": "cover"
+                    },
+                    attrs: { src: dish.img_url, alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Name: " + _vm._s(dish.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Descrizione: " + _vm._s(dish.description))
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Ingredienti: " + _vm._s(dish.ingredients))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            return _vm.increse(index)
+                          }
+                        }
+                      },
+                      [_vm._v("\n                +\n              ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            return _vm.decrese(index)
+                          }
+                        }
+                      },
+                      [_vm._v("\n                -\n              ")]
+                    ),
+                    _vm._v(" "),
+                    _c("br")
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _vm.cart.length > 0
+          ? _c(
+              "div",
+              { staticClass: "card", staticStyle: { width: "18rem" } },
+              [
+                _c("a", { attrs: { href: "/payment" } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info spacing",
+                      attrs: { type: "button" },
+                      on: { click: _vm.save }
+                    },
+                    [_vm._v("\n            Go To Checkout\n          ")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-header" }, [_vm._v("Cart")]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  { staticClass: "list-group list-group-flush" },
+                  [
+                    _vm._l(_vm.cart, function(item, index) {
+                      return _c(
+                        "li",
+                        { key: index, staticClass: "list-group-item" },
+                        [
+                          _c("span", [_vm._v(_vm._s(item.quantity))]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(item.name))]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(item.price) + " €")])
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "list-group-item" }, [
+                      _vm._v(
+                        "TotalPrice: " +
+                          _vm._s(_vm.prezzototale.toFixed(2)) +
+                          " € "
+                      )
+                    ])
+                  ],
+                  2
+                )
+              ]
+            )
+          : _vm._e()
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "vote" }, [
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", {
+        staticClass: "fa fa-star-o",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" "),
+      _c("span", [_vm._v("4.0    (1042 recensioni)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sale" }, [
+      _c("h6", [
+        _vm._v(
+          "Ordinando in questo ristorante avrai diritto alla consegna gratuita!"
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
 
 
 
@@ -52176,8 +52595,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
