@@ -11286,7 +11286,6 @@ footer .container .row .col ul {
 
 .card-my .row-my .img-rest {
   width: 200px;
-  margin-left: 10px;
 }
 
 .row-menu {
@@ -11298,30 +11297,45 @@ footer .container .row .col ul {
   background-color: #f6f0f0;
 }
 
-.bg-menu .mg-5 {
+.bg-menu .row-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bg-menu .row-menu .mg-5 {
   margin: 5px;
 }
 
-.bg-menu .pd-10 {
+.bg-menu .row-menu .pd-10 {
   padding-top: 10px;
 }
 
-.bg-menu .card-body {
+.bg-menu .row-menu .card-body {
   height: 450px;
   display: flex;
   flex-direction: column;
 }
 
-.bg-menu .card-body p {
+.bg-menu .row-menu .card-body p {
   font-size: 13px;
 }
 
-.bg-menu .card-body .grow {
+.bg-menu .row-menu .card-body .grow {
   flex-grow: 1;
 }
 
-.bg-menu .mg-t-5 {
+.bg-menu .row-menu .mg-t-5 {
   margin-top: 5px;
+}
+
+@media screen and (max-width: 760px) {
+  .card-my {
+    flex-direction: column-reverse;
+  }
+
+  .contents {
+    display: contents;
+  }
 }
 
 .spacier-top {

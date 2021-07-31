@@ -1,21 +1,44 @@
 <template>
   <div>
     <div class="container">
-      <div class="ristorante-hero card">
-        <div class="row flex-column">
+      <div class="ristorante-hero card-my">
+        <div class="description-public">
+
+          <h1>{{ ristorante.name }}</h1>
+          <h4>{{ ristorante.address }}</h4>
+          <div class="vote">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <span>4.0    (1042 recensioni)</span>
+          </div>
+
+          <!-- tags -->
+          
+
+        <p>Ordina il tuo piatto preferito a casa tua da <strong>{{ ristorante.name }} </strong> grazie alla consegna a domicilio di DeliveBoo.</p>
+          <div class="sale">
+            <h6>Ordinando in questo ristorante avrai diritto alla consegna gratuita!</h6>
+          </div>
+
+        </div>
+
+        <div class="row-my flex-column">
           <img
             :src="ristorante.img_url"
-            alt="daje lazio"
-            class="img-fluid"
-            style="width: 100%; max-height: 150px; object-fit: cover"
+            alt="restaurant image"
+            class="img-fluid img-rest"
+            style="width: 100%; max-height: 200px; object-fit: cover"
           />
           <h1>{{ ristorante.name }}</h1>
           <h3>{{ ristorante.address }}</h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col-8 pr-1">
-          <div class="row">
+      <div class="row-menu bg-menu">
+        <div class="col-9 pr-1 contents">
+          <div class="row-menu">
             <div
               class="card mg-top-bot-10 col-4"
               v-for="(dish, index) in dishes"
