@@ -2130,6 +2130,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _name$props$data$meth;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2204,31 +2208,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_name$props$data$meth = {
   name: "RestaurantShow",
   props: {
     id: Number // sganciaisordi: String,
@@ -2281,43 +2261,42 @@ __webpack_require__.r(__webpack_exports__);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
       localStorage.setItem('restaurant_id', this.id);
     }
-  },
-  // methods: {
-  //   increse(i) {
-  //     const checkPresenza = this.cart.indexOf(this.dishes[i]);
-  //     ////if non c'e' gia' nel carrello
-  //     if (checkPresenza === -1) {
-  //       this.cart.push(this.dishes[i]);
-  //       this.cart[i].quantity = 1;
-  //     } else {
-  //       this.cart[i].quantity++;
-  //     }
-  //     this.prezzototale += parseFloat(this.cart[i].price);
-  //   },
-  //   decrese(i) {
-  //     const checkPresenza = this.cart.indexOf(this.dishes[i]);
-  //     if (checkPresenza > -1 && this.cart[i].quantity === 1) {
-  //       this.prezzototale -= parseFloat(this.cart[i].price);
-  //       //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
-  //       this.cart.splice(checkPresenza, 1);
-  //     } else {
-  //       this.cart[i].quantity--;
-  //       if (this.cart[i].quantity)
-  //       this.prezzototale -= parseFloat(this.cart[i].price);
-  //     }
-  //   },
-  // },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get("/api/restaurant/" + this.id).then(function (resp) {
-      _this.ristorante = resp.data.results.restaurant;
-      _this.dishes = resp.data.results.dishes;
-    })["catch"](function (er) {
-      alert("lato restaurantShow api call(all'interno del vue)");
-    });
   }
-}); // faccio una chiamata API e gli passo questo ID e lo salvo dentro una variabile nel return dei data dentro L?API controller all'interno della funzione faccio $restaurant::Restaurant->find($id)->with()
+}, _defineProperty(_name$props$data$meth, "methods", {
+  increse: function increse(i) {
+    var checkPresenza = this.cart.indexOf(this.dishes[i]); ////if non c'e' gia' nel carrello
+
+    if (checkPresenza === -1) {
+      this.cart.push(this.dishes[i]);
+      this.cart[i].quantity = 1;
+    } else {
+      this.cart[i].quantity++;
+    }
+
+    this.prezzototale += parseFloat(this.cart[i].price);
+  },
+  decrese: function decrese(i) {
+    var checkPresenza = this.cart.indexOf(this.dishes[i]);
+
+    if (checkPresenza > -1 && this.cart[i].quantity === 1) {
+      this.prezzototale -= parseFloat(this.cart[i].price); //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
+
+      this.cart.splice(checkPresenza, 1);
+    } else {
+      this.cart[i].quantity--;
+      if (this.cart[i].quantity) this.prezzototale -= parseFloat(this.cart[i].price);
+    }
+  }
+}), _defineProperty(_name$props$data$meth, "mounted", function mounted() {
+  var _this = this;
+
+  axios.get("/api/restaurant/" + this.id).then(function (resp) {
+    _this.ristorante = resp.data.results.restaurant;
+    _this.dishes = resp.data.results.dishes;
+  })["catch"](function (er) {
+    alert("lato restaurantShow api call(all'interno del vue)");
+  });
+}), _name$props$data$meth); // faccio una chiamata API e gli passo questo ID e lo salvo dentro una variabile nel return dei data dentro L?API controller all'interno della funzione faccio $restaurant::Restaurant->find($id)->with()
 // return->json{
 //    "r"
 //}
@@ -2539,233 +2518,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StatisticsIndex.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "StatisticsIndex",
-  props: {},
-  data: function data() {
-    return {
-      orders: [],
-      restaurants: []
-    };
-  },
-  methods: {
-    getMonthlyOrderData: function getMonthlyOrderData() {}
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get("/api/statisticsvue").then(function (resp) {
-      _this.restaurants = resp.data.results.restaurants;
-      _this.orders = resp.data.results.orders;
-    })["catch"](function (er) {
-      alert("Orders API call failed");
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\resources\\js\\components\\StatisticsIndex.vue: Unexpected token, expected \",\" (221:27)\n\n\u001b[0m \u001b[90m 219 |\u001b[39m         \u001b[0m\n\u001b[0m \u001b[90m 220 |\u001b[39m \t\t\u001b[36mif\u001b[39m ( \u001b[33m!\u001b[39m empty( $orders_dates ) ) {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 221 |\u001b[39m \t\t\tforeach ( $orders_dates \u001b[36mas\u001b[39m $unformatted_date ) {\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \t\t\t                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 222 |\u001b[39m \t\t\t\t$date \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[37m\u001b[41m\u001b[1m\\\u001b[22m\u001b[49m\u001b[39m\u001b[33mDateTime\u001b[39m( $unformatted_date )\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 223 |\u001b[39m                 \u001b[0m\n\u001b[0m \u001b[90m 224 |\u001b[39m \t\t\t\t$month_no \u001b[33m=\u001b[39m $date\u001b[33m-\u001b[39m\u001b[33m>\u001b[39mformat( \u001b[32m'm'\u001b[39m )\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:816:17)\n    at Parser.raiseWithData (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:809:17)\n    at Parser.raise (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:770:17)\n    at Parser.unexpected (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:9893:16)\n    at Parser.expect (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:9867:28)\n    at Parser.parseCallExpressionArguments (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11069:14)\n    at Parser.parseCoverCallAndAsyncArrowHead (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10992:29)\n    at Parser.parseSubscript (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10925:19)\n    at Parser.parseSubscripts (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10898:19)\n    at Parser.parseExprSubscripts (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10887:17)\n    at Parser.parseUpdate (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10861:21)\n    at Parser.parseMaybeUnary (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10839:23)\n    at Parser.parseExprOps (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10696:23)\n    at Parser.parseMaybeConditional (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10670:23)\n    at Parser.parseMaybeAssign (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10633:21)\n    at Parser.parseExpressionBase (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10573:23)\n    at D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10567:39\n    at Parser.allowInAnd (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12328:16)\n    at Parser.parseExpression (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:10567:17)\n    at Parser.parseStatementContent (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12665:23)\n    at Parser.parseStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13123:25)\n    at Parser.parseBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13114:10)\n    at Parser.parseBlock (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13098:10)\n    at Parser.parseStatementContent (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12610:21)\n    at Parser.parseStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseIfStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12897:28)\n    at Parser.parseStatementContent (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12579:21)\n    at Parser.parseStatement (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13123:25)\n    at Parser.parseBlockBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13114:10)\n    at Parser.parseBlock (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:13098:10)\n    at Parser.parseFunctionBody (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11989:24)\n    at Parser.parseFunctionBodyAndFinish (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11973:10)\n    at Parser.parseMethod (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11923:10)\n    at Parser.parseObjectMethod (D:\\Booleanphp\\DelieverBoo\\DeliverBoo\\node_modules\\@babel\\parser\\lib\\index.js:11851:19)");
 
 /***/ }),
 
@@ -38718,100 +38473,86 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "ristorante-hero card-my" }, [
-        _c("div", { staticClass: "description-public" }, [
-          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
-          _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v("Ordina il tuo piatto preferito a casa tua da "),
-            _c("strong", [_vm._v(_vm._s(_vm.ristorante.name) + " ")]),
-            _vm._v(" grazie alla consegna a domicilio di DeliveBoo.")
-          ]),
-          _vm._v(" "),
-          _vm._m(1)
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row-my flex-column" }, [
+      _c("div", { staticClass: "ristorante-hero card" }, [
+        _c("div", { staticClass: "row flex-column" }, [
           _c("img", {
-            staticClass: "img-fluid img-rest",
+            staticClass: "img-fluid",
             staticStyle: {
               width: "100%",
               "max-height": "150px",
               "object-fit": "cover"
             },
-            attrs: { src: _vm.ristorante.img_url, alt: "restaurant image" }
-          })
+            attrs: { src: _vm.ristorante.img_url, alt: "daje lazio" }
+          }),
+          _vm._v(" "),
+          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
+          _vm._v(" "),
+          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row-menu bg-menu" }, [
-        _c("div", { staticClass: "col-9 pr-1 " }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-8 pr-1" }, [
           _c(
             "div",
             { staticClass: "row" },
             _vm._l(_vm.dishes, function(dish, index) {
               return _c(
                 "div",
-                { key: dish.id, staticClass: "card mg-5 col-5 pd-10" },
+                { key: dish.id, staticClass: "card mg-top-bot-10 col-4" },
                 [
                   _c("img", {
                     staticClass: "img-fluid card-img-top",
                     staticStyle: {
                       width: "100%",
-                      height: "150px",
+                      "max-height": "150px",
                       "object-fit": "cover"
                     },
                     attrs: { src: dish.img_url, alt: "" }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body" }, [
-                    _c("h6", { staticClass: "card-title" }, [
-                      _vm._v(" " + _vm._s(dish.name))
+                    _c("h5", { staticClass: "card-title" }, [
+                      _vm._v("Name: " + _vm._s(dish.name))
                     ]),
                     _vm._v(" "),
-                    _c("h6", { staticClass: "card-title" }, [
+                    _c("h5", { staticClass: "card-title" }, [
                       _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-title" }, [
+                    _c("h5", { staticClass: "card-title" }, [
                       _vm._v("Descrizione: " + _vm._s(dish.description))
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-title grow" }, [
+                    _c("h5", { staticClass: "card-title" }, [
                       _vm._v("Ingredienti: " + _vm._s(dish.ingredients))
                     ]),
                     _vm._v(" "),
-                    _c("div", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          on: {
-                            click: function($event) {
-                              return _vm.increse(index)
-                            }
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            return _vm.increse(index)
                           }
-                        },
-                        [_vm._v("\n                +\n              ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          on: {
-                            click: function($event) {
-                              return _vm.decrese(index)
-                            }
+                        }
+                      },
+                      [_vm._v("\n                +\n              ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            return _vm.decrese(index)
                           }
-                        },
-                        [_vm._v("\n                -\n              ")]
-                      )
-                    ]),
+                        }
+                      },
+                      [_vm._v("\n                -\n              ")]
+                    ),
                     _vm._v(" "),
                     _c("br")
                   ])
@@ -38825,14 +38566,21 @@ var render = function() {
         _vm.cart.length > 0
           ? _c(
               "div",
-              {
-                staticClass: "card col-3 mg-t-5",
-                staticStyle: { width: "18rem" }
-              },
+              { staticClass: "card", staticStyle: { width: "18rem" } },
               [
-                _c("div", { staticClass: "card-header" }, [
-                  _vm._v("Il tuo ordine")
+                _c("a", { attrs: { href: "/payment" } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info spacing",
+                      attrs: { type: "button" },
+                      on: { click: _vm.save }
+                    },
+                    [_vm._v("\n            Go To Checkout\n          ")]
+                  )
                 ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-header" }, [_vm._v("Cart")]),
                 _vm._v(" "),
                 _c(
                   "ul",
@@ -38853,26 +38601,15 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("li", { staticClass: "list-group-item" }, [
-                      _c("strong", [_vm._v(" Prezzo totale: ")]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" " + _vm._s(_vm.prezzototale.toFixed(2)) + " € ")
+                      _vm._v(
+                        "TotalPrice: " +
+                          _vm._s(_vm.prezzototale.toFixed(2)) +
+                          " € "
+                      )
                     ])
                   ],
                   2
-                ),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "/payment" } }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-info spacing",
-                      attrs: { type: "button" },
-                      on: { click: _vm.save }
-                    },
-                    [_vm._v("\n            Go To Checkout\n          ")]
-                  )
-                ])
+                )
               ]
             )
           : _vm._e()
@@ -38880,41 +38617,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "vote" }, [
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fa fa-star-o",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" "),
-      _c("span", [_vm._v("4.0    (1042 recensioni)")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sale" }, [
-      _c("h6", [
-        _vm._v(
-          "Ordinando in questo ristorante avrai diritto alla consegna gratuita!"
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

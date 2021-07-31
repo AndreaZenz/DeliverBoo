@@ -20,7 +20,7 @@ class StatisticsvueController extends Controller
     public function index()
     {
 
-        $user_id = Auth::user()->id;
+        $user_id = 5;
 
         //seleziona i ristoranti del User
         $restaurants = Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get();
