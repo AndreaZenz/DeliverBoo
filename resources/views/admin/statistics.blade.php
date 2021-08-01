@@ -1,5 +1,10 @@
 @extends('layouts.dashboard')
 
+@section('librery')
+     {{-- cdn chart --}}
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous"></script>
+@endsection
+
 @section('content')
 <h1>Statistics</h1>
 
@@ -81,8 +86,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Pending Requests</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            Month Record</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">max_no</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -115,45 +120,12 @@
                 </div>
             </div>
 
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="chart-area">
-                    <div id="chart" class='col-12' style="height: 500px;"></div>
-                    <!-- Charting library -->
-                    <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
-                    <!-- Chartisan -->
-                    <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
-                    <!-- Your application script -->
-                    <script>
-                        const chart = new Chartisan({
-                            el: '#chart'
-                            , url: "@chart('sample_chart')"
-                            , hooks: new ChartisanHooks()
-                                .colors(['#ECC94B', '#4299E1'])
-                                .responsive()
-                                .beginAtZero()
-                                .legend({
-                                    position: 'bottom'
-                                })
-                                .title('Your statistics for every restaurant!')
-                                .datasets([{
-                                }, 'bar'])
-                        , });
-
-                    </script>
-                    <div class="mt-4 text-center small">
-                        {{-- foreach restaurants --}}
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Direct
-                        </span>
-                    </div>
-                </div>
-            </div>
 
             <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-area">
-                    <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                    <canvas id="myAreaChart" width="400" height="400"></canvas>
+
 
                     <div class="mt-4 text-center small">
                         {{-- foreach restaurants --}}
@@ -168,8 +140,52 @@
     </div>
 </div>
 @endsection
+
+@section( 'scripts2' )
+
+<script>
+window.addEventListener('load', () => {    
+
+    axios.get('http://127.0.0.1:8000/api/statistics)
+            .then((resp) => {
+            apidata = resp.data.apidata;
+            .catch((er) => {
+            alert("Can't gather data for the charts");
+            });
+
+const labels = [
+  apidata
+];
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+  }]
+};
+const config = {
+  type: 'line',
+  data,
+  options: {}
+};
+
+
+var myChart = new Chart(
+                    document.getElementById('myAreaChart'),
+                    config
+                    )
+})
+</script>
+
+@endsection
+
 @section( 'scripts' )
-<script src="{{ asset('js/jquery.min.js') }}" defer></script>
-<script src="{{ asset('js/Chart.min.js') }}" defer></script>
-<script src="{{ asset('js/chart.js') }}" defer></script>
+    <script> 
+        let user_id = {{ $user_id }};
+    </script>
+      
+    <script src="{{ asset('js/chart.js') }}"></script>
 @endsection

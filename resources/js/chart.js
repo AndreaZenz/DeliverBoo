@@ -1,85 +1,135 @@
-( function ( $ ) {
+import axios from 'axios';
+import Vue from 'vue';
 
-	var charts = {
-		init: function () {
-			// -- Set new default font family and font color to mimic Bootstrap's default styling
-			Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-			Chart.defaults.global.defaultFontColor = '#292b2c';
+let app = new Vue({
+    el: "#app",
+    data: {
+        delivery: 0,
+    },
 
-			this.ajaxGetOrderMonthlyData();
-			
-		},
+    mounted: function() {
 
-		ajaxGetOrderMonthlyData: function () {
-			var urlPath =  'http://' + window.location.hostname + ':8000/admin/statistics';
-			var request = $.ajax( {
-				method: 'GET',
-				url: urlPath
-		} );
+        //prima richiesta per grafico vendite/guadagni
+        axios
+        .get(`http://127.0.0.1:8000/api/statistics/${user_id}`)
+        .then((response) => {
 
-			request.done( function ( response ) {
-				console.log( response);
-				charts.createCompletedJobsChart( response );
-			});
-		},
+            let ordersPerMonth = [];
+            let orders = response.data; 
 
-		/**
-		 * Created the Completed Jobs Chart
-		 */
-		createCompletedJobsChart: function ( response ) {
+            for (let i = 1; i <= 12; i++) {
+                            
+                let ordersSum = 0;
 
-			var ctx = document.getElementById("myAreaChart");
-			var myLineChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-					labels: response.months, // The response got from the ajax request containing all month names in the database
-					datasets: [{
-						label: "Sessions",
-						lineTension: 0.3,
-						backgroundColor: "rgba(2,117,216,0.2)",
-						borderColor: "rgba(2,117,216,1)",
-						pointRadius: 5,
-						pointBackgroundColor: "rgba(2,117,216,1)",
-						pointBorderColor: "rgba(255,255,255,0.8)",
-						pointHoverRadius: 5,
-						pointHoverBackgroundColor: "rgba(2,117,216,1)",
-						pointHitRadius: 20,
-						pointBorderWidth: 2,
-						data: response.order_count_data // The response got from the ajax request containing data for the completed jobs in the corresponding months
-					}],
-				},
-				options: {
-					scales: {
-						xAxes: [{
-							time: {
-								unit: 'date'
-							},
-							gridLines: {
-								display: false //linee verticali on x Axis
-							},
-							ticks: {
-								maxTicksLimit: 7
-							}
-						}],
-						yAxes: [{
-							ticks: {
-								min: 0,
-								max: response.max, // The response got from the ajax request containing max limit for y axis
-								maxTicksLimit: 5
-							},
-							gridLines: {
-								color: "rgba(0, 0, 0, .125)",
-							}
-						}],
-					},
-					legend: {
-						display: false
-					}
-				}
-			});
-		}
-	};
+                orders.forEach((element) => {
 
-	charts.init();
+                    if ( i == parseInt(element.created_at.substr(5, 2)) ) {
+                        element.total_price -= this.delivery;
+                        ordersSum += element.total_price; 
+                    }
 
-} )( jQuery );
+                });
+
+                ordersPerMonth.push(ordersSum);
+                
+            }
+
+            let ctx = document.getElementById('myAreaChart').getContext('2d');
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
+                    datasets: [{
+                        label: 'Gross revenue',
+                        data: ordersPerMonth, 
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 159, 64, 0.8)',
+                            'rgba(67, 97, 238, 0.8)',
+                            'rgba(164, 44, 214, 0.8)',
+                            'rgba(158, 42, 43, 0.8)',
+                            'rgba(255, 195, 0, 0.8)',
+                            'rgba(79, 119, 45, 0.8)',
+                            'rgba(229, 56, 59, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        })
+
+        //grafico per numero ordini
+        axios
+        .get(`http://127.0.0.1:8000/api/statistics/${user_id}`)
+        .then((response) => {
+
+            let ordersPerMonth = [];
+            let orders = response.data; 
+
+            for (let i = 1; i <= 12; i++) {
+                            
+                let ordersSum = 0;
+
+                orders.forEach((element) => {
+
+                    if ( i == parseInt(element.created_at.substr(5, 2)) ) {
+                        ordersSum++; 
+                    }
+
+                });
+
+                ordersPerMonth.push(ordersSum);
+                
+            }
+
+            let ctx = document.getElementById('ordersChart').getContext('2d');
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
+                    datasets: [{
+                        label: 'Ordini totali',
+                        data: ordersPerMonth, 
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 159, 64, 0.8)',
+                            'rgba(67, 97, 238, 0.8)',
+                            'rgba(164, 44, 214, 0.8)',
+                            'rgba(158, 42, 43, 0.8)',
+                            'rgba(255, 195, 0, 0.8)',
+                            'rgba(79, 119, 45, 0.8)',
+                            'rgba(229, 56, 59, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        })
+    }
+});
