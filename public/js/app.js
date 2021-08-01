@@ -2540,250 +2540,10 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StatisticsIndex.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "StatisticsIndex",
-  props: {},
-  data: function data() {
-    return {
-      orders: [],
-      restaurants: []
-    };
-  },
-  // methods: {
-  //     getAllMonths(){
-  //         $month_array = array();
-  // 	$orders_dates = this.orders.created_at;
-  //       //$orders_dates = getRestaurantOrders();
-  // 	$orders_dates = json_decode( $orders_dates );
-  // 	if ( ! empty( $orders_dates ) ) {
-  // 		foreach ( $orders_dates as $unformatted_date ) {
-  // 			$date = new \DateTime( $unformatted_date );
-  // 			$month_no = $date->format( 'm' );
-  // 			$month_name = $date->format( 'M' );
-  // 			$month_array[ $month_no ] = $month_name;
-  // 		}
-  // 	}
-  // 	return $month_array;
-  //     }
-  //   // getMonthlyOrderData() {
-  //   // },
-  // }
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get("/api/statisticsvue").then(function (resp) {
-      _this.restaurants = resp.data.results.restaurants;
-      _this.orders = resp.data.results.orders;
-    })["catch"](function (er) {
-      alert("Orders API call failed");
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/js/components/StatisticsIndex.vue: Unexpected token, expected \",\" (221:27)\n\n\u001b[0m \u001b[90m 219 |\u001b[39m         \u001b[0m\n\u001b[0m \u001b[90m 220 |\u001b[39m \t\t\u001b[36mif\u001b[39m ( \u001b[33m!\u001b[39m empty( $orders_dates ) ) {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 221 |\u001b[39m \t\t\tforeach ( $orders_dates \u001b[36mas\u001b[39m $unformatted_date ) {\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \t\t\t                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 222 |\u001b[39m \t\t\t\t$date \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[37m\u001b[41m\u001b[1m\\\u001b[22m\u001b[49m\u001b[39m\u001b[33mDateTime\u001b[39m( $unformatted_date )\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 223 |\u001b[39m                 \u001b[0m\n\u001b[0m \u001b[90m 224 |\u001b[39m \t\t\t\t$month_no \u001b[33m=\u001b[39m $date\u001b[33m-\u001b[39m\u001b[33m>\u001b[39mformat( \u001b[32m'm'\u001b[39m )\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:816:17)\n    at Parser.raiseWithData (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:809:17)\n    at Parser.raise (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:770:17)\n    at Parser.unexpected (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:9893:16)\n    at Parser.expect (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:9867:28)\n    at Parser.parseCallExpressionArguments (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:11069:14)\n    at Parser.parseCoverCallAndAsyncArrowHead (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10992:29)\n    at Parser.parseSubscript (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10925:19)\n    at Parser.parseSubscripts (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10898:19)\n    at Parser.parseExprSubscripts (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10887:17)\n    at Parser.parseUpdate (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10861:21)\n    at Parser.parseMaybeUnary (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10839:23)\n    at Parser.parseExprOps (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10696:23)\n    at Parser.parseMaybeConditional (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10670:23)\n    at Parser.parseMaybeAssign (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10633:21)\n    at Parser.parseExpressionBase (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10573:23)\n    at /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10567:39\n    at Parser.allowInAnd (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12328:16)\n    at Parser.parseExpression (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:10567:17)\n    at Parser.parseStatementContent (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12665:23)\n    at Parser.parseStatement (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:13123:25)\n    at Parser.parseBlockBody (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:13114:10)\n    at Parser.parseBlock (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:13098:10)\n    at Parser.parseStatementContent (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12610:21)\n    at Parser.parseStatement (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12534:17)\n    at Parser.parseIfStatement (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12897:28)\n    at Parser.parseStatementContent (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12579:21)\n    at Parser.parseStatement (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:13123:25)\n    at Parser.parseBlockBody (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:13114:10)\n    at Parser.parseBlock (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:13098:10)\n    at Parser.parseFunctionBody (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:11989:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:11973:10)\n    at Parser.parseMethod (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:11923:10)\n    at Parser.parseObjectMethod (/Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/node_modules/@babel/parser/lib/index.js:11851:19)");
 
 /***/ }),
 
@@ -52374,14 +52134,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./resources/js/components/StatisticsIndex.vue ***!
   \*****************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StatisticsIndex_vue_vue_type_template_id_11298254___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StatisticsIndex.vue?vue&type=template&id=11298254& */ "./resources/js/components/StatisticsIndex.vue?vue&type=template&id=11298254&");
 /* harmony import */ var _StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StatisticsIndex.vue?vue&type=script&lang=js& */ "./resources/js/components/StatisticsIndex.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -52411,13 +52172,15 @@ component.options.__file = "resources/js/components/StatisticsIndex.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/components/StatisticsIndex.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./StatisticsIndex.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StatisticsIndex.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -52595,8 +52358,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
