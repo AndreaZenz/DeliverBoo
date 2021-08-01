@@ -136,6 +136,21 @@
                 </div>
             </div>
 
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="ordersChart" width="400" height="400"></canvas>
+
+
+                    <div class="mt-4 text-center small">
+                        {{-- foreach restaurants --}}
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Direct
+                        </span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

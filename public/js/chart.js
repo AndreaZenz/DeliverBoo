@@ -14570,7 +14570,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         data: {
           labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
           datasets: [{
-            label: 'Ordini totali',
+            label: 'Orders Counts',
             data: ordersPerMonth,
             backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(255, 206, 86, 0.8)', 'rgba(75, 192, 192, 0.8)', 'rgba(153, 102, 255, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(67, 97, 238, 0.8)', 'rgba(164, 44, 214, 0.8)', 'rgba(158, 42, 43, 0.8)', 'rgba(255, 195, 0, 0.8)', 'rgba(79, 119, 45, 0.8)', 'rgba(229, 56, 59, 0.8)']
           }]
