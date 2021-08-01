@@ -11372,6 +11372,175 @@ footer .container .row .col ul {
   color: #8d9090;
 }
 
+.container .restaurant-dishes-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.container .restaurant-dishes-container .restaurant-row img {
+  border-radius: 10px 10px 0 0;
+}
+
+.container .restaurant-dishes-container .restaurant-row .restaurant-text-container {
+  margin: 20px;
+}
+
+.container .restaurant-dishes-container .dishes-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container {
+  padding: 10px;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card {
+  border-radius: 10px;
+  padding: 0;
+  border: solid 1px lightgray;
+  overflow: hidden;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container {
+  background-color: #00ccbc;
+  color: white;
+  max-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropbtn {
+  background-color: #00ccbc;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropbtn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 200px;
+  height: 140px;
+  transform: translateX(-90%);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  text-align: center;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropdown-content a {
+  margin: 20px 0 20px 0;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body {
+  padding: 0;
+  display: flex;
+  height: 150px;
+  z-index: 1;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body .dish-img-container {
+  width: 40%;
+  overflow: hidden;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body .dish-img-container img {
+  height: 120%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body .text-container {
+  width: 60%;
+  padding: 5px;
+}
+
+.container .restaurant-dishes-container .dishes-row .new-dish-card-container {
+  padding: 10px;
+}
+
+.container .restaurant-dishes-container .dishes-row .new-dish-card-container a:hover {
+  text-decoration: none;
+}
+
+.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card {
+  height: calc(60px + 150px);
+  border: dashed 2px #00ccbc;
+  color: #00ccbc;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card:hover {
+  background-color: rgba(0, 204, 188, 0.1);
+}
+
+.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card span {
+  display: flex;
+}
+
+.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card span i {
+  font-size: 40px;
+  margin-right: 10px;
+  transform: translateY(-10%);
+}
+
+/* VISUALIZZAZIONE SU SMARTPHONE */
+
+@media screen and (max-width: 576px) {
+  .card-body .dish-img-container {
+    min-width: 95%;
+    overflow: hidden;
+  }
+
+  .card-body .dish-img-container img {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .card-body .text-container {
+    display: none;
+  }
+
+  .new-dish-card-container .add-card span h4 {
+    display: none;
+  }
+}
+
+.edit-dishes-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.edit-dishes-container .forms-container {
+  padding: 20px;
+}
+
+.edit-dishes-container .forms-container form .form-group .form-control {
+  border: solid 4px #00ccbc;
+}
+
 .hero_green {
   background-color: #00CCBB;
 }
