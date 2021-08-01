@@ -61,6 +61,7 @@ let app = new Vue({
                 },
                 options: {
                     scales: {
+                        
                         yAxes: [{
                             ticks: {
                                 beginAtZero: true
@@ -102,7 +103,7 @@ let app = new Vue({
                 data: {
                     labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
                     datasets: [{
-                        label: 'Ordini totali',
+                        label: 'Orders Counts',
                         data: ordersPerMonth, 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.8)',
