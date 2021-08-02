@@ -23,15 +23,15 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
 
+        $user_id = Auth::user()->id;
 
         $data = [
             'restaurants' => Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get(),
             'types' => Type::where(''),
         ];
 
-
+        //if($user_id == $data->restaurants->id)
         return view('admin.restaurants.index', $data);
     }
 
@@ -99,15 +99,20 @@ class RestaurantsController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+        $user_id = Auth::user()->id;
+        if ($user_id === $restaurant->user_id) {
+            $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
 
-        return view('admin.restaurants.show', [
-            'restaurant' => $restaurant,
-            'dishes' => $dishes
-        ]);
+            return view('admin.restaurants.show', [
+                'restaurant' => $restaurant,
+                'dishes' => $dishes
+            ]);
+        } else {
+            abort(401);
+        }
     }
-    
-    
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -199,7 +204,8 @@ class RestaurantsController extends Controller
         }
         abort(404, "non è possibile eliminare il ristorante selezionato");
     }
-    public function filter(Request $request) {
+    public function filter(Request $request)
+    {
         $filters = $request->all();
         $restaurants = Restaurant::join("restaurant_type", "restaurants.id", "=", "restaurant_type.restaurant_id")
             ->where("restaurant_type.type_id", $filters["type"])->get();

@@ -1,0 +1,79 @@
+.obl-l{
+    left: -8px;
+    position: absolute;
+    top: -32px;
+    margin: 0px auto;
+    width: 110%;
+    height: 150px;
+    margin-top: -50px;
+    background: #00CCBB;
+    transform: rotate(175deg);
+    z-index: -4;
+}
+
+// .obl-r{
+//     position: absolute;
+//     top: 14px;
+//     margin: 0px auto;
+//     width: 100%;
+//     height: 150px;
+//     margin-top: -50px;
+//     background: red;
+//     transform: rotate(175deg);
+//     z-index: -4;
+//     right: 50%;
+// }
+
+
+.navbar_my{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background-color: $hero-color1;
+    .container_my{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .navbar-brand{
+            margin: 10px;
+            img{
+                height: 50px;
+            }
+        }
+    }
+}
+
+.nav-item{
+    background-color: white;
+    margin: 15px;
+    border-radius: 13px;
+    padding: 5px;
+    .nav-link{
+        color: black;
+    }
+}
+
+// dashboard utente loggato
+.navbar-brand{
+    img{
+        height: 73px;
+    }
+}
+    .nav-item-ut{
+        background-color: $hero-color1;
+        margin: 15px;
+        border-radius: 13px;
+        padding: 5px;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        .nav-link-ut{
+            color: white;
+        }
+    }
+    .nav-tog-ut{
+        background-color: $hero-color1;
+    }
+

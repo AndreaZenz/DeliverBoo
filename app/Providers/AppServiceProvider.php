@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use ConsoleTVs\Charts\Registrar as Charts;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,4 +29,5 @@ class AppServiceProvider extends ServiceProvider
     //     \Braintree_Configuration::publicKey(env('BTREE_PUBLIC_KEY'));
     //     \Braintree_Configuration::privateKey(env('BTREE_PRIVATE_KEY'));
     // }
+
 }

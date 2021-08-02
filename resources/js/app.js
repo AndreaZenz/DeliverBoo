@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 
+
+
 window.Vue = require('vue');
 
 /**
@@ -17,15 +19,18 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('RestaurantCard', require('./components/RestaurantCard.vue').default);
-Vue.component('RestaurantIndex', require('./components/RestaurantIndex.vue').default);
-Vue.component('TextInput', require('./components/formInputs/TextInput.vue').default);
-Vue.component('MultiCheckInput', require('./components/formInputs/MultiCheckInput.vue').default);
+// queste 2 righe di comando chiamano tutte le Vue.component in automatico
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('RestaurantCard', require('./components/RestaurantCard.vue').default);
+// Vue.component('RestaurantIndex', require('./components/RestaurantIndex.vue').default);
+// Vue.component('TextInput', require('./components/formInputs/TextInput.vue').default);
+// Vue.component('MultiCheckInput', require('./components/formInputs/MultiCheckInput.vue').default);
+//Vue.component('DishCard', require('./components/DishCard.vue').default);
+//Vue.component('StatisticsIndex', require('./components/StatisticsIndex.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

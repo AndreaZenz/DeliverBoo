@@ -1,0 +1,154 @@
+.background-search {
+    background-color: #d0eb99;
+    width: 100%;
+    position: relative;
+    z-index: -5;
+}
+
+.jumbo-box {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    // background-image: url("../public/img/banners/hero-bg.jpg");
+    // background-repeat: no-repeat;
+    // background-position: 70%;
+}
+
+.front-text {
+    display: bvl;
+    h1 {
+        color: #440071;
+    }
+}
+
+.alert-style {
+    margin: 12px;
+    width: 200px;
+    position: absolute;
+    top: 14%;
+    right: 36%;
+}
+
+.margin-20 {
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+.bg-white {
+    background-color: wheat;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: wheat;
+}
+
+.position-bar {
+    background-color: #00ccbc;
+    border-color: #00ccbc;
+
+    &:hover {
+        background-color: #00ccaa;
+        border-color: #00ccbc;
+    }
+}
+
+.position-stop-f {
+    background-color: #00ccbc;
+    border-color: #00ccbc;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    &:hover {
+        background-color: #00ccaa;
+        border-color: #00ccbc;
+    }
+}
+
+//lato blade
+.text-link{
+    a{
+        color:#00a3a4;
+        text-decoration: none;
+    }
+    
+}
+
+.home-page-container{
+    padding: 24px 0;
+}
+
+.pink-bg {
+    background-color: #ffeae4;
+    width: 100%;
+}
+
+.pink-bg-text {
+    padding-top: 12px;
+    h1{
+        font-weight: 800;
+        color:#00ccbc;
+        margin-left: 47px;
+    }
+}
+
+.evenly{
+    justify-content: space-evenly;
+}
+
+.burgher {
+    background-image: url("../public/img/restaurant_homepage/burgher-430.jpg");
+    height: 150px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .food-text {
+        color: white;
+        text-align: center;
+    }
+}
+
+.fruits {
+    background-image: url("../public/img/restaurant_homepage/fruttina-430.jpg");
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .food-text {
+        color: white;
+        text-align: center;
+    }
+}
+
+.vegetable{
+    background-image: url("../public/img/restaurant_homepage/verdurine-430.jpg");
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .food-text {
+        color: white;
+        text-align: center;
+    }
+}
+
+.ravioli{
+    background-image: url("../public/img/restaurant_homepage/raviolini-430.jpg");
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .food-text {
+        color: white;
+        text-align: center;
+        h1{
+            font-weight: 700;
+            font-size: 26px;
+        }
+    }
+}
+
+.deliveroo-color{
+    background-color: #00ccbc;
+    color: #440071;
+    margin: 0px 4px ;
+}

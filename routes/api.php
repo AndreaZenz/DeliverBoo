@@ -20,4 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get("/restaurants", "Api\RestaurantController@index");
 Route::get("/restaurants/filter", "Api\RestaurantController@filter");
+Route::get("/restaurant/{id}", "Api\RestaurantController@restaurantShow");
 Route::get("/types", "Api\TypeController@index");
+Route::get('/statistics/{id}', 'Api\StatisticsController@getMonthlyOrderData');
+Route::get('/statistics/{id}', 'Api\StatisticsController@restaurantOrders');

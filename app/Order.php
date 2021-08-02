@@ -9,13 +9,13 @@ class Order extends Model
     protected $fillable = [
         'restaurant_id',
         'total_price',
+        'ArrayDishes',
         'client_comment',
-        'client_phone',
+        //'client_phone',
         'client_address',
         'client_name',
-        'client_surname',
         'client_email',
-        'is_payed',
+        'is_payed',//probabilmente non serve
 
     ];
 
