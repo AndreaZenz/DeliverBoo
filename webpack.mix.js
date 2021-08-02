@@ -15,6 +15,4 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/cartScript.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/chart.js', 'public/js')
-    .js('resources/js/jquery.min.js', 'public/js')
-    .js('resources/js/Chart.min.js', 'public/js')
     .js('resources/js/paymentScript.js', 'public/js');  
