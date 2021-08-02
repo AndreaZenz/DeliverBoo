@@ -42,7 +42,7 @@
         @endforeach
         <div class="col-md-12 col-lg-6 admin-new-card-container">
 
-            <a href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">
+            <a href=" {{ route('admin.restaurants.create', $restaurant->id) }} ">
                 <div class="admin-add-card">
                     <span><i class="fa fa-plus" aria-hidden="true"></i>
                         <h4> Aggiungi un altro ristorante</h4>
