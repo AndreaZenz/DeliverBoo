@@ -1,27 +1,27 @@
 .container {
-    .restaurant-dishes-container {
+    .admin-main-container {
         background-color: #f8f9fa;
         border-radius: 10px;
-        .restaurant-row {
+        .admin-title-row {
             img {
                 border-radius: 10px 10px 0 0;
             }
-            .restaurant-text-container {
+            .admin-title-container {
                 margin: 20px;
             }
         }
-        .dishes-row {
+        .admin-cards-main {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            .dish-card-container {
+            .admin-card-container {
                 padding: 10px;
-                .dish-card {
+                .admin-card {
                     border-radius: 10px;
                     padding: 0;
                     border: solid 1px lightgray;
                     overflow: hidden;
-                    .dish-name-container {
+                    .card-name-container {
                         background-color: #00ccbc;
                         color: white;
                         max-height: 60px;
@@ -29,8 +29,10 @@
                         align-items: center;
                         justify-content: space-between;
                         padding: 10px;
-
-                        // position: relative;
+                        a {
+                            text-decoration: none;
+                            color: white;
+                        }
                         .dropdown {
                             position: relative;
                             display: inline-block;
@@ -64,35 +66,44 @@
                             }
                         }
                     }
-                    .card-body {
+                    .admin-card-body-container {
                         padding: 0;
                         display: flex;
                         height: 150px;
                         z-index: 1;
-                        .dish-img-container {
-                            width: 40%;
+                        .admin-card-img-container {
                             overflow: hidden;
                             margin: 10px;
+                            // padding: 10px;
                             border-radius: 5px;
+                        }
+                        .admin-restaurant-card-img {
+                            width: calc(100% - 20px);
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .admin-dish-card-img {
+                            width: 40%;
                             img {
                                 height: 120%;
                                 object-fit: cover;
                             }
                         }
-                        .text-container {
+                        .admin-card-text-container {
                             width: 60%;
                             padding: 5px;
                         }
                     }
                 }
             }
-            .new-dish-card-container {
+            .admin-new-card-container {
                 padding: 10px;
                 a {
                     &:hover {
                         text-decoration: none;
                     }
-                    .add-card {
+                    .admin-add-card {
                         height: calc(60px + 150px);
                         border: dashed 2px #00ccbc;
                         color: #00ccbc;
@@ -104,11 +115,14 @@
                             background-color: rgba(0, 204, 188, 0.1);
                         }
                         span {
+                            margin-right: 10px;
                             display: flex;
+                            justify-content: center;
+                            align-items: center;
                             i {
                                 font-size: 40px;
-                                margin-right: 10px;
-                                transform: translateY(-10%);
+                                margin-right: 20px;
+                                transform: translateX(35%);
                             }
                         }
                     }
@@ -120,24 +134,29 @@
 
 /* VISUALIZZAZIONE SU SMARTPHONE */
 @media screen and (max-width: 576px) {
-    .card-body {
-        // display: inline-block;
-        .dish-img-container {
-            // position: absolute;
-            min-width: 95%;
+    .admin-card-body-container {
+        .admin-card-img-container {
             overflow: hidden;
             img {
                 width: 100%;
                 overflow: hidden;
             }
         }
-        .text-container {
+        .admin-restaurant-card-img {
+            max-width: 100%;
+            img {
+                height: 100%;
+            }
+        }
+        .admin-dish-card-img {
+            min-width: calc(100% - 20px);
+        }
+        .admin-card-text-container {
             display: none;
-            // width: 0;
         }
     }
-    .new-dish-card-container {
-        .add-card {
+    .admin-new-card-container {
+        .admin-add-card {
             span {
                 h4 {
                     display: none;

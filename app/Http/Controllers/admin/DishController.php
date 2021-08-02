@@ -31,8 +31,12 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($restaurant_id)
+    public function create(Restaurant $restaurant)
     {
+        $user_id = Auth::user()->id;
+        if ($user_id === $restaurant->user_id) {
+        $restaurant_id = $restaurant->id;
+
         $types = Type::all();
 
         if (isset($newDishData["img_url"])) {
@@ -41,6 +45,9 @@ class DishController extends Controller
         }
 
         return view("admin.dishes.create", compact("restaurant_id", "types"));
+        } else {
+            abort(401);
+        }
     }
 
     /**

@@ -54,7 +54,7 @@ class StatisticsController extends Controller
 
         // $orders = $user->orders;
 
-        dump(compact('user_id', 'orders', 'restaurants'));
+        // dump(compact('user_id', 'orders', 'restaurants'));
         return view('admin.statistics', compact('user_id', 'orders', 'restaurants'));
     }
 
@@ -178,7 +178,7 @@ class StatisticsController extends Controller
         $months = $month_name_array;
         $order_count_data = $monthly_order_count_array;
         $max = $max;
-        dump(compact('months', 'order_count_data', 'max', 'max_no'));
+        //dump(compact('months', 'order_count_data', 'max', 'max_no'));
         
         return view("admin.statistics", compact('months', 'order_count_data', 'max', 'max_no'));
     }
