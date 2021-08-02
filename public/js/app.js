@@ -38472,13 +38472,16 @@ var render = function() {
   return _c("div", { staticClass: "col-4" }, [
     _c(
       "div",
-      { staticClass: "card mg-top-bot-10", staticStyle: { width: "100%" } },
+      {
+        staticClass: "card mg-top-bot-10",
+        staticStyle: { width: "100%", height: "320px" }
+      },
       [
         _c("img", {
           staticClass: "img-fluid card-img-top",
           staticStyle: {
             width: "100%",
-            "max-height": "150px",
+            height: "150px",
             "object-fit": "cover"
           },
           attrs: { src: _vm.imgUrl, alt: "" }
