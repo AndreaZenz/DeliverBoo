@@ -33,26 +33,25 @@
             class="img-fluid img-rest"
             style="width: 100%; max-height: 200px; object-fit: cover"
           />
-          <h1>{{ ristorante.name }}</h1>
-          <h3>{{ ristorante.address }}</h3>
+
         </div>
       </div>
 
       <!--  Piatti  -->
       <div class="row-menu bg-menu">
-        <div class="col-9 pr-1 contents">
+        <div class="col-8 pr-1 contents">
           <div class="row-menu">
 
             <!-- DISH CARD -->
             <div
-              class="card mg-top-bot-10 col-4"
+              class="card mg-top-bot-10 col-6"
               v-for="(dish, index) in dishes"
               :key="dish.id"
             >
               <img
                 :src="dish.img_url"
                 class="img-fluid card-img-top"
-                style="width: 100%; max-height: 150px; object-fit: cover"
+                style="width: 100%; height: 150px; object-fit: cover"
                 alt=""
               />
 
@@ -76,15 +75,8 @@
         </div>
 
         <!-- CARRELLO -->
-        <div class="card col-3" style="width: 18rem" v-if="cart.length > 0">
-          <a href="/payment">
-            <button
-              type="button"
-              class="btn btn-info spacing" @click="save">
-              Go To Checkout
-            </button>
-          </a>
-          <div class="card-header">Cart</div>
+        <div class="card-cart col-4" style="width: 18rem" v-if="cart.length > 0">
+          <div class="card-header">Il Tuo Carrello</div>
           <ul class="list-group list-group-flush">
             <li
               v-for="(item, index) in cart"
@@ -95,8 +87,15 @@
               <span>{{ item.name }}</span>
               <span>{{ item.price }} €</span>
             </li>
-            <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
+            <li class="list-group-item"> <strong> Prezzo Totale : </strong> <br> {{ prezzototale.toFixed(2)}} € </li>
           </ul>
+          <a href="/payment">
+            <button
+              type="button"
+              class="btn btn-info spacing" @click="save">
+              Go To Checkout
+            </button>
+          </a>
         </div>
         <!-- END CARRELLO -->
 
