@@ -54,7 +54,7 @@ class StatisticsController extends Controller
 
         // $orders = $user->orders;
 
-        dump(compact('user_id', 'orders', 'restaurants'));
+        // dump(compact('user_id', 'orders', 'restaurants'));
         return view('admin.statistics', compact('user_id', 'orders', 'restaurants'));
     }
 
