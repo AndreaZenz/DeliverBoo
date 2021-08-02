@@ -1,28 +1,28 @@
 .obl-l{
+    left: -8px;
     position: absolute;
     top: -32px;
     margin: 0px auto;
-    width: 100%;
+    width: 110%;
     height: 150px;
     margin-top: -50px;
-    background: red;
+    background: #00CCBB;
     transform: rotate(175deg);
     z-index: -4;
-    left: 50%;
 }
 
-.obl-r{
-    position: absolute;
-    top: 14px;
-    margin: 0px auto;
-    width: 100%;
-    height: 150px;
-    margin-top: -50px;
-    background: red;
-    transform: rotate(175deg);
-    z-index: -4;
-    right: 50%;
-}
+// .obl-r{
+//     position: absolute;
+//     top: 14px;
+//     margin: 0px auto;
+//     width: 100%;
+//     height: 150px;
+//     margin-top: -50px;
+//     background: red;
+//     transform: rotate(175deg);
+//     z-index: -4;
+//     right: 50%;
+// }
 
 
 .navbar_my{
