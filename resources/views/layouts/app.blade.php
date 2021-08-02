@@ -8,10 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'DeliveBoo') }}</title>
+    {{-- <title>@yield( 'title' )</title> --}}
+
+    @yield( 'headerscripts')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,7 +29,6 @@
 
 </head>
 <body>
-    <div id="app">
         <nav class="navbar_my navbar-expand-md navbar-light">
         <div class="big-container">
             <div class="container_my hero">
@@ -85,12 +86,14 @@
         </div>
         </nav>
 
-        <main>
+        <div class="payment">
+        <main id="app">
             @yield('content')
         </main>
+        </div>
 
         @include('partials.footer')
-    </div>
+        
+        @yield('scripts')
 </body>
-
 </html>

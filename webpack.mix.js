@@ -11,8 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/cartScript.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js') 
     .sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/chart.js', 'public/js')
     .js('resources/js/paymentScript.js', 'public/js');  
