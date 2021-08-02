@@ -10972,11 +10972,30 @@ body {
   margin: auto;
 }
 
-.obl {
-  transform: skewY(-6deg);
-  transform-origin: top left;
-  height: 100px;
-  color: red;
+.obl-l {
+  position: absolute;
+  top: -32px;
+  margin: 0px auto;
+  width: 100%;
+  height: 150px;
+  margin-top: -50px;
+  background: red;
+  transform: rotate(175deg);
+  z-index: -4;
+  left: 50%;
+}
+
+.obl-r {
+  position: absolute;
+  top: 14px;
+  margin: 0px auto;
+  width: 100%;
+  height: 150px;
+  margin-top: -50px;
+  background: red;
+  transform: rotate(175deg);
+  z-index: -4;
+  right: 50%;
 }
 
 .navbar_my {
@@ -11123,14 +11142,16 @@ footer .container .row .col-foot ul li a {
 .background-search {
   background-color: #d0eb99;
   width: 100%;
-  background-image: url(/images/124f4b16019e12da2fc6d650bfdd86fc.png?124f4b16019e12da2fc6d650bfdd86fc);
-  background-repeat: no-repeat;
-  background-position: 70%;
+  position: relative;
+  z-index: -5;
 }
 
 .jumbo-box {
   padding-top: 24px;
   padding-bottom: 24px;
+  background-image: url(/images/124f4b16019e12da2fc6d650bfdd86fc.png?124f4b16019e12da2fc6d650bfdd86fc);
+  background-repeat: no-repeat;
+  background-position: 70%;
 }
 
 .front-text {

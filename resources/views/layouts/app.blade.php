@@ -84,8 +84,7 @@
                 </div>
             </div>
         </div>
-                <div class="obl">
-                </div>
+
         </nav>
 
         <div class="payment">

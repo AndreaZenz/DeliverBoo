@@ -1,14 +1,16 @@
 .background-search {
     background-color: #d0eb99;
     width: 100%;
-    background-image: url("../public/img/restaurant_homepage/124f4b16019e12da2fc6d650bfdd86fc.png");
-    background-repeat: no-repeat;
-    background-position: 70%;
+    position: relative;
+    z-index: -5;
 }
 
 .jumbo-box {
     padding-top: 24px;
     padding-bottom: 24px;
+    background-image: url("../public/img/restaurant_homepage/124f4b16019e12da2fc6d650bfdd86fc.png");
+    background-repeat: no-repeat;
+    background-position: 70%;
 }
 
 .front-text {
