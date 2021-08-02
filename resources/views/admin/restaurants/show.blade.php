@@ -3,21 +3,21 @@
 @section('content')
 
 <div class="container">
-    <div class="restaurant-dishes-container">
-        <div class="restaurant-row">
+    <div class="admin-main-container">
+        <div class="admin-title-row">
             @if($restaurant->img_url)
             <img src="{{ asset('storage/' . $restaurant->img_url) }}" class="img-fluid" style="width: 100%; max-height: 150px; object-fit: cover">
             @endif
-            <div class="restaurant-text-container">
+            <div class="admin-title-container">
                 <h1>{{$restaurant->name}}</h1>
                 <p>{{$restaurant->address}}</p>
             </div>
         </div>
-        <div class="dishes-row">
+        <div class="admin-cards-main">
             @foreach ($dishes as $dish)
-            <div class="col-md-12 col-lg-6 dish-card-container">
-                <div class="dish-card" style="width: 100%;">
-                    <div class="dish-name-container">
+            <div class="col-md-12 col-lg-6 admin-card-container">
+                <div class="admin-card" style="width: 100%;">
+                    <div class="card-name-container">
                         <h4 class="mb-0">{{ $dish->name }}</h4>
                         <div class="dropdown">
                             <button class="dropbtn">
@@ -33,13 +33,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="admin-card-body-container">
                         @if($dish->img_url)
-                        <div class="dish-img-container">
+                        <div class="admin-card-img-container admin-dish-card-img">
                             <img src="{{ asset('storage/' . $dish->img_url) }}" style="object-fit: cover">
                         </div>
                         @endif
-                        <div class="text-container">
+                        <div class="admin-card-text-container">
                             <h4 class="card-text">{{ $dish->price }} €</h4>
                             <p class="card-text">{{ substr($dish->description, 0, 40) }}...</p>
                             <p class="card-text">{{ substr($dish->ingredient_list, 0, 20) }}...</p>
@@ -48,9 +48,9 @@
                 </div>
             </div>
             @endforeach
-            <div class="col-md-12 col-lg-6 new-dish-card-container">
+            <div class="col-md-12 col-lg-6 admin-new-card-container">
                 <a href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">
-                    <div class="add-card">
+                    <div class="admin-add-card">
                         <span><i class="fa fa-plus" aria-hidden="true"></i><h4> Crea un nuovo piatto</h4></span>
                     </div>
                 </a>

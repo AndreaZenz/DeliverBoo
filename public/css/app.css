@@ -11372,37 +11372,37 @@ footer .container .row .col ul {
   color: #8d9090;
 }
 
-.container .restaurant-dishes-container {
+.container .admin-main-container {
   background-color: #f8f9fa;
   border-radius: 10px;
 }
 
-.container .restaurant-dishes-container .restaurant-row img {
+.container .admin-main-container .admin-title-row img {
   border-radius: 10px 10px 0 0;
 }
 
-.container .restaurant-dishes-container .restaurant-row .restaurant-text-container {
+.container .admin-main-container .admin-title-row .admin-title-container {
   margin: 20px;
 }
 
-.container .restaurant-dishes-container .dishes-row {
+.container .admin-main-container .admin-cards-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container {
+.container .admin-main-container .admin-cards-main .admin-card-container {
   padding: 10px;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card {
   border-radius: 10px;
   padding: 0;
   border: solid 1px lightgray;
   overflow: hidden;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container {
   background-color: #00ccbc;
   color: white;
   max-height: 60px;
@@ -11412,23 +11412,28 @@ footer .container .row .col ul {
   padding: 10px;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container a {
+  text-decoration: none;
+  color: white;
+}
+
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropbtn {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropbtn {
   background-color: #00ccbc;
   padding: 16px;
   font-size: 16px;
   border: none;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropbtn:hover {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropbtn:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropdown-content {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -11440,48 +11445,59 @@ footer .container .row .col ul {
   text-align: center;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown .dropdown-content a {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropdown-content a {
   margin: 20px 0 20px 0;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .dish-name-container .dropdown:hover .dropdown-content {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container {
   padding: 0;
   display: flex;
   height: 150px;
   z-index: 1;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body .dish-img-container {
-  width: 40%;
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-card-img-container {
   overflow: hidden;
   margin: 10px;
   border-radius: 5px;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body .dish-img-container img {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-restaurant-card-img {
+  width: calc(100% - 20px);
+}
+
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-restaurant-card-img img {
+  width: 100%;
+}
+
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-dish-card-img {
+  width: 40%;
+}
+
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-dish-card-img img {
   height: 120%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.container .restaurant-dishes-container .dishes-row .dish-card-container .dish-card .card-body .text-container {
+.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-card-text-container {
   width: 60%;
   padding: 5px;
 }
 
-.container .restaurant-dishes-container .dishes-row .new-dish-card-container {
+.container .admin-main-container .admin-cards-main .admin-new-card-container {
   padding: 10px;
 }
 
-.container .restaurant-dishes-container .dishes-row .new-dish-card-container a:hover {
+.container .admin-main-container .admin-cards-main .admin-new-card-container a:hover {
   text-decoration: none;
 }
 
-.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card {
+.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card {
   height: calc(60px + 150px);
   border: dashed 2px #00ccbc;
   color: #00ccbc;
@@ -11491,53 +11507,71 @@ footer .container .row .col ul {
   align-items: center;
 }
 
-.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card:hover {
+.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card:hover {
   background-color: rgba(0, 204, 188, 0.1);
 }
 
-.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card span {
+.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card span {
+  margin-right: 10px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container .restaurant-dishes-container .dishes-row .new-dish-card-container a .add-card span i {
+.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card span i {
   font-size: 40px;
-  margin-right: 10px;
-  transform: translateY(-10%);
+  margin-right: 20px;
+  transform: translateX(35%);
 }
 
 /* VISUALIZZAZIONE SU SMARTPHONE */
 
 @media screen and (max-width: 576px) {
-  .card-body .dish-img-container {
-    min-width: 95%;
+  .admin-card-body-container .admin-card-img-container {
     overflow: hidden;
   }
 
-  .card-body .dish-img-container img {
+  .admin-card-body-container .admin-card-img-container img {
     width: 100%;
     overflow: hidden;
   }
 
-  .card-body .text-container {
+  .admin-card-body-container .admin-restaurant-card-img {
+    max-width: 100%;
+  }
+
+  .admin-card-body-container .admin-restaurant-card-img img {
+    height: 100%;
+  }
+
+  .admin-card-body-container .admin-dish-card-img {
+    min-width: calc(100% - 20px);
+  }
+
+  .admin-card-body-container .admin-card-text-container {
     display: none;
   }
 
-  .new-dish-card-container .add-card span h4 {
+  .admin-new-card-container .admin-add-card span h4 {
     display: none;
   }
 }
 
-.edit-dishes-container {
+.create-edit-dishes-container {
   background-color: #f8f9fa;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.edit-dishes-container .forms-container {
+.create-edit-dishes-container .forms-container {
   padding: 20px;
 }
 
-.edit-dishes-container .forms-container form .form-group .form-control {
+.create-edit-dishes-container .forms-container h1 {
+  margin-bottom: 50px;
+}
+
+.create-edit-dishes-container .forms-container form .form-group .form-control {
   border: solid 4px #00ccbc;
 }
 
