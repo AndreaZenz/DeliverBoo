@@ -1,4 +1,4 @@
-.create-edit-dishes-container {
+.create-edit-container {
     background-color: #f8f9fa;
     border-radius: 10px;
     overflow: hidden;
@@ -9,7 +9,7 @@
         }
         form {
             .form-group {
-                .form-control {
+                .form-input {
                     border: solid 4px #00ccbc;
                 }
             }

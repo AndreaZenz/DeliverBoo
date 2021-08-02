@@ -52,13 +52,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </ul>
-
-
-
-
-
-
-
+                
                 {{-- -- --}}
                 <ul class="navbar-nav px-3 ml-auto">
                     <li class="nav-item-ut">
@@ -158,28 +152,6 @@
                                     Ordini
                                 </a>
                             </li>
-
-                            {{-- <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="rou\nd" stroke-linejoin="round" class="feather feather-users">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                                Users
-                            </a>
-                        </li> --}}
-                            {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.categories.index') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
-                                <polyline points="4 7 4 4 20 4 20 7"></polyline>
-                                <line x1="9" y1="20" x2="15" y2="20"></line>
-                                <line x1="12" y1="4" x2="12" y2="20"></line>
-                            </svg>
-                            Categories
-                            </a>
-                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.types.index')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
@@ -190,9 +162,7 @@
                                 </a>
                             </li>
                         </ul>
-
                     </div>
-
                 </nav>
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">

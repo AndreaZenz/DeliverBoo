@@ -11597,21 +11597,21 @@ footer .container .row .col-foot ul li a {
   }
 }
 
-.create-edit-dishes-container {
+.create-edit-container {
   background-color: #f8f9fa;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.create-edit-dishes-container .forms-container {
+.create-edit-container .forms-container {
   padding: 20px;
 }
 
-.create-edit-dishes-container .forms-container h1 {
+.create-edit-container .forms-container h1 {
   margin-bottom: 50px;
 }
 
-.create-edit-dishes-container .forms-container form .form-group .form-control {
+.create-edit-container .forms-container form .form-group .form-input {
   border: solid 4px #00ccbc;
 }
 
