@@ -10972,6 +10972,13 @@ body {
   margin: auto;
 }
 
+.obl {
+  transform: skewY(-6deg);
+  transform-origin: top left;
+  height: 100px;
+  color: red;
+}
+
 .navbar_my {
   position: relative;
   display: flex;
@@ -11046,22 +11053,38 @@ main .hero-container .container_my .hero-research {
 }
 
 footer {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: #2E3333;
-  color: white;
+  color: whitesmoke;
   width: 100%;
 }
 
-footer .container .row .col h4 {
+footer .container .row .col-foot {
+  background-color: #434848;
+  height: 170px;
+  margin: 20px;
+}
+
+footer .container .row .col-foot h4 {
   padding: 10px;
   text-align: center;
 }
 
-footer .container .row .col ul {
+footer .container .row .col-foot ul {
   list-style: none;
+}
+
+footer .container .row .col-foot ul li a {
+  color: whitesmoke;
+  font-weight: bolder;
 }
 
 .footer-down {
   justify-content: flex-end;
+}
+
+.footer-down p {
+  color: #434848;
 }
 
 .footer-down .icons {
@@ -11085,6 +11108,7 @@ footer .container .row .col ul {
 
   footer .container .row .col {
     text-align: center;
+    width: auto;
   }
 
   footer .container .row .col ul {

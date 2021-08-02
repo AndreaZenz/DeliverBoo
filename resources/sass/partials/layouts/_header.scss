@@ -1,3 +1,10 @@
+.obl{
+    transform: skewY(-6deg);
+    transform-origin: top left;
+    height: 100px;
+    color: red;
+}
+
 .navbar_my{
     position: relative;
     display: flex;
