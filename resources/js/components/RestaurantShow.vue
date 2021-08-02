@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+
       <div class="ristorante-hero card-my">
         <div class="description-public">
 
@@ -32,22 +33,25 @@
             class="img-fluid img-rest"
             style="width: 100%; max-height: 200px; object-fit: cover"
           />
-          <h1>{{ ristorante.name }}</h1>
-          <h3>{{ ristorante.address }}</h3>
+
         </div>
       </div>
+
+      <!--  Piatti  -->
       <div class="row-menu bg-menu">
-        <div class="col-9 pr-1 contents">
+        <div class="col-8 pr-1 contents">
           <div class="row-menu">
+
+            <!-- DISH CARD -->
             <div
-              class="card mg-top-bot-10 col-4"
+              class="card mg-top-bot-10 col-6"
               v-for="(dish, index) in dishes"
               :key="dish.id"
             >
               <img
                 :src="dish.img_url"
                 class="img-fluid card-img-top"
-                style="width: 100%; max-height: 150px; object-fit: cover"
+                style="width: 100%; height: 150px; object-fit: cover"
                 alt=""
               />
 
@@ -56,26 +60,23 @@
                 <h5 class="card-title">Prezzo: {{ dish.price }} €</h5>
                 <h5 class="card-title">Descrizione: {{ dish.description }}</h5>
                 <h5 class="card-title">Ingredienti: {{ dish.ingredients }}</h5>
-                <button class="btn btn-primary" @click="increse(index)">
+                <button class="btn btn-primary" @click="increase(index)">
                   +
                 </button>
-                <button class="btn btn-primary" @click="decrese(index)">
+                <button class="btn btn-primary" @click="decrease(index)">
                   -
                 </button>
                 <br />
               </div>
             </div>
+            <!-- END DISH CARD -->
+
           </div>
         </div>
-        <div class="card" style="width: 18rem" v-if="cart.length > 0">
-          <a href="/payment">
-            <button
-              type="button"
-              class="btn btn-info spacing" @click="save">
-              Go To Checkout
-            </button>
-          </a>
-          <div class="card-header">Cart</div>
+
+        <!-- CARRELLO -->
+        <div class="card-cart col-4" style="width: 18rem" v-if="cart.length > 0">
+          <div class="card-header">Il Tuo Carrello</div>
           <ul class="list-group list-group-flush">
             <li
               v-for="(item, index) in cart"
@@ -86,10 +87,20 @@
               <span>{{ item.name }}</span>
               <span>{{ item.price }} €</span>
             </li>
-            <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
+            <li class="list-group-item"> <strong> Prezzo Totale : </strong> <br> {{ prezzototale.toFixed(2)}} € </li>
           </ul>
+          <a href="/payment">
+            <button
+              type="button"
+              class="btn btn-info spacing" @click="save">
+              Go To Checkout
+            </button>
+          </a>
         </div>
+        <!-- END CARRELLO -->
+
       </div>
+
     </div>
   </div>
 </template>
@@ -106,14 +117,14 @@ export default {
     return {
       ristorante: {},
       dishes: [],
-      id: this.id,
+      restID: this.id,
       cart: [],
       prezzototale: 0,
       allDishQuantity: [],
     };
   },
   methods: {
-    increse(i) {
+    increase(i) {
       const checkPresenza = this.cart.indexOf(this.dishes[i]);
 
       ////if non c'e' gia' nel carrello
@@ -128,10 +139,10 @@ export default {
 
       localStorage.setItem('prezzototale', this.prezzototale);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
-      localStorage.setItem('restaurant_id', this.id);
+      localStorage.setItem('restaurant_id', this.restID);
     },
 
-    decrese(i) {
+    decrease(i) {
       const checkPresenza = this.cart.indexOf(this.dishes[i]);
       if (checkPresenza > -1 && this.dishes[i].quantity === 1) {
         //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
@@ -148,48 +159,17 @@ export default {
 
       localStorage.setItem('prezzototale', this.prezzototale);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
-      localStorage.setItem('restaurant_id', this.id);
+      localStorage.setItem('restaurant_id', this.restID);
     },
     save: function () {
       localStorage.setItem('prezzototale', this.prezzototale);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
-      localStorage.setItem('restaurant_id', this.id);
+      localStorage.setItem('restaurant_id', this.restID);
       }
-  },
-  methods: {
-    increse(i) {
-      const checkPresenza = this.cart.indexOf(this.dishes[i]);
-
-      ////if non c'e' gia' nel carrello
-      if (checkPresenza === -1) {
-        this.cart.push(this.dishes[i]);
-        this.cart[i].quantity = 1;
-      } else {
-        this.cart[i].quantity++;
-      }
-
-      this.prezzototale += parseFloat(this.cart[i].price);
-    },
-
-    decrese(i) {
-      const checkPresenza = this.cart.indexOf(this.dishes[i]);
-      if (checkPresenza > -1 && this.cart[i].quantity === 1) {
-        this.prezzototale -= parseFloat(this.cart[i].price);
-
-        //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
-        this.cart.splice(checkPresenza, 1);
-
-      } else {
-        this.cart[i].quantity--;
-
-        if (this.cart[i].quantity)
-        this.prezzototale -= parseFloat(this.cart[i].price);
-      }
-    },
   },
   mounted() {
     axios
-      .get("/api/restaurant/" + this.id)
+      .get("/api/restaurant/" + this.restID)
       .then((resp) => {
         this.ristorante = resp.data.results.restaurant;
         this.dishes = resp.data.results.dishes;

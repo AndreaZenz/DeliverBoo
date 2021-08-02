@@ -1,41 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+@section('HeaderScripts')
     <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/img/favicon.png">
 
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css" integrity="sha512-9iWaz7iMchMkQOKA8K4Qpz6bpQRbhedFJB+MSdmJ5Nf4qIN1+5wOVnzg5BQs/mYH3sKtzY+DOgxiwMz8ZtMCsw==" crossorigin="anonymous" />
-    {{-- /fontawesome --}}
-
-    {{-- favicon --}}
-    <link rel="shortcut icon" type="image/x-icon"href="img/favicon.png">
-
-    {{-- style --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- BRAINTREE --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
     
-    <title>Transazione - Successo</title>
-  </head>
-  <body class="checkout">
+@endsection
+@section( 'title', 'Transaction Successful' )
+@extends('layouts.app')
 
-    
-    <main>
-      <div class="container">
+@section('content')
+    <div class="checkout">
+    <div class="container">
         <h1>Transazione avvenuta con successo!</h1>
         <a href="{{ url('/') }}">Torna alla homepage</a>
       </div>
-    </main>
+    </div>
+@endsection
 
-    @include('partials.footer')
-
+@section( 'scripts' )
     <script>
       localStorage.removeItem('tot_price');
       localStorage.removeItem('restaurant_id');
     </script>
-    
-  </body>
-</html>
+@endsection
