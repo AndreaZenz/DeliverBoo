@@ -33,17 +33,15 @@
                     <h1>{{$restaurant->name}}</h1>
                     <h2>{{$restaurant->address}}</h2>
 
-
                     @include('partials.deleteBtn', ["restaurant"=> $restaurant])
-                    @include('partials.modifyBtn')
+                    <a href=" {{ route('admin.restaurants.edit', $restaurant->id) }} " class="btn btn-warning mg-top-bot-10">Modifica</a>
+
 
                     <button type="button" class="btn btn-info spacing">
                         <a href=" {{ route('admin.restaurants.show', [$restaurant->id]) }} ">Visualizza il tuo ristorante</a>
                     </button>
 
-
                     <a class="btn btn-secondary spacing" href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">Crea un piatto</a>
-
 
                 </div>
                 @endforeach
