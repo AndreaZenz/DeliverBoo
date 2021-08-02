@@ -11268,6 +11268,7 @@ footer .container .row .col ul {
 
 .card-my .description-public {
   flex-grow: 1;
+  margin-right: 20px;
 }
 
 .card-my .description-public .fa {
@@ -11310,12 +11311,6 @@ footer .container .row .col ul {
   padding-top: 10px;
 }
 
-.bg-menu .row-menu .card-body {
-  height: 450px;
-  display: flex;
-  flex-direction: column;
-}
-
 .bg-menu .row-menu .card-body p {
   font-size: 13px;
 }
@@ -11336,6 +11331,19 @@ footer .container .row .col ul {
   .contents {
     display: contents;
   }
+}
+
+.card-cart {
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .spacier-top {

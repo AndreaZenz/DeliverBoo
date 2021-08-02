@@ -2448,7 +2448,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -38731,29 +38730,25 @@ var render = function() {
               "object-fit": "cover"
             },
             attrs: { src: _vm.ristorante.img_url, alt: "restaurant image" }
-          }),
-          _vm._v(" "),
-          _c("h1", [_vm._v(_vm._s(_vm.ristorante.name))]),
-          _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(_vm.ristorante.address))])
+          })
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row-menu bg-menu" }, [
-        _c("div", { staticClass: "col-9 pr-1 contents" }, [
+        _c("div", { staticClass: "col-8 pr-1 contents" }, [
           _c(
             "div",
             { staticClass: "row-menu" },
             _vm._l(_vm.dishes, function(dish, index) {
               return _c(
                 "div",
-                { key: dish.id, staticClass: "card mg-top-bot-10 col-4" },
+                { key: dish.id, staticClass: "card mg-top-bot-10 col-6" },
                 [
                   _c("img", {
                     staticClass: "img-fluid card-img-top",
                     staticStyle: {
                       width: "100%",
-                      "max-height": "150px",
+                      height: "150px",
                       "object-fit": "cover"
                     },
                     attrs: { src: dish.img_url, alt: "" }
@@ -38814,21 +38809,14 @@ var render = function() {
         _vm.cart.length > 0
           ? _c(
               "div",
-              { staticClass: "card col-3", staticStyle: { width: "18rem" } },
+              {
+                staticClass: "card-cart col-4",
+                staticStyle: { width: "18rem" }
+              },
               [
-                _c("a", { attrs: { href: "/payment" } }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-info spacing",
-                      attrs: { type: "button" },
-                      on: { click: _vm.save }
-                    },
-                    [_vm._v("\n            Go To Checkout\n          ")]
-                  )
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v("Il Tuo Carrello")
                 ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-header" }, [_vm._v("Cart")]),
                 _vm._v(" "),
                 _c(
                   "ul",
@@ -38849,15 +38837,26 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("li", { staticClass: "list-group-item" }, [
-                      _vm._v(
-                        "TotalPrice: " +
-                          _vm._s(_vm.prezzototale.toFixed(2)) +
-                          " € "
-                      )
+                      _c("strong", [_vm._v(" Prezzo Totale : ")]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" " + _vm._s(_vm.prezzototale.toFixed(2)) + " € ")
                     ])
                   ],
                   2
-                )
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "/payment" } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info spacing",
+                      attrs: { type: "button" },
+                      on: { click: _vm.save }
+                    },
+                    [_vm._v("\n            Go To Checkout\n          ")]
+                  )
+                ])
               ]
             )
           : _vm._e()
@@ -51910,8 +51909,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
