@@ -1,0 +1,18 @@
+.create-edit-dishes-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    .forms-container {
+        padding: 20px;
+        h1 {
+            margin-bottom: 50px;
+        }
+        form {
+            .form-group {
+                .form-control {
+                    border: solid 4px #00ccbc;
+                }
+            }
+        }
+    }
+}

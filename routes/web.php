@@ -45,8 +45,8 @@ Route::prefix('admin')
         
         //Route::resource("/orders", "OrderController");
         Route::get('orders', 'OrderController@index')->name('orders');
-        Route::get('/statistics', 'StatisticsController@getMonthlyOrderData')->name('statistics');
-        Route::get('/statisticsvue', 'StatisticsvueController@getMonthlyOrderData')->name('statisticsvue');
+        Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+        
         
         Route::resource("/users", "UserController");
         Route::resource("/restaurants", "RestaurantsController");

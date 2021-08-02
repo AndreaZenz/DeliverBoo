@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Restaurant;
 use App\Dish;
@@ -8,6 +8,7 @@ use App\Type;
 use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Doctrine\DBAL\Query;
@@ -51,17 +52,13 @@ class StatisticsController extends Controller
         //     ->groupByMonth(date('Y'), true);
 
         //return view("admin.statistics", compact('orders', 'restaurants'));
-
-        // $orders = $user->orders;
-
-        // dump(compact('user_id', 'orders', 'restaurants'));
-        return view('admin.statistics', compact('user_id', 'orders', 'restaurants'));
+        return json_decode($orders);
     }
 
     function getRestaurantOrders()
     {
 
-        $user_id = Auth::user()->id;
+        $user_id = 5;
 
         //seleziona i ristoranti del User
         $restaurants = Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get();
@@ -126,7 +123,7 @@ class StatisticsController extends Controller
         // $monthly_post_count = Post::whereMonth( 'created_at', $month )->get()->count();
 
 
-        $user_id = Auth::user()->id;
+        $user_id = 5;
 
         $orders = DB::table('orders')
             ->join('restaurants', 'orders.restaurant_id', '=', 'restaurants.id')
@@ -175,11 +172,55 @@ class StatisticsController extends Controller
             'max' => $max,
         );
 
+        return $monthly_order_data_array;
+        // return response()->json([
+        //     "success" => true,
+        //     "results" => $monthly_order_data_array
+        // ]);
+
         $months = $month_name_array;
         $order_count_data = $monthly_order_count_array;
         $max = $max;
         //dump(compact('months', 'order_count_data', 'max', 'max_no'));
         
-        return view("admin.statistics", compact('months', 'order_count_data', 'max', 'max_no'));
+        // return view("admin.statistics", compact('months', 'order_count_data', 'max', 'max_no'));
+
+        // return response()->json([
+        //     "success" => true,
+        //     "query" => $result->getQuery()->toSql(),
+        //     "results" => $restaurants
+        // ]);
+    }
+
+
+
+    public function restaurants($id) {
+
+        
+        $user_id = $id;
+        
+        $restaurant_all = [];
+        //seleziona i ristoranti del User
+        $restaurants = Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get();
+
+        foreach ($restaurants as $restaurant) {
+            $restaurant_all[] = $restaurant->name;
+        }
+
+        return response()->json($restaurant_all);
+    }
+
+    public function restaurantOrders($id){
+
+        
+        $orders = DB::table('orders')
+            ->join('restaurants', 'orders.restaurant_id', '=', 'restaurants.id')
+            ->select('orders.*')
+            ->orderBy('created_at', 'ASC')
+            ->where('restaurants.user_id', '=', $id)
+            ->get();
+        
+        return response()->json($orders);
+
     }
 }
