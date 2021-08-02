@@ -2255,6 +2255,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -38534,6 +38537,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "background-search" }, [
+      _c("div", { staticClass: "obl-l" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "obl-r" }),
+      _vm._v(" "),
       _c("div", { staticClass: "container jumbo-box" }, [
         _c("div", { staticClass: "row" }, [
           _c(
@@ -38551,7 +38558,7 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-6 border bg-white" }, [
+                _c("div", { staticClass: "col-6 border bg-white filtra" }, [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-12" }, [
                       _c(
@@ -38622,7 +38629,7 @@ var render = function() {
                   _vm._v(
                     "\n            Sono stati trovati " +
                       _vm._s(_vm.restaurantsList.length) +
-                      " risulati per il\n            filtro:\n            "
+                      " Risulati per il\n            filtro:\n            "
                   ),
                   _c("div", {
                     domProps: { innerHTML: _vm._s(_vm.printActiveFilters()) }
@@ -51909,8 +51916,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

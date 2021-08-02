@@ -4,7 +4,8 @@
 <div class="admin-main-container">
     <div class="admin-title-row">
         <div class="admin-title-container">
-            <h1>Benvenuto</h1>
+            
+            <h1>{{ __('Bentornato ' . Auth::user()->name ) }}</h1>
             <p>I tuoi ristoranti</p>
         </div>
     </div>
