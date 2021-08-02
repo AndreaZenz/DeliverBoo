@@ -11136,6 +11136,9 @@ footer .container .row .col-foot ul li a {
 .jumbo-box {
   padding-top: 24px;
   padding-bottom: 24px;
+  background-image: url(/images/jumbotron.svg?5add8e188ff7a4bc57fd3eb63888f75e);
+  background-repeat: no-repeat;
+  background-position: 70%;
 }
 
 .front-text {
