@@ -49,7 +49,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.home_login') }}">
+                            <a class="nav-link" href="{{route('admin.restaurants.index')}}">
                                 Visita la Dashboard
                             </a>
                         </li>
