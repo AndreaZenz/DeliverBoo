@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container">
+
       <div class="ristorante-hero card-my">
         <div class="description-public">
 
@@ -36,9 +37,13 @@
           <h3>{{ ristorante.address }}</h3>
         </div>
       </div>
+
+      <!--  Piatti  -->
       <div class="row-menu bg-menu">
         <div class="col-9 pr-1 contents">
           <div class="row-menu">
+
+            <!-- DISH CARD -->
             <div
               class="card mg-top-bot-10 col-4"
               v-for="(dish, index) in dishes"
@@ -56,18 +61,22 @@
                 <h5 class="card-title">Prezzo: {{ dish.price }} €</h5>
                 <h5 class="card-title">Descrizione: {{ dish.description }}</h5>
                 <h5 class="card-title">Ingredienti: {{ dish.ingredients }}</h5>
-                <button class="btn btn-primary" @click="increse(index)">
+                <button class="btn btn-primary" @click="increase(index)">
                   +
                 </button>
-                <button class="btn btn-primary" @click="decrese(index)">
+                <button class="btn btn-primary" @click="decrease(index)">
                   -
                 </button>
                 <br />
               </div>
             </div>
+            <!-- END DISH CARD -->
+
           </div>
         </div>
-        <div class="card" style="width: 18rem" v-if="cart.length > 0">
+
+        <!-- CARRELLO -->
+        <div class="card col-3" style="width: 18rem" v-if="cart.length > 0">
           <a href="/payment">
             <button
               type="button"
@@ -89,7 +98,10 @@
             <li class="list-group-item">TotalPrice: {{ prezzototale.toFixed(2)}} € </li>
           </ul>
         </div>
+        <!-- END CARRELLO -->
+
       </div>
+
     </div>
   </div>
 </template>
@@ -106,14 +118,14 @@ export default {
     return {
       ristorante: {},
       dishes: [],
-      id: this.id,
+      restID: this.id,
       cart: [],
       prezzototale: 0,
       allDishQuantity: [],
     };
   },
   methods: {
-    increse(i) {
+    increase(i) {
       const checkPresenza = this.cart.indexOf(this.dishes[i]);
 
       ////if non c'e' gia' nel carrello
@@ -128,10 +140,10 @@ export default {
 
       localStorage.setItem('prezzototale', this.prezzototale);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
-      localStorage.setItem('restaurant_id', this.id);
+      localStorage.setItem('restaurant_id', this.restID);
     },
 
-    decrese(i) {
+    decrease(i) {
       const checkPresenza = this.cart.indexOf(this.dishes[i]);
       if (checkPresenza > -1 && this.dishes[i].quantity === 1) {
         //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
@@ -148,48 +160,17 @@ export default {
 
       localStorage.setItem('prezzototale', this.prezzototale);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
-      localStorage.setItem('restaurant_id', this.id);
+      localStorage.setItem('restaurant_id', this.restID);
     },
     save: function () {
       localStorage.setItem('prezzototale', this.prezzototale);
       localStorage.setItem('plates', JSON.stringify(this.dishes));
-      localStorage.setItem('restaurant_id', this.id);
+      localStorage.setItem('restaurant_id', this.restID);
       }
-  },
-  methods: {
-    increse(i) {
-      const checkPresenza = this.cart.indexOf(this.dishes[i]);
-
-      ////if non c'e' gia' nel carrello
-      if (checkPresenza === -1) {
-        this.cart.push(this.dishes[i]);
-        this.cart[i].quantity = 1;
-      } else {
-        this.cart[i].quantity++;
-      }
-
-      this.prezzototale += parseFloat(this.cart[i].price);
-    },
-
-    decrese(i) {
-      const checkPresenza = this.cart.indexOf(this.dishes[i]);
-      if (checkPresenza > -1 && this.cart[i].quantity === 1) {
-        this.prezzototale -= parseFloat(this.cart[i].price);
-
-        //deleta il primo dish corrispondente dal carrello, partendo da this.cart[0]
-        this.cart.splice(checkPresenza, 1);
-
-      } else {
-        this.cart[i].quantity--;
-
-        if (this.cart[i].quantity)
-        this.prezzototale -= parseFloat(this.cart[i].price);
-      }
-    },
   },
   mounted() {
     axios
-      .get("/api/restaurant/" + this.id)
+      .get("/api/restaurant/" + this.restID)
       .then((resp) => {
         this.ristorante = resp.data.results.restaurant;
         this.dishes = resp.data.results.dishes;
