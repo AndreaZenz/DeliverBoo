@@ -1,0 +1,15 @@
+.edit-dishes-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    .forms-container {
+        padding: 20px;
+        form {
+            .form-group {
+                .form-control {
+                    border: solid 4px #00ccbc;
+                }
+            }
+        }
+    }
+}

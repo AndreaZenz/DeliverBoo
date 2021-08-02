@@ -30,10 +30,4 @@ class AppServiceProvider extends ServiceProvider
     //     \Braintree_Configuration::privateKey(env('BTREE_PRIVATE_KEY'));
     // }
 
-    public function boot(Charts $charts)
-    {
-        $charts->register([
-            \App\Charts\SampleChart::class
-        ]);
-    }
 }

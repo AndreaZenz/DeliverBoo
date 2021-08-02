@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
-    
+
     <!-- https://fontawesome.com/v4.7.0/icons/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-
+    @yield('librery')
+    
     <title>{{ config('app.name', 'DeliveBoo') }}</title>
 </head>
 <body>
@@ -44,16 +45,12 @@
                 <img src="{{ asset('img/loghi/white-logo.png')}}" alt="">
             </a>
 
-            <button class="navbar-toggler-ut" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-{{-- <button class="navbar-toggler nav-tog-ut" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button> --}}
+                    <button class="navbar-toggler nav-tog-ut" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </ul>
 
 
@@ -194,9 +191,9 @@
                 </nav>
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
-                <div id="app">
-                    @yield('content')
-                </div>
+                    <div id="app">
+                        @yield('content')
+                    </div>
                 </main>
 
             </div>
@@ -208,7 +205,10 @@
 
 {{-- <script src="{{ asset('js/chart-area-demo.js') }}"></script>
 <script>
-    var myChart = new Chart(ctx, {...});
+    var myChart = new Chart(ctx, {
+        ...
+    });
+
 </script>
 
 <script src="{{ asset('js/charts.js') }}"></script> --}}

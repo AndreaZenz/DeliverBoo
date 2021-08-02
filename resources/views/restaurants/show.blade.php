@@ -7,11 +7,11 @@
 >
 </restaurant-show> --}}
 
-<rest-showw
+<restaurant-show
 :id = '{{$restaurant->id}}'
 {{-- :sganciaisordi = "route("payment")" --}}
 >
-</rest-showw>
+</restaurant-show>
 
 
 
