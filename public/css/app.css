@@ -11419,6 +11419,7 @@ footer .container .row .col-foot ul li a {
   transition: all 0.3s;
   padding-top: 15px;
   border-radius: 10px;
+  margin: 20px 0 20px 10px;
 }
 
 a,
@@ -11551,37 +11552,42 @@ ul ul a {
   color: #8d9090;
 }
 
-.container .admin-main-container {
+.admin-container {
+  margin: 0;
+  max-width: none;
+}
+
+.admin-container .admin-main-container {
   background-color: #f8f9fa;
   border-radius: 10px;
 }
 
-.container .admin-main-container .admin-title-row img {
+.admin-container .admin-main-container .admin-title-row img {
   border-radius: 10px 10px 0 0;
 }
 
-.container .admin-main-container .admin-title-row .admin-title-container {
+.admin-container .admin-main-container .admin-title-row .admin-title-container {
   margin: 20px;
 }
 
-.container .admin-main-container .admin-cards-main {
+.admin-container .admin-main-container .admin-cards-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container {
   padding: 10px;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card {
   border-radius: 10px;
   padding: 0;
   border: solid 1px lightgray;
   overflow: hidden;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container {
   background-color: #00ccbc;
   color: white;
   max-height: 60px;
@@ -11591,28 +11597,28 @@ ul ul a {
   padding: 10px;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container a {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container a {
   text-decoration: none;
   color: white;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropbtn {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropbtn {
   background-color: #00ccbc;
   padding: 16px;
   font-size: 16px;
   border: none;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropbtn:hover {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropbtn:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropdown-content {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -11624,59 +11630,59 @@ ul ul a {
   text-align: center;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropdown-content a {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown .dropdown-content a {
   margin: 20px 0 20px 0;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown:hover .dropdown-content {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .card-name-container .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container {
   padding: 0;
   display: flex;
   height: 150px;
   z-index: 1;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-card-img-container {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-card-img-container {
   overflow: hidden;
   margin: 10px;
   border-radius: 5px;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-restaurant-card-img {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-restaurant-card-img {
   width: calc(100% - 20px);
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-restaurant-card-img img {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-restaurant-card-img img {
   width: 100%;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-dish-card-img {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-dish-card-img {
   width: 40%;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-dish-card-img img {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-dish-card-img img {
   height: 120%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-card-text-container {
+.admin-container .admin-main-container .admin-cards-main .admin-card-container .admin-card .admin-card-body-container .admin-card-text-container {
   width: 60%;
   padding: 5px;
 }
 
-.container .admin-main-container .admin-cards-main .admin-new-card-container {
+.admin-container .admin-main-container .admin-cards-main .admin-new-card-container {
   padding: 10px;
 }
 
-.container .admin-main-container .admin-cards-main .admin-new-card-container a:hover {
+.admin-container .admin-main-container .admin-cards-main .admin-new-card-container a:hover {
   text-decoration: none;
 }
 
-.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card {
+.admin-container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card {
   height: calc(60px + 150px);
   border: dashed 2px #00ccbc;
   color: #00ccbc;
@@ -11686,18 +11692,18 @@ ul ul a {
   align-items: center;
 }
 
-.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card:hover {
+.admin-container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card:hover {
   background-color: rgba(0, 204, 188, 0.1);
 }
 
-.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card span {
+.admin-container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card span {
   margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card span i {
+.admin-container .admin-main-container .admin-cards-main .admin-new-card-container a .admin-add-card span i {
   font-size: 40px;
   margin-right: 20px;
   transform: translateX(35%);
@@ -11740,6 +11746,7 @@ ul ul a {
   background-color: #f8f9fa;
   border-radius: 10px;
   overflow: hidden;
+  margin-top: 0px;
 }
 
 .create-edit-container .forms-container {

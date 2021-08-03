@@ -37,7 +37,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="admin-container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('img/loghi/white-logo.png')}}" alt="">
