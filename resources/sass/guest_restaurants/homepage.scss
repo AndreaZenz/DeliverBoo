@@ -1,5 +1,7 @@
 .background-search {
-    background-color: #d0eb99;
+    background-image: url("../../../public/images/hero-bg.jpg");
+    background-size: contain;
+    background-repeat: round;
     width: 100%;
 }
 
@@ -15,6 +17,7 @@
     display: bvl;
     h1 {
         color: #440071;
+        font-weight: 700;
     }
 }
 
@@ -168,6 +171,7 @@
         text-decoration: none;
         display: inline-block;
         font-size: 13px;
+        transition: 0.3s;
         &:hover {
             background-color: #00cc66;
         }

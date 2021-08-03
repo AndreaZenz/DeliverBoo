@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="background-search">
-      <div class="obl-l"></div>
-      <div class="obl-r"></div>
+
 
       <div class="container jumbo-box">
         <div class="row">
@@ -48,13 +47,6 @@
               </div>
             </div>
           </form>
-          <!-- <div class="alert-style">
-            <div class="alert alert-success alert-style" v-if="activeFilters">
-              Sono stati trovati {{ restaurantsList.length }} Risulati per il
-              filtro:
-              <div v-html="printActiveFilters()"></div>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
