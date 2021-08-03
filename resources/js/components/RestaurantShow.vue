@@ -14,6 +14,7 @@
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star-o" aria-hidden="true"></i>
             <span>4.0    (1042 recensioni)</span>
+            <span id="demo" @onload="random"></span>
           </div>
 
           <!-- tags -->
@@ -38,8 +39,8 @@
       </div>
 
       <!--  Piatti  -->
-      <div class="row-menu bg-menu">
-        <div class="col-8 pr-1 contents">
+      <div class="row-menu-bg bg-menu">
+        <div class="col-md-8 col-sm-12">
           <div class="row-menu">
 
             <!-- DISH CARD -->
@@ -75,7 +76,7 @@
         </div>
 
         <!-- CARRELLO -->
-        <div class="card-cart col-4" style="width: 18rem" v-if="cart.length > 0">
+        <div class="card-cart col-md-4 col-sm-7 mg-top-bot-10" style="width: 18rem" v-if="cart.length > 0">
           <div class="card-header">Il Tuo Carrello</div>
           <ul class="list-group list-group-flush">
             <li
@@ -124,6 +125,13 @@ export default {
     };
   },
   methods: {
+
+
+    random(){
+       Math.floor(Math.random() * 2000) + 1;
+      //  document.getElementById("demo").innerHTML
+    },
+
     increase(i) {
       const checkPresenza = this.cart.indexOf(this.dishes[i]);
 

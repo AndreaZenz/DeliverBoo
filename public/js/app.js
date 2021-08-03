@@ -2451,6 +2451,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -2468,6 +2469,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    random: function random() {
+      Math.floor(Math.random() * 2000) + 1; //  document.getElementById("demo").innerHTML
+    },
     increase: function increase(i) {
       var checkPresenza = this.cart.indexOf(this.dishes[i]); ////if non c'e' gia' nel carrello
 
@@ -38705,7 +38709,36 @@ var render = function() {
           _vm._v(" "),
           _c("h4", [_vm._v(_vm._s(_vm.ristorante.address))]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "vote" }, [
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star-o",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v("4.0    (1042 recensioni)")]),
+            _vm._v(" "),
+            _c("span", { attrs: { id: "demo" }, on: { onload: _vm.random } })
+          ]),
           _vm._v(" "),
           _c("p", [
             _vm._v("Ordina il tuo piatto preferito a casa tua da "),
@@ -38713,7 +38746,7 @@ var render = function() {
             _vm._v(" grazie alla consegna a domicilio di DeliveBoo.")
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row-my flex-column" }, [
@@ -38729,8 +38762,8 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row-menu bg-menu" }, [
-        _c("div", { staticClass: "col-8 pr-1 contents" }, [
+      _c("div", { staticClass: "row-menu-bg bg-menu" }, [
+        _c("div", { staticClass: "col-md-8 col-sm-12" }, [
           _c(
             "div",
             { staticClass: "row-menu" },
@@ -38805,7 +38838,7 @@ var render = function() {
           ? _c(
               "div",
               {
-                staticClass: "card-cart col-4",
+                staticClass: "card-cart col-md-4 col-sm-7 mg-top-bot-10",
                 staticStyle: { width: "18rem" }
               },
               [
@@ -38860,27 +38893,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "vote" }, [
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fa fa-star-o",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" "),
-      _c("span", [_vm._v("4.0    (1042 recensioni)")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -51904,8 +51916,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetto finale\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

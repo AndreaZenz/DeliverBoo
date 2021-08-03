@@ -31,15 +31,15 @@
 .row-menu{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
-.bg-menu{
-    background-color: rgb(246, 240, 240);
-    .row-menu{
+// .bg-menu{
+    .row-menu-bg{
+        background-color: rgb(246, 240, 240);
+        padding: 5px;
         display: flex;
         flex-wrap: wrap;
-        .mg-5{
-            margin: 5px;
-        }
+        justify-content: center;
         .pd-10{
             padding-top: 10px;
         }
@@ -56,7 +56,7 @@
             margin-top: 5px;
         }
     }
-}
+// }
     
     // mobile
     @media screen and (max-width: 760px){
@@ -81,3 +81,4 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
+
