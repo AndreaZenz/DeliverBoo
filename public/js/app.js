@@ -38877,7 +38877,7 @@ var staticRenderFns = [
         staticClass: "fa fa-star-o",
         attrs: { "aria-hidden": "true" }
       }),
-      _vm._v(" "),
+      _vm._v("a\n          "),
       _c("span", [_vm._v("4.0    (1042 recensioni)")])
     ])
   },
