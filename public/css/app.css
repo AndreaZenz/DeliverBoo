@@ -11145,6 +11145,7 @@ footer .container .row .col-foot ul li a {
 
 .front-text h1 {
   color: #440071;
+  font-weight: 700;
 }
 
 .alert-style {
@@ -11300,6 +11301,7 @@ footer .container .row .col-foot ul li a {
   text-decoration: none;
   display: inline-block;
   font-size: 13px;
+  transition: 0.3s;
 }
 
 .toggle .label:hover {

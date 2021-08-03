@@ -2251,13 +2251,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -38959,7 +38952,9 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "label", class: { color: item.active } }, [
             _c("label", { attrs: { for: item.name } }, [
-              _vm._v(_vm._s(item.name))
+              _c("i", { class: item.fontAwesome }, [
+                _vm._v("  " + _vm._s(item.name) + " ")
+              ])
             ])
           ])
         ]

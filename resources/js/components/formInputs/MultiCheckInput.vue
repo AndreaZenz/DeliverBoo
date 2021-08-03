@@ -16,7 +16,7 @@
         />
       </div>
       <div class="label" v-bind:class="{ color: item.active }">
-        <label :for="item.name">{{ item.name }}</label>
+        <label  :for="item.name"><i :class="item.fontAwesome">  {{ item.name }} </i></label>
       </div>
     </div>
   </div>

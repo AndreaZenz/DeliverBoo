@@ -13,40 +13,86 @@ class TypeTableSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['Ristorante', 'Pizzeria', 'Pescheria', 'Griglieria', 'Risotteria', 'Sushi', 'Cinese', 'Koreano', 'Thailandese', 'Pasticceria'];
 
-        if(DB::table('Types')->count() == 0){
 
-            foreach ($types as $type){
-                $new_type_object = new Type();
-                $new_type_object->name = $type;
-                $new_type_object->save();
-            }
-            // DB::table('users')->insert([
+        if (DB::table('Types')->count() == 0) {
 
-            //     [
-            //         'name' => 'Simone',
-            //         'created_at' => date('Y-m-d H:i:s'),
-            //         'updated_at' => date('Y-m-d H:i:s'),
-            //     ],
-            //     [
-            //         'name' => 'Alessandro',
-            //         'created_at' => date('Y-m-d H:i:s'),
-            //         'updated_at' => date('Y-m-d H:i:s'),
-            //     ],
-            //     [
-            //         'name' => 'Andrea',
-            //         'created_at' => date('Y-m-d H:i:s'),
-            //         'updated_at' => date('Y-m-d H:i:s'),
-            //     ],
-            //     [
-            //         'name' => 'Marco',
-            //         'created_at' => date('Y-m-d H:i:s'),
-            //         'updated_at' => date('Y-m-d H:i:s'),
-            //     ],
+            DB::table('Types')->insert([
+                [
+                    'active' => 0,
+                    'name' => 'Ristorante',
+                    'fontAwesome' => 'fa fa-cutlery',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Pizzeria',
+                    'fontAwesome' => 'fas fa-pizza-slice',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Pescheria',
+                    'fontAwesome' => 'fas fa-fish',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Pescheria',
+                    'fontAwesome' => 'fas fa-hamburger',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Risotteria',
+                    'fontAwesome' => 'fas fa-concierge-bell',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Sushi',
+                    'fontAwesome' => 'fas fa-seedling',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Cinese',
+                    'fontAwesome' => 'fas fa-burn',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Koreano',
+                    'fontAwesome' => 'fab fa-korvue',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Thailandese',
+                    'fontAwesome' => 'fas fa-cocktail',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'active' => 0,
+                    'name' => 'Pasticceria',
+                    'fontAwesome' => 'fas fa-birthday-cake',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ],
+                
+            ]);
 
-            // ]);
-
-        } else { echo "\e[31mTable is not empty, therefore NOT "; }
+        } else {
+            echo "\e[31mTable is not empty, therefore NOT ";
+        }
     }
 }
