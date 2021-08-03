@@ -11129,8 +11129,6 @@ footer .container .row .col-foot ul li a {
 .background-search {
   background-color: #d0eb99;
   width: 100%;
-  position: relative;
-  z-index: -5;
 }
 
 .jumbo-box {
