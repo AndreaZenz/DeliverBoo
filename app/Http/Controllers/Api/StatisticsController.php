@@ -39,7 +39,7 @@ class StatisticsController extends Controller
             ->where('restaurants.user_id', '=', $user_id)
             ->get();
 
-        //dump(compact('orders', 'restaurants'));
+        // dump(compact('orders', 'restaurants'));
         //return view("admin.statistics", compact('orders', 'restaurants'));
         //die();
 
@@ -219,7 +219,7 @@ class StatisticsController extends Controller
             ->orderBy('created_at', 'ASC')
             ->where('restaurants.user_id', '=', $id)
             ->get();
-        
+            
         return response()->json($orders);
 
     }

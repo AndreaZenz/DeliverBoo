@@ -27774,7 +27774,11 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: "#app",
   data: {
-    delivery: 0
+    delivery: 0,
+    max_no: 0,
+    max_in_month: 0,
+    max_no_order: 0,
+    max_in_month_orders: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -27783,31 +27787,33 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/statistics/".concat(user_id)).then(function (response) {
       var ordersPerMonth = [];
       var orders = response.data;
-      var max_no = 0;
-      var max_in_month = 0;
+      _this.max_in_month = 0;
+      var today = new Date();
+      var current_month = today.getMonth() + 1;
+      var current_year = today.getFullYear();
 
       var _loop = function _loop(i) {
         var ordersSum = 0;
         orders.forEach(function (element) {
-          if (i == parseInt(element.created_at.substr(5, 2))) {
+          if (i == parseInt(element.created_at.substr(5, 2)) && current_year == parseInt(element.created_at.substr(0, 4))) {
             element.total_price -= _this.delivery;
             ordersSum += element.total_price;
           }
         }); //get highest income in a month
 
-        if (max_in_month < ordersSum) {
-          max_in_month = ordersSum;
+        if (_this.max_in_month < ordersSum) {
+          _this.max_in_month = ordersSum;
         }
 
         ordersPerMonth.push(ordersSum);
       };
 
-      for (var i = 1; i <= 12; i++) {
+      for (var i = 1; i <= current_month; i++) {
         _loop(i);
       } //max value on y axis - round up to multiple of 10
 
 
-      max_no = Math.round((max_in_month + 10 / 2) / 10) * 10; //chart data
+      _this.max_no = Math.round((_this.max_in_month + 10 / 2) / 10) * 10; //chart data
 
       var cdata = {
         labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
@@ -27832,12 +27838,16 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
               }
             },
             y: {
-              max: max_no,
+              max: _this.max_no,
               grid: {}
             }
           }
         }
-      }; //get the chart from
+      }; //dati in cards
+
+      document.getElementById('month_record').innerHTML = _this.max_in_month; // document.getElementById('current_month_revenue').innerHTML = this.max_in_month;
+      // document.getElementById('current_year_revenue').innerHTML = this.max_in_month;
+      //get the chart from
 
       var ctx = document.getElementById('myAreaChart').getContext('2d');
       var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config);
@@ -27848,34 +27858,37 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/statistics/".concat(user_id)).then(function (response) {
       var ordersPerMonth = [];
       var orders = response.data;
-      var max_no = 0;
-      var max_in_month = 0;
+      _this.max_no_order = 0;
+      _this.max_in_month_orders = 0;
       var stepSize = 0;
+      var today = new Date();
+      var current_month = today.getMonth() + 1;
+      var current_year = today.getFullYear();
 
       var _loop2 = function _loop2(i) {
         var ordersSum = 0;
         orders.forEach(function (element) {
-          if (i == parseInt(element.created_at.substr(5, 2))) {
+          if (i == parseInt(element.created_at.substr(5, 2)) && current_year == parseInt(element.created_at.substr(0, 4))) {
             ordersSum++;
           }
         }); //get highest income in a month
 
-        if (max_in_month < ordersSum) {
-          max_in_month = ordersSum;
+        if (_this.max_in_month_orders < ordersSum) {
+          _this.max_in_month_orders = ordersSum;
         }
 
         ordersPerMonth.push(ordersSum);
       };
 
-      for (var i = 1; i <= 12; i++) {
+      for (var i = 1; i <= current_month; i++) {
         _loop2(i);
       } //max value on y axis - round up to multiple of 5
 
 
-      max_no = Math.round((max_in_month + 5 / 2) / 5) * 5; //to prevent decimal numbers
+      _this.max_no_order = Math.round((_this.max_in_month_orders + 5 / 2) / 5) * 5; //to prevent decimal numbers
 
-      if (max_no == 5) {
-        stepSize = max_no / 5;
+      if (_this.max_no_order == 5) {
+        stepSize = _this.max_no_order / 5;
       }
 
       var cdata = {
@@ -27898,7 +27911,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
               }
             },
             y: {
-              max: max_no,
+              max: _this.max_no_order,
               ticks: {
                 // forces step size to be x units
                 stepSize: stepSize

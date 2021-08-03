@@ -29,11 +29,6 @@ class OrderController extends Controller
             ->orderBy('created_at', 'DESC')
             ->where('restaurants.user_id', '=', $user_id)
             ->get();
-
-        dump($restaurants, $orders);
-
-
-        dump(compact("restaurants", "orders"));
         return view('admin.orders.index', compact("restaurants", "orders"));
     }
 

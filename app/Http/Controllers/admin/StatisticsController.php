@@ -38,7 +38,7 @@ class StatisticsController extends Controller
             ->where('restaurants.user_id', '=', $user_id)
             ->get();
 
-        //dump(compact('orders', 'restaurants'));
+        dump(compact('orders', 'restaurants'));
         //return view("admin.statistics", compact('orders', 'restaurants'));
         //die();
 
@@ -178,7 +178,7 @@ class StatisticsController extends Controller
         $months = $month_name_array;
         $order_count_data = $monthly_order_count_array;
         $max = $max;
-        //dump(compact('months', 'order_count_data', 'max', 'max_no'));
+        // dump(compact('months', 'order_count_data', 'max', 'max_no'));
         
         return view("admin.statistics", compact('months', 'order_count_data', 'max', 'max_no'));
     }
