@@ -27778,7 +27778,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     max_no: 0,
     max_in_month: 0,
     max_no_order: 0,
-    max_in_month_orders: 0
+    max_in_month_orders: 0,
+    year_target_progress: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -27791,13 +27792,24 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       var today = new Date();
       var current_month = today.getMonth() + 1;
       var current_year = today.getFullYear();
+      var last_year = current_year - 1;
+      var current_month_revenue = 0;
+      var current_year_rev = 0;
+      var year_target = 1000;
 
       var _loop = function _loop(i) {
         var ordersSum = 0;
         orders.forEach(function (element) {
-          if (i == parseInt(element.created_at.substr(5, 2)) && current_year == parseInt(element.created_at.substr(0, 4))) {
-            element.total_price -= _this.delivery;
-            ordersSum += element.total_price;
+          if (i == parseInt(element.created_at.substr(5, 2))) {
+            if (current_year == parseInt(element.created_at.substr(0, 4))) {
+              //per il costo di delievery wtf this shit gives me some bug if I comment it
+              element.total_price -= _this.delivery;
+              ordersSum += element.total_price; //get current month value 
+
+              if (i === current_month) {
+                current_month_revenue = ordersSum;
+              }
+            }
           }
         }); //get highest income in a month
 
@@ -27805,13 +27817,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
           _this.max_in_month = ordersSum;
         }
 
-        ordersPerMonth.push(ordersSum);
+        ordersPerMonth.push(ordersSum); //sum current year value
+
+        if (ordersSum > 0) {
+          current_year_rev += ordersSum;
+        }
       };
 
       for (var i = 1; i <= current_month; i++) {
         _loop(i);
-      } //max value on y axis - round up to multiple of 10
+      }
 
+      _this.year_target_progress = Math.floor(current_year_rev / year_target * 100); //max value on y axis - round up to multiple of 10
 
       _this.max_no = Math.round((_this.max_in_month + 10 / 2) / 10) * 10; //chart data
 
@@ -27845,9 +27862,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         }
       }; //dati in cards
 
-      document.getElementById('month_record').innerHTML = _this.max_in_month; // document.getElementById('current_month_revenue').innerHTML = this.max_in_month;
-      // document.getElementById('current_year_revenue').innerHTML = this.max_in_month;
-      //get the chart from
+      document.getElementById('month_record').innerHTML = _this.max_in_month;
+      document.getElementById('current_month_revenue').innerHTML = current_month_revenue;
+      document.getElementById('current_year_revenue').innerHTML = current_year_rev;
+      document.getElementById('year_target').innerHTML = year_target.toLocaleString();
+      document.getElementById('year_target_progress').innerHTML = _this.year_target_progress;
+      document.getElementById('year_target_progress_style').style.width = _this.year_target_progress + '%'; //get the chart from
 
       var ctx = document.getElementById('myAreaChart').getContext('2d');
       var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config);
@@ -27864,12 +27884,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       var today = new Date();
       var current_month = today.getMonth() + 1;
       var current_year = today.getFullYear();
+      var last_year = current_year - 1;
 
       var _loop2 = function _loop2(i) {
         var ordersSum = 0;
+        var ordersSumLY = 0;
         orders.forEach(function (element) {
-          if (i == parseInt(element.created_at.substr(5, 2)) && current_year == parseInt(element.created_at.substr(0, 4))) {
-            ordersSum++;
+          if (i == parseInt(element.created_at.substr(5, 2))) {
+            if (current_year == parseInt(element.created_at.substr(0, 4))) {
+              ordersSum++;
+            } else if (last_year == parseInt(element.created_at.substr(0, 4))) {
+              ordersSumLY++;
+            }
           }
         }); //get highest income in a month
 
