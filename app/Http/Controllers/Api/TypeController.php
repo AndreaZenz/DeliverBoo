@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 class TypeController extends Controller
 {
     public function index() {
+        $data = Type::all();
+
+
         return response()->json([
             "success" => true,
-            "results" => Type::all()
+            "results" => $data,
+
         ]);
     }
 }

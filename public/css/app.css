@@ -11284,6 +11284,36 @@ footer .container .row .col-foot ul li a {
   margin: 0px 4px;
 }
 
+.toggle .hide {
+  position: absolute;
+  left: -100vw;
+}
+
+.toggle .label {
+  background-color: #440071;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 9px 25px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.toggle .label:hover {
+  background-color: #00cc66;
+}
+
+.toggle .label:checked {
+  background-color: #00cc66;
+}
+
+.toggle .color {
+  background-color: #00cc66;
+}
+
 .card-my {
   position: relative;
   display: flex;

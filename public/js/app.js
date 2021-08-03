@@ -2551,19 +2551,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MultiCheckInput",
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
+      active: false
     },
     label: String,
     value: Array
   },
   data: function data() {
     return {
-      selectedValues: []
+      selectedValues: [],
+      active: false,
+      itemsList: []
     };
   },
   methods: {
@@ -2578,7 +2585,20 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.$emit("input", this.selectedValues);
+    },
+    checked: function checked(index) {
+      this.itemsList[index].active = !this.itemsList[index].active;
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/api/types").then(function (resp) {
+      _this.itemsList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Non posso recuperare le tipologie di ristorante");
+    });
   }
 });
 
@@ -38877,7 +38897,7 @@ var staticRenderFns = [
         staticClass: "fa fa-star-o",
         attrs: { "aria-hidden": "true" }
       }),
-      _vm._v("a\n          "),
+      _vm._v(" "),
       _c("span", [_vm._v("4.0    (1042 recensioni)")])
     ])
   },
@@ -38917,20 +38937,30 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mb-3" },
-    _vm._l(_vm.items, function(item) {
+    { staticClass: "mb-3 toggle" },
+    _vm._l(_vm.itemsList, function(item, index) {
       return _c(
         "div",
         { key: item.id, staticClass: "form-check form-check-inline" },
         [
-          _c("label", { staticClass: "form-check-label" }, [
+          _c("div", { staticClass: "hide" }, [
             _c("input", {
               staticClass: "form-check-input",
-              attrs: { type: "checkbox" },
+              attrs: { type: "checkbox", id: item.name },
               domProps: { value: item.id },
-              on: { change: _vm.onChange }
-            }),
-            _vm._v("\n            " + _vm._s(item.name) + "\n        ")
+              on: {
+                change: _vm.onChange,
+                click: function($event) {
+                  return _vm.checked(index)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "label", class: { color: item.active } }, [
+            _c("label", { attrs: { for: item.name } }, [
+              _vm._v(_vm._s(item.name))
+            ])
           ])
         ]
       )

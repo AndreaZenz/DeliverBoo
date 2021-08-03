@@ -12,7 +12,7 @@
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>a
+            <i class="fa fa-star-o" aria-hidden="true"></i>
             <span>4.0    (1042 recensioni)</span>
           </div>
 
