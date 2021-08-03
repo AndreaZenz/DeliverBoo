@@ -13,12 +13,13 @@
     </tr>
   </thead>
   <tbody>
+  
   @foreach($orders as $order)
     <tr>
       <th scope="row">{{ $order->id }}</th>
       <td>{{ $order->created_at }}</td>
       <td>{{ $order->client_name, $order->client_surname }}</td>
-      <td>{{ $order->restaurant_id }}</td>
+      <td>{{ $order->name }}</td>
       <td>{{ $order->total_price }}</td>
     </tr>
   @endforeach

@@ -25,12 +25,14 @@ class OrderController extends Controller
         $orders = DB::table('orders')
             ->join('restaurants', 'orders.restaurant_id', '=', 'restaurants.id')
             ->join('users', 'restaurants.user_id', '=', 'users.id')
-            ->select('orders.*')
+            ->select('orders.*', 'restaurants.name')
             ->orderBy('created_at', 'DESC')
             ->where('restaurants.user_id', '=', $user_id)
             ->get();
 
-        if($user_id == $orders->restaurants_id)
+        dump($restaurants, $orders);
+
+
         dump(compact("restaurants", "orders"));
         return view('admin.orders.index', compact("restaurants", "orders"));
     }
