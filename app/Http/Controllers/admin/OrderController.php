@@ -6,6 +6,8 @@ use App\Order;
 use App\Restaurant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -16,15 +18,21 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $restaurants = [
-            'restaurants' => Restaurant::All()
-        ];
 
-        $orders = [
-            'orders' => Order::All()
-        ];
+        $user_id = Auth::user()->id;
 
-        return view('admin.orders', $restaurants, $orders);
+        $restaurants = Restaurant::where('user_id', $user_id)->orderBy('name', 'asc')->get();
+        $orders = DB::table('orders')
+            ->join('restaurants', 'orders.restaurant_id', '=', 'restaurants.id')
+            ->join('users', 'restaurants.user_id', '=', 'users.id')
+            ->select('orders.*')
+            ->orderBy('created_at', 'DESC')
+            ->where('restaurants.user_id', '=', $user_id)
+            ->get();
+
+        if($user_id == $orders->restaurants_id)
+        dump(compact("restaurants", "orders"));
+        return view('admin.orders.index', compact("restaurants", "orders"));
     }
 
     /**

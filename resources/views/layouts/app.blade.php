@@ -86,11 +86,9 @@
         </div>
         </nav>
 
-        <div class="payment">
         <main id="app">
             @yield('content')
         </main>
-        </div>
 
         @include('partials.footer')
         
