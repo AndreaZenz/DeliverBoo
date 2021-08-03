@@ -122,8 +122,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        // if ($order && $order->user_id == $user_id) {
+        //     $order->delete();
+        // }
+        // abort(404, "non è possibile eliminare il ristorante selezionato");
     }
 }
