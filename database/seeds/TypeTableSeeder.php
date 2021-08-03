@@ -41,7 +41,7 @@ class TypeTableSeeder extends Seeder
                 ],
                 [
                     'active' => 0,
-                    'name' => 'Pescheria',
+                    'name' => 'Griglieria',
                     'fontAwesome' => 'fas fa-hamburger',
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
