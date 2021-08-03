@@ -11322,7 +11322,6 @@ footer .container .row .col-foot ul li a {
 .row-menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .row-menu-bg {
