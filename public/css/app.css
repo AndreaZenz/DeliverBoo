@@ -11129,13 +11129,14 @@ footer .container .row .col-foot ul li a {
 .background-search {
   background-color: #d0eb99;
   width: 100%;
-  position: relative;
-  z-index: -5;
 }
 
 .jumbo-box {
   padding-top: 24px;
   padding-bottom: 24px;
+  background-image: url(/images/jumbotron.svg?5add8e188ff7a4bc57fd3eb63888f75e);
+  background-repeat: no-repeat;
+  background-position: 70%;
 }
 
 .front-text {
@@ -11281,6 +11282,36 @@ footer .container .row .col-foot ul li a {
   background-color: #00ccbc;
   color: #440071;
   margin: 0px 4px;
+}
+
+.toggle .hide {
+  position: absolute;
+  left: -100vw;
+}
+
+.toggle .label {
+  background-color: #440071;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 9px 25px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.toggle .label:hover {
+  background-color: #00cc66;
+}
+
+.toggle .label:checked {
+  background-color: #00cc66;
+}
+
+.toggle .color {
+  background-color: #00cc66;
 }
 
 .card-my {

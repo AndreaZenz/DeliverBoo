@@ -1,16 +1,14 @@
 .background-search {
     background-color: #d0eb99;
     width: 100%;
-    position: relative;
-    z-index: -5;
 }
 
 .jumbo-box {
     padding-top: 24px;
     padding-bottom: 24px;
-    // background-image: url("../public/img/banners/hero-bg.jpg");
-    // background-repeat: no-repeat;
-    // background-position: 70%;
+    background-image: url("../public/img/jumbotron.svg");
+    background-repeat: no-repeat;
+    background-position: 70%;
 }
 
 .front-text {
@@ -64,15 +62,14 @@
 }
 
 //lato blade
-.text-link{
-    a{
-        color:#00a3a4;
+.text-link {
+    a {
+        color: #00a3a4;
         text-decoration: none;
     }
-    
 }
 
-.home-page-container{
+.home-page-container {
     padding: 24px 0;
 }
 
@@ -83,14 +80,14 @@
 
 .pink-bg-text {
     padding-top: 12px;
-    h1{
+    h1 {
         font-weight: 800;
-        color:#00ccbc;
+        color: #00ccbc;
         margin-left: 47px;
     }
 }
 
-.evenly{
+.evenly {
     justify-content: space-evenly;
 }
 
@@ -119,7 +116,7 @@
     }
 }
 
-.vegetable{
+.vegetable {
     background-image: url("../public/img/restaurant_homepage/verdurine-430.jpg");
     height: 150px;
     display: flex;
@@ -131,7 +128,7 @@
     }
 }
 
-.ravioli{
+.ravioli {
     background-image: url("../public/img/restaurant_homepage/raviolini-430.jpg");
     height: 150px;
     display: flex;
@@ -140,15 +137,45 @@
     .food-text {
         color: white;
         text-align: center;
-        h1{
+        h1 {
             font-weight: 700;
             font-size: 26px;
         }
     }
 }
 
-.deliveroo-color{
+.deliveroo-color {
     background-color: #00ccbc;
     color: #440071;
-    margin: 0px 4px ;
+    margin: 0px 4px;
+}
+
+//sezione input
+.toggle {
+    .hide {
+        position: absolute;
+        left: -100vw;
+    }
+
+    .label {
+        background-color: #440071;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        padding: 9px 25px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        &:hover {
+            background-color: #00cc66;
+        }
+        &:checked {
+            background-color: #00cc66;
+        }
+    }
+    .color {
+        background-color: #00cc66;
+    }
 }

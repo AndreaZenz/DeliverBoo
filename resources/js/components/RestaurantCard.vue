@@ -1,10 +1,10 @@
 <template>
   <div class="col-4">
-    <div class="card mg-top-bot-10" style="width: 100%">
+    <div class="card mg-top-bot-10" style="width: 100%; height: 320px">
       <img
         :src="imgUrl"
         class="img-fluid card-img-top"
-        style="width: 100%; max-height: 150px; object-fit: cover"
+        style="width: 100%; height: 150px; object-fit: cover"
         alt=""
       />
       <div class="card-body">
