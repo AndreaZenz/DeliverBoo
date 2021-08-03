@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="background-search">
-      <div class="obl-l"></div>
-      <div class="obl-r"></div>
+
 
       <div class="container jumbo-box">
         <div class="row">

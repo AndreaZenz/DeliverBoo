@@ -13,8 +13,8 @@
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star-o" aria-hidden="true"></i>
-            <span>4.0    (1042 recensioni)</span>
-            <span id="demo" @onload="random"></span>
+            <span>4.0    ({{randomNum}} recensioni)</span>
+            <span  ></span>
           </div>
 
           <!-- tags -->
@@ -57,10 +57,11 @@
               />
 
               <div class="card-body">
-                <h5 class="card-title">Name: {{ dish.name }}</h5>
-                <h5 class="card-title">Prezzo: {{ dish.price }} €</h5>
-                <h5 class="card-title">Descrizione: {{ dish.description }}</h5>
-                <h5 class="card-title">Ingredienti: {{ dish.ingredients }}</h5>
+                <h5 class="card-title">{{ dish.name }}</h5>
+                <h6 class="card-title">Prezzo: {{ dish.price }} €</h6>
+                <h7 class="card-title" v-if="exist">Descrizione: {{ dish.description }}</h7>
+                <h7 class="card-title" v-if="exist">Ingredienti: {{ dish.ingredients }}</h7>
+                <br>
                 <button class="btn btn-primary" @click="increase(index)">
                   +
                 </button>
@@ -122,15 +123,13 @@ export default {
       cart: [],
       prezzototale: 0,
       allDishQuantity: [],
+      randomNum : 0,
     };
   },
   methods: {
 
 
-    random(){
-       Math.floor(Math.random() * 2000) + 1;
-      //  document.getElementById("demo").innerHTML
-    },
+   
 
     increase(i) {
       const checkPresenza = this.cart.indexOf(this.dishes[i]);
@@ -185,6 +184,10 @@ export default {
       .catch((er) => {
         alert("lato restaurantShow api call(all'interno del vue)");
       });
+       
+
+       this.randomNum = Math.floor(Math.random() * 2000) + 200;
+ 
   },
 };
 // faccio una chiamata API e gli passo questo ID e lo salvo dentro una variabile nel return dei data dentro L?API controller all'interno della funzione faccio $restaurant::Restaurant->find($id)->with()

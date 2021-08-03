@@ -2257,7 +2257,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -2452,6 +2451,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -2465,13 +2465,11 @@ __webpack_require__.r(__webpack_exports__);
       restID: this.id,
       cart: [],
       prezzototale: 0,
-      allDishQuantity: []
+      allDishQuantity: [],
+      randomNum: 0
     };
   },
   methods: {
-    random: function random() {
-      Math.floor(Math.random() * 2000) + 1; //  document.getElementById("demo").innerHTML
-    },
     increase: function increase(i) {
       var checkPresenza = this.cart.indexOf(this.dishes[i]); ////if non c'e' gia' nel carrello
 
@@ -2518,6 +2516,7 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (er) {
       alert("lato restaurantShow api call(all'interno del vue)");
     });
+    this.randomNum = Math.floor(Math.random() * 2000) + 200;
   }
 }); // faccio una chiamata API e gli passo questo ID e lo salvo dentro una variabile nel return dei data dentro L?API controller all'interno della funzione faccio $restaurant::Restaurant->find($id)->with()
 // return->json{
@@ -38544,10 +38543,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "background-search" }, [
-      _c("div", { staticClass: "obl-l" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "obl-r" }),
-      _vm._v(" "),
       _c("div", { staticClass: "container jumbo-box" }, [
         _c("div", { staticClass: "row" }, [
           _c(
@@ -38735,9 +38730,11 @@ var render = function() {
               attrs: { "aria-hidden": "true" }
             }),
             _vm._v(" "),
-            _c("span", [_vm._v("4.0    (1042 recensioni)")]),
+            _c("span", [
+              _vm._v("4.0    (" + _vm._s(_vm.randomNum) + " recensioni)")
+            ]),
             _vm._v(" "),
-            _c("span", { attrs: { id: "demo" }, on: { onload: _vm.random } })
+            _c("span")
           ]),
           _vm._v(" "),
           _c("p", [
@@ -38782,51 +38779,62 @@ var render = function() {
                     attrs: { src: dish.img_url, alt: "" }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Name: " + _vm._s(dish.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Descrizione: " + _vm._s(dish.description))
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Ingredienti: " + _vm._s(dish.ingredients))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.increase(index)
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(dish.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "card-title" }, [
+                        _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
+                      ]),
+                      _vm._v(" "),
+                      _vm.exist
+                        ? _c("h7", { staticClass: "card-title" }, [
+                            _vm._v("Descrizione: " + _vm._s(dish.description))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.exist
+                        ? _c("h7", { staticClass: "card-title" }, [
+                            _vm._v("Ingredienti: " + _vm._s(dish.ingredients))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.increase(index)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                +\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.decrease(index)
+                        },
+                        [_vm._v("\n                +\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.decrease(index)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                -\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c("br")
-                  ])
+                        },
+                        [_vm._v("\n                -\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c("br")
+                    ],
+                    1
+                  )
                 ]
               )
             }),

@@ -11127,7 +11127,9 @@ footer .container .row .col-foot ul li a {
 }
 
 .background-search {
-  background-color: #d0eb99;
+  background-image: url(/images/hero-bg.jpg?1d01eb6f2d9cc964068507a813e1ea23);
+  background-size: contain;
+  background-repeat: round;
   width: 100%;
 }
 
