@@ -59,8 +59,8 @@
               <div class="card-body">
                 <h5 class="card-title">{{ dish.name }}</h5>
                 <h6 class="card-title">Prezzo: {{ dish.price }} €</h6>
-                <h7 class="card-title" v-if="exist">Descrizione: {{ dish.description }}</h7>
-                <h7 class="card-title" v-if="exist">Ingredienti: {{ dish.ingredients }}</h7>
+                <h7 class="card-title" >Descrizione: {{ dish.description }}</h7>
+                <!-- <h7 class="card-title" >Ingredienti: {{ dish.ingredients }}</h7> -->
                 <br>
                 <button class="btn btn-primary" @click="increase(index)">
                   +
