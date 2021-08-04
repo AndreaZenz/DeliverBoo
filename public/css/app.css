@@ -11127,7 +11127,6 @@ footer .container .row .col-foot ul li a {
 }
 
 .background-search {
-  background-image: url(/images/hero-bg.jpg?1d01eb6f2d9cc964068507a813e1ea23);
   background-size: contain;
   background-repeat: round;
   width: 100%;
@@ -11427,12 +11426,6 @@ a:focus {
   color: inherit;
   text-decoration: none;
   transition: all 0.3s;
-  border-radius: 10px;
-}
-
-ul li a:hover {
-  color: #7386d5;
-  background: #fff;
 }
 
 ul ul a {
@@ -11443,6 +11436,19 @@ ul ul a {
 
 .sidebar-collapse-btn {
   display: none;
+}
+
+.list-unstyled li {
+  border-bottom: solid 2px white;
+}
+
+.list-unstyled li:hover {
+  color: #7386d5;
+  background: #fff;
+}
+
+.list-unstyled li:hover:first-child {
+  border-radius: 5px 5px 0 0;
 }
 
 .list-unstyled li a span {
@@ -11464,8 +11470,25 @@ ul ul a {
   display: none;
 }
 
+.my-navbar-toggler i {
+  color: white;
+  padding: 5px;
+}
+
 .my-navbar-collapse {
   display: none;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  width: auto;
+}
+
+.my-navbar-collapse .my-caret-up {
+  position: absolute;
+  font-size: 40px;
+  color: #00ccbc;
+  top: -25px;
+  right: 27px;
 }
 
 .my-navbar-collapse li {
@@ -11473,11 +11496,7 @@ ul ul a {
 }
 
 .responsive-i {
-  padding: 10px;
-  margin-right: 10px;
-  background-color: #7386d5;
-  border-radius: 5px;
-  color: white;
+  color: #7386d5;
 }
 
 @media (max-width: 768px) {
@@ -11498,7 +11517,24 @@ ul ul a {
   }
 
   .my-navbar-collapse {
-    display: block;
+    background-color: #00ccbc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .my-navbar-collapse li {
+    flex-grow: 1;
+    background-color: white;
+    margin: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 0 20px;
+    border-radius: 5px;
   }
 }
 
@@ -11515,40 +11551,6 @@ ul ul a {
   .list-unstyled li a span p {
     display: none;
   }
-}
-
-.spacier-top {
-  margin-top: 44px;
-}
-
-.spacier-24 {
-  margin-bottom: 24;
-  margin-top: 24px;
-}
-
-.gray-text {
-  color: #8d9090;
-  font-size: 16px;
-}
-
-.create-text h1 {
-  margin-bottom: 24px;
-}
-
-.create-text .gray-text {
-  color: #8d9090;
-  font-size: 18px;
-}
-
-.volavola {
-  position: absolute;
-  left: 54%;
-  top: -1%;
-  z-index: -1;
-}
-
-.input-text {
-  color: #8d9090;
 }
 
 .admin-container {
@@ -11758,6 +11760,37 @@ ul ul a {
 
 .create-edit-container .forms-container form .form-group .form-input {
   border: solid 4px #00ccbc;
+}
+
+.create-edit-restaurant-container {
+  background-color: #f8f9fa7c;
+}
+
+.create-edit-restaurant-container .restaurant-forms-container .create-restaurant-bg-img {
+  position: absolute;
+  left: 50%;
+  top: -1%;
+  z-index: -1;
+}
+
+.restaurant-inputs {
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .create-edit-restaurant-container .restaurant-forms-container .diventa-partner {
+    display: none;
+  }
+
+  .create-edit-restaurant-container .restaurant-forms-container .create-restaurant-bg-img {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .create-edit-restaurant-container .restaurant-forms-container .create-restaurant-bg-img {
+    left: -20px;
+  }
 }
 
 .hero_green {

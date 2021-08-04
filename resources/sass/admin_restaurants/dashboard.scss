@@ -20,13 +20,8 @@ a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
-    border-radius: 10px;
 }
 
-ul li a:hover {
-    color: #7386d5;
-    background: #fff;
-}
 
 ul ul a {
     font-size: 0.9em;
@@ -40,7 +35,16 @@ ul ul a {
 
 .list-unstyled {
     li {
+        border-bottom: solid 2px white;
+        &:hover {
+            color: #7386d5;
+            background: #fff;
+            &:first-child {
+                border-radius: 5px 5px 0 0;
+            }
+        }
         a {
+            
             span {
                 display: flex;
                 align-items: center;
@@ -59,21 +63,32 @@ ul ul a {
 
 .my-navbar-toggler {
     display: none;
+    i {
+        color: white;
+        padding: 5px;
+    }
 }
 
 .my-navbar-collapse {
     display: none;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    width: auto;
+    .my-caret-up {
+        position: absolute;
+        font-size: 40px;
+        color: #00ccbc;
+        top: -25px;
+        right: 27px;
+    }
     li {
         float: left;
     }
 }
 
 .responsive-i {
-    padding: 10px;
-    margin-right: 10px;
-    background-color: #7386d5;
-    border-radius: 5px;
-    color: white;
+    color: #7386d5;
 }
 
 @media (max-width: 768px) {
@@ -89,9 +104,24 @@ ul ul a {
     .logout-container {
         display: none;
     }
-
     .my-navbar-collapse {
-        display: block;
+        background-color: #00ccbc;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        li {
+            flex-grow: 1;
+            background-color: white;
+            margin: 5px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px 0 20px;
+            border-radius: 5px;
+        }
     }
 }
 

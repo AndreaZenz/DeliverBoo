@@ -43,11 +43,13 @@
                 <img src="{{ asset('img/loghi/white-logo.png')}}" alt="">
             </a>
             <button class="navbar-toggler my-navbar-toggler nav-item-ut" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                {{-- <span class="navbar-toggler-icon"></span> --}}
+                <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 my-navbar-collapse">
+                    <i class="fa fa-caret-up my-caret-up" aria-hidden="true"></i>
                     <li>
                         <a class="nav-link" href="{{route('admin.restaurants.index')}}">
                             <span>
@@ -72,21 +74,7 @@
                     <li>
                         <a class="nav-link" href="#">
                             <span>
-                                <i class="fa fa-file-text-o responsive-i" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <span>
                                 <i class="fa fa-cart-plus responsive-i" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="{{ route('admin.types.index')}}">
-                            <span>
-                                <i class="fa fa-tags responsive-i" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -142,24 +130,8 @@
                     <li>
                         <a class="nav-link" href="#">
                             <span>
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                                <p>Menu</p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#">
-                            <span>
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 <p>Ordini</p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="{{ route('admin.types.index')}}">
-                            <span>
-                                <i class="fa fa-tags" aria-hidden="true"></i>
-                                <p>Tipologie</p>
                             </span>
                         </a>
                     </li>

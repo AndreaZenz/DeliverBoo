@@ -17,3 +17,48 @@
         }
     }
 }
+
+
+.create-edit-restaurant-container {
+    background-color: #f8f9fa7c;
+    .restaurant-forms-container {
+        // width: 50%;
+        .create-restaurant-bg-img {
+            position: absolute;
+            left: 50%;
+            top: -1%;
+            z-index: -1;
+            // height: 100%;
+        }
+    }
+}
+
+.restaurant-inputs {
+    color: black;
+}
+
+
+@media screen and (max-width: 992px) {
+    .create-edit-restaurant-container {
+        .restaurant-forms-container {
+            .diventa-partner {
+                display: none;
+            }
+            .create-restaurant-bg-img {
+                left: 25%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .create-edit-restaurant-container {
+        .restaurant-forms-container {
+            // width: 50%;
+            .create-restaurant-bg-img {
+                left: -20px;
+            }
+        }
+    }
+}
+
