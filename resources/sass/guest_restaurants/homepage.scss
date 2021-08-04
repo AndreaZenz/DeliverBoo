@@ -11,7 +11,7 @@
     padding-bottom: 24px;
     background-image: url("../public/img/jumbotron.svg");
     background-repeat: no-repeat;
-    background-position: 80%;
+    background-position: 90%;
 }
 
 .front-text {
@@ -163,17 +163,28 @@
 
 //sezione input
 .toggle {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:scroll;
     .hide {
         position: absolute;
         left: -100vw;
+        z-index: -100;
+        opacity: 0;
     }
     label{
         margin-bottom: 0;
-        padding: 9px 25px;
+        padding: 9px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i{
+            padding-right: 5px;
+        }
     }
     .label {
         margin: 5px;
-        background-color: #440071;
+        background-color: #6e3c8f;
         border: none;
         border-radius: 12px;
         color: white;
@@ -184,14 +195,14 @@
         transition: 0.3s;
         &:hover {
             cursor: pointer;
-            background-color: #00cc66;
+            background-color: #2ec67a;
         }
         &:checked {
-            background-color: #00cc66;
+            background-color: #2ec67a;
         }
     }
     .color {
-        background-color: #00cc66;
+        background-color: #2ec67a;
     }
 }
 
@@ -241,6 +252,9 @@
 }
 
 @media screen and (max-width: 767px){
+    form{
+        max-width: 100%;
+    }
     .hide-m{
         display: none;
     }

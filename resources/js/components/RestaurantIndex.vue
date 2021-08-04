@@ -1,69 +1,73 @@
 <template>
   <div>
     <div class="background-search">
-      <div class="container jumbo-box">
-        <div class="row">
-          <form @submit.prevent="filterData" @reset="onReset">
-            <div class="row">
-              <div class="front-text">
-                <h1>I piatti che ami, a domicilio</h1>
+      <div class="jumbo-box">
+        <div class="container">
+          <div class="row">
+            <form @submit.prevent="filterData" @reset="onReset">
+              <div class="row">
+                <div class="front-text">
+                  <h1>I piatti che ami, a domicilio</h1>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 col-sm-12 border bg-white filtra">
-                <div class="row">
-                  <div class="col-12">
-                    <form @submit.prevent="filterData" @reset="onReset">
-                      <text-input
-                        @input="filterData"
-                        label="Nome"
-                        v-model="filters.name"
-                        placeholder="Nome del ristorante"
-                      ></text-input>
+              <div class="row">
+                <div class="col-md-6 col-sm-12 border bg-white filtra">
+                  <div class="row">
+                    <div class="col-12">
+                      <form @submit.prevent="filterData" @reset="onReset">
+                        <text-input
+                          @input="filterData"
+                          label="Nome"
+                          v-model="filters.name"
+                          placeholder="Nome del ristorante"
+                        ></text-input>
 
-                      <multi-check-input
-                        label="Types"
-                        :items="types"
-                        v-model="filters.types"
-                      ></multi-check-input>
-                      <button
-                        type="submit"
-                        class="btn btn-primary position-bar"
-                      >
-                        Filtra
-                      </button>
-                      <button
-                        type="reset"
-                        href="#"
-                        class="btn btn-outline-secondary position-stop-f"
-                      >
-                        <a href="/">Annulla filtri</a>
-                      </button>
-                    </form>
+                        <multi-check-input
+                          label="Types"
+                          :items="types"
+                          v-model="filters.types"
+                        ></multi-check-input>
+                        <button
+                          type="submit"
+                          class="btn btn-primary position-bar"
+                        >
+                          Filtra
+                        </button>
+                        <button
+                          type="reset"
+                          href="#"
+                          class="btn btn-outline-secondary position-stop-f"
+                        >
+                          <a href="/">Annulla filtri</a>
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="restaurant-index container">
       <div class="row justify-content-center">
-          <transition name="fade" mode="out-in">
-            <div v-if="filteredRestaurant"
-            class="col-12 d-flex flex-row flex-wrap">
-              <restaurant-card
-                v-for="restaurant in filteredRestaurant"
-                :key="restaurant.id"
-                :img-url="restaurant.img_url"
-                :name="restaurant.name"
-                :types="restaurant.types"
-                :link="restaurant.link"
-              ></restaurant-card>
-            </div>
-          </transition>
+        <transition name="fade" mode="out-in">
+          <div
+            v-if="filteredRestaurant"
+            class="col-12 d-flex flex-row flex-wrap"
+          >
+            <restaurant-card
+              v-for="restaurant in filteredRestaurant"
+              :key="restaurant.id"
+              :img-url="restaurant.img_url"
+              :name="restaurant.name"
+              :types="restaurant.types"
+              :link="restaurant.link"
+            ></restaurant-card>
+          </div>
+        </transition>
       </div>
     </div>
   </div>
