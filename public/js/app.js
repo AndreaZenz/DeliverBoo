@@ -38651,8 +38651,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: _vm.restaurantsList,
-                expression: "restaurantsList"
+                value: _vm.filteredRestaurant,
+                expression: "filteredRestaurant"
               }
             ],
             staticClass: "col-12 d-flex flex-row flex-wrap"
@@ -51952,8 +51952,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Booleanphp\DelieverBoo\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
