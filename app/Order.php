@@ -11,7 +11,7 @@ class Order extends Model
         'total_price',
         'ArrayDishes',
         'client_comment',
-        //'client_phone',
+        'client_phone',
         'client_address',
         'client_name',
         'client_email',

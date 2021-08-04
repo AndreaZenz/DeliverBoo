@@ -27774,53 +27774,115 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: "#app",
   data: {
-    delivery: 0
+    delivery: 0,
+    max_no: 0,
+    max_noCY: 0,
+    max_noLY: 0,
+    max_in_month: 0,
+    max_in_monthCY: 0,
+    max_in_monthLY: 0,
+    ordersSum: 0,
+    ordersSumCY: 0,
+    ordersSumLY: 0,
+    //ordersChart
+    max_no_order: 0,
+    ordersPerMonth: [],
+    ordersPerMonthCY: [],
+    ordersPerMonthLY: [],
+    max_in_month_orders: 0,
+    //cards
+    year_target_progress: 0,
+    //choose Year Chart
+    checked: false
   },
   mounted: function mounted() {
     var _this = this;
 
     //prima richiesta per grafico vendite/guadagni
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/statistics/".concat(user_id)).then(function (response) {
-      var ordersPerMonth = [];
+      _this.ordersPerMonthCY = [];
+      _this.ordersPerMonthLY = [];
       var orders = response.data;
-      var max_no = 0;
-      var max_in_month = 0;
+      _this.max_in_monthCY = 0;
+      _this.max_in_monthLY = 0;
+      var today = new Date();
+      var current_month = today.getMonth() + 1;
+      var current_year = today.getFullYear();
+      var last_year = current_year - 1;
+      var current_month_revenue = 0;
+      var current_year_rev = 0;
+      var year_target = 1000;
 
       var _loop = function _loop(i) {
-        var ordersSum = 0;
+        _this.ordersSumCY = 0;
+        _this.ordersSumLY = 0;
         orders.forEach(function (element) {
           if (i == parseInt(element.created_at.substr(5, 2))) {
-            element.total_price -= _this.delivery;
-            ordersSum += element.total_price;
+            if (current_year == parseInt(element.created_at.substr(0, 4))) {
+              //per il costo di delievery wtf this shit gives me some bug if I comment it
+              element.total_price -= _this.delivery;
+              _this.ordersSumCY += element.total_price; //get current month value 
+
+              if (i === current_month) {
+                current_month_revenue = _this.ordersSumCY;
+              }
+            } else if (last_year == parseInt(element.created_at.substr(0, 4))) {
+              element.total_price -= _this.delivery;
+              _this.ordersSumLY += element.total_price;
+            }
           }
         }); //get highest income in a month
 
-        if (max_in_month < ordersSum) {
-          max_in_month = ordersSum;
+        if (_this.max_in_monthCY < _this.ordersSumCY) {
+          _this.max_in_monthCY = _this.ordersSumCY;
+        } //get highest income in a month Last Year
+
+
+        if (_this.max_in_monthLY < _this.ordersSumLY) {
+          _this.max_in_monthLY = _this.ordersSumLY;
         }
 
-        ordersPerMonth.push(ordersSum);
+        _this.ordersPerMonthCY.push(_this.ordersSumCY);
+
+        _this.ordersPerMonthLY.push(_this.ordersSumLY); //sum current year value
+
+
+        if (_this.ordersSumCY > 0) {
+          current_year_rev += _this.ordersSumCY;
+        }
       };
 
-      for (var i = 1; i <= 12; i++) {
+      for (var i = 1; i <= current_month; i++) {
         _loop(i);
-      } //max value on y axis - round up to multiple of 10
+      }
 
+      _this.year_target_progress = Math.floor(current_year_rev / year_target * 100); //max value on y axis - round up to multiple of 20
 
-      max_no = Math.round((max_in_month + 10 / 2) / 10) * 10; //chart data
+      _this.max_noCY = Math.round((_this.max_in_monthCY + _this.max_in_monthCY / 100 * 20 + 20 / 2) / 20) * 20;
+      _this.max_noLY = Math.round((_this.max_in_monthLY + _this.max_in_monthLY / 100 * 20 + 20 / 2) / 20) * 20; // if(this.checked == true){
+      //     // this.changeLY();
+      //     this.ordersPerMonth = this.ordersPerMonthLY;
+      //     this.max_no = this.max_noLY;
+      // }else if(this.checked == false){
+      //     // this.changeCY();
+      //     this.ordersPerMonth = this.ordersPerMonthCY;
+      //     this.max_no = this.max_noCY;
+      // }
+
+      _this.ordersPerMonth = _this.ordersPerMonthCY;
+      _this.max_no = _this.max_noCY; //CURRENT YEAR DATA
 
       var cdata = {
-        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
         datasets: [{
-          label: 'All Restaurants',
-          data: ordersPerMonth,
+          label: 'Tutti i ristoranti',
+          data: _this.ordersPerMonth,
           backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
           // 'rgba(255, 206, 86, 0.8)',
           'rgba(229, 56, 59, 0.8)'],
           borderColor: 'rgba(229, 56, 59, 0.8)'
         }]
-      }; //chart settings
-
+      };
       var config = {
         type: 'line',
         data: cdata,
@@ -27832,57 +27894,130 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
               }
             },
             y: {
-              max: max_no,
-              grid: {}
+              max: _this.max_no
             }
           }
         }
-      }; //get the chart from
+      }; //CURRENT YEAR DATA
+
+      var cdataCY = {
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
+        datasets: [{
+          label: 'Tutti i ristoranti',
+          data: _this.ordersPerMonth,
+          backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
+          // 'rgba(255, 206, 86, 0.8)',
+          'rgba(229, 56, 59, 0.8)'],
+          borderColor: 'rgba(229, 56, 59, 0.8)'
+        }]
+      }; //-------LAST YEAR DATA----------
+
+      var cdataLY = {
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
+        datasets: [{
+          label: 'Tutti i ristoranti',
+          data: _this.ordersPerMonthLY,
+          backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
+          // 'rgba(255, 206, 86, 0.8)',
+          'rgba(229, 56, 59, 0.8)'],
+          borderColor: 'rgba(229, 56, 59, 0.8)'
+        }]
+      };
+      var configLY = {
+        type: 'line',
+        data: cdataLY,
+        options: {
+          scales: {
+            x: {
+              grid: {
+                display: false
+              }
+            },
+            y: {
+              max: _this.max_noLY
+            }
+          }
+        }
+      }; //-------END LAST YEAR DATA----------
+      //dati in cards
+
+      document.getElementById('month_record').innerHTML = _this.max_in_monthCY;
+      document.getElementById('current_month_revenue').innerHTML = current_month_revenue;
+      document.getElementById('current_year_revenue').innerHTML = current_year_rev;
+      document.getElementById('year_target').innerHTML = year_target.toLocaleString();
+      document.getElementById('year_target_progress').innerHTML = _this.year_target_progress;
+      document.getElementById('year_target_progress_style').style.width = _this.year_target_progress + '%';
+
+      if (_this.year_target_progress >= 100) {
+        document.getElementById("checkTarget").classList.remove('fa-times-circle');
+        document.getElementById("checkTarget").classList.add('fa-check-circle');
+      } //get the chart from
+
 
       var ctx = document.getElementById('myAreaChart').getContext('2d');
-      var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config);
+      var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config); //change YEAR in CHART
+
+      document.getElementById('changeCY').onclick = function () {
+        cdata.datasets = cdataCY.datasets;
+        myChart.update();
+      };
+
+      document.getElementById('changeLY').onclick = function () {
+        cdata.datasets = cdataLY.datasets;
+        myChart.update();
+      };
     })["catch"](function (er) {
       alert("Can't load gross revenue chart");
     }); //grafico per numero ordini
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/statistics/".concat(user_id)).then(function (response) {
-      var ordersPerMonth = [];
+      _this.ordersPerMonth = [];
       var orders = response.data;
-      var max_no = 0;
-      var max_in_month = 0;
+      _this.max_no_order = 0;
+      _this.max_in_monthLY = 0;
       var stepSize = 0;
+      var today = new Date();
+      var current_month = today.getMonth() + 1;
+      var current_year = today.getFullYear();
+      var last_year = current_year - 1;
 
       var _loop2 = function _loop2(i) {
         var ordersSum = 0;
+        _this.ordersSumLY = 0;
         orders.forEach(function (element) {
           if (i == parseInt(element.created_at.substr(5, 2))) {
-            ordersSum++;
+            if (current_year == parseInt(element.created_at.substr(0, 4))) {
+              ordersSum++;
+            } else if (last_year == parseInt(element.created_at.substr(0, 4))) {
+              _this.ordersSumLY++;
+            }
           }
         }); //get highest income in a month
 
-        if (max_in_month < ordersSum) {
-          max_in_month = ordersSum;
+        if (_this.max_in_month_orders < ordersSum) {
+          _this.max_in_month_orders = ordersSum;
         }
 
-        ordersPerMonth.push(ordersSum);
+        _this.ordersPerMonth.push(ordersSum);
       };
 
-      for (var i = 1; i <= 12; i++) {
+      for (var i = 1; i <= current_month; i++) {
         _loop2(i);
       } //max value on y axis - round up to multiple of 5
 
 
-      max_no = Math.round((max_in_month + 5 / 2) / 5) * 5; //to prevent decimal numbers
+      _this.max_no_order = Math.round((_this.max_in_month_orders + 5 / 2) / 5) * 5; //to prevent decimal numbers
 
-      if (max_no == 5) {
-        stepSize = max_no / 5;
-      }
+      if (_this.max_no_order == 5) {
+        stepSize = _this.max_no_order / 5;
+      } //CURRENT YEAR DATA
+
 
       var cdata = {
-        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
         datasets: [{
-          label: 'Orders Count',
-          data: ordersPerMonth,
+          label: 'Tutti i ristoranti',
+          data: _this.ordersPerMonth,
           backgroundColor: ['rgba(54, 162, 235, 0.8)'],
           borderColor: 'rgba(54, 162, 235, 0.8)'
         }]
@@ -27898,7 +28033,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
               }
             },
             y: {
-              max: max_no,
+              max: _this.max_no_order,
               ticks: {
                 // forces step size to be x units
                 stepSize: stepSize
@@ -27923,6 +28058,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
+
 
 module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\chart.js */"./resources/js/chart.js");
 
