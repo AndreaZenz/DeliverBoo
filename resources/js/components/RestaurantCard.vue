@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4">
+  <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="module-wrapper">
       <a :href="link">
         <div class="card mg-top-bot-10 marcos-link" style="width: 100%">
@@ -10,14 +10,19 @@
             alt=""
           />
           <div class="card-body">
-            <h5 class="card-title">{{ name }}</h5>
-            <span
+            <div class="restaurant-name-container">
+              <h5 class="card-title">{{ name }}</h5>
+            </div>
+            <div class="restaurant-types-container">
+              <span
               class="badge badge-primary deliveroo-color"
               v-for="type in types"
               :key="type.id"
             >
               {{ type.name }}
             </span>
+            </div>
+            
           </div>
         </div>
       </a>

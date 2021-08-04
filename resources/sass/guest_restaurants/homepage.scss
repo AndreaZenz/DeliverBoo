@@ -1,9 +1,25 @@
+.guest-restaurants-card-container {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-body {
+    .restaurant-name-container {
+        height: 80px;
+    }
+    .restaurant-types-container {
+        height: 40px;
+    }
+}
+
 .background-search {
     // background-image: url("../../../public/images/hero-bg.jpg");
     background: linear-gradient(-4deg, $hero-color2 50%, $hero-color1 50%);
     background-size: contain;
     background-repeat: round;
     width: 100%;
+    padding: 20px 20px 40px;
 }
 
 .jumbo-box {
@@ -15,6 +31,7 @@
 }
 
 .front-text {
+    margin-bottom: 10px;
     display: bvl;
     h1 {
         color: #440071;
@@ -79,16 +96,22 @@
 }
 
 .white-bg {
+    margin-top: 40px;
+    margin-bottom: 40px;
     width: 100%;
 }
 
 .pink-bg {
+    padding-top: 40px;
+    padding-bottom: 40px;
     background-color: #ffeae4;
     width: 100%;
 }
 
 .white-bg-text {
-    padding-top: 12px;
+    text-align: center;
+    // padding-top: 12px;
+    margin: 20px 0 40px;
     h1,
     h2 {
         font-weight: 800;
@@ -236,6 +259,7 @@
     margin-left: 10%;
     border: 1px solid #440071;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .marcos-link {

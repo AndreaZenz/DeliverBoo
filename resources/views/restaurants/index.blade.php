@@ -29,7 +29,7 @@
                         <p class="hide-m">
                             I grandi classici che scaldano il cuore, perfetti in ogni momento.
                             <br>
-                            <a href="#">Scopri Comfort Food</a>
+                            <a href="#">Scopri Dolci e dessert</a>
                         </p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <p class="hide-m">
                             Dolci piaceri per rendere la giornata ancora piu gustosa
                             <br>
-                            <a href="#">Scopri Dolci e dessert</a>
+                            <a href="#">Scopri Comfort Food</a>
                         </p>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         <p class="hide-m">
                             I più famosi, i più buoni, i preferiti. Quelli che trovi solo su DeliveBoo
                             <br>
-                            <a href="#">Scopri Esclusiva Deliveroo</a>
+                            <a href="#">Scopri Esclusiva Deliveboo</a>
                         </p>
                     </div>
                 </div>

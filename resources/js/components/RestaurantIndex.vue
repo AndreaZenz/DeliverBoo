@@ -1,8 +1,6 @@
 <template>
   <div>
     <div class="background-search">
-
-
       <div class="container jumbo-box">
         <div class="row">
           <form @submit.prevent="filterData" @reset="onReset">
@@ -52,7 +50,10 @@
     </div>
     <div class="restaurant-index container">
       <div class="row justify-content-center">
-        <div v-show="filteredRestaurant" class="col-12 d-flex flex-row flex-wrap">
+        <div
+          v-show="filteredRestaurant"
+          class="col-12 d-flex guest-restaurants-card-container"
+        >
           <restaurant-card
             v-for="restaurant in filteredRestaurant"
             :key="restaurant.id"
