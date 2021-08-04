@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-6 border bg-white filtra">
+              <div class="col-md-6 col-sm-12 border bg-white filtra">
                 <div class="row">
                   <div class="col-12">
                     <form @submit.prevent="filterData" @reset="onReset">
@@ -52,9 +52,9 @@
     </div>
     <div class="restaurant-index container">
       <div class="row justify-content-center">
-        <div class="col-12 d-flex flex-row flex-wrap">
+        <div v-show="filteredRestaurant" class="col-12 d-flex flex-row flex-wrap">
           <restaurant-card
-            v-for="restaurant in restaurantsList"
+            v-for="restaurant in filteredRestaurant"
             :key="restaurant.id"
             :img-url="restaurant.img_url"
             :name="restaurant.name"
@@ -77,6 +77,7 @@ export default {
     return {
       allRestaurantsList: [],
       restaurantsList: [],
+      filteredRestaurant: [],
       filters: {
         names: null,
         types: null,
@@ -92,7 +93,7 @@ export default {
           params: this.filters,
         })
         .then((resp) => {
-          this.restaurantsList = resp.data.results;
+          this.filteredRestaurant = resp.data.results;
           this.activeFilters = resp.data.filters;
         })
         .catch((er) => {
