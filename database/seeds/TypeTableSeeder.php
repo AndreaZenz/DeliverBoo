@@ -21,7 +21,7 @@ class TypeTableSeeder extends Seeder
                 [
                     'active' => 0,
                     'name' => 'Ristorante',
-                    'fontAwesome' => 'fa fa-cutlery',
+                    'fontAwesome' => 'fas fa-utensils',
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
