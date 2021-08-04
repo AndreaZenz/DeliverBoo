@@ -2259,6 +2259,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       allRestaurantsList: [],
       restaurantsList: [],
+      filteredRestaurant: [],
       filters: {
         names: null,
         types: null
@@ -2274,7 +2275,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/restaurants/filter", {
         params: this.filters
       }).then(function (resp) {
-        _this.restaurantsList = resp.data.results;
+        _this.filteredRestaurant = resp.data.results;
         _this.activeFilters = resp.data.filters;
       })["catch"](function (er) {
         console.error(er);
@@ -38645,8 +38646,18 @@ var render = function() {
       _c("div", { staticClass: "row justify-content-center" }, [
         _c(
           "div",
-          { staticClass: "col-12 d-flex flex-row flex-wrap" },
-          _vm._l(_vm.restaurantsList, function(restaurant) {
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.restaurantsList,
+                expression: "restaurantsList"
+              }
+            ],
+            staticClass: "col-12 d-flex flex-row flex-wrap"
+          },
+          _vm._l(_vm.filteredRestaurant, function(restaurant) {
             return _c("restaurant-card", {
               key: restaurant.id,
               attrs: {
