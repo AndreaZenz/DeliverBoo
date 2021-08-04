@@ -12,9 +12,13 @@
 
 @section('content')
     <div class="checkout">
-    <div class="container">
-        <h1>Transazione avvenuta con successo!</h1>
-        <a href="{{ url('/') }}">Torna alla homepage</a>
+    <div class="container-checkout">
+        <h1>Transazione avvenuta con successo! <i class="fas fa-check-circle"></i></h1>
+        <p>Grazie per aver ordinato con DeliveBoo. <br>
+        A breve riceverai il tuo ordine a casa!</p>
+        <h6>
+          <a href="{{ url('/') }}">Torna alla homepage</a>
+        </h6>
       </div>
     </div>
 @endsection

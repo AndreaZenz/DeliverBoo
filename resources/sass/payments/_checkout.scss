@@ -1,0 +1,21 @@
+.checkout{
+    .container-checkout{      
+        width: 60%;
+        border-radius: 6px;
+        margin: 20px auto;
+        padding: 20px;
+        h1{
+            i{
+            color: green;
+            }
+        }
+        h6{
+            width: 37%;
+            background-color: #00CCBB;
+            color: black;
+            border-radius: 6px;
+            padding: 10px;
+            margin: auto;
+        }
+    }
+}
