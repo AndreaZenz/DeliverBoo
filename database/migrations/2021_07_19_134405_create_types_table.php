@@ -19,6 +19,8 @@ class CreateTypesTable extends Migration
             $table->string('name');
             //$table->string('slug')->unique();
             $table->string('img_url')->nullable();
+            $table->string('fontAwesome')->nullable();
+            $table->boolean('active')->default(false);
         });
     }
 

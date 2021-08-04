@@ -1,17 +1,27 @@
 footer{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color : $footer-bg;
-    color: white;
+    color: whitesmoke;
     width: 100%;
-    // min-height: 210px;
+
     .container{
         .row{
-            .col{
+            .col-foot{
+                background-color: $footer-bg-col;
+                height: 170px;
+                margin: 20px;
                 h4{
                     padding: 10px;
                     text-align: center;
                 }
                 ul {
                     list-style: none;
+                    li{
+                        a{
+                            color: whitesmoke;
+                            font-weight: bolder;
+                        }
+                    }
                 }
             }
         }
@@ -19,6 +29,9 @@ footer{
 }
 .footer-down {
     justify-content: flex-end;
+    p{
+        color: $footer-bg-col;
+    }
     .icons {
         list-style: none;
         li {
@@ -37,6 +50,7 @@ footer{
                 display: block;
                 .col{
                     text-align: center;
+                    width: auto;
                     ul{
                         padding: 10px;
                     }

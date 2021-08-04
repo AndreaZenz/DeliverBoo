@@ -2250,11 +2250,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantIndex",
   props: {
@@ -2448,6 +2443,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantShow",
   props: {
@@ -2461,7 +2458,8 @@ __webpack_require__.r(__webpack_exports__);
       restID: this.id,
       cart: [],
       prezzototale: 0,
-      allDishQuantity: []
+      allDishQuantity: [],
+      randomNum: 0
     };
   },
   methods: {
@@ -2511,6 +2509,7 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (er) {
       alert("lato restaurantShow api call(all'interno del vue)");
     });
+    this.randomNum = Math.floor(Math.random() * 2000) + 200;
   }
 }); // faccio una chiamata API e gli passo questo ID e lo salvo dentro una variabile nel return dei data dentro L?API controller all'interno della funzione faccio $restaurant::Restaurant->find($id)->with()
 // return->json{
@@ -2548,19 +2547,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MultiCheckInput",
   props: {
     items: {
       type: Array,
-      required: true
+      required: true,
+      active: false
     },
     label: String,
     value: Array
   },
   data: function data() {
     return {
-      selectedValues: []
+      selectedValues: [],
+      active: false,
+      itemsList: []
     };
   },
   methods: {
@@ -2575,7 +2581,20 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.$emit("input", this.selectedValues);
+    },
+    checked: function checked(index) {
+      this.itemsList[index].active = !this.itemsList[index].active;
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("/api/types").then(function (resp) {
+      _this.itemsList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Non posso recuperare le tipologie di ristorante");
+    });
   }
 });
 
@@ -38469,13 +38488,16 @@ var render = function() {
   return _c("div", { staticClass: "col-4" }, [
     _c(
       "div",
-      { staticClass: "card mg-top-bot-10", staticStyle: { width: "100%" } },
+      {
+        staticClass: "card mg-top-bot-10",
+        staticStyle: { width: "100%", height: "320px" }
+      },
       [
         _c("img", {
           staticClass: "img-fluid card-img-top",
           staticStyle: {
             width: "100%",
-            "max-height": "150px",
+            height: "150px",
             "object-fit": "cover"
           },
           attrs: { src: _vm.imgUrl, alt: "" }
@@ -38551,7 +38573,7 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-6 border bg-white" }, [
+                _c("div", { staticClass: "col-6 border bg-white filtra" }, [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-12" }, [
                       _c(
@@ -38614,22 +38636,7 @@ var render = function() {
                 ])
               ])
             ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "alert-style" }, [
-            _vm.activeFilters
-              ? _c("div", { staticClass: "alert alert-success alert-style" }, [
-                  _vm._v(
-                    "\n            Sono stati trovati " +
-                      _vm._s(_vm.restaurantsList.length) +
-                      " risulati per il\n            filtro:\n            "
-                  ),
-                  _c("div", {
-                    domProps: { innerHTML: _vm._s(_vm.printActiveFilters()) }
-                  })
-                ])
-              : _vm._e()
-          ])
+          )
         ])
       ])
     ]),
@@ -38710,7 +38717,38 @@ var render = function() {
           _vm._v(" "),
           _c("h4", [_vm._v(_vm._s(_vm.ristorante.address))]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "vote" }, [
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fa fa-star-o",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v("4.0    (" + _vm._s(_vm.randomNum) + " recensioni)")
+            ]),
+            _vm._v(" "),
+            _c("span")
+          ]),
           _vm._v(" "),
           _c("p", [
             _vm._v("Ordina il tuo piatto preferito a casa tua da "),
@@ -38718,7 +38756,7 @@ var render = function() {
             _vm._v(" grazie alla consegna a domicilio di DeliveBoo.")
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row-my flex-column" }, [
@@ -38734,8 +38772,8 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row-menu bg-menu" }, [
-        _c("div", { staticClass: "col-8 pr-1 contents" }, [
+      _c("div", { staticClass: "row-menu-bg bg-menu" }, [
+        _c("div", { staticClass: "col-md-8 col-sm-12" }, [
           _c(
             "div",
             { staticClass: "row-menu" },
@@ -38754,51 +38792,54 @@ var render = function() {
                     attrs: { src: dish.img_url, alt: "" }
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Name: " + _vm._s(dish.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Descrizione: " + _vm._s(dish.description))
-                    ]),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v("Ingredienti: " + _vm._s(dish.ingredients))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.increase(index)
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(dish.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "card-title" }, [
+                        _vm._v("Prezzo: " + _vm._s(dish.price) + " €")
+                      ]),
+                      _vm._v(" "),
+                      _c("h7", { staticClass: "card-title" }, [
+                        _vm._v("Descrizione: " + _vm._s(dish.description))
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.increase(index)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                +\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.decrease(index)
+                        },
+                        [_vm._v("\n                +\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.decrease(index)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("\n                -\n              ")]
-                    ),
-                    _vm._v(" "),
-                    _c("br")
-                  ])
+                        },
+                        [_vm._v("\n                -\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c("br")
+                    ],
+                    1
+                  )
                 ]
               )
             }),
@@ -38810,7 +38851,7 @@ var render = function() {
           ? _c(
               "div",
               {
-                staticClass: "card-cart col-4",
+                staticClass: "card-cart col-md-4 col-sm-7 mg-top-bot-10",
                 staticStyle: { width: "18rem" }
               },
               [
@@ -38869,27 +38910,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "vote" }, [
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", { staticClass: "fa fa-star", attrs: { "aria-hidden": "true" } }),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fa fa-star-o",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" "),
-      _c("span", [_vm._v("4.0    (1042 recensioni)")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "sale" }, [
       _c("h6", [
         _vm._v(
@@ -38922,20 +38942,32 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mb-3" },
-    _vm._l(_vm.items, function(item) {
+    { staticClass: "mb-3 toggle" },
+    _vm._l(_vm.itemsList, function(item, index) {
       return _c(
         "div",
         { key: item.id, staticClass: "form-check form-check-inline" },
         [
-          _c("label", { staticClass: "form-check-label" }, [
+          _c("div", { staticClass: "hide" }, [
             _c("input", {
               staticClass: "form-check-input",
-              attrs: { type: "checkbox" },
+              attrs: { type: "checkbox", id: item.name },
               domProps: { value: item.id },
-              on: { change: _vm.onChange }
-            }),
-            _vm._v("\n            " + _vm._s(item.name) + "\n        ")
+              on: {
+                change: _vm.onChange,
+                click: function($event) {
+                  return _vm.checked(index)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "label", class: { color: item.active } }, [
+            _c("label", { attrs: { for: item.name } }, [
+              _c("i", { class: item.fontAwesome }, [
+                _vm._v("  " + _vm._s(item.name) + " ")
+              ])
+            ])
           ])
         ]
       )

@@ -4,7 +4,8 @@
 <div class="admin-main-container">
     <div class="admin-title-row">
         <div class="admin-title-container">
-            <h1>Benvenuto</h1>
+            
+            <h1>{{ __('Bentornato ' . Auth::user()->name ) }}</h1>
             <p>I tuoi ristoranti</p>
         </div>
     </div>
@@ -42,7 +43,7 @@
         @endforeach
         <div class="col-md-12 col-lg-6 admin-new-card-container">
 
-            <a href=" {{ route('admin.restaurants.dishes.create', $restaurant->id) }} ">
+            <a href=" {{ route('admin.restaurants.create', $restaurant->id) }} ">
                 <div class="admin-add-card">
                     <span><i class="fa fa-plus" aria-hidden="true"></i>
                         <h4> Aggiungi un altro ristorante</h4>
