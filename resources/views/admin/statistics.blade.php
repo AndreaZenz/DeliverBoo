@@ -111,7 +111,6 @@
                     <a class="dropdown-toggle p-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
                         <a class="dropdown-item" id='changeCY'>Anno Corrente</a>
                         <a class="dropdown-item" id='changeLY'>Anno Scorso</a>
                         {{-- <a class="dropdown-item" @click.native="changeCY()">changeCY</a>
@@ -138,16 +137,15 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Conteggio Ordini</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+               <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle p-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" >Anno Corrente</a>
+                        <a class="dropdown-item" >Anno Scorso</a>
+                        {{-- <a class="dropdown-item" @click.native="changeCY()">changeCY</a>
+                        <a class="dropdown-item" @click.native="changeLY()">changeLY</a> --}}
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </div>
             </div>
