@@ -113,9 +113,9 @@ let app = new Vue({
 
                 //CURRENT YEAR DATA
                 var cdata = {
-                    labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+                    labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
                     datasets: [{
-                        label: 'All Restaurants',
+                        label: 'Tutti i ristoranti',
                         data: this.ordersPerMonth,
                         backgroundColor: [
                             // 'rgba(54, 162, 235, 0.8)',
@@ -144,9 +144,9 @@ let app = new Vue({
 
                 //CURRENT YEAR DATA
                 var cdataCY = {
-                    labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+                    labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
                     datasets: [{
-                        label: 'All Restaurants',
+                        label: 'Tutti i ristoranti',
                         data: this.ordersPerMonth,
                         backgroundColor: [
                             // 'rgba(54, 162, 235, 0.8)',
@@ -159,9 +159,9 @@ let app = new Vue({
 
                 //-------LAST YEAR DATA----------
                 const cdataLY = {
-                    labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+                    labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
                     datasets: [{
-                        label: 'All Restaurants',
+                        label: 'Tutti i ristoranti',
                         data: this.ordersPerMonthLY,
                         backgroundColor: [
                             // 'rgba(54, 162, 235, 0.8)',
@@ -196,6 +196,11 @@ let app = new Vue({
                 document.getElementById('year_target').innerHTML = year_target.toLocaleString();
                 document.getElementById('year_target_progress').innerHTML = this.year_target_progress;
                 document.getElementById('year_target_progress_style').style.width = this.year_target_progress + '%';
+
+                if(this.year_target_progress >= 100){
+                    document.getElementById("checkTarget").classList.remove('fa-times-circle');
+                    document.getElementById("checkTarget").classList.add('fa-check-circle');    
+                }
 
 
                 //get the chart from
@@ -274,9 +279,9 @@ let app = new Vue({
 
                 //CURRENT YEAR DATA
                 const cdata = {
-                    labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+                    labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
                     datasets: [{
-                        label: 'Orders Count',
+                        label: 'Tutti i ristoranti',
                         data: this.ordersPerMonth,
                         backgroundColor: [
                             'rgba(54, 162, 235, 0.8)',
@@ -316,18 +321,4 @@ let app = new Vue({
 
 
     },
-    methods: {
-        changeLY() {
-            this.checked = true;
-            console.log('checked');
-        },
-        changeCY() {
-            this.checked = false;
-            console.log('checked');
-        },
-
-
-
-
-    }
 });

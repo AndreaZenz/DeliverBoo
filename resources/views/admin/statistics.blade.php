@@ -6,11 +6,10 @@
 @endsection
 
 @section('content')
-<h1>Statistics</h1>
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <h1 class="h3 mb-0 text-gray-800">Vendite</h1>
 </div>
 
 <!-- Content Row -->
@@ -23,7 +22,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Current <br> Month</div>
+                            Mese <br> Corrente</div>
                         <div id='current_month_revenue' class="h5 mb-0 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col-auto">
@@ -41,7 +40,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                            Current <br> Year</div>
+                            Anno <br> Corrente</div>
                         <div id='current_year_revenue' class="h5 mb-0 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col-auto">
@@ -58,7 +57,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Year Target <br> (<span id='year_target'></span>€)
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Target Annuale<br> (<span id='year_target'></span>€)
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
@@ -73,8 +72,8 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-times-circle fa-2x text-gray-300"></i>
-                        <i v-if='0==1' class="fas fa-check-circle fa-2x text-gray-300"></i>
+                        <i id="checkTarget" class="fas fa-times-circle fa-2x text-gray-300"></i>
+                        {{-- <i class="fas fa-check-circle fa-2x text-gray-300"></i> --}}
                     </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Month Record</div>
+                            Record Mensile</div>
                         <div id='month_record' class="h5 mb-0 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col-auto">
@@ -107,7 +106,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Gross Revenue</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Incasso Lordo</h6>
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle p-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </a>
@@ -138,7 +137,7 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Orders Count</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Conteggio Ordini</h6>
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>

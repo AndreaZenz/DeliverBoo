@@ -27873,9 +27873,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       _this.max_no = _this.max_noCY; //CURRENT YEAR DATA
 
       var cdata = {
-        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
         datasets: [{
-          label: 'All Restaurants',
+          label: 'Tutti i ristoranti',
           data: _this.ordersPerMonth,
           backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
           // 'rgba(255, 206, 86, 0.8)',
@@ -27901,9 +27901,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       }; //CURRENT YEAR DATA
 
       var cdataCY = {
-        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
         datasets: [{
-          label: 'All Restaurants',
+          label: 'Tutti i ristoranti',
           data: _this.ordersPerMonth,
           backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
           // 'rgba(255, 206, 86, 0.8)',
@@ -27913,9 +27913,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       }; //-------LAST YEAR DATA----------
 
       var cdataLY = {
-        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
         datasets: [{
-          label: 'All Restaurants',
+          label: 'Tutti i ristoranti',
           data: _this.ordersPerMonthLY,
           backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
           // 'rgba(255, 206, 86, 0.8)',
@@ -27946,7 +27946,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       document.getElementById('current_year_revenue').innerHTML = current_year_rev;
       document.getElementById('year_target').innerHTML = year_target.toLocaleString();
       document.getElementById('year_target_progress').innerHTML = _this.year_target_progress;
-      document.getElementById('year_target_progress_style').style.width = _this.year_target_progress + '%'; //get the chart from
+      document.getElementById('year_target_progress_style').style.width = _this.year_target_progress + '%';
+
+      if (_this.year_target_progress >= 100) {
+        document.getElementById("checkTarget").classList.remove('fa-times-circle');
+        document.getElementById("checkTarget").classList.add('fa-check-circle');
+      } //get the chart from
+
 
       var ctx = document.getElementById('myAreaChart').getContext('2d');
       var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config); //change YEAR in CHART
@@ -28008,9 +28014,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 
 
       var cdata = {
-        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        labels: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
         datasets: [{
-          label: 'Orders Count',
+          label: 'Tutti i ristoranti',
           data: _this.ordersPerMonth,
           backgroundColor: ['rgba(54, 162, 235, 0.8)'],
           borderColor: 'rgba(54, 162, 235, 0.8)'
@@ -28041,16 +28047,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     })["catch"](function (er) {
       alert("Can't load orders count chart");
     });
-  },
-  methods: {
-    changeLY: function changeLY() {
-      this.checked = true;
-      console.log('checked');
-    },
-    changeCY: function changeCY() {
-      this.checked = false;
-      console.log('checked');
-    }
   }
 });
 
