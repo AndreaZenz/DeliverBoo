@@ -1,6 +1,6 @@
 .background-search {
     // background-image: url("../../../public/images/hero-bg.jpg");
-
+    background: linear-gradient(-4deg, $hero-color2 50%, $hero-color1 50%);
     background-size: contain;
     background-repeat: round;
     width: 100%;
@@ -19,6 +19,7 @@
     h1 {
         color: #440071;
         font-weight: 700;
+        margin-left: 20px;
     }
 }
 
@@ -165,7 +166,9 @@
         position: absolute;
         left: -100vw;
     }
-
+    label{
+        margin-bottom: 0;
+    }
     .label {
         background-color: #440071;
         border: none;

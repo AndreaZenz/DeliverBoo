@@ -5,7 +5,7 @@
 
         <div class="row align-items-start">
             <div class="col col-xs-12 col-foot">
-                <h4>ABOUT US</h4>
+                <h4>SU DI NOI</h4>
                 <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <strong><a href="https://www.boolean.careers/" target="_blank">Boolean</a></strong>.</p>
             </div>
             <div class="col col-xs-12 col-foot">
@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="col col-xs-12 col-foot">
-                <h4>CONTACTS</h4>
+                <h4>CONTATTI</h4>
                 <ul>
                     <li>tel: +39 333 4455667</li>
                     <li>deliveboo.info@email.com</li>
@@ -49,11 +49,11 @@
             &nbsp;
             <div class="">
                 <ul class="icons">
-                    <li><a href="https://www.facebook.com/boolean.careers/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-                    <li><a href="https://twitter.com/booleancareers" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="https://youtu.be/59zORE5buOo" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.linkedin.com/school/boolean-careers/mycompany/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.instagram.com/boolean.careers/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.facebook.com/boolean.careers/" target="_blank"><i class="fab fa-facebook-square"></i></i></a></li>
+                    <li><a href="https://twitter.com/booleancareers" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://youtu.be/59zORE5buOo" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/school/boolean-careers/mycompany/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/boolean.careers/" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
