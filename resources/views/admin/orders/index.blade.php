@@ -60,7 +60,9 @@
                         foreach ($orders as $order){
                           $revenue += $order->total_price;
                         }
-                        echo $revenue/count($orders) ?>
+                        if($revenue == 0){echo 0;}
+                        else{echo $revenue/count($orders);}
+                         ?>
                         </div>
                     </div>
                     <div class="col-auto">
