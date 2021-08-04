@@ -27795,7 +27795,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     //choose Year Chart
     checked: false
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     //prima richiesta per grafico vendite/guadagni
@@ -27859,17 +27859,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       _this.year_target_progress = Math.floor(current_year_rev / year_target * 100); //max value on y axis - round up to multiple of 20
 
       _this.max_noCY = Math.round((_this.max_in_monthCY + _this.max_in_monthCY / 100 * 20 + 20 / 2) / 20) * 20;
+      _this.max_noLY = Math.round((_this.max_in_monthLY + _this.max_in_monthLY / 100 * 20 + 20 / 2) / 20) * 20; // if(this.checked == true){
+      //     // this.changeLY();
+      //     this.ordersPerMonth = this.ordersPerMonthLY;
+      //     this.max_no = this.max_noLY;
+      // }else if(this.checked == false){
+      //     // this.changeCY();
+      //     this.ordersPerMonth = this.ordersPerMonthCY;
+      //     this.max_no = this.max_noCY;
+      // }
 
-      if (_this.checked == true) {
-        // this.changeLY();
-        _this.ordersPerMonth = _this.ordersPerMonthLY;
-        _this.max_no = _this.max_noLY;
-      } else if (_this.checked == false) {
-        // this.changeCY();
-        _this.ordersPerMonth = _this.ordersPerMonthCY;
-        _this.max_no = _this.max_noCY;
-      } //CURRENT YEAR DATA
-
+      _this.ordersPerMonth = _this.ordersPerMonthCY;
+      _this.max_no = _this.max_noCY; //CURRENT YEAR DATA
 
       var cdata = {
         labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
@@ -27893,18 +27894,29 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
               }
             },
             y: {
-              max: _this.max_no,
-              grid: {}
+              max: _this.max_no
             }
           }
         }
-      }; //LAST YEAR DATA
+      }; //CURRENT YEAR DATA
+
+      var cdataCY = {
+        labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        datasets: [{
+          label: 'All Restaurants',
+          data: _this.ordersPerMonth,
+          backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
+          // 'rgba(255, 206, 86, 0.8)',
+          'rgba(229, 56, 59, 0.8)'],
+          borderColor: 'rgba(229, 56, 59, 0.8)'
+        }]
+      }; //-------LAST YEAR DATA----------
 
       var cdataLY = {
         labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
         datasets: [{
           label: 'All Restaurants',
-          data: _this.ordersPerMonth,
+          data: _this.ordersPerMonthLY,
           backgroundColor: [// 'rgba(54, 162, 235, 0.8)',
           // 'rgba(255, 206, 86, 0.8)',
           'rgba(229, 56, 59, 0.8)'],
@@ -27922,12 +27934,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
               }
             },
             y: {
-              max: _this.max_noCY,
-              grid: {}
+              max: _this.max_noLY
             }
           }
         }
-      }; //dati in cards
+      }; //-------END LAST YEAR DATA----------
+      //dati in cards
 
       document.getElementById('month_record').innerHTML = _this.max_in_monthCY;
       document.getElementById('current_month_revenue').innerHTML = current_month_revenue;
@@ -27937,9 +27949,17 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       document.getElementById('year_target_progress_style').style.width = _this.year_target_progress + '%'; //get the chart from
 
       var ctx = document.getElementById('myAreaChart').getContext('2d');
-      var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config);
-      var ctxLY = document.getElementById('myAreaChartLY').getContext('2d');
-      var myChartLY = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctxLY, configLY);
+      var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_2__["default"](ctx, config); //change YEAR in CHART
+
+      document.getElementById('changeCY').onclick = function () {
+        cdata.datasets = cdataCY.datasets;
+        myChart.update();
+      };
+
+      document.getElementById('changeLY').onclick = function () {
+        cdata.datasets = cdataLY.datasets;
+        myChart.update();
+      };
     })["catch"](function (er) {
       alert("Can't load gross revenue chart");
     }); //grafico per numero ordini
@@ -28025,11 +28045,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   methods: {
     changeLY: function changeLY() {
       this.checked = true;
-      console.log('this.checked');
+      console.log('checked');
     },
     changeCY: function changeCY() {
       this.checked = false;
-      console.log('this.checked');
+      console.log('checked');
     }
   }
 });

@@ -113,8 +113,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                         <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" @click="changeCY">changeCY</a>
-                        <a class="dropdown-item" @click="changeLY">changeLY</a>
+                        <a class="dropdown-item" id='changeCY'>Anno Corrente</a>
+                        <a class="dropdown-item" id='changeLY'>Anno Scorso</a>
+                        {{-- <a class="dropdown-item" @click.native="changeCY()">changeCY</a>
+                        <a class="dropdown-item" @click.native="changeLY()">changeLY</a> --}}
                         <div class="dropdown-divider"></div>
                     </div>
                 </div>
@@ -126,11 +128,11 @@
                     <canvas id="myAreaChart"></canvas>
                 </div>
             </div>
-            <div class="card-body">
+            {{-- <div class="card-body">
                 <div class="chart-area">
                     <canvas id="myAreaChartLY"></canvas>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <div class="card shadow mb-4">
