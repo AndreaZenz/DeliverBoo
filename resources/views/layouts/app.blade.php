@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
@@ -87,11 +86,9 @@
 
         </nav>
 
-        <div class="payment">
         <main id="app">
             @yield('content')
         </main>
-        </div>
 
         @include('partials.footer')
         

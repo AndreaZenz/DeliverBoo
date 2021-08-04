@@ -43,8 +43,7 @@ Route::prefix('admin')
         Route::get("/restaurants/filter", "RestaurantsController@filter")->name("restaurants.filter");
 
         
-        //Route::resource("/orders", "OrderController");
-        Route::get('orders', 'OrderController@index')->name('orders');
+        Route::resource("/orders", "OrderController");
         Route::get('/statistics', 'StatisticsController@index')->name('statistics');
         
         
