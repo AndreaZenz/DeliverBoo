@@ -48,6 +48,7 @@
     border-color: #00ccbc;
 
     &:hover {
+        cursor: pointer;
         background-color: #00ccaa;
         border-color: #00ccbc;
     }
@@ -168,20 +169,21 @@
     }
     label{
         margin-bottom: 0;
+        padding: 9px 25px;
     }
     .label {
+        margin: 5px;
         background-color: #440071;
         border: none;
         border-radius: 12px;
         color: white;
-        padding: 9px 25px;
-        margin: 5px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 13px;
         transition: 0.3s;
         &:hover {
+            cursor: pointer;
             background-color: #00cc66;
         }
         &:checked {
@@ -258,3 +260,14 @@
         background-image: none;
     }
 }
+
+.fade{
+    transition: opacity 1s;
+  }
+.fade-enter-active,
+.fade-leave-active{transition: opacity .5s}
+    
+
+.fade-enter,
+.fade-leave-to{opacity: 0}
+    

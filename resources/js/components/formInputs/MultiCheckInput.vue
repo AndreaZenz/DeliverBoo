@@ -12,7 +12,7 @@
           :value="item.id"
           @change="onChange"
           :id="item.name"
-          @click="checked(index)"
+          @click="checked(index)" 
         />
       </div>
       <div class="label" v-bind:class="{ color: item.active }">

@@ -1,8 +1,6 @@
 <template>
   <div>
     <div class="background-search">
-
-
       <div class="container jumbo-box">
         <div class="row">
           <form @submit.prevent="filterData" @reset="onReset">
@@ -50,18 +48,22 @@
         </div>
       </div>
     </div>
+
     <div class="restaurant-index container">
       <div class="row justify-content-center">
-        <div v-show="filteredRestaurant" class="col-12 d-flex flex-row flex-wrap">
-          <restaurant-card
-            v-for="restaurant in filteredRestaurant"
-            :key="restaurant.id"
-            :img-url="restaurant.img_url"
-            :name="restaurant.name"
-            :types="restaurant.types"
-            :link="restaurant.link"
-          ></restaurant-card>
-        </div>
+          <transition name="fade" mode="out-in">
+            <div v-if="filteredRestaurant"
+            class="col-12 d-flex flex-row flex-wrap">
+              <restaurant-card
+                v-for="restaurant in filteredRestaurant"
+                :key="restaurant.id"
+                :img-url="restaurant.img_url"
+                :name="restaurant.name"
+                :types="restaurant.types"
+                :link="restaurant.link"
+              ></restaurant-card>
+            </div>
+          </transition>
       </div>
     </div>
   </div>
