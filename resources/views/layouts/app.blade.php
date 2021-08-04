@@ -32,6 +32,8 @@
 
 </head>
 <body>
+<!-- Dark overlay -->
+                    <div id="darkoverlay"></div>
     <nav class="navbar_my navbar-expand-md navbar-light">
         <div class="big-container">
             <div class="container_my hero">
@@ -77,21 +79,24 @@
                         
                     </div>
 
+                    <!-- Use any element to open the sidenav -->
+                    <button onclick="openNav()" class='btn-default'><i class="fas fa-bars"></i>Menu</button>
+
+                    
                     <script>
                         /* Set the width of the side navigation to 250px */
                         function openNav() {
                             document.getElementById("mySidenav").style.width = "250px";
+                            document.getElementById("darkoverlay").classList.add("activedarkoverlay");
                         }
 
                         /* Set the width of the side navigation to 0 */
                         function closeNav() {
                             document.getElementById("mySidenav").style.width = "0";
+                            document.getElementById("darkoverlay").classList.remove("activedarkoverlay");
                         }
 
                     </script>
-                    <!-- Use any element to open the sidenav -->
-                    <span onclick="openNav()"><i class="fas fa-bars home-menu">Menu</i></span>
-
 
                     {{-- <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

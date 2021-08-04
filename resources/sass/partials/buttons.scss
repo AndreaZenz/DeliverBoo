@@ -5,10 +5,17 @@
     border: 1px solid rgba(0,204,188,.5);
 }
 .btn-default{
-    min-height: 48px;
-    padding: 12px 24px;
-    color: #fff;
-    background: #00ccbc;
+    appearance: none;
+    align-items: center;
+    border: 1px solid #e8ebeb;
+    border-radius: 4px;
+    display: flex;
+    cursor: pointer;
+    padding: 8px 16px;
+    line-height: 24px;
+    color: #5f5f5f;
+    text-decoration: none;
+    background: #fff;
     -webkit-transition-property: background,-webkit-box-shadow;
     transition-property: background,-webkit-box-shadow;
     transition-property: background,box-shadow;
@@ -17,4 +24,8 @@
     transition-duration: .15s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
+    i{
+        margin-right: 5px;
+        color: $hero-color1;
+    }
 }
