@@ -1,6 +1,8 @@
 <template>
   <div>
     <div class="background-search">
+
+
       <div class="container jumbo-box">
         <div class="row">
           <form @submit.prevent="filterData" @reset="onReset">
@@ -10,7 +12,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-6 border bg-white">
+              <div class="col-6 border bg-white filtra">
                 <div class="row">
                   <div class="col-12">
                     <form @submit.prevent="filterData" @reset="onReset">
@@ -45,13 +47,6 @@
               </div>
             </div>
           </form>
-          <div class="alert-style">
-            <div class="alert alert-success alert-style" v-if="activeFilters">
-              Sono stati trovati {{ restaurantsList.length }} risulati per il
-              filtro:
-              <div v-html="printActiveFilters()"></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="create-edit-dishes-container">
+    <div class="create-edit-container">
         <div class="forms-container">
             <h1>Crea un nuovo piatto</h1>
 
@@ -12,7 +12,7 @@
                     <label for="name">
                         <h5>Nome del piatto</h5>
                     </label>
-                    <input type="text" name="name" class="form-control 
+                    <input type="text" name="name" class="form-input form-control 
             @error('name') is-invalid @enderror" required>
                     @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -23,7 +23,7 @@
                     <label for="price">
                         <h5>Prezzo</h5>
                     </label>
-                    <input type="text" name="price" class="form-control 
+                    <input type="text" name="price" class="form-input form-control 
             @error('price') is-invalid @enderror">
                     @error('price')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -34,7 +34,7 @@
                     <label for="description">
                         <h5>Descrizione</h5>
                     </label>
-                    <input type="text" name="description" class="form-control 
+                    <input type="text" name="description" class="form-input form-control 
             @error('description') is-invalid @enderror">
                     @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -45,7 +45,7 @@
                     <label for="ingredient_list">
                         <h5>Ingredienti</h5>
                     </label>
-                    <input type="text" name="ingredient_list" class="form-control 
+                    <input type="text" name="ingredient_list" class="form-input form-control 
             @error('ingredient_list') is-invalid @enderror">
                     @error('ingredient_list')
                     <div class="alert alert-danger">{{ $message }}</div>

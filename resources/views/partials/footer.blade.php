@@ -4,11 +4,11 @@
     <div class="container ">
 
         <div class="row align-items-start">
-            <div class="col col-xs-12">
+            <div class="col col-xs-12 col-foot">
                 <h4>ABOUT US</h4>
                 <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <strong><a href="https://www.boolean.careers/" target="_blank">Boolean</a></strong>.</p>
             </div>
-            <div class="col col-xs-12">
+            <div class="col col-xs-12 col-foot">
                 <h4>TEAM</h4>
                 <ul>
                     <li>
@@ -25,7 +25,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col col-xs-12">
+            <div class="col col-xs-12 col-foot">
                 <h4>CONTACTS</h4>
                 <ul>
                     <li>tel: +39 333 4455667</li>
@@ -36,16 +36,17 @@
         </div>
 
 
-
-
-
         <div class="row align-items-start footer-down">
             <div class="">
                 <p>
                     &copy;Deliveboo 2021
                 </p>
             </div>
-
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <div class="">
                 <ul class="icons">
                     <li><a href="https://www.facebook.com/boolean.careers/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
