@@ -1,5 +1,4 @@
 .background-search {
-
     // background-image: url("../../../public/images/hero-bg.jpg");
 
     background-size: contain;
@@ -82,14 +81,15 @@
     width: 100%;
 }
 
-.pink-bg{
+.pink-bg {
     background-color: #ffeae4;
     width: 100%;
 }
 
 .white-bg-text {
     padding-top: 12px;
-    h1, h2 {
+    h1,
+    h2 {
         font-weight: 800;
         color: #00ccbc;
         margin-left: 47px;
@@ -190,19 +190,28 @@
     }
 }
 
-.best-text{
-    color:#440071;
+.best-text {
+    color: #440071;
     font-weight: 600;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
-.centerme{
-    justify-content: center;
+.centerme {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
     padding-bottom: 24px;
     padding-top: 12px;
 }
 
-.piatti-img{
+.piattini{
+    flex-grow:1;
+    display: flex;
+    justify-content: center;
+}
+
+.piatti-img {
     margin: 5px;
     width: 175px;
     height: 121px;
@@ -212,13 +221,37 @@
     object-fit: cover;
 }
 
-.spazio{
+.spazio {
     margin-bottom: 18px;
+    h1 {
+        text-align: center;
+    }
 }
 
-.line{
+.line {
     width: 80%;
     margin-left: 10%;
     border: 2px solid #440071;
     margin-top: 40px;
+}
+
+@media screen and (max-width: 767px){
+    .hide-m{
+        display: none;
+    }
+    .burgher{
+        margin: 12px 0;
+    }
+    .fruits {
+        margin: 12px 0;
+    }
+    .vegetable{
+        margin: 12px 0;
+    }
+    .ravioli{
+        margin: 12px 0;
+    }
+    .jumbo-box{
+        background-image: none;
+    }
 }

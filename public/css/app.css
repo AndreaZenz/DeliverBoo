@@ -11329,9 +11329,18 @@ footer .container .row .col-foot ul li a {
 }
 
 .centerme {
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
   padding-bottom: 24px;
   padding-top: 12px;
+}
+
+.piattini {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .piatti-img {
@@ -11349,11 +11358,41 @@ footer .container .row .col-foot ul li a {
   margin-bottom: 18px;
 }
 
+.spazio h1 {
+  text-align: center;
+}
+
 .line {
   width: 80%;
   margin-left: 10%;
   border: 2px solid #440071;
   margin-top: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .hide-m {
+    display: none;
+  }
+
+  .burgher {
+    margin: 12px 0;
+  }
+
+  .fruits {
+    margin: 12px 0;
+  }
+
+  .vegetable {
+    margin: 12px 0;
+  }
+
+  .ravioli {
+    margin: 12px 0;
+  }
+
+  .jumbo-box {
+    background-image: none;
+  }
 }
 
 .card-my {

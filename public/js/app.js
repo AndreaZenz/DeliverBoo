@@ -38574,67 +38574,71 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-6 border bg-white filtra" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-12" }, [
-                      _c(
-                        "form",
-                        {
-                          on: {
-                            submit: function($event) {
-                              $event.preventDefault()
-                              return _vm.filterData.apply(null, arguments)
-                            },
-                            reset: _vm.onReset
-                          }
-                        },
-                        [
-                          _c("text-input", {
-                            attrs: {
-                              label: "Nome",
-                              placeholder: "Nome del ristorante"
-                            },
-                            on: { input: _vm.filterData },
-                            model: {
-                              value: _vm.filters.name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filters, "name", $$v)
+                _c(
+                  "div",
+                  { staticClass: "col-md-6 col-sm-12 border bg-white filtra" },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-12" }, [
+                        _c(
+                          "form",
+                          {
+                            on: {
+                              submit: function($event) {
+                                $event.preventDefault()
+                                return _vm.filterData.apply(null, arguments)
                               },
-                              expression: "filters.name"
+                              reset: _vm.onReset
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("multi-check-input", {
-                            attrs: { label: "Types", items: _vm.types },
-                            model: {
-                              value: _vm.filters.types,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filters, "types", $$v)
+                          },
+                          [
+                            _c("text-input", {
+                              attrs: {
+                                label: "Nome",
+                                placeholder: "Nome del ristorante"
                               },
-                              expression: "filters.types"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary position-bar",
-                              attrs: { type: "submit" }
-                            },
-                            [
-                              _vm._v(
-                                "\n                      Filtra\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(1)
-                        ],
-                        1
-                      )
+                              on: { input: _vm.filterData },
+                              model: {
+                                value: _vm.filters.name,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.filters, "name", $$v)
+                                },
+                                expression: "filters.name"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("multi-check-input", {
+                              attrs: { label: "Types", items: _vm.types },
+                              model: {
+                                value: _vm.filters.types,
+                                callback: function($$v) {
+                                  _vm.$set(_vm.filters, "types", $$v)
+                                },
+                                expression: "filters.types"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary position-bar",
+                                attrs: { type: "submit" }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                      Filtra\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(1)
+                          ],
+                          1
+                        )
+                      ])
                     ])
-                  ])
-                ])
+                  ]
+                )
               ])
             ]
           )
@@ -38651,8 +38655,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: _vm.restaurantsList,
-                expression: "restaurantsList"
+                value: _vm.filteredRestaurant,
+                expression: "filteredRestaurant"
               }
             ],
             staticClass: "col-12 d-flex flex-row flex-wrap"
@@ -51952,8 +51956,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/imalex/Desktop/Boolean/Final Project/DeliverBoo/DeliverBoo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

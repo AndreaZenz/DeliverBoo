@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-6 border bg-white filtra">
+              <div class="col-md-6 col-sm-12 border bg-white filtra">
                 <div class="row">
                   <div class="col-12">
                     <form @submit.prevent="filterData" @reset="onReset">

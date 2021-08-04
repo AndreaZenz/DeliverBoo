@@ -28059,7 +28059,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 module.exports = __webpack_require__(/*! C:\Users\utente\Documents\progetti boolean\DeliverBoo\resources\js\chart.js */"./resources/js/chart.js");
 
 
