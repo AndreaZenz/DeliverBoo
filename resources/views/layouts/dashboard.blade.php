@@ -52,7 +52,7 @@
                     <li>
                         <a class="nav-link" href="{{route('admin.restaurants.index')}}">
                             <span>
-                                <i class="fa fa-cutlery responsive-i" aria-hidden="true"></i>
+                                <i class="fas fa-utensils responsive-i" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>
@@ -80,7 +80,9 @@
                     <li>
                         <a class="nav-link-ut" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out responsive-i logout-i" aria-hidden="true"></i>
+                            <i class="fa fa-sign-out-alt responsive-i logout-i" aria-hidden="true"></i>
+
+
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -105,7 +107,7 @@
                     <li class="active">
                         <a class="nav-link" href="{{route('admin.restaurants.index')}}">
                             <span>
-                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                <i class="fas fa-utensils" aria-hidden="true"></i>
                                 <p>I tuoi ristoranti</p>
                             </span>
                         </a>
