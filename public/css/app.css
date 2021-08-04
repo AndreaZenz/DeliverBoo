@@ -10956,6 +10956,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .mg-top-bot-10 {
@@ -11059,7 +11060,6 @@ main .hero-container .container_my .hero-research {
 }
 
 footer {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: #2E3333;
   color: whitesmoke;
   width: 100%;

@@ -5,7 +5,7 @@
 
         <div class="row align-items-start">
             <div class="col col-xs-12 col-foot">
-                <h4>ABOUT US</h4>
+                <h4>SU DI NOI</h4>
                 <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <strong><a href="https://www.boolean.careers/" target="_blank">Boolean</a></strong>.</p>
             </div>
             <div class="col col-xs-12 col-foot">
@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="col col-xs-12 col-foot">
-                <h4>CONTACTS</h4>
+                <h4>CONTATTI</h4>
                 <ul>
                     <li>tel: +39 333 4455667</li>
                     <li>deliveboo.info@email.com</li>
