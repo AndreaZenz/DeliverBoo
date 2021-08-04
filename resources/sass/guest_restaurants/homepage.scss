@@ -1,4 +1,3 @@
-
 .jumbo-box {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -70,14 +69,18 @@
     padding: 24px 0;
 }
 
-.pink-bg {
+.white-bg {
+    width: 100%;
+}
+
+.pink-bg{
     background-color: #ffeae4;
     width: 100%;
 }
 
-.pink-bg-text {
+.white-bg-text {
     padding-top: 12px;
-    h1 {
+    h1, h2 {
         font-weight: 800;
         color: #00ccbc;
         margin-left: 47px;
@@ -176,4 +179,37 @@
     .color {
         background-color: #00cc66;
     }
+}
+
+.best-text{
+    color:#440071;
+    font-weight: 600;
+    font-size: 18px; 
+}
+
+.centerme{
+    justify-content: center;
+    padding-bottom: 24px;
+    padding-top: 12px;
+}
+
+.piatti-img{
+    margin: 5px;
+    width: 175px;
+    height: 121px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    object-fit: cover;
+}
+
+.spazio{
+    margin-bottom: 18px;
+}
+
+.line{
+    width: 80%;
+    margin-left: 10%;
+    border: 2px solid #440071;
+    margin-top: 40px;
 }
