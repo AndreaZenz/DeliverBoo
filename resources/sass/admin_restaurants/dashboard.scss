@@ -1,0 +1,145 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-height: 100vh;
+    background: #00ccbc;
+    color: #fff;
+    transition: all 0.3s;
+    padding-top: 15px;
+    border-radius: 10px;
+    margin: 20px 0 20px 10px;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+
+ul ul a {
+    font-size: 0.9em;
+    padding-left: 30px;
+    background: #6d7fcc;
+}
+
+.sidebar-collapse-btn {
+    display: none;
+}
+
+.list-unstyled {
+    li {
+        border-bottom: solid 2px white;
+        &:hover {
+            color: #7386d5;
+            background: #fff;
+            &:first-child {
+                border-radius: 5px 5px 0 0;
+            }
+        }
+        a {
+            
+            span {
+                display: flex;
+                align-items: center;
+                margin: 10px;
+                i {
+                    font-size: 25px;
+                }
+                p {
+                    margin-left: 10px;
+                    transform: translateY(25%);
+                }
+            }
+        }
+    }
+}
+
+.my-navbar-toggler {
+    display: none;
+    i {
+        color: white;
+        padding: 5px;
+    }
+}
+
+.my-navbar-collapse {
+    display: none;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    width: auto;
+    .my-caret-up {
+        position: absolute;
+        font-size: 40px;
+        color: #00ccbc;
+        top: -25px;
+        right: 27px;
+    }
+    li {
+        float: left;
+    }
+}
+
+.responsive-i {
+    color: #7386d5;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+    .sidebar-collapse-btn {
+        display: block;
+    }
+    .my-navbar-toggler {
+        display: block;
+    }
+    .logout-container {
+        display: none;
+    }
+    .my-navbar-collapse {
+        background-color: #00ccbc;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        li {
+            flex-grow: 1;
+            background-color: white;
+            margin: 5px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px 0 20px;
+            border-radius: 5px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    #sidebar {
+        min-width: 80px;
+        max-width: 80px;
+    }
+    .list-unstyled {
+        li {
+            a {
+                span {
+                    justify-content: center;
+                    p {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

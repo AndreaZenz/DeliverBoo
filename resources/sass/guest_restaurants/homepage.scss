@@ -1,3 +1,10 @@
+.background-search {
+    // background-image: url("../../../public/images/hero-bg.jpg");
+
+    background-size: contain;
+    background-repeat: round;
+    width: 100%;
+}
 
 .jumbo-box {
     padding-top: 24px;
@@ -70,14 +77,19 @@
     padding: 24px 0;
 }
 
+.white-bg {
+    width: 100%;
+}
+
 .pink-bg {
     background-color: #ffeae4;
     width: 100%;
 }
 
-.pink-bg-text {
+.white-bg-text {
     padding-top: 12px;
-    h1 {
+    h1,
+    h2 {
         font-weight: 800;
         color: #00ccbc;
         margin-left: 47px;
@@ -175,5 +187,71 @@
     }
     .color {
         background-color: #00cc66;
+    }
+}
+
+.best-text {
+    color: #440071;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.centerme {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-bottom: 24px;
+    padding-top: 12px;
+}
+
+.piattini{
+    flex-grow:1;
+    display: flex;
+    justify-content: center;
+}
+
+.piatti-img {
+    margin: 5px;
+    width: 175px;
+    height: 121px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    object-fit: cover;
+}
+
+.spazio {
+    margin-bottom: 18px;
+    h1 {
+        text-align: center;
+    }
+}
+
+.line {
+    width: 80%;
+    margin-left: 10%;
+    border: 2px solid #440071;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 767px){
+    .hide-m{
+        display: none;
+    }
+    .burgher{
+        margin: 12px 0;
+    }
+    .fruits {
+        margin: 12px 0;
+    }
+    .vegetable{
+        margin: 12px 0;
+    }
+    .ravioli{
+        margin: 12px 0;
+    }
+    .jumbo-box{
+        background-image: none;
     }
 }
