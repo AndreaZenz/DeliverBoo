@@ -132,7 +132,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('admin.orders.index')}}">
                             <span>
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 <p>Ordini</p>
