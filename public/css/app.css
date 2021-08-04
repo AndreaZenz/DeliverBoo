@@ -11204,16 +11204,21 @@ footer .container .row .col-foot ul li a {
   padding: 24px 0;
 }
 
+.white-bg {
+  width: 100%;
+}
+
 .pink-bg {
   background-color: #ffeae4;
   width: 100%;
 }
 
-.pink-bg-text {
+.white-bg-text {
   padding-top: 12px;
 }
 
-.pink-bg-text h1 {
+.white-bg-text h1,
+.white-bg-text h2 {
   font-weight: 800;
   color: #00ccbc;
   margin-left: 47px;
@@ -11316,6 +11321,40 @@ footer .container .row .col-foot ul li a {
 
 .toggle .color {
   background-color: #00cc66;
+}
+
+.best-text {
+  color: #440071;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.centerme {
+  justify-content: center;
+  padding-bottom: 24px;
+  padding-top: 12px;
+}
+
+.piatti-img {
+  margin: 5px;
+  width: 175px;
+  height: 121px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.spazio {
+  margin-bottom: 18px;
+}
+
+.line {
+  width: 80%;
+  margin-left: 10%;
+  border: 2px solid #440071;
+  margin-top: 40px;
 }
 
 .card-my {
