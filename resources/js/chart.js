@@ -7,21 +7,39 @@ let app = new Vue({
     data: {
         delivery: 0,
         max_no: 0,
+        max_noCY: 0,
+        max_noLY: 0,
         max_in_month: 0,
-
+        max_in_monthCY: 0,
+        max_in_monthLY: 0,
+        ordersSum: 0,
+        ordersSumCY: 0,
+        ordersSumLY: 0,
+        
+        //ordersChart
         max_no_order: 0,
+        ordersPerMonth: [],
+        ordersPerMonthCY: [],
+        ordersPerMonthLY: [],
         max_in_month_orders: 0,
-        year_target_progress: 0
+
+        //cards
+        year_target_progress: 0,
+
+        //choose Year Chart
+        checked: false,
     },
-    mounted: function () {
+    created() {
         //prima richiesta per grafico vendite/guadagni
         axios
             .get(`http://127.0.0.1:8000/api/statistics/${user_id}`)
             .then((response) => {
                 
-                let ordersPerMonth = [];
+                this.ordersPerMonthCY = [];
+                this.ordersPerMonthLY = [];
                 let orders = response.data;
-                this.max_in_month = 0;
+                this.max_in_monthCY = 0;
+                this.max_in_monthLY = 0;
                 let today = new Date();
                 let current_month = today.getMonth()+1;
                 let current_year = today.getFullYear();
@@ -32,7 +50,8 @@ let app = new Vue({
 
                 for (let i = 1; i <= current_month; i++) {
 
-                    let ordersSum = 0;
+                    this.ordersSumCY = 0;
+                    this.ordersSumLY = 0;
                     
                     orders.forEach((element) => {
 
@@ -40,56 +59,74 @@ let app = new Vue({
                             if( current_year == parseInt(element.created_at.substr(0, 4)) ) {
                                 //per il costo di delievery wtf this shit gives me some bug if I comment it
                                 element.total_price -= this.delivery;
-                                ordersSum += element.total_price;
+                                this.ordersSumCY += element.total_price;
 
                                 //get current month value 
                                 if( i === current_month){
-                                    current_month_revenue = ordersSum;
+                                    current_month_revenue = this.ordersSumCY;
                                 }
+                            }else if( last_year == parseInt(element.created_at.substr(0, 4)) ){
+                                element.total_price -= this.delivery;
+                                this.ordersSumLY += element.total_price;
                             }
                         }
 
                     });
 
                     //get highest income in a month
-                    if (this.max_in_month < ordersSum) {
-                        this.max_in_month = ordersSum
+                    if (this.max_in_monthCY < this.ordersSumCY) {
+                        this.max_in_monthCY = this.ordersSumCY
+                    }
+
+                    //get highest income in a month Last Year
+                    if (this.max_in_monthLY < this.ordersSumLY) {
+                        this.max_in_monthLY = this.ordersSumLY
                     }
 
                     
-                    ordersPerMonth.push(ordersSum);
+                    this.ordersPerMonthCY.push(this.ordersSumCY);
+                    this.ordersPerMonthLY.push(this.ordersSumLY);
                     
                     //sum current year value
-                    if(ordersSum > 0){
-                        current_year_rev += ordersSum;
+                    if(this.ordersSumCY > 0){
+                        current_year_rev += this.ordersSumCY;
                     }
                 }
                 this.year_target_progress = Math.floor(current_year_rev / year_target * 100);
                 
 
-                //max value on y axis - round up to multiple of 10
-                this.max_no = Math.round((this.max_in_month + 10 / 2) / 10) * 10;
+                //max value on y axis - round up to multiple of 20
+                this.max_noCY = Math.round(((this.max_in_monthCY + (this.max_in_monthCY / 100 * 20)  )+ 20 / 2) / 20) * 20;
 
 
-                //chart data
+                if(this.checked == true){
+                    // this.changeLY();
+                    this.ordersPerMonth = this.ordersPerMonthLY;
+                    this.max_no = this.max_noLY;
+                }else if(this.checked == false){
+                    // this.changeCY();
+                    this.ordersPerMonth = this.ordersPerMonthCY;
+                    this.max_no = this.max_noCY;
+                }
+
+
+                //CURRENT YEAR DATA
                 const cdata = {
                     labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
                     datasets: [{
                         label: 'All Restaurants',
-                        data: ordersPerMonth,
+                        data: this.ordersPerMonth,
                         backgroundColor: [
                             // 'rgba(54, 162, 235, 0.8)',
                             // 'rgba(255, 206, 86, 0.8)',
                             'rgba(229, 56, 59, 0.8)'
                         ],
                         borderColor: 'rgba(229, 56, 59, 0.8)',
-
+    
                     }
-
+    
                     ]
-                };
-
-                //chart settings
+                };                
                 const config = {
                     type: 'line',
                     data: cdata,
@@ -105,15 +142,55 @@ let app = new Vue({
                                 grid: {
                                 },
                             },
+    
+    
+                        }
+                    }
+    
+                };
+
+                //LAST YEAR DATA
+                const cdataLY = {
+                    labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+                    datasets: [{
+                        label: 'All Restaurants',
+                        data: this.ordersPerMonth,
+                        backgroundColor: [
+                            // 'rgba(54, 162, 235, 0.8)',
+                            // 'rgba(255, 206, 86, 0.8)',
+                            'rgba(229, 56, 59, 0.8)'
+                        ],
+                        borderColor: 'rgba(229, 56, 59, 0.8)',
+
+                    }
+
+                    ]
+                };                
+                const configLY = {
+                    type: 'line',
+                    data: cdataLY,
+                    options: {
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                            },
+                            y: {
+                                max: this.max_noCY,
+                                grid: {
+                                },
+                            },
 
 
                         }
                     }
 
-                }
+                };
+
                 
                 //dati in cards
-                document.getElementById('month_record').innerHTML = this.max_in_month;
+                document.getElementById('month_record').innerHTML = this.max_in_monthCY;
                 document.getElementById('current_month_revenue').innerHTML = current_month_revenue;
                 document.getElementById('current_year_revenue').innerHTML = current_year_rev;
                 document.getElementById('year_target').innerHTML = year_target.toLocaleString();
@@ -123,6 +200,9 @@ let app = new Vue({
                 //get the chart from
                 let ctx = document.getElementById('myAreaChart').getContext('2d');
                 var myChart = new Chart(ctx, config);
+
+                let ctxLY = document.getElementById('myAreaChartLY').getContext('2d');
+                var myChartLY = new Chart(ctxLY, configLY);
 
             })
             .catch((er) => {
@@ -135,10 +215,10 @@ let app = new Vue({
             .get(`http://127.0.0.1:8000/api/statistics/${user_id}`)
             .then((response) => {
 
-                let ordersPerMonth = [];
+                this.ordersPerMonth = [];
                 let orders = response.data;
                 this.max_no_order = 0;
-                this.max_in_month_orders = 0;
+                this.max_in_monthLY = 0;
                 let stepSize = 0;
                 let today = new Date();
                 let current_month = today.getMonth()+1;
@@ -148,7 +228,7 @@ let app = new Vue({
                 for (let i = 1; i <= current_month; i++) {
 
                     let ordersSum = 0;
-                    let ordersSumLY = 0;
+                    this.ordersSumLY = 0;
 
                     orders.forEach((element) => {
 
@@ -156,7 +236,7 @@ let app = new Vue({
                             if( current_year == parseInt(element.created_at.substr(0, 4)) ) {
                                 ordersSum++;
                             }else if ( (last_year) == parseInt(element.created_at.substr(0, 4)) ){
-                                ordersSumLY++;
+                                this.ordersSumLY++;
                             }
                         }
 
@@ -167,7 +247,7 @@ let app = new Vue({
                         this.max_in_month_orders = ordersSum
                     }
 
-                    ordersPerMonth.push(ordersSum);
+                    this.ordersPerMonth.push(ordersSum);
 
                 }
 
@@ -179,12 +259,12 @@ let app = new Vue({
                     stepSize = this.max_no_order / 5;
                 }
 
-
+                //CURRENT YEAR DATA
                 const cdata = {
                     labels: ['gen', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
                     datasets: [{
                         label: 'Orders Count',
-                        data: ordersPerMonth,
+                        data: this.ordersPerMonth,
                         backgroundColor: [
                             'rgba(54, 162, 235, 0.8)',
                         ],
@@ -212,6 +292,7 @@ let app = new Vue({
                         }
                     }
                 }
+                
                 let ctx = document.getElementById('ordersChart').getContext('2d');
 
                 var myChart = new Chart(ctx, config);
@@ -220,6 +301,20 @@ let app = new Vue({
                 alert("Can't load orders count chart");
             });
 
+
+    },
+    methods: {
+        changeLY(){
+            this.checked = true;
+            console.log('this.checked');
+        },
+        changeCY(){
+            this.checked = false;
+            console.log('this.checked');
+        },
+
+
+        
 
     }
 });
