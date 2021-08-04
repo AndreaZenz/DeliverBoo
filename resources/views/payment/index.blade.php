@@ -43,7 +43,7 @@
             <div class="row">
 
                 <div class="left col-8">
-                    <h1>Pagamento</h1>
+                    
 
                     <div class="content">
                         <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
