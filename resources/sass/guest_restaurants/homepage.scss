@@ -169,6 +169,9 @@ form{
     display: flex;
     flex-wrap: nowrap;
     overflow-x:scroll;
+    .form-check-inline{
+        margin-right: 0;
+    }
     .hide {
         position: absolute;
         left: -100vw;

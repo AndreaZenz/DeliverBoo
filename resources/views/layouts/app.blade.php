@@ -40,19 +40,15 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/loghi/NavBar-WhiteLogo.svg')}}" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                <div class="navbar_my">
 
                     <!-- Right Side Of Navbar -->
 
                     <div id="mySidenav" class="sidenav">
+                        <div class="sidenav-logo">
+                            <img src="{{ asset('img/loghi/colored-logo-sidenav-overlay.png')}}" alt="">
+                        </div>
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         @guest
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -60,11 +56,11 @@
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         @endif
                         @else
-                        <a class="nav-link" href="{{route('admin.restaurants.index')}}">
+                        <a id="cursor-default" class="nav-link " href="{{route('admin.restaurants.index')}}">
                             <i class="fas fa-user-shield"></i>
                             I miei ristoranti
                         </a>
-                        <a id="navbarDropdown" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-user"></i>
                             {{ Auth::user()->name }}
                         </a>

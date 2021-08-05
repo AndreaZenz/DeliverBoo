@@ -35,3 +35,29 @@ box-shadow: 3px 3px 6px 2px rgba(0,0,0,0.2);
         color: $hero-color1;
     }
 }
+
+.btn-cart{
+    appearance: none;
+    align-items: center;
+    border: 1px solid #e8ebeb;
+    border-radius: 4px;
+    display: flex;
+    cursor: pointer;
+    padding: 8px 10px;
+    color: white;
+    text-decoration: none;
+    background: $hero-color1;
+    -webkit-transition-property: background,-webkit-box-shadow;
+    transition-property: background,-webkit-box-shadow;
+    transition-property: background,box-shadow;
+    transition-property: background,box-shadow,-webkit-box-shadow;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+
+    &:hover {
+        box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.3);     
+        opacity: 0.75;  
+    }
+}
