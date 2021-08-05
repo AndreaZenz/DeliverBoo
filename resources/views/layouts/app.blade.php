@@ -54,27 +54,29 @@
 
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a class="nav-link" href="{{route('admin.restaurants.index')}}">Visita la Dashboard</a>
                         @guest
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         @endif
                         @else
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a class="nav-link" href="{{route('admin.restaurants.index')}}">
+                            <i class="fas fa-user-shield"></i>
+                            Il mio ristorante
+                        </a>
+                        <a id="navbarDropdown" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-user"></i>
                             {{ Auth::user()->name }}
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a id="signout" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt"></i>
+                                <p>{{ __('Logout') }}</p>
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                        </div>
                         @endguest
                         
                     </div>
