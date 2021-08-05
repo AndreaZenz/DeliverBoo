@@ -189,6 +189,8 @@ let app = new Vue({
                 };
                 //-------END LAST YEAR DATA----------
 
+                //controllo when target reached
+
                 //dati in cards
                 document.getElementById('month_record').innerHTML = this.max_in_monthCY;
                 document.getElementById('current_month_revenue').innerHTML = current_month_revenue;
@@ -199,7 +201,8 @@ let app = new Vue({
 
                 if(this.year_target_progress >= 100){
                     document.getElementById("checkTarget").classList.remove('fa-times-circle');
-                    document.getElementById("checkTarget").classList.add('fa-check-circle');    
+                    document.getElementById("TargetSainato").classList.add('sainato-approved');
+                    // document.getElementById("checkTarget").classList.add('fa-check-circle');    
                 }
 
 
