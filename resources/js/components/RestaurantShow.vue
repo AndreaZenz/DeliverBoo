@@ -6,11 +6,11 @@
           <h1>{{ ristorante.name }}</h1>
           <h4>{{ ristorante.address }}</h4>
           <div class="vote">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            <i class="far fa-star" aria-hidden="true"></i>
             <span>4.0 ({{ randomNum }} recensioni)</span>
             <span></span>
           </div>
