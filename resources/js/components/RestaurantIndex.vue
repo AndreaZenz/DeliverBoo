@@ -56,7 +56,7 @@
         <transition name="fade" mode="out-in">
           <div
             v-if="filteredRestaurant"
-            class="col-12 d-flex flex-row flex-wrap"
+            class="col-12 d-flex flex-row flex-wrap guest-restaurants-card-container"
           >
             <restaurant-card
               v-for="restaurant in filteredRestaurant"

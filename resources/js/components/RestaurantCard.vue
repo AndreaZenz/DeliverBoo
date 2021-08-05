@@ -10,7 +10,9 @@
             alt=""
           />
           <div class="card-body">
+            <div class="restaurant-name-container">
             <h5 class="card-title">{{ name }}</h5>
+            </div>
             <span
               class="badge badge-primary deliveroo-color"
               v-for="type in types"
