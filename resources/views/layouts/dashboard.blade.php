@@ -42,7 +42,7 @@
     <div class="admin-container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('img/loghi/white-logo.png')}}" alt="">
+                <img src="{{ asset('img/loghi/colored-logo-sidenav-overlay2.png')}}" alt="">
             </a>
             <button class="navbar-toggler my-navbar-toggler nav-item-ut" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 {{-- <span class="navbar-toggler-icon"></span> --}}
@@ -62,7 +62,7 @@
                     <li>
                         <a class="nav-link" href="{{ route('admin.restaurants.create') }}">
                             <span>
-                                <i class="fa fa-plus responsive-i" aria-hidden="true"></i>
+                                <i class="transition: all .5s ease-in-out; responsive-i" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>

@@ -6,15 +6,18 @@ footer{
     .container{
         .row{
             .col-foot{
+                padding: 0 20px;
+                border-radius: 5px;
                 background-color: $footer-bg-col;
                 height: 200px;
                 margin: 20px;
                 h4{
                     padding: 10px;
                     text-align: center;
+                    margin-bottom: 0;
                 }
                 hr{
-                    width: 70%;
+                    width: 75%;
                     background-color: whitesmoke;
                     margin: auto;
                     margin-bottom: 15px;

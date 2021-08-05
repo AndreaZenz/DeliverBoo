@@ -24,6 +24,12 @@
 //     right: 50%;
 // }
 
+.sidenav-logo{
+    img{
+        max-height: 50px;
+        margin: 0 0 10px 20px;
+    }
+}
 
 .navbar_my{
     position: relative;
@@ -34,13 +40,14 @@
     padding: 0;
     background-color: $hero-color1;
     .container_my{
+        padding: 0 24px;
         width: 100%;
         display: flex;
         justify-content: space-between;
         .navbar-brand{
             margin: 10px;
             img{
-                height: 50px;
+                height: 60px;
             }
         }
     }

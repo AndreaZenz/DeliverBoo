@@ -66,11 +66,11 @@
                 </div>
                 <!-- <h7 class="card-title" >Ingredienti: {{ dish.ingredients }}</h7> -->
                 <br />
-                <button class="btn btn-primary" @click="increase(index)">
-                  +
+                <button class="btn-cart" @click="increase(index)">
+                  <i class="fas fa-plus"></i>
                 </button>
-                <button class="btn btn-primary" @click="decrease(index)">
-                  -
+                <button class="btn-cart" @click="decrease(index)">
+                  <i class="fas fa-minus"></i>
                 </button>
                 <br />
               </div>

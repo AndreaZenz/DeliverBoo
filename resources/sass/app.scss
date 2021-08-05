@@ -9,6 +9,7 @@
 @import 'partials/palettes';
 @import 'partials/common';
 @import 'partials/mixins';
+@import 'partials/buttons';
 
 //partials layout
 @import 'partials/layouts/header';
@@ -18,6 +19,7 @@
 //guest_restaurant
 @import 'guest_restaurants/homepage';
 @import 'guest_restaurants/restShow';
+@import 'partials/sidenavOverlay';
 
 //admin_dashboard
 @import 'admin_restaurants/dashboard';
