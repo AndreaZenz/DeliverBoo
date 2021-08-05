@@ -31,7 +31,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body id="body">
 <!-- Dark overlay -->
                     <div id="darkoverlay"></div>
     <nav class="navbar_my navbar-expand-md navbar-light">
@@ -86,12 +86,14 @@
                         function openNav() {
                             document.getElementById("mySidenav").style.width = "250px";
                             document.getElementById("darkoverlay").classList.add("activedarkoverlay");
+                            document.getElementById("body").classList.add("noscroll");
                         }
 
                         /* Set the width of the side navigation to 0 */
                         function closeNav() {
                             document.getElementById("mySidenav").style.width = "0";
                             document.getElementById("darkoverlay").classList.remove("activedarkoverlay");
+                            document.getElementById("body").classList.remove("noscroll");
                         }
 
                     </script>
