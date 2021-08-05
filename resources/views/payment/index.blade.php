@@ -16,7 +16,7 @@
     {{-- BRAINTREE --}}
     <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.min.js"></script>
 
-    <title>Payment</title>
+    <title>Pagamento</title>
 </head>
 <body class="payment">
 
@@ -43,7 +43,7 @@
             <div class="row">
 
                 <div class="left col-8">
-                    <h1>Payment</h1>
+                    
 
                     <div class="content">
                         <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
@@ -52,7 +52,7 @@
 
 
                             <div class="form-group">
-                                <label for="client_name">Name: </label>
+                                <label for="client_name">Nome e Cognome </label>
                                 <input type="text" class="form-control" name="client_name" placeholder="Write your name" id="client_name" required>
                             </div>
 
@@ -62,7 +62,7 @@
                             </div> --}}
 
                             <div class="form-group">
-                                <label for="client_address">Address: </label>
+                                <label for="client_address">Indirizzo </label>
                                 <input type="text" class="form-control" name="client_address" placeholder="Write your address" id="client_address" required>
                             </div>
 

@@ -1,4 +1,4 @@
-.card-my{
+.card-my {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -8,75 +8,108 @@
     background-clip: border-box;
     margin-top: 20px;
     margin-bottom: 20px;
-    .description-public{
+    .description-public {
         flex-grow: 1;
         margin-right: 20px;
-        .fa{
+        .fa {
             color: $teal;
         }
-        .sale{
+        .sale {
             padding: 10px;
             background-color: lightcoral;
             border-radius: 5px;
-            
+            text-align: center;
+            h6 {
+                transform: translateY(25%);
+            }
         }
     }
-    .row-my{
-    display: flex;
-    .img-rest{
-        width: 200px;
-    }
+    .row-my {
+        display: flex;
+        .img-rest {
+            width: 200px;
+        }
     }
 }
-.row-menu{
+// .row-menu{
+//     display: flex;
+//     flex-wrap: wrap;
+// }
+// .bg-menu{
+.row-menu-bg {
+    // padding: 20px;
     display: flex;
     flex-wrap: wrap;
-}
-// .bg-menu{
-    .row-menu-bg{
+    .guest-dishes-cards-container {
         background-color: rgb(246, 240, 240);
-        padding: 5px;
+        border-radius: 10px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        .pd-10{
-            padding-top: 10px;
-        }
-        .card-body{
-            p{
-                font-size: 13px;
+        padding: 20px;
+        margin-bottom: 20px;
+        .guest-dish-card-container {
+            padding: 5px;
+            .guest-dish-card {
+                margin: 10px;
+                border-radius: 10px;
+                overflow: hidden;
+                .card-body {
+                    .dish-name-container {
+                        height: 60px;
+                    }
+                    .dish-description-container {
+                        height: 100px;
+                        overflow: hidden;
+                    }
+                    button {
+                        margin-top: 20px;
+                    }
+                }
             }
-            .grow{
-                flex-grow: 1;
-            }
-        }
-        .mg-t-5{
-            margin-top: 5px;
         }
     }
-// }
-    
-    // mobile
-    @media screen and (max-width: 760px){
+    .guest-card-cart-container {
+        padding-left: 20px;
+        position: relative;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        margin-bottom: 20px;
+        .guest-card-cart {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 10px;
+            .button-container {
+                display: flex;
+                justify-content: center;
+                a {
+                    margin: 10px 0 10px;
+                }
+            }
+        }
+    }
 
-    .card-my{
+    .card-body {
+        p {
+            font-size: 13px;
+        }
+        .grow {
+            flex-grow: 1;
+        }
+    }
+    .mg-t-5 {
+        margin-top: 5px;
+    }
+}
+
+// }
+
+// mobile
+@media screen and (max-width: 760px) {
+    .card-my {
         flex-direction: column-reverse;
     }
-    .contents{
+    .contents {
         display: contents;
     }
 }
-
-.card-cart{
-    margin-top: 10px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-}
-

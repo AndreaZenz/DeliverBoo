@@ -6,10 +6,12 @@
         <div class="row align-items-start">
             <div class="col col-xs-12 col-foot">
                 <h4>SU DI NOI</h4>
-                <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <strong><a href="https://www.boolean.careers/" target="_blank">Boolean</a></strong>.</p>
+                <hr>
+                <p>Deliveboo è stata sviluppata dal Team-5 della classe#33 di <a href="https://www.boolean.careers/" target="_blank">Boolean</a>.</p>
             </div>
             <div class="col col-xs-12 col-foot">
                 <h4>TEAM</h4>
+                <hr>
                 <ul>
                     <li>
                         <a href="https://www.linkedin.com/in/hi-marco-zhou/" target="_blank">Marco Zhou</a>
@@ -27,6 +29,7 @@
             </div>
             <div class="col col-xs-12 col-foot">
                 <h4>CONTATTI</h4>
+                <hr>
                 <ul>
                     <li>tel: +39 333 4455667</li>
                     <li>deliveboo.info@email.com</li>

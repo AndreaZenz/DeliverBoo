@@ -1,23 +1,26 @@
 <template>
   <div class="col-4">
-    <div class="card mg-top-bot-10" style="width: 100%; height: 320px">
-      <img
-        :src="imgUrl"
-        class="img-fluid card-img-top"
-        style="width: 100%; height: 150px; object-fit: cover"
-        alt=""
-      />
-      <div class="card-body">
-        <h5 class="card-title">{{ name }}</h5>
-        <span class="badge badge-primary deliveroo-color" v-for="type in types" :key="type.id">
-          {{ type.name }}
-        </span>
-
-        <br />
-        <div class="text-link">
-          <a :href="link">Apri</a>
+    <div class="module-wrapper">
+      <a :href="link">
+        <div class="card mg-top-bot-10 marcos-link" style="width: 100%">
+          <img
+            :src="imgUrl"
+            class="img-fluid card-img-top"
+            style="width: 100%; height: 150px; object-fit: cover"
+            alt=""
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ name }}</h5>
+            <span
+              class="badge badge-primary deliveroo-color"
+              v-for="type in types"
+              :key="type.id"
+            >
+              {{ type.name }}
+            </span>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </template>
