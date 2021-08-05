@@ -62,7 +62,7 @@
                     <li>
                         <a class="nav-link" href="{{ route('admin.restaurants.create') }}">
                             <span>
-                                <i class="fa fa-plus responsive-i" aria-hidden="true"></i>
+                                <i class="transition: all .5s ease-in-out; responsive-i" aria-hidden="true"></i>
                             </span>
                         </a>
                     </li>

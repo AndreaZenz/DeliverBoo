@@ -94,9 +94,9 @@ let app = new Vue({
                 this.year_target_progress = Math.floor(current_year_rev / year_target * 100);
 
 
-                //max value on y axis - round up to multiple of 20
-                this.max_noCY = Math.round(((this.max_in_monthCY + (this.max_in_monthCY / 100 * 20)) + 20 / 2) / 20) * 20;
-                this.max_noLY = Math.round(((this.max_in_monthLY + (this.max_in_monthLY / 100 * 20)) + 20 / 2) / 20) * 20;
+                //max value on y axis - round up to multiple of 50
+                this.max_noCY = Math.round(((this.max_in_monthCY ) + 50 / 2) / 50) * 50;
+                this.max_noLY = Math.round(((this.max_in_monthLY ) + 50 / 2) / 50) * 50;
 
 
                 // if(this.checked == true){
@@ -189,6 +189,8 @@ let app = new Vue({
                 };
                 //-------END LAST YEAR DATA----------
 
+                //controllo when target reached
+
                 //dati in cards
                 document.getElementById('month_record').innerHTML = this.max_in_monthCY;
                 document.getElementById('current_month_revenue').innerHTML = current_month_revenue;
@@ -199,7 +201,8 @@ let app = new Vue({
 
                 if(this.year_target_progress >= 100){
                     document.getElementById("checkTarget").classList.remove('fa-times-circle');
-                    document.getElementById("checkTarget").classList.add('fa-check-circle');    
+                    document.getElementById("TargetSainato").classList.add('sainato-approved');
+                    // document.getElementById("checkTarget").classList.add('fa-check-circle');    
                 }
 
 

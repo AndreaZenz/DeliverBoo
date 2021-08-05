@@ -1,5 +1,8 @@
+form{
+    max-width: 100%;
+}
+
 .background-search {
-    // background-image: url("../../../public/images/hero-bg.jpg");
     background: linear-gradient(-4deg, $hero-color2 50%, $hero-color1 50%);
     background-size: contain;
     background-repeat: round;
@@ -11,7 +14,7 @@
     padding-bottom: 24px;
     background-image: url("../public/img/jumbotron.svg");
     background-repeat: no-repeat;
-    background-position: 70%;
+    background-position: 90%;
 }
 
 .front-text {
@@ -48,6 +51,7 @@
     border-color: #00ccbc;
 
     &:hover {
+        cursor: pointer;
         background-color: #00ccaa;
         border-color: #00ccbc;
     }
@@ -162,34 +166,46 @@
 
 //sezione input
 .toggle {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:scroll;
     .hide {
         position: absolute;
         left: -100vw;
+        z-index: -100;
+        opacity: 0;
     }
     label{
         margin-bottom: 0;
+        padding: 9px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i{
+            padding-right: 5px;
+        }
     }
     .label {
-        background-color: #440071;
+        margin: 5px;
+        background-color: #6e3c8f;
         border: none;
         border-radius: 12px;
         color: white;
-        padding: 9px 25px;
-        margin: 5px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 13px;
         transition: 0.3s;
         &:hover {
-            background-color: #00cc66;
+            cursor: pointer;
+            background-color: #2ec67a;
         }
         &:checked {
-            background-color: #00cc66;
+            background-color: #2ec67a;
         }
     }
     .color {
-        background-color: #00cc66;
+        background-color: #2ec67a;
     }
 }
 
@@ -252,6 +268,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  form{
+        max-width: 100%;
+    }
     .hide-m {
         display: none;
     }
@@ -271,3 +290,15 @@
         background-image: none;
     }
 }
+
+//tentativo animazioni dei ristoranti 
+.fade{
+    transition: opacity 1s;
+  }
+.fade-enter-active,
+.fade-leave-active{transition: opacity .5s}
+    
+
+.fade-enter,
+.fade-leave-to{opacity: 0}
+

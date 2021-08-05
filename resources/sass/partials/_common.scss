@@ -8,6 +8,7 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: 'IBM Plex Sans', sans-serif;
+    
 }
 
 .mg-top-bot-10 {
@@ -23,3 +24,33 @@ body{
     width: 1400px;
     margin: auto;
 }
+
+.sainato-approved {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-image: url("../public/img/SainatoApproved.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translate(-50%, -80%);
+    z-index: 100;
+}
+
+//custom scrollbar
+    ::-webkit-scrollbar{
+        width: 10px;
+        height: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+        background: #C7C7C7;
+        border-radius: 19px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+        background: #B3AFB3;
+        }
+        ::-webkit-scrollbar-track{
+        background: #F0F0F0;
+        border-radius: 0px;
+        box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+        }

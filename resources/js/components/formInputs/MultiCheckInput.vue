@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-3 toggle">
+  <div class="mb-3 toggle scrollbar">
     <div
       class="form-check form-check-inline"
       v-for="(item, index) in itemsList"
@@ -12,11 +12,11 @@
           :value="item.id"
           @change="onChange"
           :id="item.name"
-          @click="checked(index)"
+          @click="checked(index)" 
         />
       </div>
       <div class="label" v-bind:class="{ color: item.active }">
-        <label  :for="item.name"><i :class="item.fontAwesome">  {{ item.name }} </i></label>
+        <label  :for="item.name"> <i :class="item.fontAwesome"></i>{{ item.name }}</label>
       </div>
     </div>
   </div>
