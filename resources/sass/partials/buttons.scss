@@ -24,6 +24,12 @@
     transition-duration: .15s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
+
+    &:hover {
+        -webkit-box-shadow: 3px 3px 6px 2px rgba(0,0,0,0.2); 
+box-shadow: 3px 3px 6px 2px rgba(0,0,0,0.2);     
+    }
+
     i{
         margin-right: 5px;
         color: $hero-color1;
