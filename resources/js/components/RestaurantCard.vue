@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4">
+  <div class="col-md-4 col-sm-6">
     <div class="module-wrapper">
       <a :href="link">
         <div class="card mg-top-bot-10 marcos-link" style="width: 100%">
