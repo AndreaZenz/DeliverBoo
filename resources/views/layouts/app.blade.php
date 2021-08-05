@@ -62,7 +62,7 @@
                         @else
                         <a class="nav-link" href="{{route('admin.restaurants.index')}}">
                             <i class="fas fa-user-shield"></i>
-                            Il mio ristorante
+                            I miei ristoranti
                         </a>
                         <a id="navbarDropdown" class="nav-link" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-user"></i>
